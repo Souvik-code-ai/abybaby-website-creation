@@ -16,7 +16,7 @@ import { MobileMessagesView } from "./pages/common/mobile/MobileMessagesView";
 import { ProfileView } from "./pages/profile/ProfileView";
 import { EventsSection } from "./pages/events/Eventssection";
 import { Sidebar } from "./app/dashboard/Sidebar";
-import logo from "../public/assets/images/logo.jpg";
+// import logo from "../public/assets/images/logo.jpg";
 import { DataPrivacyView } from "./pages/commonSection/DataPrivacyView";
 import { CaseStudiesView } from "./pages/commonSection/CaseStudiesView";
 import {
@@ -200,7 +200,7 @@ export default function App() {
                     />
                     <FeedWithInfiniteScroll
                       onNavigate={setActiveSection}
-                      logo={logo}
+                      logo="/assets/images/logo.jpg"
                     />
                   </>
                 }
