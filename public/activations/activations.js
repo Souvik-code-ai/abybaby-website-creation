@@ -1,0 +1,157 @@
+import miaCover from "../../public/assets/images/mia/mia3.webp";
+import mallCover from "../../public/assets/images/zira/zira1.webp";
+import rallyCover from "../../public/assets/images/drumtao/dt6.webp";
+import tataCover from "../../public/assets/images/arun/aarun1.webp";
+import volvoxc1 from "../../public/assets/images/volvoxc/volvoxc1.webp";
+import volvoxc2 from "../../public/assets/images/volvoxc/volvoxc2.webp";
+import volvoxc3 from "../../public/assets/images/volvoxc/volvoxc3.webp";
+import volvoxc4 from "../../public/assets/images/volvoxc/volvoxc4.webp";
+import mall1 from "../../public/assets/images/zira/zira2.webp";
+import mall2 from "../../public/assets/images/zira/zira3.webp";
+import mall3 from "../../public/assets/images/zira/zira4.webp";
+import mall4 from "../../public/assets/images/zira/zira1.webp";
+import rally1 from "../../public/assets/images/drumtao/dt2.webp";
+import rally2 from "../../public/assets/images/drumtao/dt3.webp";
+import rally3 from "../../public/assets/images/drumtao/dt4.webp";
+import rally4 from "../../public/assets/images/drumtao/dt5.webp";
+import rally5 from "../../public/assets/images/drumtao/dt6.webp";
+import rally6 from "../../public/assets/images/drumtao/dt7.webp";
+import tata1 from "../../public/assets/images/arun/arun2.webp";
+import tata2 from "../../public/assets/images/arun/arun3.webp";
+import tata3 from "../../public/assets/images/arun/arun4.webp";
+import tata4 from "../../public/assets/images/arun/arun5.webp";
+import tata5 from "../../public/assets/images/arun/arun6.webp";
+import tata6 from "../../public/assets/images/arun/arun7.webp";
+import max1 from "../../public/assets/images/max/max1.webp";
+import max2 from "../../public/assets/images/max/max2.webp";
+import max3 from "../../public/assets/images/max/max3.webp";
+import max4 from "../../public/assets/images/max/max4.webp";
+import titaneye1 from "../../public/assets/images/titaneyeplus/titaneye1.webp";
+import titaneye2 from "../../public/assets/images/titaneyeplus/titaneye2.webp";
+import titaneye3 from "../../public/assets/images/titaneyeplus/titaneye3.webp";
+import titaneye4 from "../../public/assets/images/titaneyeplus/titaneye4.webp";
+import vodafoneChaltabagan1 from "../../public/assets/images/vodafoneChaltabagan/vodafoneChaltabagan1.webp";
+import vodafoneChaltabagan2 from "../../public/assets/images/vodafoneChaltabagan/vodafoneChaltabagan2.webp";
+import vodafoneChaltabagan3 from "../../public/assets/images/vodafoneChaltabagan/vodafoneChaltabagan3.webp";
+import vodafoneChaltabagan4 from "../../public/assets/images/vodafoneChaltabagan/vodafoneChaltabagan4.webp";
+import heroHondaHaatYatra1 from "../../public/assets/images/heroHondaHaatYatra/heroHondaHaatYatra1.webp";
+import heroHondaHaatYatra2 from "../../public/assets/images/heroHondaHaatYatra/heroHondaHaatYatra2.webp";
+import heroHondaHaatYatra3 from "../../public/assets/images/heroHondaHaatYatra/heroHondaHaatYatra3.webp";
+import mahindraNavistar1 from "../../public/assets/images/mahindraNavistarLaunch/mahindraNavistar1.webp";
+import mahindraNavistar2 from "../../public/assets/images/mahindraNavistarLaunch/mahindraNavistar2.webp";
+import mahindraTractor1 from "../../public/assets/images/mahindraTractorMeet/mahindraTractor1.webp";
+import mahindraTractor2 from "../../public/assets/images/mahindraTractorMeet/mahindraTractor2.webp";
+import mahindraTractor3 from "../../public/assets/images/mahindraTractorMeet/mahindraTractor3.webp";
+import mahindraMaxximoRoadShow1 from "../../public/assets/images/mahindraMaxximoRoadShow/mahindraMaxximoRoadShow1.webp";
+import mahinMaxximoRoadShow2 from "../../public/assets/images/mahindraMaxximoRoadShow/mahindraMaxximoRoadShow2.webp";
+import mahindraTractorRoadShow1 from "../../public/assets/images/mahindraTractorRoadShow/mahindraTractorRoadShow1.webp";
+import mahindraTractorRoadShow2 from "../../public/assets/images/mahindraTractorRoadShow/mahindraTractorRoadShow2.webp";
+import mahindraTractorRoadShow3 from "../../public/assets/images/mahindraTractorRoadShow/mahindraTractorRoadShow3.webp";
+import mahindraMaxximoCabConnect1 from "../../public/assets/images/mahindraMaxximoCabConnect/mahindraMaxximoCabConnect1.webp";
+import mahindraMaxximoCabConnect2 from "../../public/assets/images/mahindraMaxximoCabConnect/mahindraMaxximoCabConnect2.webp";
+import mahindraMaxximoCabConnect3 from "../../public/assets/images/mahindraMaxximoCabConnect/mahindraMaxximoCabConnect3.webp";
+export const ACTIVATIONS_ALL = [
+  {
+    id: 1,
+    title: "Vodafone Chaltabagan",
+    type: "Brand Promotion",
+    image: vodafoneChaltabagan1,
+    gallery: [vodafoneChaltabagan2, vodafoneChaltabagan3, vodafoneChaltabagan4],
+    audience: "1500+",
+    highlights: [
+      "Store Inauguration Ceremony",
+      "Customer Experience Zone",
+      "Product Showcase",
+      "Brand Engagement Activities",
+      "Media Coverage",
+    ],
+  },
+  {
+    id: 2,
+    title: "Hero Honda Haat Yatra",
+    type: "Festival",
+    image: heroHondaHaatYatra1,
+    gallery: [heroHondaHaatYatra2, heroHondaHaatYatra3],
+    audience: "2500+",
+    highlights: [
+      "Interactive Consumer Engagement",
+      "Product Demonstration Booths",
+      "Lead Generation Campaign",
+      "On-ground Branding",
+      "Footfall Conversion Activities",
+    ],
+  },
+  
+  {
+    id: 4,
+    title: "Mahindra Tractor Meet",
+    type: "Corporate Engagement",
+    image: mahindraTractor1,
+    gallery: [mahindraTractor2, mahindraTractor3],
+    audience: "800+",
+    highlights: [
+      "Employee Engagement Programs",
+      "Cultural Activities",
+      "Recognition & Awards",
+      "Team Building Sessions",
+      "Corporate Networking",
+    ],
+  },
+  {
+    id: 5,
+    title: "Mahindra Maxximo Road Show",
+    type: "Mahindra Maxximo Road Show",
+    image: mahindraMaxximoRoadShow1,
+    gallery: [mahinMaxximoRoadShow2],
+    audience: "10000+",
+    highlights: [
+      "City-wide Route Coverage",
+      "Live DJ & Entertainment",
+      "Sampling & Giveaways",
+      "Social Media Integration",
+      "Influencer Presence",
+    ],
+  },
+  {
+    id: 6,
+    title: "Mahindra Tractor Road Show",
+    type: "Mall Activation",
+    image: mahindraTractorRoadShow1,
+    gallery: [mahindraTractorRoadShow2, mahindraTractorRoadShow3],
+    audience: "6000+",
+    highlights: [
+      "Festive Zone Setup",
+      "Lucky Draw Activations",
+      "Brand Photo Booths",
+      "Live Performances",
+      "On-spot Promotions",
+    ],
+  },
+
+  {
+    id: 7,
+    title: "Mahindra Maxximo Cab Connnect Customer Meet",
+    type: "Mall Activation",
+    image: mahindraMaxximoCabConnect1,
+    gallery: [mahindraMaxximoCabConnect2, mahindraMaxximoCabConnect3],
+    audience: "1500+",
+    highlights: [
+      "Festive Zone Setup",
+      "Lucky Draw Activations",
+      "Brand Photo Booths",
+      "Live Performances",
+      "On-spot Promotions",
+    ],
+  },
+  // {
+  //   id: 8,
+  //   type: " Brand Promotion",
+  //   status: "expired",
+  //   title: "Tapshee Pannu-Reebok",
+  //   date: "1 Dec 2026",
+  //   location: "Kolkata",
+  //   attendees: "500+",
+  //   image: reebok1,
+  //   gallery:[]
+  // },
+];
