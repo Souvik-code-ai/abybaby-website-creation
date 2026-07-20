@@ -152,24 +152,22 @@ export function LocationsMap({ activeId: activeIdProp, onSelect } = {}) {
       {activeLoc && (
         <div
           className="
-            hidden md:block
-            absolute
-            left-[-20vw]
-            w-56
-            bg-white
-            rounded-lg
-            shadow-lg
-            border
-            border-[#579F63]/20
-            px-3
-            py-2
-            z-[10000]
+               hidden md:block
+  absolute
+  left-[-20vw]
+  top-[35%]
+  -translate-y-1/2
+  w-56
+  bg-white
+  rounded-lg
+  shadow-lg
+  border
+  border-[#579F63]/20
+  px-3
+  py-2
+  z-[10000]
             
           "
-          style={{
-            top: `${activeTopPx}px`,
-            transform: "translateY(-50%)",
-          }}
           onMouseEnter={() => setActiveId(activeLoc.id)}
         >
           <button
@@ -284,7 +282,7 @@ export function LocationsMap({ activeId: activeIdProp, onSelect } = {}) {
             <img
               src={activeLoc.locationsImage}
               alt=""
-              className="w-full h-50 object-cover mt-3"
+              className="w-full h-60 object-cover mt-3"
             />
 
             <div className="flex flex-col items-start px-4 py-3">

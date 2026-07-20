@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence, isZeroValueString } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import {
   X,
   Heart,
@@ -24,16 +24,23 @@ export function PostViewer({ post, onClose }) {
   const [muted, setMuted] = useState(true);
   const [playing, setPlaying] = useState(true);
   const [captionExpanded, setCaptionExpanded] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const videoRef = useRef(null);
 
   const isVideo = (src) => /\.(mp4|webm|ogg|mov)(\?|$)/i.test(src);
-  console.log(post.media);
-  console.log(post.media[0]);
 
   const currentMedia = post.media[imageIndex];
   const currentSrc = currentMedia.url;
   const isCurrentVideo = currentMedia.type === "video";
   const multipleMedia = post.media.length > 1;
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)");
+    const update = () => setIsMobile(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
 
   useEffect(() => {
     const handleKey = (e) => {
@@ -95,6 +102,22 @@ export function PostViewer({ post, onClose }) {
     setMuted((m) => !m);
   };
 
+  // ── Swipe navigation for mobile (story-viewer style) ──
+  const touchStartX = useRef(0);
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+  const handleTouchEnd = (e) => {
+    if (!multipleMedia) return;
+    const dx = e.changedTouches[0].clientX - touchStartX.current;
+    if (Math.abs(dx) < 40) return; // ignore small movements/taps
+    if (dx < 0 && imageIndex < post.media.length - 1) {
+      setImageIndex((i) => i + 1); // swiped left -> next
+    } else if (dx > 0 && imageIndex > 0) {
+      setImageIndex((i) => i - 1); // swiped right -> prev
+    }
+  };
+
   return (
     <AnimatePresence>
       <motion.div
@@ -117,9 +140,9 @@ export function PostViewer({ post, onClose }) {
           <X size={20} strokeWidth={2} />
         </motion.button>
 
-        {/* ── Arrow prev ── */}
+        {/* ── Arrow prev — desktop only ── */}
         <AnimatePresence>
-          {multipleMedia && imageIndex > 0 && (
+          {!isMobile && multipleMedia && imageIndex > 0 && (
             <motion.button
               initial={{ opacity: 0, x: -8 }}
               animate={{ opacity: 1, x: 0 }}
@@ -127,16 +150,16 @@ export function PostViewer({ post, onClose }) {
               whileTap={{ scale: 0.9 }}
               onClick={() => setImageIndex((i) => i - 1)}
               aria-label="Previous"
-              className="absolute left-5 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white/14 border border-white/20 flex items-center justify-center cursor-pointer text-white"
+              className="hidden md:flex absolute left-5 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white/14 border border-white/20 items-center justify-center cursor-pointer text-white"
             >
               <ChevronLeft size={22} />
             </motion.button>
           )}
         </AnimatePresence>
 
-        {/* ── Arrow next ── */}
+        {/* ── Arrow next — desktop only ── */}
         <AnimatePresence>
-          {multipleMedia && imageIndex < post.media.length - 1 && (
+          {!isMobile && multipleMedia && imageIndex < post.media.length - 1 && (
             <motion.button
               initial={{ opacity: 0, x: 8 }}
               animate={{ opacity: 1, x: 0 }}
@@ -144,7 +167,7 @@ export function PostViewer({ post, onClose }) {
               whileTap={{ scale: 0.9 }}
               onClick={() => setImageIndex((i) => i + 1)}
               aria-label="Next"
-              className="absolute right-5 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white/14 border border-white/20 flex items-center justify-center cursor-pointer text-white"
+              className="hidden md:flex absolute right-5 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white/14 border border-white/20 items-center justify-center cursor-pointer text-white"
             >
               <ChevronRight size={22} />
             </motion.button>
@@ -155,6 +178,8 @@ export function PostViewer({ post, onClose }) {
         <div
           className="relative w-[min(90vw,560px)] aspect-square rounded-[18px] overflow-hidden"
           onDoubleClick={handleDoubleClick}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
         >
           <AnimatePresence mode="wait">
             {isCurrentVideo ? (

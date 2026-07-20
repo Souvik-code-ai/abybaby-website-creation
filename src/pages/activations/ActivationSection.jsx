@@ -28,15 +28,23 @@ import tata5 from "../../assets/images/arun/arun6.webp";
 import tata6 from "../../assets/images/arun/arun7.webp";
 import { ACTIVATIONS_ALL } from "../../../public/activations/activations";
 import { Link } from "react-router-dom";
+
 export function ActivationSection({ onNavigate }) {
   const [selectedActivation, setSelectedActivation] = useState(null);
   const [hoveredProject, setHoveredProject] = useState(null);
   const [currentImage, setCurrentImage] = useState(0);
   const [visibleCount, setVisibleCount] = useState(4);
   const [isLoading, setIsLoading] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const sentinelRef = useRef(null);
 
-  // ── Full data pool — add more entries here to extend the list
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)");
+    const update = () => setIsMobile(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
 
   const visibleActivations = ACTIVATIONS_ALL.slice(0, visibleCount);
   const hasMore = visibleCount < ACTIVATIONS_ALL.length;
@@ -50,7 +58,6 @@ export function ActivationSection({ onNavigate }) {
     }, 600);
   }, [isLoading, hasMore]);
 
-  // Watch sentinel div — fires loadMore when it enters the viewport
   useEffect(() => {
     const sentinel = sentinelRef.current;
     if (!sentinel) return;
@@ -67,6 +74,33 @@ export function ActivationSection({ onNavigate }) {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
+
+  const goPrevImage = () => {
+    if (!selectedActivation) return;
+    setCurrentImage((prev) =>
+      prev === 0 ? selectedActivation.gallery.length - 1 : prev - 1,
+    );
+  };
+
+  const goNextImage = () => {
+    if (!selectedActivation) return;
+    setCurrentImage((prev) =>
+      prev === selectedActivation.gallery.length - 1 ? 0 : prev + 1,
+    );
+  };
+
+  // ── Swipe navigation for the modal gallery on mobile ──
+  const touchStartX = useRef(0);
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+  const handleTouchEnd = (e) => {
+    const dx = e.changedTouches[0].clientX - touchStartX.current;
+    if (Math.abs(dx) < 40) return; // ignore small movements/taps
+    if (dx < 0)
+      goNextImage(); // swiped left -> next
+    else goPrevImage(); // swiped right -> prev
+  };
 
   return (
     <>
@@ -88,7 +122,6 @@ export function ActivationSection({ onNavigate }) {
             {visibleActivations.map((item, index) => (
               <motion.div
                 key={item.id}
-                // Newly loaded cards fade + slide up; existing cards skip re-animation
                 initial={
                   index >= visibleCount - 4 ? { opacity: 0, y: 20 } : false
                 }
@@ -237,6 +270,8 @@ export function ActivationSection({ onNavigate }) {
               exit={{ scale: 0.95, opacity: 0 }}
               transition={{ duration: 0.3 }}
               onClick={(e) => e.stopPropagation()}
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
               className="relative w-full max-w-7xl sm:h-[85vh] overflow-hidden sm:rounded-3xl h-[100vh] rounded-none "
             >
               <AnimatePresence mode="wait">
@@ -252,30 +287,27 @@ export function ActivationSection({ onNavigate }) {
                 />
               </AnimatePresence>
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-black/30" />
-              <button
-                onClick={() =>
-                  setCurrentImage((prev) =>
-                    prev === 0
-                      ? selectedActivation.gallery.length - 1
-                      : prev - 1,
-                  )
-                }
-                className="absolute left-6 top-1/2 -translate-y-1/2 sm:w-14 sm:h-14 rounded-full z-50 bg-black/40 backdrop-blur-md text-white text-3xl flex items-center justify-center hover:bg-black/60 transition h-10 w-10"
-              >
-                ❮
-              </button>
-              <button
-                onClick={() =>
-                  setCurrentImage((prev) =>
-                    prev === selectedActivation.gallery.length - 1
-                      ? 0
-                      : prev + 1,
-                  )
-                }
-                className="absolute right-6 top-1/2 -translate-y-1/2 z-50 sm:w-14 sm:h-14 rounded-full bg-black/40 backdrop-blur-md text-white text-3xl flex items-center justify-center hover:bg-black/60 transition h-10 w-10"
-              >
-                ❯
-              </button>
+
+              {/* Arrow prev — desktop only */}
+              {!isMobile && (
+                <button
+                  onClick={goPrevImage}
+                  className="hidden sm:flex absolute left-6 top-1/2 -translate-y-1/2 sm:w-14 sm:h-14 rounded-full z-50 bg-black/40 backdrop-blur-md text-white text-3xl items-center justify-center hover:bg-black/60 transition h-10 w-10"
+                >
+                  ❮
+                </button>
+              )}
+
+              {/* Arrow next — desktop only */}
+              {!isMobile && (
+                <button
+                  onClick={goNextImage}
+                  className="hidden sm:flex absolute right-6 top-1/2 -translate-y-1/2 z-50 sm:w-14 sm:h-14 rounded-full bg-black/40 backdrop-blur-md text-white text-3xl items-center justify-center hover:bg-black/60 transition h-10 w-10"
+                >
+                  ❯
+                </button>
+              )}
+
               <div className="absolute sm:top-8 sm:left-8 left-4 bottom-8 sm:bottom-auto sm:backdrop-blur-xl sm:bg-white/10 sm:border sm:border-white/20 rounded-2xl sm:px-6 py-4 px-0">
                 <span className="text-xs bg-lime-600 px-3 py-1 rounded-full text-white hidden sm:inline-block">
                   {selectedActivation.type}
