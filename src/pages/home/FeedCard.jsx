@@ -63,7 +63,7 @@ export function FeedCard({ post }) {
       },
       {
         threshold: 0.6, // card is considered "in view" once 60% visible
-      }
+      },
     );
 
     observer.observe(node);
@@ -72,24 +72,24 @@ export function FeedCard({ post }) {
 
   // ── Play / pause video based on viewport visibility ──
   // ── Play / pause video based on viewport visibility ──
-useEffect(() => {
-  const video = videoRef.current;
-  if (!video || currentMedia.type !== "video") return;
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || currentMedia.type !== "video") return;
 
-  // Never autoplay while the fullscreen viewer is open —
-  // PostViewer handles playback in that context.
-  if (viewerOpen) {
-    video.pause();
-    return;
-  }
+    // Never autoplay while the fullscreen viewer is open —
+    // PostViewer handles playback in that context.
+    if (viewerOpen) {
+      video.pause();
+      return;
+    }
 
-  if (inViewport) {
-    video.currentTime = 0; // always restart from the beginning on entry
-    video.play().catch(() => {});
-  } else {
-    video.pause();
-  }
-}, [inViewport, viewerOpen, currentMedia.type, imageIndex]);
+    if (inViewport) {
+      video.currentTime = 0; // always restart from the beginning on entry
+      video.play().catch(() => {});
+    } else {
+      video.pause();
+    }
+  }, [inViewport, viewerOpen, currentMedia.type, imageIndex]);
 
   const handleCopy = () => {
     navigator.clipboard.writeText(post.projectUrl).catch(() => {});
@@ -280,6 +280,7 @@ useEffect(() => {
         </div>
 
         {/* Caption */}
+        {/* Caption */}
         <div className="px-0 pb-4">
           <span className="text-sm font-semibold mr-1.5">
             {post.client.name}
@@ -289,12 +290,19 @@ useEffect(() => {
           >
             {post.caption}
           </span>
-          {!captionExpanded && (
+          {!captionExpanded ? (
             <button
               onClick={() => setCaptionExpanded(true)}
-              className="text-[13px] text-[var(--muted-foreground)] font-[var(--font-family-body)] bg-none border-none p-0 cursor-pointer mt-0.5"
+              className="text-[13px] text-[var(--muted-foreground)] font-[var(--font-family-body)] bg-none border-none p-0 cursor-pointer mt-0.2"
             >
               read more
+            </button>
+          ) : (
+            <button
+              onClick={() => setCaptionExpanded(false)}
+              className="text-[13px] text-[var(--muted-foreground)] font-[var(--font-family-body)] bg-none border-none p-0 cursor-pointer mt-0.5 block"
+            >
+              read less
             </button>
           )}
         </div>
