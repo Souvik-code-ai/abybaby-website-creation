@@ -16,7 +16,7 @@ import { MobileMessagesView } from "./pages/common/mobile/MobileMessagesView";
 import { ProfileView } from "./pages/profile/ProfileView";
 import { EventsSection } from "./pages/events/Eventssection";
 import { Sidebar } from "./app/dashboard/Sidebar";
-import logo from "../src/assets/images/logo.jpg";
+import logo from "./assets/images/logo.jpg";
 import { DataPrivacyView } from "./pages/commonSection/DataPrivacyView";
 import { CaseStudiesView } from "./pages/commonSection/CaseStudiesView";
 import {
