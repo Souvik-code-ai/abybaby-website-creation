@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
-  MessageCircle,
   X,
   Send,
   Facebook,
   Instagram,
   Linkedin,
   ChevronUp,
+  Youtube,
 } from "lucide-react";
 
 export function ChatbotWidget({ isOpen = false, onClose }) {
@@ -55,16 +55,16 @@ export function ChatbotWidget({ isOpen = false, onClose }) {
       color: "#0A66C2",
       url: "https://linkedin.com/company/abybabyevents",
     },
+    {
+      icon: Youtube,
+      label: "Youtube",
+      color: "#0A66C2",
+      url: "https://www.youtube.com/@abybabyevents4827",
+    },
   ];
-  const handleToggle = () => {
-    setOpen((o) => {
-      const next = !o;
-      if (!next) onClose?.(); // closing via this button now syncs the parent too
-      return next;
-    });
-  };
+
   return (
-    <div className="fixed bottom-6 right-6 z-[70] flex flex-col items-end gap-2">
+    <div className="fixed bottom-6 right-20 z-[70] flex flex-col items-end gap-2">
       {/* Contact modal */}
       <AnimatePresence>
         {open && (
@@ -112,25 +112,6 @@ export function ChatbotWidget({ isOpen = false, onClose }) {
                 onSubmit={handleSubmit}
                 className="px-5 py-4 flex flex-col gap-3"
               >
-                {/* {["name", "email", "phone"].map((field) => (
-                  <input
-                    key={field}
-                    type={
-                      field === "email"
-                        ? "email"
-                        : field === "phone"
-                          ? "tel"
-                          : "text"
-                    }
-                    placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
-                    value={form[field]}
-                    onChange={(e) =>
-                      setForm((f) => ({ ...f, [field]: e.target.value }))
-                    }
-                    required={field !== "phone"}
-                    className="w-full rounded-xl px-4 outline-none h-[42px] bg-[#f5f5f7] text-sm border-none"
-                  />
-                ))} */}
                 <input
                   type="text"
                   placeholder="Name"
@@ -231,38 +212,6 @@ export function ChatbotWidget({ isOpen = false, onClose }) {
             size={18}
             className={`transition-transform duration-200 ${socialOpen ? "rotate-180" : "rotate-0"}`}
           />
-        </motion.button>
-
-        {/* Message button */}
-        <motion.button
-          whileHover={{ scale: 1.06 }}
-          whileTap={{ scale: 0.94 }}
-          onClick={handleToggle}
-          className={`rounded-full flex items-center justify-center shadow-xl w-14 h-14 ${open ? "bg-[#1a1a1a]" : "bg-gradient-to-br from-[#579F63] to-[#7CFC58]"}`}
-        >
-          <AnimatePresence mode="wait">
-            {open ? (
-              <motion.div
-                key="close"
-                initial={{ rotate: -90 }}
-                animate={{ rotate: 0 }}
-                exit={{ rotate: 90 }}
-                transition={{ duration: 0.15 }}
-              >
-                <X size={22} className="text-white" />
-              </motion.div>
-            ) : (
-              <motion.div
-                key="open"
-                initial={{ rotate: 90 }}
-                animate={{ rotate: 0 }}
-                exit={{ rotate: -90 }}
-                transition={{ duration: 0.15 }}
-              >
-                <MessageCircle size={22} className="text-white" />
-              </motion.div>
-            )}
-          </AnimatePresence>
         </motion.button>
       </div>
     </div>

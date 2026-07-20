@@ -53,6 +53,35 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <style>
+      /* Base override */
+      #chatbase-bubble-button {
+        width: 44px !important;
+        height: 44px !important;
+      }
+      #chatbase-bubble-button svg,
+      #chatbase-bubble-button img {
+        width: 22px !important;
+        height: 22px !important;
+      }
+
+      /* Mobile: push it up so it doesn't overlap bottom nav / other mobile UI */
+      @media (max-width: 767px) {
+        #chatbase-bubble-button {
+          bottom: 90px !important;
+          right: 16px !important;
+        }
+      }
+
+      /* Desktop: same height as the social widget (bottom-6 = 24px),
+     positioned to the RIGHT of it (closer to the screen edge than right-20/80px) */
+      @media (min-width: 768px) {
+        #chatbase-bubble-button {
+          bottom: 24px !important;
+          right: 24px !important;
+        }
+      }
+    </style>
     <script>
       (function () {
         if (!window.chatbase || window.chatbase("getState") !== "initialized") {

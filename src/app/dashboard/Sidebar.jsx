@@ -32,7 +32,7 @@ const allNavItems = [
   },
   { id: "activation", icon: Zap, label: "Activation", path: "/activation" },
   { id: "presence", icon: Globe, label: "Presence", path: "/presence" },
-  { id: "messages", icon: MessageSquare, label: "Messages", path: "/messages" },
+  // { id: "messages", icon: MessageSquare, label: "Messages", path: "/messages" },
   { id: "profile", icon: User, label: "Profile", path: "/profile" },
 ];
 

@@ -20,7 +20,7 @@ const navItems = [
     path: "/exhibition",
   },
   { id: "activation", icon: Zap, label: "Activate", path: "/activation" },
-  { id: "presence", icon: Globe, label: "Presence", path: "#" },
+  { id: "presence", icon: Globe, label: "Presence", path: "/presence" },
   { id: "profile", icon: User, label: "Profile", path: "/profile" },
 ];
 

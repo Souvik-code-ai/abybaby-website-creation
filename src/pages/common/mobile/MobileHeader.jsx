@@ -275,12 +275,12 @@ export function MobileHeader({ onMessageClick, onLogoClick, onNavigate }) {
           </button>
         </div>
       </header>
-      <button
+      {/* <button
         onClick={onMessageClick}
         className="fixed flex items-center justify-center rounded-xl bottom-18 right-3 w-9 h-9 bg-[linear-gradient(135deg,#579F63_0%,#7CFC58_100%)] shadow-[0_4px_16px_rgba(44,112,72,0.35)] z-[60] border-none cursor-pointer"
       >
         <MessageCircle size={18} className="text-white" />
-      </button>
+      </button> */}
 
       {/* More options modal (About, Case Studies, Awards, Privacy, Terms, Data Privacy) */}
       <CommonSectionModal

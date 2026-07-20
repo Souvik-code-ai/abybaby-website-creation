@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Linkedin } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 export const socials = [
   {
     icon: Facebook,
@@ -16,6 +16,12 @@ export const socials = [
     icon: Linkedin,
     label: "LinkedIn",
     color: "#0A66C2",
-    url: "https://linkedin.com/company/abybabyevents",
+    url: "https://www.youtube.com/@abybabyevents4827",
+  },
+  {
+    icon: Youtube,
+    label: "Youtube",
+    color: "#FF0000",
+    url: "https://youtube.com/@abybabyevents",
   },
 ];

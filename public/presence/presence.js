@@ -19,9 +19,9 @@ export const LOCATIONS = [
     left: 66.5,
     top: 51.4,
     locationsImage: kolkata,
-    contactName: "Full Name",
-    contactPost: "Regional Manager",
-    contactEmail: "kolkata@yourcompany.com",
+    contactNumber: ["+91 9830832000", "+91 9830974955"],
+
+    contactEmail: ["sucheta@abybaby.co.in", "shaw.vijay@abybaby.co.in"],
   },
   {
     id: 2,
@@ -33,9 +33,9 @@ export const LOCATIONS = [
     left: 29.7,
     top: 77.1,
     locationsImage: bengaluru,
-    contactName: "Full Name",
-    contactPost: "Regional Manager",
-    contactEmail: "bengaluru@yourcompany.com",
+    contactNumber: ["+91 9830832000", "+91 9830974955"],
+
+    contactEmail: ["sucheta@abybaby.co.in", "shaw.vijay@abybaby.co.in"],
   },
   {
     id: 3,
@@ -47,9 +47,9 @@ export const LOCATIONS = [
     left: 84.6,
     top: 32.7,
     locationsImage: guwahati,
-    contactName: "Full Name",
-    contactPost: "Regional Manager",
-    contactEmail: "guwahati@yourcompany.com",
+    contactNumber: ["+91 9830832000", "+91 9830974955"],
+
+    contactEmail: ["sucheta@abybaby.co.in", "shaw.vijay@abybaby.co.in"],
   },
   {
     id: 4,
@@ -61,9 +61,9 @@ export const LOCATIONS = [
     left: 60.2,
     top: 42.1,
     locationsImage: patna,
-    contactName: "Full Name",
-    contactPost: "Regional Manager",
-    contactEmail: "patna@yourcompany.com",
+    contactNumber: ["+91 9830832000", "+91 9830974955"],
+
+    contactEmail: ["sucheta@abybaby.co.in", "shaw.vijay@abybaby.co.in"],
   },
   {
     id: 5,
@@ -75,9 +75,9 @@ export const LOCATIONS = [
     left: 59.2,
     top: 49.4,
     locationsImage: bhubaneshwar,
-    contactName: "Full Name",
-    contactPost: "Regional Manager",
-    contactEmail: "bhubaneswar@yourcompany.com",
+    contactNumber: ["+91 9830832000", "+91 9830974955"],
+
+    contactEmail: ["sucheta@abybaby.co.in", "shaw.vijay@abybaby.co.in"],
   },
   {
     id: 6,
@@ -89,9 +89,9 @@ export const LOCATIONS = [
     left: 39.5,
     top: 56.3,
     locationsImage: chattisgarh,
-    contactName: "Full Name",
-    contactPost: "Regional Manager",
-    contactEmail: "raipur@yourcompany.com",
+    contactNumber: ["+91 9830832000", "+91 9830974955"],
+
+    contactEmail: ["sucheta@abybaby.co.in", "shaw.vijay@abybaby.co.in"],
   },
   {
     id: 7,
@@ -103,9 +103,9 @@ export const LOCATIONS = [
     left: 58.7,
     top: 58.7,
     locationsImage: ranchi,
-    contactName: "Full Name",
-    contactPost: "Regional Manager",
-    contactEmail: "ranchi@yourcompany.com",
+    contactNumber: ["+91 9830832000", "+91 9830974955"],
+
+    contactEmail: ["sucheta@abybaby.co.in", "shaw.vijay@abybaby.co.in"],
   },
   {
     id: 8,
@@ -117,9 +117,9 @@ export const LOCATIONS = [
     left: 38.3,
     top: 34.9,
     locationsImage: lucknow,
-    contactName: "Full Name",
-    contactPost: "Regional Manager",
-    contactEmail: "lucknow@yourcompany.com",
+    contactNumber: ["+91 9830832000", "+91 9830974955"],
+
+    contactEmail: ["sucheta@abybaby.co.in", "shaw.vijay@abybaby.co.in"],
   },
   {
     id: 9,
@@ -132,8 +132,7 @@ export const LOCATIONS = [
     left: 39.8,
     top: 82.7,
     locationsImage: chennai,
-    contactName: "Full Name",
-    contactPost: "Regional Manager",
-    contactEmail: "chennai@yourcompany.com",
+    contactNumber: ["+91 9830832000", "+91 9830974955"],
+    contactEmail: ["sucheta@abybaby.co.in", "shaw.vijay@abybaby.co.in"],
   },
 ];
