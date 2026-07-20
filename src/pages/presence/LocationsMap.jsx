@@ -70,7 +70,12 @@ export function LocationsMap({ activeId: activeIdProp, onSelect } = {}) {
     activeLoc && mapRect.height
       ? mapRect.top + (activeLoc.top / 100) * mapRect.height
       : 0;
-
+  function isMobileViewport() {
+    return (
+      typeof window !== "undefined" &&
+      window.matchMedia("(max-width: 767px)").matches
+    );
+  }
   return (
     // Outer wrapper: full width, this is the positioning context for the side cards
     <div className="relative w-full">
@@ -99,7 +104,17 @@ export function LocationsMap({ activeId: activeIdProp, onSelect } = {}) {
                 top: `${top}%`,
                 transform: "translate(-50%, -50%)",
               }}
-              onMouseEnter={() => setActiveId(loc.id)}
+              onMouseEnter={() => {
+                if (!isMobileViewport()) setActiveId(loc.id);
+              }}
+              onClick={() => {
+                if (isMobileViewport()) {
+                  window.open(
+                    `https://www.google.com/maps?q=${loc.lat},${loc.lng}`,
+                    "_blank",
+                  );
+                }
+              }}
             >
               <div
                 className={`w-7 h-7 rounded-full cursor-pointer rotate-y-90 transition-colors ${
