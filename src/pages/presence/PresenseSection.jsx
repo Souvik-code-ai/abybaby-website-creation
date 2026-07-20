@@ -1,10 +1,10 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
-import logo from "../../../public/assets/images/download.jpg";
-import email from "../../../public/assets/images/email.webp";
-import addressLogo from "../../../public/assets/images/address_logo.jpg";
-import phone from "../../../public/assets/images/phone.webp";
+import logo from "../../assets/images/logo.jpg";
+import email from "../../assets/images/email.webp";
+import addressLogo from "../../assets/images/address_logo.jpg";
+import phone from "../../assets/images/phone.webp";
 import { Globe, Recycle } from "lucide-react";
 import { LOCATIONS } from "../../../public/presence/presence";
 import { Link } from "react-router-dom";

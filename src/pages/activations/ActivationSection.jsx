@@ -1,31 +1,31 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowRight } from "lucide-react";
-import logo from "../../../public/assets/images/logo.jpg";
-import miaCover from "../../../public/assets/images/mia/mia3.webp";
-import mallCover from "../../../public/assets/images/zira/zira1.webp";
-import rallyCover from "../../../public/assets/images/drumtao/dt6.webp";
-import tataCover from "../../../public/assets/images/arun/aarun1.webp";
-import mia1 from "../../../public/assets/images/mia/mia 1.webp";
-import mia2 from "../../../public/assets/images/mia/mia2.webp";
-import mia3 from "../../../public/assets/images/mia/mia3.webp";
-import mia4 from "../../../public/assets/images/mia/mia 2.webp";
-import mall1 from "../../../public/assets/images/zira/zira2.webp";
-import mall2 from "../../../public/assets/images/zira/zira3.webp";
-import mall3 from "../../../public/assets/images/zira/zira4.webp";
-import mall4 from "../../../public/assets/images/zira/zira1.webp";
-import rally1 from "../../../public/assets/images/drumtao/dt2.webp";
-import rally2 from "../../../public/assets/images/drumtao/dt3.webp";
-import rally3 from "../../../public/assets/images/drumtao/dt4.webp";
-import rally4 from "../../../public/assets/images/drumtao/dt5.webp";
-import rally5 from "../../../public/assets/images/drumtao/dt6.webp";
-import rally6 from "../../../public/assets/images/drumtao/dt7.webp";
-import tata1 from "../../../public/assets/images/arun/arun2.webp";
-import tata2 from "../../../public/assets/images/arun/arun3.webp";
-import tata3 from "../../../public/assets/images/arun/arun4.webp";
-import tata4 from "../../../public/assets/images/arun/arun5.webp";
-import tata5 from "../../../public/assets/images/arun/arun6.webp";
-import tata6 from "../../../public/assets/images/arun/arun7.webp";
+import logo from "../../assets/images/logo.jpg";
+import miaCover from "../../assets/images/mia/mia3.webp";
+import mallCover from "../../assets/images/zira/zira1.webp";
+import rallyCover from "../../assets/images/drumtao/dt6.webp";
+import tataCover from "../../assets/images/arun/aarun1.webp";
+import mia1 from "../../assets/images/mia/mia 1.webp";
+import mia2 from "../../assets/images/mia/mia2.webp";
+import mia3 from "../../assets/images/mia/mia3.webp";
+import mia4 from "../../assets/images/mia/mia 2.webp";
+import mall1 from "../../assets/images/zira/zira2.webp";
+import mall2 from "../../assets/images/zira/zira3.webp";
+import mall3 from "../../assets/images/zira/zira4.webp";
+import mall4 from "../../assets/images/zira/zira1.webp";
+import rally1 from "../../assets/images/drumtao/dt2.webp";
+import rally2 from "../../assets/images/drumtao/dt3.webp";
+import rally3 from "../../assets/images/drumtao/dt4.webp";
+import rally4 from "../../assets/images/drumtao/dt5.webp";
+import rally5 from "../../assets/images/drumtao/dt6.webp";
+import rally6 from "../../assets/images/drumtao/dt7.webp";
+import tata1 from "../../assets/images/arun/arun2.webp";
+import tata2 from "../../assets/images/arun/arun3.webp";
+import tata3 from "../../assets/images/arun/arun4.webp";
+import tata4 from "../../assets/images/arun/arun5.webp";
+import tata5 from "../../assets/images/arun/arun6.webp";
+import tata6 from "../../assets/images/arun/arun7.webp";
 import { ACTIVATIONS_ALL } from "../../../public/activations/activations";
 import { Link } from "react-router-dom";
 export function ActivationSection({ onNavigate }) {
@@ -276,7 +276,7 @@ export function ActivationSection({ onNavigate }) {
               >
                 ❯
               </button>
-            <div className="absolute sm:top-8 sm:left-8 left-4 bottom-8 sm:bottom-auto sm:backdrop-blur-xl sm:bg-white/10 sm:border sm:border-white/20 rounded-2xl sm:px-6 py-4 px-0">
+              <div className="absolute sm:top-8 sm:left-8 left-4 bottom-8 sm:bottom-auto sm:backdrop-blur-xl sm:bg-white/10 sm:border sm:border-white/20 rounded-2xl sm:px-6 py-4 px-0">
                 <span className="text-xs bg-lime-600 px-3 py-1 rounded-full text-white hidden sm:inline-block">
                   {selectedActivation.type}
                 </span>
@@ -284,13 +284,15 @@ export function ActivationSection({ onNavigate }) {
                   {selectedActivation.title}
                 </h2>
               </div>
-            <div className="absolute left-4 bottom-4 flex flex-row   items-start
+              <div
+                className="absolute left-4 bottom-4 flex flex-row   items-start
                 md:top-8 md:right-8
                 sm:top-45 sm:right-20 sm:left-auto sm:bottom-auto
                 sm:flex-col sm:items-center
                 sm:backdrop-blur-xl sm:bg-white/10
                 sm:border sm:border-white/20
-                rounded-2xl sm:px-6 py-4 px-0">
+                rounded-2xl sm:px-6 py-4 px-0"
+              >
                 <p className="text-white sm:text-sm text-xs">Audiance Reach:</p>
                 <h3 className="text-white md:text-3xl font-bold font-sans sm:text-xl text-xs">
                   {selectedActivation.audience}

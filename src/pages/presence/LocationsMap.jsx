@@ -1,7 +1,6 @@
-
 import { useState, useRef, useEffect } from "react";
 import { X, Mail, User } from "lucide-react";
-import mapImage from "../../../public/assets/images/location/LocationMap.webp";
+import mapImage from "../../assets/images/location/locationMap.webp";
 import { LOCATIONS } from "../../../public/presence/presence";
 
 const PROJECTION = {
@@ -88,36 +87,35 @@ export function LocationsMap({ activeId: activeIdProp, onSelect } = {}) {
         />
 
         {LOCATIONS.map((loc) => {
-  const { left, top } = loc;
-  const isActive = activeId === loc.id;
+          const { left, top } = loc;
+          const isActive = activeId === loc.id;
 
-  return (
-    <div
-      key={loc.id}
-      className="absolute z-[9999]"
-      style={{
-        left: `${left}%`,
-        top: `${top}%`,
-        transform: "translate(-50%, -50%)",
-      }}
-      onMouseEnter={() => setActiveId(loc.id)}
-    >
-      <div
-     
-        className={`w-7 h-7 rounded-full cursor-pointer rotate-y-90 transition-colors ${
-          isActive ? "bg-red-500/70" : "bg-red-500/40"
-        }`}
-      />
-    </div>
-  );
-})}
+          return (
+            <div
+              key={loc.id}
+              className="absolute z-[9999]"
+              style={{
+                left: `${left}%`,
+                top: `${top}%`,
+                transform: "translate(-50%, -50%)",
+              }}
+              onMouseEnter={() => setActiveId(loc.id)}
+            >
+              <div
+                className={`w-7 h-7 rounded-full cursor-pointer rotate-y-90 transition-colors ${
+                  isActive ? "bg-red-500/70" : "bg-red-500/40"
+                }`}
+              />
+            </div>
+          );
+        })}
       </div>
 
       {/* Left white-space card: image + address */}
-     {/* Left white-space card: image + address */}
-{activeLoc && (
-  <div
-    className="
+      {/* Left white-space card: image + address */}
+      {activeLoc && (
+        <div
+          className="
       hidden md:block
       absolute
       left-[-20vw]
@@ -131,53 +129,53 @@ export function LocationsMap({ activeId: activeIdProp, onSelect } = {}) {
       py-2
       z-[10000]
     "
-    style={{
-      top: `${activeTopPx}px`,
-      transform: "translateY(-50%)",
-    }}
-    onMouseEnter={() => setActiveId(activeLoc.id)}
-  >
-    <button
-      onClick={(e) => {
-        e.stopPropagation();
-        setActiveId(null);
-      }}
-      className="absolute top-1 right-1 rounded-full p-0 transition"
-    >
-      <X size={14} className="text-gray-500 p-0.5" />
-    </button>
+          style={{
+            top: `${activeTopPx}px`,
+            transform: "translateY(-50%)",
+          }}
+          onMouseEnter={() => setActiveId(activeLoc.id)}
+        >
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setActiveId(null);
+            }}
+            className="absolute top-1 right-1 rounded-full p-0 transition"
+          >
+            <X size={14} className="text-gray-500 p-0.5" />
+          </button>
 
-    <img
-      src={activeLoc.locationsImage}
-      alt=""
-      className="max-h-20 w-full object-cover rounded-md mb-1"
-    />
+          <img
+            src={activeLoc.locationsImage}
+            alt=""
+            className="max-h-20 w-full object-cover rounded-md mb-1"
+          />
 
-    <div className="flex flex-col items-start">
-      <p className="font-semibold text-xs text-[#579F63]">
-        {activeLoc.city}
-      </p>
-      <p className="text-xs text-gray-500">{activeLoc.state}</p>
-      {activeLoc.address && (
-        <p className="text-[11px] text-gray-400 mt-1 leading-snug">
-          {activeLoc.address}
-        </p>
+          <div className="flex flex-col items-start">
+            <p className="font-semibold text-xs text-[#579F63]">
+              {activeLoc.city}
+            </p>
+            <p className="text-xs text-gray-500">{activeLoc.state}</p>
+            {activeLoc.address && (
+              <p className="text-[11px] text-gray-400 mt-1 leading-snug">
+                {activeLoc.address}
+              </p>
+            )}
+
+            <button
+              onClick={() =>
+                window.open(
+                  `https://www.google.com/maps?q=${activeLoc.lat},${activeLoc.lng}`,
+                  "_blank",
+                )
+              }
+              className="mt-2 w-full text-[11px] font-semibold text-white bg-[#579F63] rounded-md py-1.5 px-2 hover:bg-[#4a8a55] transition-colors cursor-pointer"
+            >
+              Go to Google Map
+            </button>
+          </div>
+        </div>
       )}
-
-      <button
-        onClick={() =>
-          window.open(
-            `https://www.google.com/maps?q=${activeLoc.lat},${activeLoc.lng}`,
-            "_blank"
-          )
-        }
-        className="mt-2 w-full text-[11px] font-semibold text-white bg-[#579F63] rounded-md py-1.5 px-2 hover:bg-[#4a8a55] transition-colors cursor-pointer"
-      >
-        Go to Google Map
-      </button>
-    </div>
-  </div>
-)}
 
       {/* Right white-space card: contact info */}
       {activeLoc &&

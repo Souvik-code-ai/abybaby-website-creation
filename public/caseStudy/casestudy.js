@@ -1,17 +1,17 @@
-import dt2 from "../assets/images/drumtao/dt2.webp";
-import dt4 from "../assets/images/drumtao/dt4.webp";
-import dt5 from "../assets/images/drumtao/dt5.webp";
-import dt3 from "../assets/images/drumtao/dt3.webp";
-import zira1 from "../assets/images/zira/zira1.webp";
-import zira4 from "../assets/images/zira/zira4.webp";
-import zira2 from "../assets/images/zira/zira2.webp";
-import zira3 from "../assets/images/zira/zira3.webp";
-import arun from "../assets/images/arun/arun.webp";
-import arun2 from "../assets/images/arun/arun2.webp";
-import arun3 from "../assets/images/arun/arun3.webp";
-import arun4 from "../assets/images/arun/arun4.webp";
-import sonpurMela1 from "../assets/images/sonpurMela/sonpurMela1.webp";
-import sonpurMela2 from "../assets/images/sonpurMela/sonpurMela2.webp";
+import dt2 from "../../src/assets/images/drumtao/dt2.webp";
+import dt4 from "../../src/assets/images/drumtao/dt4.webp";
+import dt5 from "../../src/assets/images/drumtao/dt5.webp";
+import dt3 from "../../src/assets/images/drumtao/dt3.webp";
+import zira1 from "../../src/assets/images/zira/zira1.webp";
+import zira4 from "../../src/assets/images/zira/zira4.webp";
+import zira2 from "../../src/assets/images/zira/zira2.webp";
+import zira3 from "../../src/assets/images/zira/zira3.webp";
+import arun from "../../src/assets/images/arun/arun.webp";
+import arun2 from "../../src/assets/images/arun/arun2.webp";
+import arun3 from "../../src/assets/images/arun/arun3.webp";
+import arun4 from "../../src/assets/images/arun/arun4.webp";
+import sonpurMela1 from "../../src/assets/images/sonpurMela/sonpurMela1.webp";
+import sonpurMela2 from "../../src/assets/images/sonpurMela/sonpurMela2.webp";
 export const CASE_STUDIES = [
   {
     id: 1,

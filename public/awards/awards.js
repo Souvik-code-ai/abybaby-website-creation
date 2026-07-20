@@ -1,18 +1,18 @@
-import dt2 from "../assets/images/drumtao/dt2.webp";
-import dt4 from "../assets/images/drumtao/dt6.webp";
-import dt5 from "../assets/images/drumtao/dt5.webp";
-import dt3 from "../assets/images/drumtao/dt3.webp";
-import zira1 from "../assets/images/zira/zira1.webp";
-import zira4 from "../assets/images/zira/zira4.webp";
-import zira2 from "../assets/images/zira/zira2.webp";
-import zira3 from "../assets/images/zira/zira3.webp";
-import mia1 from "../assets/images/mia/mia 1.webp";
-import mia2 from "../assets/images/mia/mia 2.webp";
-import mia3 from "../assets/images/mia/mia2.webp";
-import mia4 from "../assets/images/mia/mia3.webp";
-import sonpurMela1 from "../assets/images/sonpurMela/sonpurMela1.webp";
-import sonpurMela2 from "../assets/images/sonpurMela/sonpurMela2.webp";
-import tataIntraVijayUtsavImage from "../assets/images/tataInstra/tataIntraVijayUtsav.webp";
+import dt2 from "../../src/assets/images/drumtao/dt2.webp";
+import dt4 from "../../src/assets/images/drumtao/dt6.webp";
+import dt5 from "../../src/assets/images/drumtao/dt5.webp";
+import dt3 from "../../src/assets/images/drumtao/dt3.webp";
+import zira1 from "../../src/assets/images/zira/zira1.webp";
+import zira4 from "../../src/assets/images/zira/zira4.webp";
+import zira2 from "../../src/assets/images/zira/zira2.webp";
+import zira3 from "../../src/assets/images/zira/zira3.webp";
+import mia1 from "../../src/assets/images/mia/mia 1.webp";
+import mia2 from "../../src/assets/images/mia/mia 2.webp";
+import mia3 from "../../src/assets/images/mia/mia2.webp";
+import mia4 from "../../src/assets/images/mia/mia3.webp";
+import sonpurMela1 from "../../src/assets/images/sonpurMela/sonpurMela1.webp";
+import sonpurMela2 from "../../src/assets/images/sonpurMela/sonpurMela2.webp";
+import tataIntraVijayUtsavImage from "../../src/assets/images/tataInstra/tataIntraVijayUtsav.webp";
 // NOTE: dt* and mia* images are placeholders reused from the case-studies set —
 // swap for real award-ceremony / campaign photography when available.
 // issuedBy for Mahindra and Ziro entries is a placeholder label; the actual

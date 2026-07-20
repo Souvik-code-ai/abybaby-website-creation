@@ -186,7 +186,7 @@ import {
   Linkedin,
   MoreHorizontal,
 } from "lucide-react";
-import logo from "../../../../public/assets/images/logo.jpg";
+import logo from "../../../assets/images/logo.jpg";
 
 import { sidebarItems } from "../../../../public/common/mobile/mobileheader";
 import { socials } from "../../../../public/common/mobile/mobilesocial";

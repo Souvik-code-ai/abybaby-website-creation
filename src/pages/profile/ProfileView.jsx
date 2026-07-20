@@ -20,8 +20,8 @@ import {
   MessageCircle,
   ArrowLeft,
 } from "lucide-react";
-import logo from "../../../public/assets/images/logo.jpg";
-import Portfolio from "../../../public/assets/pdf/ABYBABY BROCHURE.pdf";
+import logo from "../../assets/images/logo.jpg";
+import Portfolio from "../../assets/pdf/ABYBABY BROCHURE.pdf";
 // ── Static data ───────────────────────────────────────────────────────────────
 import { ArrowRight } from "lucide-react";
 import {

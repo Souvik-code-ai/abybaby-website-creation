@@ -1,57 +1,57 @@
-import dtlogo from "../../public/assets/images/drumtao/dtlogo.png";
-import arunlogo from "../../public/assets/images/arun/arunlogo.png";
-import mialogo from "../../public/assets/images/mia/mialogo.jpg";
-import toyotalogo from "../../public/assets/images/zira/toyota_logo.webp";
-import miavdo1 from "../../public/assets/images/mia/miavdo1.MP4";
-import miavdo2 from "../../public/assets/images/mia/miavdo2.MP4";
-import miavdo3 from "../../public/assets/images/mia/miavdo3.MP4";
-import dtvdo1 from "../../public/assets/images/drumtao/dtvdo1.mp4";
-import toyotaDrumTaoVdo from "../../public/assets/images/drumtao/Toyota_Drum_Tao_Kolkata.mp4";
-import arunIceCreamVdo from "../../public/assets/images/arun/Arun_Ice_Cream.mp4";
-import dp1 from "../../public/assets/images/durgapuja/dp1.MP4";
-import dp2 from "../../public/assets/images/durgapuja/dp2.MP4";
-import dp3 from "../../public/assets/images/durgapuja/dp3.MP4";
-import tatacromalogo from "../../public/assets/images/tatacroma/tatacromalogo.webp";
-import tatacromavdo1 from "../../public/assets/images/tatacroma/tatacromavdo1.MP4";
-import tatacromavdo2 from "../../public/assets/images/tatacroma/tatacromavdo2.MP4";
-import kangarookidsLogo from "../../public/assets/images/kangarookids/kangarookidslogo.webp";
-import kangarookidsvdo1 from "../../public/assets/images/kangarookids/kangarookidsvdo1.MP4";
-import kangarookidsvdo2 from "../../public/assets/images/kangarookids/kangarookidsvdo2.MP4";
-import dplogo from "../../public/assets/images/durgapuja/durgapujalogo.webp";
-import titaneyelogo from "../../public/assets/images/titaneyeplus/titaneyepluslogo.webp";
-import titaneye1 from "../../public/assets/images/titaneyeplus/titaneye1.webp";
-import titaneye2 from "../../public/assets/images/titaneyeplus/titaneye2.webp";
-import titaneye3 from "../../public/assets/images/titaneyeplus/titaneye3.webp";
-import titaneye4 from "../../public/assets/images/titaneyeplus/titaneye4.webp";
-import herologo from "../../public/assets/images/hero/Hero-MotoCorp-Logo.webp";
-import volvologo from "../../public/assets/images/volvo/volvo.webp";
-import khadimlogo from "../../public/assets/images/khadims/khadimslogo.webp";
-import khadims1 from "../../public/assets/images/khadims/khadims1.webp";
-import khadims2 from "../../public/assets/images/khadims/khadims2.webp";
-import khadims3 from "../../public/assets/images/khadims/khadims3.webp";
-import toyotazerovdo from "../../public/assets/images/zira/toyotaZeroVdo.mp4";
-import tatabandhanvdo from "../../public/assets/images/tatabandhan/tatabandhan.mp4";
-import tatabandhanlogo from "../assets/images/tatabandhan/tata.webp";
-import flipkatFloatCampaign from "../assets/images/flipkart/Flipkart's_float_campaign.mp4";
-import flipkartLogo from "../assets/images/flipkart/flipkartLogo.webp";
-import mercedesLogo from "../assets/images/merecedes/mercedesLogo.webp";
-import mercedesVdo from "../assets/images/merecedes/mercedesVdo.mp4";
-import volvoSkillContestVdo from "../assets/images/volvo/Volvo_Skill_Contest_2025.mp4";
-import mercedesBenVdo from "../assets/images/mercedes_benz/Mercedez_Benz_Mobile_Service_Bengaluru.mp4";
-import maxfashionVdo from "../assets/images/maxFashion/maxFashion.mp4";
-import maxfashionLogo from "../assets/images/maxFashion/maxFashionLogo.webp";
-import toyotaSupplierMeetVdo from "../assets/images/toyotaSupplierMeet/Toyota_Supplier_Meet.mp4";
-import tataYoddhaVdo from "../assets/images/tataYoddha/Tata_Yoddha.mp4";
-import sonpurMela1 from "../assets/images/sonpurMela/sonpurMela1.webp";
-import mahindraLogo from "../assets/images/mahindraAo/MahindraLogo.webp";
-import volvoImage from "../assets/images/volvo/volvoImage.webp";
-import mercedesServiceClinicImage from "../assets/images/merecedes/mercedesServiceClinic.webp";
-import tataBandhanImage from "../assets/images/tatabandhan/tataBandhan.webp";
-import maxFashionImage from "../assets/images/maxFashion/maxFashion.webp";
-import tataYoddhaImage from "../assets/images/tataYoddha/tataYoddha.webp";
-import mercedesBenzMobileLaunch from "../assets/images/mercedes_benz/mercedesBenzMobileLaunch.webp";
-import toyotaSupplierMeet from "../assets/images/toyotaSupplierMeet/toyotaSupplierMeet.webp";
-import flipkartPoster from "../assets/images/flipkart/flipkartPoster.webp"
+import dtlogo from "../../src/assets/images/drumtao/dtlogo.png";
+import arunlogo from "../../src/assets/images/arun/arunlogo.png";
+import mialogo from "../../src/assets/images/mia/mialogo.jpg";
+import toyotalogo from "../../src/assets/images/zira/toyota_logo.webp";
+import miavdo1 from "../../src/assets/images/mia/miavdo1.MP4";
+import miavdo2 from "../../src/assets/images/mia/miavdo2.MP4";
+import miavdo3 from "../../src/assets/images/mia/miavdo3.MP4";
+import dtvdo1 from "../../src/assets/images/drumtao/dtvdo1.mp4";
+import toyotaDrumTaoVdo from "../../src/assets/images/drumtao/Toyota_Drum_Tao_Kolkata.mp4";
+import arunIceCreamVdo from "../../src/assets/images/arun/Arun_Ice_Cream.mp4";
+import dp1 from "../../src/assets/images/durgapuja/dp1.MP4";
+import dp2 from "../../src/assets/images/durgapuja/dp2.MP4";
+import dp3 from "../../src/assets/images/durgapuja/dp3.MP4";
+import tatacromalogo from "../../src/assets/images/tatacroma/tatacromalogo.webp";
+import tatacromavdo1 from "../../src/assets/images/tatacroma/tatacromavdo1.MP4";
+import tatacromavdo2 from "../../src/assets/images/tatacroma/tatacromavdo2.MP4";
+import kangarookidsLogo from "../../src/assets/images/kangarookids/kangarookidslogo.webp";
+import kangarookidsvdo1 from "../../src/assets/images/kangarookids/kangarookidsvdo1.MP4";
+import kangarookidsvdo2 from "../../src/assets/images/kangarookids/kangarookidsvdo2.MP4";
+import dplogo from "../../src/assets/images/durgapuja/durgapujalogo.webp";
+import titaneyelogo from "../../src/assets/images/titaneyeplus/titaneyepluslogo.webp";
+import titaneye1 from "../../src/assets/images/titaneyeplus/titaneye1.webp";
+import titaneye2 from "../../src/assets/images/titaneyeplus/titaneye2.webp";
+import titaneye3 from "../../src/assets/images/titaneyeplus/titaneye3.webp";
+import titaneye4 from "../../src/assets/images/titaneyeplus/titaneye4.webp";
+import herologo from "../../src/assets/images/hero/Hero-MotoCorp-Logo.webp";
+import volvologo from "../../src/assets/images/volvo/volvo.webp";
+import khadimlogo from "../../src/assets/images/khadims/khadimslogo.webp";
+import khadims1 from "../../src/assets/images/khadims/khadims1.webp";
+import khadims2 from "../../src/assets/images/khadims/khadims2.webp";
+import khadims3 from "../../src/assets/images/khadims/khadims3.webp";
+import toyotazerovdo from "../../src/assets/images/zira/toyotaZeroVdo.mp4";
+import tatabandhanvdo from "../../src/assets/images/tatabandhan/tatabandhan.mp4";
+import tatabandhanlogo from "../../src/assets/images/tatabandhan/tata.webp";
+import flipkatFloatCampaign from "../../src/assets/images/flipkart/Flipkart's_float_campaign.mp4";
+import flipkartLogo from "../../src/assets/images/flipkart/flipkartLogo.webp";
+import mercedesLogo from "../../src/assets/images/merecedes/mercedesLogo.webp";
+import mercedesVdo from "../../src/assets/images/merecedes/mercedesVdo.mp4";
+import volvoSkillContestVdo from "../../src/assets/images/volvo/Volvo_Skill_Contest_2025.mp4";
+import mercedesBenVdo from "../../src/assets/images/mercedes_benz/Mercedez_Benz_Mobile_Service_Bengaluru.mp4";
+import maxfashionVdo from "../../src/assets/images/maxFashion/maxFashion.mp4";
+import maxfashionLogo from "../../src/assets/images/maxFashion/maxFashionLogo.webp";
+import toyotaSupplierMeetVdo from "../../src/assets/images/toyotaSupplierMeet/Toyota_Supplier_Meet.mp4";
+import tataYoddhaVdo from "../../src/assets/images/tataYoddha/Tata_Yoddha.mp4";
+import sonpurMela1 from "../../src/assets/images/sonpurMela/sonpurMela1.webp";
+import mahindraLogo from "../../src/assets/images/mahindraAo/MahindraLogo.webp";
+import volvoImage from "../../src/assets/images/volvo/volvoImage.webp";
+import mercedesServiceClinicImage from "../../src/assets/images/merecedes/mercedesServiceClinic.webp";
+import tataBandhanImage from "../../src/assets/images/tatabandhan/tataBandhan.webp";
+import maxFashionImage from "../../src/assets/images/maxFashion/maxFashion.webp";
+import tataYoddhaImage from "../../src/assets/images/tataYoddha/tataYoddha.webp";
+import mercedesBenzMobileLaunch from "../../src/assets/images/mercedes_benz/mercedesBenzMobileLaunch.webp";
+import toyotaSupplierMeet from "../../src/assets/images/toyotaSupplierMeet/toyotaSupplierMeet.webp";
+import flipkartPoster from "../../src/assets/images/flipkart/flipkartPoster.webp";
 export const clients = [
   {
     id: 1,
@@ -397,29 +397,29 @@ export const clients = [
     ],
   },
 ];
-import dt2 from "../../public/assets/images/drumtao/dt2.webp";
-import arun2 from "../../public/assets/images/arun/arun2.webp";
-import dt3 from "../../public/assets/images/drumtao/dt3.webp";
-import dt4 from "../../public/assets/images/drumtao/dt4.webp";
-import dt5 from "../../public/assets/images/drumtao/dt5.webp";
-import arun from "../../public/assets/images/arun/arun.webp";
+import dt2 from "../../src/assets/images/drumtao/dt2.webp";
+import arun2 from "../../src/assets/images/arun/arun2.webp";
+import dt3 from "../../src/assets/images/drumtao/dt3.webp";
+import dt4 from "../../src/assets/images/drumtao/dt4.webp";
+import dt5 from "../../src/assets/images/drumtao/dt5.webp";
+import arun from "../../src/assets/images/arun/arun.webp";
 
-import arun3 from "../../public/assets/images/arun/arun3.webp";
-import arun4 from "../../public/assets/images/arun/arun4.webp";
-import arun5 from "../../public/assets/images/arun/arun5.webp";
-import arun6 from "../../public/assets/images/arun/arun6.webp";
-import mia1 from "../../public/assets/images/mia/mia 1.webp";
-import mia2 from "../../public/assets/images/mia/mia 2.webp";
-import mia3 from "../../public/assets/images/mia/mia2.webp";
-import mia4 from "../../public/assets/images/mia/mia3.webp";
-import zira1 from "../../public/assets/images/zira/zira1.webp";
-import zira2 from "../../public/assets/images/zira/zira2.webp";
-import zira3 from "../../public/assets/images/zira/zira3.webp";
-import zira4 from "../../public/assets/images/zira/zira4.webp";
-import dtvdo from "../../public/assets/images/drumtao/dtvdo.mp4";
-import arunvdo from "../../public/assets/images/drumtao/dtvdo.mp4";
-import miavdo from "../../public/assets/images/drumtao/dtvdo.mp4";
-import ziravdo from "../../public/assets/images/drumtao/dtvdo.mp4";
+import arun3 from "../../src/assets/images/arun/arun3.webp";
+import arun4 from "../../src/assets/images/arun/arun4.webp";
+import arun5 from "../../src/assets/images/arun/arun5.webp";
+import arun6 from "../../src/assets/images/arun/arun6.webp";
+import mia1 from "../../src/assets/images/mia/mia 1.webp";
+import mia2 from "../../src/assets/images/mia/mia 2.webp";
+import mia3 from "../../src/assets/images/mia/mia2.webp";
+import mia4 from "../../src/assets/images/mia/mia3.webp";
+import zira1 from "../../src/assets/images/zira/zira1.webp";
+import zira2 from "../../src/assets/images/zira/zira2.webp";
+import zira3 from "../../src/assets/images/zira/zira3.webp";
+import zira4 from "../../src/assets/images/zira/zira4.webp";
+import dtvdo from "../../src/assets/images/drumtao/dtvdo.mp4";
+import arunvdo from "../../src/assets/images/drumtao/dtvdo.mp4";
+import miavdo from "../../src/assets/images/drumtao/dtvdo.mp4";
+import ziravdo from "../../src/assets/images/drumtao/dtvdo.mp4";
 
 export const feedPosts = [
   {
@@ -556,7 +556,9 @@ export const feedPosts = [
     client: clients[4],
     location: "Odisha,India",
     category: "Road Show ",
-    media: [{ type: "video", url: flipkatFloatCampaign, poster: flipkartPoster }],
+    media: [
+      { type: "video", url: flipkatFloatCampaign, poster: flipkartPoster },
+    ],
     likes: 2000,
     caption:
       "Abybaby Events brought Flipkart's grand float campaign to life across Odisha, filling the streets with colour, music, and excitement — creating an unforgettable experience for the people of Odisha.",
@@ -633,7 +635,9 @@ export const feedPosts = [
     client: clients[8],
     location: "Viva Star,Bannerghata Road,Bengaluru,India",
     category: "Launch",
-    media: [{ type: "video", url: mercedesVdo, poster: mercedesServiceClinicImage }],
+    media: [
+      { type: "video", url: mercedesVdo, poster: mercedesServiceClinicImage },
+    ],
     likes: 1000,
     caption:
       "Proud to have organized the launch of the new Mercedes Service Clinic, delivering premium care with precision and purpose. From planning to execution, the event reflected excellence, innovation, and customer-centricity — a proud milestone for the team.",
@@ -709,7 +713,9 @@ export const feedPosts = [
     client: clients[10],
     location: "Whitefield,Bengaluru,India",
     category: "Launch ",
-    media: [{ type: "video", url: mercedesBenVdo, poster: mercedesBenzMobileLaunch }],
+    media: [
+      { type: "video", url: mercedesBenVdo, poster: mercedesBenzMobileLaunch },
+    ],
     likes: 1000,
     caption:
       "Where convenience meets luxury — Mercedes-Benz launched its Mobile Service initiative, bringing expert vehicle care directly to customers' doorsteps. A seamless launch experience reflecting the brand's commitment to innovation and customer-first excellence, redefining after-sales service beyond the showroom.",
@@ -785,7 +791,9 @@ export const feedPosts = [
     client: clients[11],
     location: "Bengaluru,India",
     category: "MICE",
-    media: [{ type: "video", url: toyotaSupplierMeetVdo, poster: toyotaSupplierMeet }],
+    media: [
+      { type: "video", url: toyotaSupplierMeetVdo, poster: toyotaSupplierMeet },
+    ],
     likes: 1000,
     caption:
       "Abybaby Events proudly presented the Toyota Supplier Meet in Bengaluru — a refined gathering that strengthened alliances between trust, innovation, and enduring partnerships, driving excellence forward at every turn.",

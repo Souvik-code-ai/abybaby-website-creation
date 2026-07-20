@@ -1,12 +1,12 @@
-import kolkata from "../assets/images/location/kolkata.webp";
-import bengaluru from "../assets/images/location/bengaluru.webp";
-import chennai from "../assets/images/location/chennai.webp";
-import patna from "../assets/images/location/patna.webp";
-import bhubaneshwar from "../assets/images/location/bhubaneshwar.webp";
-import guwahati from "../assets/images/location/guwahati.webp";
-import ranchi from "../assets/images/location/ranchi.webp";
-import lucknow from "../assets/images/location/lucknow.webp";
-import chattisgarh from "../assets/images/location/chattisgarh.webp";
+import kolkata from "../../src/assets/images/location/kolkata.webp";
+import bengaluru from "../../src/assets/images/location/bengaluru.webp";
+import chennai from "../../src/assets/images/location/chennai.webp";
+import patna from "../../src/assets/images/location/patna.webp";
+import bhubaneshwar from "../../src/assets/images/location/bhubaneshwar.webp";
+import guwahati from "../../src/assets/images/location/guwahati.webp";
+import ranchi from "../../src/assets/images/location/ranchi.webp";
+import lucknow from "../../src/assets/images/location/lucknow.webp";
+import chattisgarh from "../../src/assets/images/location/chattisgarh.webp";
 
 export const LOCATIONS = [
   {

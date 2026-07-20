@@ -16,5 +16,5 @@ yarn-error.log*
 # Vercel
 .vercel/
 #public
-public/assets/images
-public/assets/pdf
+src/assets/images
+src/assets/pdf

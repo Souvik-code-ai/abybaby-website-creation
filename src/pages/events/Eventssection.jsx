@@ -1,8 +1,7 @@
-
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Calendar, MapPin, Users, ArrowRight } from "lucide-react";
-import logo from "../../../public/assets/images/logo.jpg";
+import logo from "../../assets/images/logo.jpg";
 import { EVENTS } from "../../../public/events/events";
 import { Link } from "react-router-dom";
 import EventHoverPanel from "../../components/ui/EventHoverPanel";
@@ -30,7 +29,6 @@ function EventCard({ event, showType, onHover, onLeave }) {
             {event.type}
           </span>
         )}
-     
       </div>
 
       {/* Info */}
@@ -197,7 +195,6 @@ export function EventsSection({ onNavigate }) {
                 label={activeTab === "upcoming" ? "upcoming" : "past"}
               />
             ))}
-
         </motion.div>
       </AnimatePresence>
 
