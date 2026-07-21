@@ -242,7 +242,7 @@ export const clients = [
   // },
   {
     id: 8,
-    name: " Mercedes ",
+    name: " Mercedes  ",
     initials: mercedesLogo,
     color: "#4ECDC4",
     bgColor: "#E0F7F6",
@@ -632,7 +632,7 @@ export const feedPosts = [
   },
   {
     id: 7,
-    client: clients[8],
+    client: clients[7],
     location: "Viva Star,Bannerghata Road,Bengaluru,India",
     category: "Launch",
     media: [
@@ -672,7 +672,7 @@ export const feedPosts = [
   },
   {
     id: 8,
-    client: clients[11],
+    client: clients[8],
     location: "Kolkata,India",
     category: "MICE",
     media: [{ type: "video", url: tatabandhanvdo, poster: tataYoddhaImage }],
@@ -710,7 +710,7 @@ export const feedPosts = [
 
   {
     id: 9,
-    client: clients[10],
+    client: clients[9],
     location: "Whitefield,Bengaluru,India",
     category: "Launch ",
     media: [
