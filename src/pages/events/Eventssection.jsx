@@ -66,11 +66,12 @@ function EmptyState({ label }) {
     </div>
   );
 }
-const ITEMS_PER_PAGE = 2;
+const ITEMS_PER_PAGE = 4;
 // ── Root export ───────────────────────────────────────────────────────────────
 export function EventsSection({ onNavigate }) {
   const [hoveredEvent, setHoveredEvent] = useState(null);
   const [selectedEvent, setSelectedEvent] = useState(null); // ✅ tracks which card's modal is open
+
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE); // ✅ tracks how many to show
   const observerInstanceRef = useRef(null);
   const TABS = [
@@ -164,16 +165,19 @@ export function EventsSection({ onNavigate }) {
                   {visibleEvents.map(
                     (
                       event, // ✅ visibleEvents instead of full list
-                    ) => (
-                      <EventCard
-                        key={event.id}
-                        event={event}
-                        showType={activeTab === "upcoming"}
-                        onHover={setHoveredEvent}
-                        onLeave={() => setHoveredEvent(null)}
-                        onClick={setSelectedEvent} // ✅ opens the modal for this event
-                      />
-                    ),
+                    ) => {
+                      console.log("event craeted");
+                      return (
+                        <EventCard
+                          key={event.id}
+                          event={event}
+                          showType={activeTab === "upcoming"}
+                          onHover={setHoveredEvent}
+                          onLeave={() => setHoveredEvent(null)}
+                          onClick={setSelectedEvent} // ✅ opens the modal for this event
+                        />
+                      );
+                    },
                   )}
                 </div>
                 {hasMore ? (
