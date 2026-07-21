@@ -3,7 +3,8 @@ import { motion, AnimatePresence } from "motion/react";
 import MediaGrid from "../../components/ui/MediaGrid";
 import MediaLightbox from "../../components/ui/MediaLightBox";
 import GridCell from "../../components/ui/GridCell";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 import {
   ChevronLeft,
   ChevronRight,
@@ -42,6 +43,7 @@ const VISIBLE = 3;
 // ── Grid cell ─────────────────────────────────────────────────────────────────
 
 export function ProfileView({ onNavigate }) {
+  const navigate = useNavigate();
   const [offset, setOffset] = useState(0);
   const canPrev = offset > 0;
   const canNext = offset + VISIBLE < CAROUSEL_ITEMS.length;
@@ -170,7 +172,8 @@ export function ProfileView({ onNavigate }) {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -30 }}
                 transition={{ duration: 0.25 }}
-                className="rounded-xl overflow-hidden shrink-0 flex-1 min-w-0"
+                className="rounded-xl overflow-hidden shrink-0 flex-1 min-w-0 cursor-pointer"
+                onClick={() => navigate(item.path)}
               >
                 <div className="aspect-[16/10] relative">
                   <img

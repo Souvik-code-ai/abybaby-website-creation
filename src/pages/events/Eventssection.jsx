@@ -213,14 +213,14 @@ export function EventsSection({ onNavigate }) {
               <img
                 src={selectedEvent.modalImage || selectedEvent.image}
                 alt={selectedEvent.name}
-                className="w-full h-full object-cover"
+                className="w-full h-full sm:object-cover object-contain"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
 
               {/* Title */}
               <div className="absolute sm:top-8 sm:left-8 left-4 top-[90vh]">
-                <div className="sm:backdrop-blur-lg sm:bg-white/10 sm:border border-white/20 rounded-2xl sm:px-6 sm:py-4 bg-none border-0">
-                  <h2 className="text-white sm:text-3xl font-bold font-sans text-xl">
+                <div className="sm:backdrop-blur-lg sm:bg-black/40 sm:border border-white/10 rounded-2xl sm:px-6 sm:py-4 bg-none border-0">
+                  <h2 className="text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] sm:text-3xl font-bold font-sans text-xl">
                     {selectedEvent.name}
                   </h2>
                 </div>
@@ -228,15 +228,19 @@ export function EventsSection({ onNavigate }) {
 
               {/* Location + Attendance chips */}
               <div className="absolute md:top-8 sm:left-2/3 flex gap-4 sm:top-40 left-4 min-[375]:top-[88vh] top-[94vh]">
-                <div className="sm:bg-white/10 backdrop-blur-md sm:border border-white/20 rounded-xl sm:px-5 sm:py-3 sm:flex-col flex flex-row gap-1 items-center px-0 border-0 bg-none">
-                  <p className="text-white/70 text-xs">Location</p>
-                  <p className="text-white sm:font-semibold font-light text-xs">
+                <div className="sm:bg-black/40 backdrop-blur-md sm:border border-white/10 rounded-xl sm:px-5 sm:py-3 sm:flex-col flex flex-row gap-1 items-center px-0 border-0 bg-none">
+                  <p className="text-white/70 text-xs drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+                    Location
+                  </p>
+                  <p className="text-white sm:font-semibold font-light text-xs drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
                     {selectedEvent.location}
                   </p>
                 </div>
-                <div className="sm:bg-white/10 backdrop-blur-md sm:border border-white/20 rounded-xl sm:px-5 sm:py-3 sm:flex-col flex flex-row gap-1 items-center px-0 border-0 bg-none">
-                  <p className="text-white/70 text-xs">Attendance</p>
-                  <p className="text-white sm:font-semibold font-light text-xs">
+                <div className="sm:bg-black/40 backdrop-blur-md sm:border border-white/10 rounded-xl sm:px-5 sm:py-3 sm:flex-col flex flex-row gap-1 items-center px-0 border-0 bg-none">
+                  <p className="text-white/70 text-xs drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+                    Attendance
+                  </p>
+                  <p className="text-white sm:font-semibold font-light text-xs drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
                     {selectedEvent.attendees?.toLocaleString?.() ??
                       selectedEvent.attendees}
                   </p>
@@ -267,7 +271,7 @@ export function EventsSection({ onNavigate }) {
 
               <button
                 onClick={() => setSelectedEvent(null)}
-                className="absolute top-3 right-3 w-12 h-12 rounded-full bg-black/40 backdrop-blur-md text-white"
+                className="absolute top-3 right-3 w-12 h-12 rounded-full bg-black/40 backdrop-blur-md text-white cursor-pointer hover:bg-black/80"
               >
                 ✕
               </button>

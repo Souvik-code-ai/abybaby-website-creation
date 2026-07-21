@@ -246,7 +246,7 @@ export function ExhibitionSection({ onNavigate }) {
               </div>
               <button
                 onClick={() => setSelectedExhibition(null)}
-                className="absolute top-3 right-3 w-12 h-12 rounded-full bg-black/40 backdrop-blur-md text-white"
+                className="absolute top-3 right-3 w-12 h-12 rounded-full bg-black/40 backdrop-blur-md text-white cursor-pointer hover:bg-black/80"
               >
                 ✕
               </button>

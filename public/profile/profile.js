@@ -53,30 +53,28 @@ export const CAROUSEL_ITEMS = [
     title: "Annual Gala 2024",
     category: "Events",
     image: toyotaCover,
+    path: "/events",
   },
   {
     id: 2,
     title: "Brand Activation",
     category: "Activation",
     image: krishiCover,
+    path: "/activation",
   },
   {
     id: 3,
     title: "Digital Campaign",
     category: "Digital",
     image: pmsCover,
+    path: "/digital",
   },
   {
     id: 4,
     title: "Exhibition Stand",
     category: "Exhibition",
     image: pmsDetail,
-  },
-  {
-    id: 5,
-    title: "Product Launch",
-    category: "Events",
-    image: zira3,
+    path: "/exhibition",
   },
 ];
 

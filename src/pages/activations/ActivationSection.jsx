@@ -292,7 +292,7 @@ export function ActivationSection({ onNavigate }) {
               {!isMobile && (
                 <button
                   onClick={goPrevImage}
-                  className="hidden sm:flex absolute left-6 top-1/2 -translate-y-1/2 sm:w-14 sm:h-14 rounded-full z-50 bg-black/40 backdrop-blur-md text-white text-3xl items-center justify-center hover:bg-black/60 transition h-10 w-10"
+                  className="hidden sm:flex absolute left-6 top-1/2 -translate-y-1/2 sm:w-14 sm:h-14 rounded-full z-50 bg-black/40 backdrop-blur-md text-white text-3xl items-center justify-center hover:bg-black/60 transition h-10 w-10 cursor-pointer"
                 >
                   ❮
                 </button>
@@ -302,7 +302,7 @@ export function ActivationSection({ onNavigate }) {
               {!isMobile && (
                 <button
                   onClick={goNextImage}
-                  className="hidden sm:flex absolute right-6 top-1/2 -translate-y-1/2 z-50 sm:w-14 sm:h-14 rounded-full bg-black/40 backdrop-blur-md text-white text-3xl items-center justify-center hover:bg-black/60 transition h-10 w-10"
+                  className="hidden sm:flex absolute right-6 top-1/2 -translate-y-1/2 z-50 sm:w-14 sm:h-14 rounded-full bg-black/40 backdrop-blur-md text-white text-3xl items-center justify-center hover:bg-black/60 transition h-10 w-10 cursor-pointer"
                 >
                   ❯
                 </button>
@@ -372,7 +372,7 @@ export function ActivationSection({ onNavigate }) {
               </div>
               <button
                 onClick={() => setSelectedActivation(null)}
-                className="absolute top-3 right-3 w-10 h-10 rounded-full bg-black/50 backdrop-blur-md text-white text-xl flex items-center justify-center"
+                className="absolute top-3 right-3 w-10 h-10 rounded-full bg-black/50 backdrop-blur-md text-white text-xl flex items-center justify-center cursor-pointer hover:bg-black/80"
               >
                 ✕
               </button>
