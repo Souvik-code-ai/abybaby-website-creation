@@ -25,9 +25,20 @@ export function FeedCard({ post }) {
   const [showMiniProfile, setShowMiniProfile] = useState(false);
   const [viewerOpen, setViewerOpen] = useState(false);
   const [inViewport, setInViewport] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const videoRef = useRef(null);
   const containerRef = useRef(null);
+  const touchStartX = useRef(0);
+  const justSwiped = useRef(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)");
+    const update = () => setIsMobile(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
 
   const handleLike = () => {
     setLiked((prev) => {
@@ -71,7 +82,6 @@ export function FeedCard({ post }) {
   }, []);
 
   // ── Play / pause video based on viewport visibility ──
-  // ── Play / pause video based on viewport visibility ──
   useEffect(() => {
     const video = videoRef.current;
     if (!video || currentMedia.type !== "video") return;
@@ -94,6 +104,23 @@ export function FeedCard({ post }) {
   const handleCopy = () => {
     navigator.clipboard.writeText(post.projectUrl).catch(() => {});
     toast.success("Thanks to show interest!", { duration: 2000 });
+  };
+
+  // ── Swipe navigation for mobile (image carousel within the card) ──
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+    justSwiped.current = false;
+  };
+  const handleTouchEnd = (e) => {
+    if (!multipleImages) return;
+    const dx = e.changedTouches[0].clientX - touchStartX.current;
+    if (Math.abs(dx) < 40) return; // ignore small movements/taps
+    justSwiped.current = true;
+    if (dx < 0 && imageIndex < post.media.length - 1) {
+      setImageIndex((i) => i + 1); // swiped left -> next
+    } else if (dx > 0 && imageIndex > 0) {
+      setImageIndex((i) => i - 1); // swiped right -> prev
+    }
   };
 
   return (
@@ -128,7 +155,14 @@ export function FeedCard({ post }) {
         <div
           className="relative overflow-hidden rounded-md cursor-pointer bg-[#f5f5f7] aspect-square"
           onDoubleClick={handleDoubleClick}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
           onClick={() => {
+            // Don't open the fullscreen viewer right after a swipe gesture
+            if (justSwiped.current) {
+              justSwiped.current = false;
+              return;
+            }
             if (videoRef.current) {
               videoRef.current.pause();
             }
@@ -205,12 +239,12 @@ export function FeedCard({ post }) {
             )}
           </AnimatePresence>
 
-          {/* Media navigation */}
+          {/* Media navigation — desktop only */}
           {multipleImages && (
             <>
-              {imageIndex > 0 && (
+              {!isMobile && imageIndex > 0 && (
                 <button
-                  className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full flex items-center justify-center w-7 h-7 bg-white/85"
+                  className="hidden md:flex absolute left-3 top-1/2 -translate-y-1/2 rounded-full items-center justify-center w-7 h-7 bg-white/85"
                   onClick={(e) => {
                     e.stopPropagation();
                     setImageIndex((i) => i - 1);
@@ -219,9 +253,9 @@ export function FeedCard({ post }) {
                   <ChevronLeft size={14} />
                 </button>
               )}
-              {imageIndex < post.media.length - 1 && (
+              {!isMobile && imageIndex < post.media.length - 1 && (
                 <button
-                  className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full flex items-center justify-center w-7 h-7 bg-[rgba(255,255,255,0.85)]"
+                  className="hidden md:flex absolute right-3 top-1/2 -translate-y-1/2 rounded-full items-center justify-center w-7 h-7 bg-[rgba(255,255,255,0.85)]"
                   onClick={(e) => {
                     e.stopPropagation();
                     setImageIndex((i) => i + 1);
@@ -279,7 +313,6 @@ export function FeedCard({ post }) {
           </motion.button>
         </div>
 
-        {/* Caption */}
         {/* Caption */}
         <div className="px-0 pb-4">
           <span className="text-sm font-semibold mr-1.5">

@@ -7,15 +7,16 @@ import { Link } from "react-router-dom";
 import EventHoverPanel from "../../components/ui/EventHoverPanel";
 import ProgressItem from "../../components/ui/ProgressItem";
 import EventHighlights from "../../components/ui/EventHighlights";
-function EventCard({ event, showType, onHover, onLeave }) {
-  const [hoveredProject, setHoveredProject] = useState(null);
+
+function EventCard({ event, showType, onHover, onLeave, onClick }) {
   return (
     <motion.div
       whileHover={{ y: -3 }}
       transition={{ type: "spring", stiffness: 300, damping: 24 }}
-      className="overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-sm "
+      className="overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-sm cursor-pointer"
       onMouseEnter={() => onHover?.(event)}
       onMouseLeave={() => onLeave?.()}
+      onClick={() => onClick?.(event)}
     >
       {/* Image */}
       <div className="relative">
@@ -38,10 +39,6 @@ function EventCard({ event, showType, onHover, onLeave }) {
         </h3>
 
         <div className="mt-3 flex flex-col gap-1.5">
-          {/* <div className="flex items-center gap-2 text-gray-500 text-[13px]">
-            <Calendar size={13} className="text-lime-600 flex-0" />
-            {event.date}
-          </div> */}
           <div className="flex items-center gap-2 text-gray-500 text-[13px]">
             <MapPin size={13} className="text-lime-600 flex-0" />
             {event.location}
@@ -55,10 +52,6 @@ function EventCard({ event, showType, onHover, onLeave }) {
     </motion.div>
   );
 }
-
-// ── Progress bar item ─────────────────────────────────────────────────────────
-
-// ── Highlights tab ────────────────────────────────────────────────────────────
 
 // ── Empty state ───────────────────────────────────────────────────────────────
 function EmptyState({ label }) {
@@ -77,6 +70,7 @@ const ITEMS_PER_PAGE = 2;
 // ── Root export ───────────────────────────────────────────────────────────────
 export function EventsSection({ onNavigate }) {
   const [hoveredEvent, setHoveredEvent] = useState(null);
+  const [selectedEvent, setSelectedEvent] = useState(null); // ✅ tracks which card's modal is open
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE); // ✅ tracks how many to show
   const observerInstanceRef = useRef(null);
   const TABS = [
@@ -177,6 +171,7 @@ export function EventsSection({ onNavigate }) {
                         showType={activeTab === "upcoming"}
                         onHover={setHoveredEvent}
                         onLeave={() => setHoveredEvent(null)}
+                        onClick={setSelectedEvent} // ✅ opens the modal for this event
                       />
                     ),
                   )}
@@ -196,6 +191,89 @@ export function EventsSection({ onNavigate }) {
               />
             ))}
         </motion.div>
+      </AnimatePresence>
+
+      {/* ── Full-screen event modal — mirrors ExhibitionSection's modal ── */}
+      <AnimatePresence>
+        {selectedEvent && (
+          <motion.div
+            className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 backdrop-blur-md sm:p-6 p-0 w-screen"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedEvent(null)}
+          >
+            <motion.div
+              className="relative max-w-6xl w-screen sm:h-[85vh] overflow-hidden sm:rounded-3xl h-[100vh]"
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.9 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={selectedEvent.modalImage || selectedEvent.image}
+                alt={selectedEvent.name}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+
+              {/* Title */}
+              <div className="absolute sm:top-8 sm:left-8 left-4 top-[90vh]">
+                <div className="sm:backdrop-blur-lg sm:bg-white/10 sm:border border-white/20 rounded-2xl sm:px-6 sm:py-4 bg-none border-0">
+                  <h2 className="text-white sm:text-3xl font-bold font-sans text-xl">
+                    {selectedEvent.name}
+                  </h2>
+                </div>
+              </div>
+
+              {/* Location + Attendance chips */}
+              <div className="absolute md:top-8 sm:left-2/3 flex gap-4 sm:top-40 left-4 min-[375]:top-[88vh] top-[94vh]">
+                <div className="sm:bg-white/10 backdrop-blur-md sm:border border-white/20 rounded-xl sm:px-5 sm:py-3 sm:flex-col flex flex-row gap-1 items-center px-0 border-0 bg-none">
+                  <p className="text-white/70 text-xs">Location</p>
+                  <p className="text-white sm:font-semibold font-light text-xs">
+                    {selectedEvent.location}
+                  </p>
+                </div>
+                <div className="sm:bg-white/10 backdrop-blur-md sm:border border-white/20 rounded-xl sm:px-5 sm:py-3 sm:flex-col flex flex-row gap-1 items-center px-0 border-0 bg-none">
+                  <p className="text-white/70 text-xs">Attendance</p>
+                  <p className="text-white sm:font-semibold font-light text-xs">
+                    {selectedEvent.attendees?.toLocaleString?.() ??
+                      selectedEvent.attendees}
+                  </p>
+                </div>
+              </div>
+
+              {/* Highlights / features */}
+              {selectedEvent.features?.length > 0 && (
+                <div className="absolute bottom-8 md:left-8 max-w-md left-3.5 hidden sm:block">
+                  <div className="bg-black/40 backdrop-blur-lg border border-white/20 rounded-2xl p-6">
+                    <h3 className="text-white font-semibold mb-4 font-sans">
+                      Event Highlights
+                    </h3>
+                    <div className="space-y-3">
+                      {selectedEvent.features.map((feature) => (
+                        <div
+                          key={feature}
+                          className="flex items-center gap-3 text-white/90"
+                        >
+                          <span className="text-lime-400">●</span>
+                          {feature}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              <button
+                onClick={() => setSelectedEvent(null)}
+                className="absolute top-3 right-3 w-12 h-12 rounded-full bg-black/40 backdrop-blur-md text-white"
+              >
+                ✕
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
       </AnimatePresence>
 
       {/* End-of-section footer — same as feed */}
