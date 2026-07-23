@@ -258,7 +258,7 @@ export function PostViewer({ post, onClose }) {
             {/* Name + type */}
             <div>
               <p className="m-0 text-sm font-bold text-white leading-tight [text-shadow:0_1px_4px_rgba(0,0,0,0.5)]">
-                {post.client.name}
+                {post.name}
               </p>
               <p className="m-0 text-xs text-white/72 flex items-center gap-[3px]">
                 <MapPin size={11} className="flex-shrink-0 text-[#f9a8c9]" />

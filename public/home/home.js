@@ -426,6 +426,7 @@ export const feedPosts = [
     id: 1,
     client: clients[0],
     location: "Kolkata,India",
+    name: "Feel The Awesome Beat – Drum Tao Live, Presented by Toyota",
     category: "Concert",
     media: [
       { type: "video", url: toyotaDrumTaoVdo, poster: dt2 },
@@ -456,12 +457,13 @@ export const feedPosts = [
         time: "6h",
       },
     ],
-    projectUrl: "https://abybabyevents.com/projects/al-futtaim-gala",
+
     date: "June 3, 2026",
   },
   {
     id: 2,
     client: clients[1],
+    name: "HISTORY: SCOOPED! – Arun Ice Cream World Record Attempt",
     location: "Hyderabad,India",
     category: "Launch",
     media: [{ type: "video", url: arunIceCreamVdo, poster: arun3 }],
@@ -482,12 +484,13 @@ export const feedPosts = [
         time: "1d",
       },
     ],
-    projectUrl: "https://abybabyevents.com/projects/dubai-mall-ramadan",
+
     date: "May 28, 2026",
   },
   {
     id: 3,
     client: clients[2],
+    name: "Mia by Tanishq Showroom Launch – Guwahati",
     location: "Guwahati,India",
     category: "Store Activation",
     media: [
@@ -507,12 +510,13 @@ export const feedPosts = [
         time: "2d",
       },
     ],
-    projectUrl: "https://abybabyevents.com/projects/etihad-summit",
+
     date: "May 20, 2026",
   },
   {
     id: 4,
     client: clients[3],
+    name: "Toyota Kirloskar x Ziro Festival of Music 2024",
     location: "Assam,India",
     category: "Concert ",
     media: [
@@ -548,12 +552,13 @@ export const feedPosts = [
         time: "4d",
       },
     ],
-    projectUrl: "https://abybabyevents.com/projects/almarri-babyshower",
+
     date: "May 15, 2026",
   },
   {
     id: 5,
     client: clients[4],
+    name: "Flipkart Float Campaign – Odisha",
     location: "Odisha,India",
     category: "Road Show ",
     media: [
@@ -588,13 +593,14 @@ export const feedPosts = [
         time: "4d",
       },
     ],
-    projectUrl: "https://abybabyevents.com/projects/almarri-babyshower",
+
     date: "May 15, 2026",
   },
 
   {
     id: 6,
     client: clients[5],
+    name: "Volvo Skill Contest 2025 ",
     location: "Bengaluru,India",
     category: "Activation ",
     media: [{ type: "video", url: volvoSkillContestVdo, poster: volvoImage }],
@@ -627,12 +633,13 @@ export const feedPosts = [
         time: "4d",
       },
     ],
-    projectUrl: "https://abybabyevents.com/projects/almarri-babyshower",
+
     date: "May 15, 2026",
   },
   {
     id: 7,
     client: clients[7],
+    name: "Mercedes Service Clinic Launch",
     location: "Viva Star,Bannerghata Road,Bengaluru,India",
     category: "Launch",
     media: [
@@ -667,12 +674,13 @@ export const feedPosts = [
         time: "4d",
       },
     ],
-    projectUrl: "https://abybabyevents.com/projects/almarri-babyshower",
+
     date: "May 15, 2026",
   },
   {
     id: 8,
     client: clients[8],
+    name: "Trucking into the Future & Tata Bandhan – Tata Motors",
     location: "Kolkata,India",
     category: "MICE",
     media: [{ type: "video", url: tatabandhanvdo, poster: tataYoddhaImage }],
@@ -704,13 +712,14 @@ export const feedPosts = [
         time: "4d",
       },
     ],
-    projectUrl: "https://abybabyevents.com/projects/almarri-babyshower",
+
     date: "May 15, 2026",
   },
 
   {
     id: 9,
     client: clients[9],
+    name: "Mercedes-Benz Mobile Service Launch ",
     location: "Whitefield,Bengaluru,India",
     category: "Launch ",
     media: [
@@ -745,12 +754,13 @@ export const feedPosts = [
         time: "4d",
       },
     ],
-    projectUrl: "https://abybabyevents.com/projects/almarri-babyshower",
+
     date: "May 15, 2026",
   },
   {
     id: 10,
     client: clients[10],
+    name: "Tata Yoddha",
     location: "Kolkata,India",
     category: "Events ",
     media: [{ type: "video", url: tataYoddhaVdo, poster: tataYoddhaImage }],
@@ -783,12 +793,13 @@ export const feedPosts = [
         time: "4d",
       },
     ],
-    projectUrl: "https://abybabyevents.com/projects/almarri-babyshower",
+
     date: "May 15, 2026",
   },
   {
     id: 11,
     client: clients[11],
+    name: "Toyota Supplier Meet",
     location: "Bengaluru,India",
     category: "MICE",
     media: [
@@ -823,12 +834,13 @@ export const feedPosts = [
         time: "4d",
       },
     ],
-    projectUrl: "https://abybabyevents.com/projects/almarri-babyshower",
+
     date: "May 15, 2026",
   },
   {
     id: 12,
     client: clients[12],
+    name: "Max Fashion x Disney's Lilo & Stitch Event",
     location: "Hyderabad,India",
     category: "Exhibition",
     media: [{ type: "video", url: maxfashionVdo, poster: maxFashionImage }],
@@ -861,7 +873,7 @@ export const feedPosts = [
         time: "4d",
       },
     ],
-    projectUrl: "https://abybabyevents.com/projects/almarri-babyshower",
+
     date: "May 15, 2026",
   },
 ];

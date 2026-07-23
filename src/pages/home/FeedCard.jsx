@@ -140,8 +140,8 @@ export function FeedCard({ post }) {
               <img src={post.client.initials} alt="" className="rounded-full" />
             </div>
             <div>
-              <div className="text-sm font-semibold text-[#1a1a1a]">
-                {post.client.name}
+              <div className="text-sm font-semibold text-[#1a1a1a] line-clamp-1">
+                {post.name}
               </div>
               <div className="flex items-center gap-1 text-[#8e8e93] text-xs">
                 <MapPin size={11} />
@@ -315,9 +315,7 @@ export function FeedCard({ post }) {
 
         {/* Caption */}
         <div className="px-0 pb-4">
-          <span className="text-sm font-semibold mr-1.5">
-            {post.client.name}
-          </span>
+          {/* <span className="text-sm font-semibold mr-1.5">{post.name}</span> */}
           <span
             className={`text-sm text-[#1a1a1a] ${captionExpanded ? "line-clamp-none overflow-visible text-justify" : "line-clamp-2 overflow-hidden text-justify"}`}
           >
