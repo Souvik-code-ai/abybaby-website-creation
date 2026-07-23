@@ -490,7 +490,7 @@ export const feedPosts = [
   {
     id: 3,
     client: clients[2],
-    name: "Mia by Tanishq Showroom Launch – Guwahati",
+    name: "Mia by Tanishq Showroom Launch ",
     location: "Guwahati,India",
     category: "Store Activation",
     media: [

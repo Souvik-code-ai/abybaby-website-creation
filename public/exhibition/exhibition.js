@@ -41,7 +41,7 @@ export const EXHIBITIONS_ALL = [
 
   {
     id: 2,
-    name: "Tata Motors Loan Mella",
+    name: "Tata Motors Loan Mela",
     boothSize: "3,200 sq.ft",
     attendance: "3500+",
     features: [
@@ -115,7 +115,7 @@ export const EXHIBITIONS_ALL = [
     boothSize: "1,500 sq.ft",
     attendance: "19,000+",
     features: [
-      "IoT Product Display",
+      "IOT Product Display",
       "Urban Planning Models",
       "Panel Discussion Stage",
       "Networking Zone",

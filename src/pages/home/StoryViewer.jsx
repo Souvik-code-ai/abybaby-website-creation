@@ -1,10 +1,5 @@
 import { useEffect, useState, useCallback, useRef } from "react";
-import {
-  motion,
-  AnimatePresence,
-  useMotionValue,
-  animate,
-} from "motion/react";
+import { motion, AnimatePresence, useMotionValue, animate } from "motion/react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { Volume2, VolumeX } from "lucide-react";
 import AdjacentCard from "../../components/ui/AdjacentCard";
@@ -240,9 +235,11 @@ export function StoryViewer({ clients = [], activeClientId, onClose, onSeen }) {
   const handleDragEnd = (_e, info) => {
     const { offset, velocity } = info;
     const committedLeft =
-      offset.x < -SWIPE_OFFSET_THRESHOLD || velocity.x < -SWIPE_VELOCITY_THRESHOLD;
+      offset.x < -SWIPE_OFFSET_THRESHOLD ||
+      velocity.x < -SWIPE_VELOCITY_THRESHOLD;
     const committedRight =
-      offset.x > SWIPE_OFFSET_THRESHOLD || velocity.x > SWIPE_VELOCITY_THRESHOLD;
+      offset.x > SWIPE_OFFSET_THRESHOLD ||
+      velocity.x > SWIPE_VELOCITY_THRESHOLD;
 
     if (committedLeft) goNextClient();
     else if (committedRight) goPrevClient();
@@ -274,7 +271,7 @@ export function StoryViewer({ clients = [], activeClientId, onClose, onSeen }) {
   const mainCard = (
     <motion.div
       layoutId={`story-${currentClient.id}`}
-      className="relative sm:rounded-2xl overflow-hidden flex flex-col bg-black shrink-0 rounded-none"
+      className="relative sm:rounded-2xl overflow-hidden flex flex-col bg-black shrink-0 rounded-none "
       style={{ width: MAIN_WIDTH, height: MAIN_HEIGHT }}
     >
       {/* Progress bars */}
@@ -288,7 +285,11 @@ export function StoryViewer({ clients = [], activeClientId, onClose, onSeen }) {
               className="h-full rounded-full bg-white transition-none"
               style={{
                 width:
-                  i < storyIndex ? "100%" : i === storyIndex ? `${progress}%` : "0%",
+                  i < storyIndex
+                    ? "100%"
+                    : i === storyIndex
+                      ? `${progress}%`
+                      : "0%",
               }}
             />
           </div>
@@ -335,13 +336,13 @@ export function StoryViewer({ clients = [], activeClientId, onClose, onSeen }) {
           muted={muted}
           playsInline
           preload="auto"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-contain overflow-hidden"
         />
       ) : (
         <img
           src={story.url}
           alt={currentClient.name}
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-contain overflow-hidden"
           draggable={false}
         />
       )}
@@ -419,7 +420,10 @@ export function StoryViewer({ clients = [], activeClientId, onClose, onSeen }) {
           </motion.div>
         ) : (
           // ── Desktop: unchanged small stacked peek cards ──
-          <div className="absolute inset-0" onClick={(e) => e.stopPropagation()}>
+          <div
+            className="absolute inset-0"
+            onClick={(e) => e.stopPropagation()}
+          >
             {/* Prev adjacent cards (closest to main card = rank 0) */}
             {prevClients.map((client, j) => {
               const rank = prevClients.length - 1 - j;

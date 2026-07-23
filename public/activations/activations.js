@@ -42,6 +42,7 @@ import mahindraNavistar2 from "../../src/assets/images/mahindraNavistarLaunch/ma
 import mahindraTractor1 from "../../src/assets/images/mahindraTractorMeet/mahindraTractor1.webp";
 import mahindraTractor2 from "../../src/assets/images/mahindraTractorMeet/mahindraTractor2.webp";
 import mahindraTractor3 from "../../src/assets/images/mahindraTractorMeet/mahindraTractor3.webp";
+import mahindraTractor4 from "../../src/assets/images/mahindraTractorMeet/mahindraTractor4.webp";
 import mahindraMaxximoRoadShow1 from "../../src/assets/images/mahindraMaxximoRoadShow/mahindraMaxximoRoadShow1.webp";
 import mahinMaxximoRoadShow2 from "../../src/assets/images/mahindraMaxximoRoadShow/mahindraMaxximoRoadShow2.webp";
 import mahindraTractorRoadShow1 from "../../src/assets/images/mahindraTractorRoadShow/mahindraTractorRoadShow1.webp";
@@ -81,13 +82,13 @@ export const ACTIVATIONS_ALL = [
       "Footfall Conversion Activities",
     ],
   },
-  
+
   {
     id: 4,
     title: "Mahindra Tractor Meet",
     type: "Corporate Engagement",
     image: mahindraTractor1,
-    gallery: [mahindraTractor2, mahindraTractor3],
+    gallery: [mahindraTractor2, mahindraTractor4],
     audience: "800+",
     highlights: [
       "Employee Engagement Programs",

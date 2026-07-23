@@ -195,7 +195,7 @@ export function PostViewer({ post, onClose }) {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.2 }}
-                className="absolute inset-0 w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full object-contain"
               />
             ) : (
               <motion.img
@@ -243,7 +243,7 @@ export function PostViewer({ post, onClose }) {
           <div className="absolute bottom-0 left-0 right-0 h-[45%] bg-gradient-to-t from-black/82 to-transparent pointer-events-none z-[3]" />
 
           {/* ── Bottom left: logo + name + type ── */}
-          <div className="absolute bottom-4 left-4 z-[5] flex items-center gap-2.5">
+          <div className="fixed sm:absolute bottom-4 left-4 z-[5] flex items-center sm:gap-2.5 gap-1.5">
             {/* Avatar */}
             <div
               className={`overflow-hidden w-[42px] h-[42px] rounded-full flex items-center justify-center flex-shrink-0 border-2 border-white/30 bg-[${post.client.bgColor}]`}
@@ -257,11 +257,14 @@ export function PostViewer({ post, onClose }) {
 
             {/* Name + type */}
             <div>
-              <p className="m-0 text-sm font-bold text-white leading-tight [text-shadow:0_1px_4px_rgba(0,0,0,0.5)]">
+              <p className="m-0 text-sm sm:font-bold text-white leading-tight [text-shadow:0_1px_4px_rgba(0,0,0,0.5)] line-clamp-1 font-medium">
                 {post.name}
               </p>
               <p className="m-0 text-xs text-white/72 flex items-center gap-[3px]">
-                <MapPin size={11} className="flex-shrink-0 text-[#f9a8c9]" />
+                <MapPin
+                  size={11}
+                  className="flex-shrink-0 text-[#f9a8c9] sm:block hidden"
+                />
                 {post.location} · {post.client.category}
               </p>
             </div>
