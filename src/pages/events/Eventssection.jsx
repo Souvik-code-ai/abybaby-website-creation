@@ -41,11 +41,11 @@ function EventCard({ event, showType, onHover, onLeave, onClick }) {
         <div className="mt-3 flex flex-col gap-1.5">
           <div className="flex items-center gap-2 text-gray-500 text-[13px]">
             <MapPin size={13} className="text-lime-600 flex-0" />
-            {event.location}
+            {event?.location}
           </div>
           <div className="flex items-center gap-2 text-gray-500 text-[13px]">
             <Users size={13} className="text-lime-600 flex-0" />
-            {event.attendees.toLocaleString()} Attendance
+            {event?.attendees.toLocaleString()} Attendance
           </div>
         </div>
       </div>
@@ -224,7 +224,7 @@ export function EventsSection({ onNavigate }) {
               {/* Title */}
               <div className="absolute sm:top-8 sm:left-8 left-4 top-[90vh]">
                 <div className="sm:backdrop-blur-lg sm:bg-black/40 sm:border border-white/10 rounded-2xl sm:px-6 sm:py-4 bg-none border-0">
-                  <h2 className="text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] sm:text-3xl font-bold font-sans text-xl">
+                  <h2 className="text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] sm:text-3xl font-bold font-sans text-xl ">
                     {selectedEvent.name}
                   </h2>
                 </div>
@@ -252,23 +252,44 @@ export function EventsSection({ onNavigate }) {
               </div>
 
               {/* Highlights / features */}
-              {selectedEvent.features?.length > 0 && (
+              {/* Highlights / description — conditional per event type */}
+              {(selectedEvent.features?.length > 0 ||
+                (selectedEvent.status === "upcoming" &&
+                  selectedEvent?.description)) && (
                 <div className="absolute bottom-8 md:left-8 max-w-md left-3.5 hidden sm:block">
                   <div className="bg-black/40 backdrop-blur-lg border border-white/20 rounded-2xl p-6">
-                    <h3 className="text-white font-semibold mb-4 font-sans">
-                      Event Highlights
-                    </h3>
-                    <div className="space-y-3">
-                      {selectedEvent.features.map((feature) => (
-                        <div
-                          key={feature}
-                          className="flex items-center gap-3 text-white/90"
-                        >
-                          <span className="text-lime-400">●</span>
-                          {feature}
+                    {/* Feature bullets — any event that has them */}
+                    {selectedEvent.features?.length > 0 && (
+                      <>
+                        <h3 className="text-white font-semibold mb-4 font-sans">
+                          Event Highlights
+                        </h3>
+                        <div className="space-y-3">
+                          {selectedEvent.features.map((feature) => (
+                            <div
+                              key={feature}
+                              className="flex items-center gap-3 text-white/90"
+                            >
+                              <span className="text-lime-400">●</span>
+                              {feature}
+                            </div>
+                          ))}
                         </div>
-                      ))}
-                    </div>
+                      </>
+                    )}
+
+                    {/* Description — upcoming events only, expired events never show this */}
+                    {selectedEvent.status === "upcoming" &&
+                      selectedEvent?.description && (
+                        <>
+                          <h3 className="text-white font-semibold mb-2 font-sans">
+                            About the Event
+                          </h3>
+                          <p className="text-white/80 text-sm leading-relaxed sm:block hidden">
+                            {selectedEvent.description}
+                          </p>
+                        </>
+                      )}
                   </div>
                 </div>
               )}

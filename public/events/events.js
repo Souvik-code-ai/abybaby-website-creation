@@ -44,11 +44,14 @@ import toyotaCrystal1 from "../../src/assets/images/toyotaCrystal/toyotaCrystal.
 import vodafone_13_1 from "../../src/assets/images/vodafone_13/vodafone_2013_1.webp";
 import mahindraNavistar1 from "../../src/assets/images/mahindraNavistarLaunch/mahindraNavistar1.webp";
 import mahindraNavistar2 from "../../src/assets/images/mahindraNavistarLaunch/mahindraNavistar2.webp";
+import ganeshChaturthi1 from "../../src/assets/images/ganeshChaturthi/ganeshChaturthi.webp";
+import onam1 from "../../src/assets/images/onam/onam1.webp";
+import durgaPuja1 from "../../src/assets/images/durgapuja/durgaPuja1.webp";
 export const EVENTS = [
   {
     id: 1,
     type: "Concert",
-    status: "upcoming",
+    status: "expired",
     name: " Toyota Drum Tao",
     date: "12 Oct 2026",
     location: "Kolkata",
@@ -71,7 +74,7 @@ export const EVENTS = [
   {
     id: 3,
     type: "Concert",
-    status: "upcoming",
+    status: "expired",
     name: "Agomoni",
     date: "3 Mar 2024",
     location: "Mumbai",
@@ -188,5 +191,44 @@ export const EVENTS = [
     date: "2nd dec",
     location: "kolkata",
     attendees: "2000+",
+  },
+  {
+    id: 14,
+    name: "GANESH CHATURTHI BRANDING CAMPAIGN",
+    status: "upcoming",
+    type: "Branding Campaign",
+    image: ganeshChaturthi1,
+    modalImage: ganeshChaturthi1,
+    date: "TBD",
+    location: "TBD",
+    attendees: "TBD",
+    description:
+      "Ganesh Chaturthi brings together 15–20 million devotees across Mumbai and Maharashtra, making it one of India's largest public celebrations. With thousands of pandals and high-footfall processions, AbyBaby Events helps brands become an integral part of the festivities through iconic gates, branded walkways, large-format hoardings, billboards, experiential stalls, interactive consumer zones, and innovative brand experiences. We ensure your brand connects with millions in an authentic, culturally relevant, and highly engaging environment.",
+  },
+  {
+    id: 15,
+    name: "ONAM BRANDING CAMPAIGN",
+    status: "upcoming",
+    type: "Branding Campaign",
+    image: onam1,
+    modalImage: onam1,
+    date: "TBD",
+    location: "TBD",
+    attendees: "TBD",
+    description:
+      "Onam is Kerala's biggest cultural festival, celebrated across the state by over 25–30 million people, with millions of residents, tourists, and NRIs participating in the festivities. AbyBaby Events brings your brand into the heart of the celebration through festival gates, thematic tunnels, outdoor branding, billboards, premium stalls, experiential engagement zones, and interactive consumer activations at key Onam destinations. We transform traditional celebrations into immersive brand experiences that create lasting consumer connections and powerful regional impact.",
+  },
+  {
+    id: 16,
+    name: "DURGA PUJA BRANDING CAMPAIGN",
+    status: "upcoming",
+    type: "Branding Campaign",
+    image: durgaPuja1,
+    modalImage: durgaPuja1,
+    date: "TBD",
+    location: "TBD",
+    attendees: "TBD",
+    description:
+      "Every year, Kolkata transforms into the world's largest open-air celebration, attracting 10–12 million visitors across more than 3,000 community pujas over five days. AbyBaby Events seamlessly integrates your brand into this massive cultural phenomenon through premium entry gates, branded tunnels, hoardings, billboards, immersive stalls, interactive engagement zones, and experiential brand installations. We create meaningful consumer touchpoints that turn festival crowds into memorable brand experiences, delivering unmatched visibility, engagement, and recall.",
   },
 ];
