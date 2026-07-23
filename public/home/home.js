@@ -760,7 +760,7 @@ export const feedPosts = [
   {
     id: 10,
     client: clients[10],
-    name: "Tata Yoddha",
+    name: "LAGISAARTH Challenge – Tata Yodha, The Beast of the Hills",
     location: "Kolkata,India",
     category: "Events ",
     media: [{ type: "video", url: tataYoddhaVdo, poster: tataYoddhaImage }],
