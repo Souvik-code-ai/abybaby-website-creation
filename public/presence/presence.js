@@ -67,9 +67,10 @@ export const LOCATIONS = [
   },
   {
     id: 5,
-    city: "Bhubaneswar",
-    state: "Odisha",
-    address: "Puri-Cuttack Road, Laxmisagar, Bhubaneswar 751006",
+    city: "Ranchi",
+    state: "Jharkhand",
+    address: "Ranchi Office",
+
     lat: 20.268402,
     lng: 85.848254,
     left: 59.2,
@@ -95,9 +96,9 @@ export const LOCATIONS = [
   },
   {
     id: 7,
-    city: "Ranchi",
-    state: "Jharkhand",
-    address: "Ranchi Office",
+    city: "Bhubaneswar",
+    state: "Odisha",
+    address: "Puri-Cuttack Road, Laxmisagar, Bhubaneswar 751006",
     lat: 23.396207,
     lng: 85.344595,
     left: 58.7,

@@ -101,7 +101,9 @@ export function EventsSection({ onNavigate }) {
   // until the tab is changed again. A callback ref can't race like that —
   // it only ever fires when the DOM node itself actually mounts/unmounts.
   const loaderRef = useCallback((node) => {
+    console.log(node);
     if (observerInstanceRef.current) {
+      console.log("observer value", observerInstanceRef?.current);
       observerInstanceRef.current.disconnect();
       observerInstanceRef.current = null;
     }
@@ -110,6 +112,7 @@ export function EventsSection({ onNavigate }) {
 
     observerInstanceRef.current = new IntersectionObserver(
       (entries) => {
+        console.log(entries);
         if (entries[0].isIntersecting) {
           setVisibleCount((prev) => prev + ITEMS_PER_PAGE);
         }
