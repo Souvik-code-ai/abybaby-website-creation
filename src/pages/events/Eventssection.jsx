@@ -79,15 +79,50 @@ function RegistrationModal({ event, onClose }) {
     phone: "",
     purpose: "",
   });
+  const [errors, setErrors] = useState({});
   const [submitting, setSubmitting] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
+    // Phone: only allow digits, cap at 10 as the user types
+    if (name === "phone") {
+      const digitsOnly = value.replace(/\D/g, "").slice(0, 10);
+      setFormData((prev) => ({ ...prev, phone: digitsOnly }));
+      return;
+    }
+
     setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const validate = () => {
+    const nextErrors = {};
+
+    if (!formData.name.trim()) {
+      nextErrors.name = "Name is required.";
+    }
+
+    if (!formData.email.includes("@")) {
+      nextErrors.email = "Enter a valid email with an @.";
+    }
+
+    if (!/^\d{10}$/.test(formData.phone)) {
+      nextErrors.phone = "Phone number must be exactly 10 digits.";
+    }
+
+    if (!formData.purpose.trim()) {
+      nextErrors.purpose = "Please share your purpose.";
+    }
+
+    setErrors(nextErrors);
+    return Object.keys(nextErrors).length === 0;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!validate()) return;
+
     setSubmitting(true);
     try {
       await fetch(GOOGLE_SCRIPT_URL, {
@@ -108,6 +143,7 @@ function RegistrationModal({ event, onClose }) {
         phone: "",
         purpose: "",
       });
+      setErrors({});
       onClose();
     } catch (error) {
       console.error(error);
@@ -148,7 +184,11 @@ function RegistrationModal({ event, onClose }) {
           Fill in your details and we'll get back to you.
         </p>
 
-        <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+        <form
+          onSubmit={handleSubmit}
+          noValidate
+          className="flex flex-col gap-3"
+        >
           <div>
             <label
               className="block text-[13px] text-gray-600 mb-1"
@@ -164,8 +204,13 @@ function RegistrationModal({ event, onClose }) {
               value={formData.name}
               onChange={handleChange}
               placeholder="Your full name"
-              className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm outline-none focus:border-lime-600"
+              className={`w-full rounded-lg border px-3 py-2 text-sm outline-none focus:border-lime-600 ${
+                errors.name ? "border-red-400" : "border-gray-200"
+              }`}
             />
+            {errors.name && (
+              <p className="text-red-500 text-[12px] mt-1">{errors.name}</p>
+            )}
           </div>
 
           <div>
@@ -183,8 +228,13 @@ function RegistrationModal({ event, onClose }) {
               value={formData.email}
               onChange={handleChange}
               placeholder="you@example.com"
-              className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm outline-none focus:border-lime-600"
+              className={`w-full rounded-lg border px-3 py-2 text-sm outline-none focus:border-lime-600 ${
+                errors.email ? "border-red-400" : "border-gray-200"
+              }`}
             />
+            {errors.email && (
+              <p className="text-red-500 text-[12px] mt-1">{errors.email}</p>
+            )}
           </div>
 
           <div>
@@ -198,12 +248,20 @@ function RegistrationModal({ event, onClose }) {
               id="reg-phone"
               name="phone"
               type="tel"
+              inputMode="numeric"
               required
+              minLength={10}
+              maxLength={10}
               value={formData.phone}
               onChange={handleChange}
-              placeholder="Your phone number"
-              className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm outline-none focus:border-lime-600"
+              placeholder="10-digit mobile number"
+              className={`w-full rounded-lg border px-3 py-2 text-sm outline-none focus:border-lime-600 ${
+                errors.phone ? "border-red-400" : "border-gray-200"
+              }`}
             />
+            {errors.phone && (
+              <p className="text-red-500 text-[12px] mt-1">{errors.phone}</p>
+            )}
           </div>
 
           <div>
@@ -221,8 +279,13 @@ function RegistrationModal({ event, onClose }) {
               value={formData.purpose}
               onChange={handleChange}
               placeholder="Why do you want to attend?"
-              className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm outline-none focus:border-lime-600 resize-none"
+              className={`w-full rounded-lg border px-3 py-2 text-sm outline-none focus:border-lime-600 resize-none ${
+                errors.purpose ? "border-red-400" : "border-gray-200"
+              }`}
             />
+            {errors.purpose && (
+              <p className="text-red-500 text-[12px] mt-1">{errors.purpose}</p>
+            )}
           </div>
 
           <button
@@ -265,14 +328,6 @@ export function EventsSection({ onNavigate }) {
   const upcoming = EVENTS.filter((e) => e.status === "upcoming");
   const expired = EVENTS.filter((e) => e.status === "expired");
 
-  // ✅ Callback ref instead of useRef + useEffect([activeTab]).
-  // AnimatePresence (mode="wait") unmounts the previous tab's loader div
-  // (firing this with node=null) before the new tab's loader div mounts
-  // (firing this again with the new node). A plain useEffect tied to
-  // [activeTab] can run *before* that new node exists, silently skipping
-  // observer.observe() and leaving infinite scroll permanently broken
-  // until the tab is changed again. A callback ref can't race like that —
-  // it only ever fires when the DOM node itself actually mounts/unmounts.
   const loaderRef = useCallback((node) => {
     if (observerInstanceRef.current) {
       observerInstanceRef.current.disconnect();
