@@ -158,7 +158,7 @@ export function DigitalSection({ onNavigate }) {
       </div>
 
       {/* Modal */}
-      <AnimatePresence>
+      {/* <AnimatePresence>
         {selectedProject && (
           <motion.div
             initial={{ opacity: 0 }}
@@ -224,7 +224,7 @@ export function DigitalSection({ onNavigate }) {
             </motion.div>
           </motion.div>
         )}
-      </AnimatePresence>
+      </AnimatePresence> */}
     </>
   );
 }

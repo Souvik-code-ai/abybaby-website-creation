@@ -35,7 +35,7 @@ export default function GridCell({ item, onClick }) {
           // No native `controls` — this is a preview thumbnail only.
           // pointer-events-none guarantees every tap/click on the tile
           // always reaches the wrapping div's onClick above.
-          className="w-full h-full object-cover bg-black pointer-events-none"
+          className="w-full h-full object-cover bg-black pointer-events-none "
         />
       ) : (
         <img

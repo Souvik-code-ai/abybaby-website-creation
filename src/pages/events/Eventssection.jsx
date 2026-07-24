@@ -508,7 +508,13 @@ export function EventsSection({ onNavigate }) {
               {(selectedEvent.features?.length > 0 ||
                 (selectedEvent.status === "upcoming" &&
                   selectedEvent?.description)) && (
-                <div className="absolute bottom-8 md:left-8 max-w-md left-3.5 hidden sm:block">
+                <div
+                  className={`absolute bottom-8 md:left-8 left-3.5 hidden sm:block ${
+                    selectedEvent.status === "upcoming"
+                      ? "max-w-md md:max-w-5xl "
+                      : "max-w-md"
+                  }`}
+                >
                   <div className="bg-black/40 backdrop-blur-lg border border-white/20 rounded-2xl p-6">
                     {/* Feature bullets — any event that has them */}
                     {selectedEvent.features?.length > 0 && (
@@ -547,7 +553,7 @@ export function EventsSection({ onNavigate }) {
                     {selectedEvent.status === "upcoming" && (
                       <button
                         onClick={() => setShowRegistration(true)}
-                        className="mt-5 px-5 py-2.5 rounded-full bg-linear-to-r from-lime-800 to-lime-600 text-white text-sm font-medium cursor-pointer hover:bg-[#245c3a]"
+                        className="mt-1 px-5 py-2.5 rounded-full bg-linear-to-r from-lime-800 to-lime-600 text-white text-sm font-medium cursor-pointer hover:bg-[#245c3a]"
                       >
                         Call to action
                       </button>

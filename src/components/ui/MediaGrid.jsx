@@ -94,7 +94,7 @@ export default function MediaGrid() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -6 }}
           transition={{ duration: 0.18 }}
-          className="grid grid-cols-3 gap-[3px] px-0 pb-2"
+          className="grid grid-cols-4 gap-[3px] px-0 pb-2"
         >
           {items.map((item, i) => (
             <motion.div

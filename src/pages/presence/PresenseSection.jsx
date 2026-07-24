@@ -19,6 +19,7 @@ import {
   Phone,
   Mail,
   ArrowLeft,
+  ArrowRight,
 } from "lucide-react";
 import { LocationsMap } from "./LocationsMap";
 // ---------- FullscreenModal ----------
@@ -34,7 +35,7 @@ import SidePanel from "../../components/ui/SidePanel";
 export function PresenceSection({ onNavigate, open, setOpen }) {
   const [activeId, setActiveId] = useState(null);
   return (
-    <div className="flex flex-col pb-12 px-4 pt-4 w-[100%] min-[1160px]:mx-50 min-[770px]:mx-16 mx-0">
+    <div className="flex flex-col pb-12 px-4 pt-4 w-[100%] min-[1160px]:mx-50 min-[770px]:mx-16 mx-0 ">
       {/* Back button */}
       <Link
         to="/"
@@ -61,11 +62,28 @@ export function PresenceSection({ onNavigate, open, setOpen }) {
       </div>
 
       {/* Map Display*/}
-      <div className="px-4 mb-10  ">
+      <div className="px-4 ">
         <LocationsMap activeId={activeId} onSelect={setActiveId} />
       </div>
-
+      <div className="flex flex-col items-center py-8 gap-2">
+        <div className="rounded-full flex items-center justify-center w-12 h-12 bg-gradient-to-br from-[#d4456a] to-[#f9a8c9]">
+          <img src={logo} alt="" />
+        </div>
+        <p className="text-[13px] text-[#8e8e93] text-center">
+          You've seen all recent presence.
+          <br />
+        </p>
+        <Link
+          to={"/profile"}
+          className="mt-0 flex items-center gap-2 font-base flex-row justify-center cursor-pointer text-[#579F63]"
+        >
+          Explore More
+          <ArrowRight size={16} />
+        </Link>
+      </div>
+      {/*here is a large gap at the end of presence section why? */}
       {/* Location cards */}
     </div>
   );
 }
+//

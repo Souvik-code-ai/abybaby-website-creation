@@ -202,7 +202,7 @@ export function ExhibitionSection({ onNavigate }) {
               <img
                 src={selectedExhibition.modalImage}
                 alt={selectedExhibition.name}
-                className="w-full h-full object-cover"
+                className={`w-full h-full object-contain`}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
               <div className="absolute sm:top-8 sm:left-8 left-4 top-[90vh]">

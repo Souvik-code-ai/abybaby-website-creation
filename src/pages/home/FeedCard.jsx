@@ -127,7 +127,7 @@ export function FeedCard({ post }) {
     <>
       <article
         ref={containerRef}
-        className="bg-white rounded-2xl overflow-hidden w-full max-w-[460px] mx-auto"
+        className="bg-white rounded-2xl overflow-hidden w-full max-w-[500px] mx-auto"
       >
         {/* Header */}
         <div

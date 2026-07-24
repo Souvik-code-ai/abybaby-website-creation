@@ -40,7 +40,6 @@ export function Sidebar({ activeSection, onNavigate, onMoreClick }) {
   const [expanded, setExpanded] = useState(false);
   const location = useLocation();
   const isPathActive = (path) => location.pathname === path;
-
   return (
     <motion.aside
       onHoverStart={() => setExpanded(true)}

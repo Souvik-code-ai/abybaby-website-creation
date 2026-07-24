@@ -51,8 +51,10 @@ export default function App() {
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
   const location = useLocation();
+
   useEffect(() => {
     const checkSize = () => {
+      console.log(isMobile, +window.innerHeight, +window.innerWidth);
       setIsMobile(window.innerWidth < 770);
       setIsTablet(window.innerWidth < 1160);
     };
@@ -99,7 +101,7 @@ export default function App() {
       )}
 
       {/* Desktop/Tablet Left Sidebar */}
-      {!isMobile && (
+      {!isMobile ? (
         <Sidebar
           activeSection={activeSection}
           onNavigate={(section) => {
@@ -110,6 +112,11 @@ export default function App() {
             handleNavigate(section);
           }}
           onMoreClick={() => setMoreModalOpen(true)}
+        />
+      ) : (
+        <MobileBottomNav
+          activeSection={activeSection}
+          onNavigate={handleNavigate}
         />
       )}
 
@@ -255,12 +262,12 @@ export default function App() {
       />
 
       {/* Mobile Bottom Nav */}
-      {isMobile && (
+      {/* {isMobile && (
         <MobileBottomNav
           activeSection={activeSection}
           onNavigate={handleNavigate}
         />
-      )}
+      )} */}
 
       {/* Chatbot / Contact Widget (desktop only) */}
       {!isMobile && (

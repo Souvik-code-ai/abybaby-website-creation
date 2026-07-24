@@ -283,7 +283,7 @@ export function ActivationSection({ onNavigate }) {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.4 }}
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="absolute inset-0 w-full h-full object-contain"
                 />
               </AnimatePresence>
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-black/30" />
@@ -292,7 +292,7 @@ export function ActivationSection({ onNavigate }) {
               {!isMobile && (
                 <button
                   onClick={goPrevImage}
-                  className="hidden sm:flex absolute left-6 top-1/2 -translate-y-1/2 sm:w-14 sm:h-14 rounded-full z-50 bg-black/40 backdrop-blur-md text-white text-3xl items-center justify-center hover:bg-black/60 transition h-10 w-10 cursor-pointer"
+                  className="hidden sm:flex absolute left-2 top-1/2 -translate-y-1/2 sm:w-14 sm:h-14 rounded-full z-50 bg-black/40 backdrop-blur-md text-white text-3xl items-center justify-center hover:bg-black/60 transition h-10 w-10 cursor-pointer"
                 >
                   ❮
                 </button>
@@ -302,7 +302,7 @@ export function ActivationSection({ onNavigate }) {
               {!isMobile && (
                 <button
                   onClick={goNextImage}
-                  className="hidden sm:flex absolute right-6 top-1/2 -translate-y-1/2 z-50 sm:w-14 sm:h-14 rounded-full bg-black/40 backdrop-blur-md text-white text-3xl items-center justify-center hover:bg-black/60 transition h-10 w-10 cursor-pointer"
+                  className="hidden sm:flex absolute right-2 top-1/2 -translate-y-1/2 z-50 sm:w-14 sm:h-14 rounded-full bg-black/40 backdrop-blur-md text-white text-3xl items-center justify-center hover:bg-black/60 transition h-10 w-10 cursor-pointer"
                 >
                   ❯
                 </button>
@@ -330,17 +330,17 @@ export function ActivationSection({ onNavigate }) {
                   {selectedActivation.audience}
                 </h3>
               </div>
-              <div className="absolute bottom-8 md:right-8 w-[320px] backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl p-6 right-1 hidden sm:block">
+              <div className="absolute bottom-6 md:right-10 w-[280px] backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl p-6 right-1 hidden sm:block">
                 <h4 className="text-white font-semibold mb-4 font-sans">
                   Activation Highlights
                 </h4>
-                <div className="space-y-3">
+                <div className="space-y-1">
                   {selectedActivation.highlights.map((highlight) => (
                     <div
                       key={highlight}
-                      className="flex items-center gap-3 text-white"
+                      className="flex items-center gap-2 text-white"
                     >
-                      <span className="w-2 h-2 rounded-full bg-lime-400" />
+                      <span className="w-2 h-2 rounded-full bg-lime-400 " />
                       {highlight}
                     </div>
                   ))}

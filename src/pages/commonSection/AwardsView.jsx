@@ -198,205 +198,219 @@
 //     </>
 //   );
 // }
-import { useEffect, useRef, useState } from "react";
-import { ArrowLeft, MapPin, Calendar, Trophy } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ArrowLeft, Calendar, MapPin, Trophy } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { Link } from "react-router-dom";
 import { AWARDS } from "../../../public/awards/awards";
 import AwardsSidebarCarousel from "../../components/ui/AwardsSidebarCarousel";
-// ── Sidebar Carousel (identical mechanics to CaseStudiesView) ─────────────────
-
-// ── Main component ────────────────────────────────────────────────────────────
 
 export function AwardsView({ onNavigate }) {
   const [activeId, setActiveId] = useState(1);
+
   const award = AWARDS.find((a) => a.id === activeId);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   }, [activeId]);
 
   return (
-    <>
-      {" "}
-      <div className="flex flex-col pb-12 px-4 pt-4 w-[100%] min-[1160px]:mx-50 min-[770px]:mx-16 mx-0">
-        {/* Back button */}
-        <Link
-          to={"/"}
-          onClick={() => onNavigate("home")}
-          className="mt-0 flex items-center gap-2 font-base flex-row justify-start cursor-pointer px-2 mb-4 text-[#579F63]"
-        >
-          <ArrowLeft size={16} />
-          Return back
-        </Link>
+    <div className="flex flex-col pb-12 px-4 pt-4 w-[100%] min-[1160px]:mx-50 min-[770px]:mx-16 mx-0">
+      {/* Back button */}
+      <Link
+        to="/"
+        onClick={() => onNavigate("home")}
+        className="mt-0 flex items-center gap-2 font-base flex-row justify-start cursor-pointer px-2 mb-4 text-[#579F63]"
+      >
+        <ArrowLeft size={16} />
+        Return back
+      </Link>
 
-        {/* Page label */}
-        <div className="px-4 mb-2">
-          <div className="inline-block rounded-full bg-[rgba(87,159,99,0.12)] text-[#3d7a4a] text-[11px] font-semibold px-3 py-[3px]">
-            Awards & Recognition
-          </div>
+      {/* Page label */}
+      <div className="px-4 mb-2">
+        <div className="inline-block rounded-full bg-[rgba(87,159,99,0.12)] text-[#3d7a4a] text-[11px] font-semibold px-3 py-[3px]">
+          Awards & Recognition
         </div>
+      </div>
 
-        {/* Two-column layout on desktop, stacked on mobile */}
-        <div className="flex flex-col min-[770px]:flex-row gap-5">
-          {/* ── LEFT: Main content ── */}
-          <div className="flex flex-col px-4 flex-1 min-w-0">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeId}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.28 }}
-                className="flex flex-col gap-4"
-              >
-                {/* Category + Title */}
-                <div>
-                  <div className="text-[11px] font-semibold text-[#579F63] uppercase tracking-[0.06em] mb-1.5">
-                    {award.category}
-                  </div>
-                  <h1 className="font-[family-name:var(--font-family-body)] text-[color:var(--foreground)] text-[18px] font-bold leading-[1.3] m-0 mb-[10px]">
-                    {award.title}
-                  </h1>
-
-                  {/* Meta row */}
-                  <div className="flex flex-wrap gap-4">
-                    {[
-                      { icon: <Trophy size={11} />, label: award.issuedBy },
-                      { icon: <MapPin size={11} />, label: award.location },
-                      {
-                        icon: <Calendar size={11} />,
-                        label: String(award.year),
-                      },
-                    ].map(({ icon, label }) => (
-                      <div
-                        key={label}
-                        className="flex items-center gap-1 text-[11px] text-[color:var(--muted-foreground)]"
-                      >
-                        <span className="text-[#579F63]">{icon}</span>
-                        {label}
-                      </div>
-                    ))}
-                  </div>
+      {/* Two-column layout on desktop, stacked on mobile */}
+      <div className="flex flex-col min-[770px]:flex-row gap-3">
+        {/* LEFT: Main content */}
+        <div className="flex flex-col px-0 flex-1 min-w-0">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeId}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.28 }}
+              className="flex flex-col gap-4"
+            >
+              {/* Category + Title */}
+              <div>
+                <div className="text-[11px] font-semibold text-[#579F63] uppercase tracking-[0.06em] mb-1.5">
+                  {award.category}
                 </div>
 
-                {/* Hero image */}
-                <div className="rounded-xl overflow-hidden w-full aspect-auto">
-                  <img
-                    src={award.heroImage}
-                    alt={award.title}
-                    className="h-full w-full block object-cover"
-                  />
-                </div>
+                <h1 className="font-[family-name:var(--font-family-body)] text-[color:var(--foreground)] text-[18px] font-bold leading-[1.3] m-0 mb-[10px]">
+                  {award.title}
+                </h1>
 
-                {/* Summary */}
-                <div className="rounded-xl p-4 bg-[rgba(87,159,99,0.05)] border-[0.5px] border-[rgba(87,159,99,0.25)]">
-                  <p className="text-[13px] font-medium text-[color:var(--foreground)] leading-[1.65] m-0">
-                    {award.summary}
-                  </p>
-                </div>
-
-                {/* Body paragraphs */}
-                <div className="flex flex-col gap-4">
-                  {award.body.map((block, i) => (
-                    <div key={i}>
-                      <p className="text-[13px] text-[color:var(--muted-foreground)] leading-[1.8] m-0 mb-[10px]">
-                        {block.text}
-                      </p>
-                      {block.image && (
-                        <div className="rounded-xl overflow-hidden mb-1">
-                          <img
-                            src={block.image}
-                            alt={block.imageCaption ?? ""}
-                            className="w-full aspect-auto object-cover block"
-                          />
-                          {block.imageCaption && (
-                            <div className="text-[11px] text-[color:var(--muted-foreground)] pt-1.5 px-1 pb-0 italic">
-                              {block.imageCaption}
-                            </div>
-                          )}
-                        </div>
-                      )}
+                {/* Meta row */}
+                <div className="flex flex-wrap gap-4">
+                  {[
+                    {
+                      icon: <Trophy size={11} />,
+                      label: award.issuedBy,
+                    },
+                    {
+                      icon: <MapPin size={11} />,
+                      label: award.location,
+                    },
+                    {
+                      icon: <Calendar size={11} />,
+                      label: String(award.year),
+                    },
+                  ].map(({ icon, label }) => (
+                    <div
+                      key={label}
+                      className="flex items-center gap-1 text-[11px] text-[color:var(--muted-foreground)]"
+                    >
+                      <span className="text-[#579F63]">{icon}</span>
+                      {label}
                     </div>
                   ))}
                 </div>
+              </div>
 
-                {/* Gallery grid */}
-                <div>
-                  <div className="text-[11px] font-semibold text-[#579F63] uppercase tracking-[0.06em] mb-2">
-                    Gallery
-                  </div>
-                  <div className="grid grid-cols-3 gap-1.5">
-                    {award.inlineImages?.map((img, i) => (
-                      <div key={i} className="rounded-xl overflow-hidden">
+              {/* Hero image */}
+              <div className="rounded-xl overflow-hidden w-full aspect-auto">
+                <img
+                  src={award.heroImage}
+                  alt={award.title}
+                  className="h-full w-full object-cover block"
+                />
+              </div>
+
+              {/* Summary */}
+              <div className="rounded-xl p-4 bg-[rgba(87,159,99,0.05)] border-[0.5px] border-[rgba(87,159,99,0.25)]">
+                <p className="text-[13px] font-medium text-[color:var(--foreground)] leading-[1.65] m-0">
+                  {award.summary}
+                </p>
+              </div>
+
+              {/* Body paragraphs */}
+              <div className="flex flex-col gap-4">
+                {award.body.map((block, i) => (
+                  <div key={i}>
+                    <p className="text-[13px] text-[color:var(--muted-foreground)] leading-[1.8] m-0 mb-[10px]">
+                      {block.text}
+                    </p>
+
+                    {block.image && (
+                      <div className="rounded-xl overflow-hidden mb-1">
                         <img
-                          src={img.src}
-                          alt={img.caption}
-                          className="w-full aspect-[4/3] object-cover block"
+                          src={block.image}
+                          alt={block.imageCaption ?? ""}
+                          className="w-full aspect-auto object-cover block"
                         />
-                        <div className="text-[10px] text-[color:var(--muted-foreground)] pt-1 px-0.5 pb-0 text-center">
-                          {img.caption}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
 
-          {/* ── RIGHT (desktop) / BELOW (mobile): Sidebar carousel ── */}
-          <div className="w-full min-[770px]:w-[180px] min-[770px]:shrink-0 px-4 min-[770px]:px-0 mt-2 min-[770px]:mt-0">
-            <AwardsSidebarCarousel
-              awards={AWARDS}
-              activeId={activeId}
-              onSelect={setActiveId}
-            />
-          </div>
+                        {block.imageCaption && (
+                          <div className="text-[11px] text-[color:var(--muted-foreground)] pt-1.5 px-1 pb-0 italic">
+                            {block.imageCaption}
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+
+              {/* Gallery */}
+              <div>
+                <div className="text-[11px] font-semibold text-[#579F63] uppercase tracking-[0.06em] mb-2">
+                  Gallery
+                </div>
+
+                <div className="grid grid-cols-3 gap-1.5">
+                  {award.inlineImages?.map((img, i) => (
+                    <div key={i} className="rounded-xl overflow-hidden">
+                      <img
+                        src={img.src}
+                        alt={img.caption}
+                        className="w-full aspect-[4/3] object-cover block"
+                      />
+
+                      <div className="text-[10px] text-[color:var(--muted-foreground)] pt-1 px-0.5 pb-0 text-center">
+                        {img.caption}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
         </div>
 
-        {/* Footer */}
-        <footer className="pt-2 pb-2 flex flex-col justify-center items-start px-4 flex-wrap">
-          <div className="flex flex-wrap gap-x-3 gap-y-2 justify-center">
-            {[
-              { title: "Home", link: "home", path: "/" },
-              { title: "About", link: "about", path: "/about" },
-              { title: "Profile", link: "profile", path: "/profile" },
-              {
-                title: "Privacy Policy",
-                link: "privacypolicy",
-                path: "/privacypolicy",
-              },
-              {
-                title: "Data Privacy ",
-                link: "dataprivacy",
-                path: "/dataprivacy",
-              },
-              { title: "Terms & Conditions ", link: "terms", path: "/terms" },
-            ].map((item) => (
-              <Link
-                to={item.path}
-                key={item.title}
-                onClick={() => onNavigate(item.link)}
-                className="text-[11px] text-[color:var(--muted-foreground)] no-underline font-[family-name:var(--font-family-body)] transition-colors duration-150 cursor-pointer"
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.color = "var(--foreground)")
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.color = "var(--muted-foreground)")
-                }
-              >
-                {item.title}
-              </Link>
-            ))}
-          </div>
-          <div className="flex flex-row items-center min-[770px]:justify-start w-full justify-center">
-            <p className="text-[11px] text-[color:var(--muted-foreground)] opacity-60 mt-3 font-[family-name:var(--font-family-body)] ">
-              © 2026 Abybaby Events. All rights reserved.
-            </p>
-          </div>
-        </footer>
+        {/* RIGHT on desktop / BELOW on mobile */}
+        <div className="w-full min-[770px]:w-[140px] min-[770px]:shrink-0 px-4 min-[770px]:px-0 mt-2 min-[770px]:mt-0">
+          <AwardsSidebarCarousel
+            awards={AWARDS}
+            activeId={activeId}
+            onSelect={setActiveId}
+          />
+        </div>
       </div>
-    </>
+
+      {/* Footer */}
+      <footer className="pt-8 pb-2 flex flex-col justify-center items-start px-4 flex-wrap">
+        <div className="flex flex-wrap gap-x-3 gap-y-2 justify-center">
+          {[
+            { title: "Home", link: "home", path: "/" },
+            { title: "About", link: "about", path: "/about" },
+            { title: "Profile", link: "profile", path: "/profile" },
+            {
+              title: "Privacy Policy",
+              link: "privacypolicy",
+              path: "/privacypolicy",
+            },
+            {
+              title: "Data Privacy",
+              link: "dataprivacy",
+              path: "/dataprivacy",
+            },
+            {
+              title: "Terms & Conditions",
+              link: "terms",
+              path: "/terms",
+            },
+          ].map((item) => (
+            <Link
+              to={item.path}
+              key={item.title}
+              onClick={() => onNavigate(item.link)}
+              className="text-[11px] text-[color:var(--muted-foreground)] no-underline font-[family-name:var(--font-family-body)] transition-colors duration-150 cursor-pointer"
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.color = "var(--foreground)")
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.color = "var(--muted-foreground)")
+              }
+            >
+              {item.title}
+            </Link>
+          ))}
+        </div>
+
+        <div className="flex flex-row items-center min-[770px]:justify-start w-full justify-center">
+          <p className="text-[11px] text-[color:var(--muted-foreground)] opacity-60 mt-3 font-[family-name:var(--font-family-body)]">
+            © 2026 Abybaby Events. All rights reserved.
+          </p>
+        </div>
+      </footer>
+    </div>
   );
 }

@@ -249,7 +249,12 @@ export function ProfileView({ onNavigate }) {
       </div>
 
       {/* ── Media grid (Posts / Reels / Images) ── */}
-      <MediaGrid />
+      {/* ── Media grid (Posts / Reels / Images) ── */}
+
+      <div className="min-[1160px]:-mx-[216px] min-[770px]:-mx-20 -mx-4">
+        <MediaGrid />
+      </div>
+
       <footer className="pt-2 pb-6 flex flex-col justify-center items-center ">
         <div className="flex flex-col items-center py-8 gap-2">
           <div className="rounded-full flex items-center justify-center w-12 h-12 bg-[linear-gradient(135deg,#65A30D_0%,#A3E635_100%)]">

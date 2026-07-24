@@ -105,7 +105,7 @@ export function LocationsMap({ activeId: activeIdProp, onSelect } = {}) {
   };
 
   return (
-    <div className="relative w-full">
+    <div className="relative w-full ">
       {/* Inner wrapper: the actual map, capped at 720px and centered */}
       <div
         ref={mapWrapRef}

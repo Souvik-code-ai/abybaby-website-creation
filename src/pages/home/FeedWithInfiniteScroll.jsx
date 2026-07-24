@@ -51,25 +51,39 @@ export default function FeedWithInfiniteScroll({ onNavigate, logo }) {
           {isLoading && (
             <>
               {/* Skeleton cards while loading */}
+              {/* Skeleton cards — mirrors FeedCard's actual layout */}
               {Array.from({ length: FEED_PAGE_SIZE }).map((_, i) => (
                 <div
                   key={i}
-                  className="max-w-[460px] rounded-2xl overflow-hidden bg-white border border-[#f0f0f5]"
+                  className="bg-white rounded-2xl overflow-hidden w-full max-w-[500px] mx-auto"
                 >
-                  {/* Header skeleton */}
-                  <div className="flex items-center gap-3 p-3">
-                    <div className="rounded-full shrink-0 w-[42px] h-[42px] bg-[#f0f0f5] animate-pulse" />
-                    <div className="flex flex-col gap-2 flex-1">
-                      <div className="h-3 w-2/5 rounded-md bg-[#f0f0f5] animate-pulse" />
-                      <div className="h-2.5 w-1/4 rounded-md bg-[#f5f5f7] animate-pulse [animation-delay:0.2s]" />
+                  {/* Header skeleton — avatar + name + location, matches FeedCard's header row */}
+                  <div className="flex items-center justify-between px-0 py-3">
+                    <div className="flex items-center gap-3">
+                      <div className="rounded-full shrink-0 overflow-hidden w-[42px] h-[42px] bg-[#f0f0f5] animate-pulse" />
+                      <div className="flex flex-col gap-1.5">
+                        <div className="h-3 w-28 rounded-md bg-[#f0f0f5] animate-pulse" />
+                        <div className="h-2.5 w-20 rounded-md bg-[#f5f5f7] animate-pulse [animation-delay:0.2s]" />
+                      </div>
                     </div>
                   </div>
-                  {/* Image skeleton */}
-                  <div className="aspect-square bg-[#f5f5f7] animate-pulse [animation-delay:0.1s]" />
-                  {/* Caption skeleton */}
-                  <div className="p-3 flex flex-col gap-2">
-                    <div className="h-[11px] w-4/5 rounded-md bg-[#f0f0f5] animate-pulse" />
-                    <div className="h-[11px] w-[55%] rounded-md bg-[#f5f5f7] animate-pulse [animation-delay:0.15s]" />
+
+                  {/* Media skeleton — same aspect-square as the real media block */}
+                  <div className="relative overflow-hidden rounded-md bg-[#f5f5f7] aspect-square animate-pulse [animation-delay:0.1s]">
+                    {/* Category tag placeholder */}
+                    <div className="absolute top-3 right-3 w-16 h-[22px] rounded-full bg-[rgba(0,0,0,0.08)]" />
+                  </div>
+
+                  {/* Actions skeleton — heart + link icon row */}
+                  <div className="px-0 pt-3 pb-1 flex items-center gap-4">
+                    <div className="w-6 h-6 rounded-full bg-[#f0f0f5] animate-pulse" />
+                    <div className="w-[22px] h-[22px] rounded-full bg-[#f0f0f5] animate-pulse [animation-delay:0.1s]" />
+                  </div>
+
+                  {/* Caption skeleton — two lines, matches line-clamp-2 caption */}
+                  <div className="px-0 pb-4 flex flex-col gap-2">
+                    <div className="h-3 w-full rounded-md bg-[#f0f0f5] animate-pulse" />
+                    <div className="h-3 w-3/5 rounded-md bg-[#f5f5f7] animate-pulse [animation-delay:0.15s]" />
                   </div>
                 </div>
               ))}
