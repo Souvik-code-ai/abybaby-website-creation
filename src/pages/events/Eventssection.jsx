@@ -261,7 +261,7 @@ export function EventsSection({ onNavigate }) {
       top: 0,
       behavior: "smooth", // use "auto" for instant jump
     });
-  }, []);
+  }, [activeTab]);
   const upcoming = EVENTS.filter((e) => e.status === "upcoming");
   const expired = EVENTS.filter((e) => e.status === "expired");
 
