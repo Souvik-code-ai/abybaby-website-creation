@@ -64,7 +64,7 @@ export function ChatbotWidget({ isOpen = false, onClose }) {
   ];
 
   return (
-    <div className="fixed bottom-6 right-20 z-[70] flex flex-col items-end gap-2">
+    <div className="fixed bottom-6 right-6 z-[70] flex flex-col items-end gap-2">
       {/* Contact modal */}
       <AnimatePresence>
         {open && (

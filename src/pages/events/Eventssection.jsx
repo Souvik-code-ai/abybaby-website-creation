@@ -63,7 +63,9 @@ function EventCard({ event, showType, onHover, onLeave, onClick }) {
       {/* Info */}
       <div className="p-4">
         <h3 className="font-semibold text-gray-900 leading-snug line-clamp-1 font-sans text-[15px]">
-          {event.name}
+          {event.status === "upcoming"
+            ? event.name.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase())
+            : event.name}
         </h3>
 
         <div className="mt-3 flex flex-col gap-1.5">
@@ -315,7 +317,7 @@ function RegistrationModal({ event, onClose }) {
           <button
             type="submit"
             disabled={submitting}
-            className="mt-2 w-full rounded-full bg-linear-to-r from-lime-800 to-lime-600 text-white text-sm font-medium py-2.5 cursor-pointer disabled:opacity-60"
+            className="mt-2 w-full rounded-full bg-linear-to-r from-lime-800 via-lime-600 to-lime-400 text-white text-sm font-medium py-2.5 cursor-pointer disabled:opacity-60 hover:to-lime-600 hover:via-lime-800"
           >
             {submitting ? "Submitting..." : "Submit"}
           </button>
@@ -405,7 +407,7 @@ export function EventsSection({ onNavigate }) {
             <button
               key={tab.key}
               onClick={() => setActiveTab(tab.key)}
-              className={`px-4 py-1.5 rounded-full transition-all text-sm md:font-medium font-sm ${activeTab === tab.key ? "bg-[#2C7048] text-white border-none" : "bg-transparent text-[#8e8e93] border border-[#e5e5ea]"}`}
+              className={`px-4 py-1.5 rounded-full transition-all text-sm md:font-medium font-sm ${activeTab === tab.key ? "bg-linear-to-r from-lime-600 to-lime-400 text-white border-none" : "bg-transparent text-[#8e8e93] border border-[#e5e5ea]"} hover:from-lime-800 hover:to-lime-600`}
             >
               {tab.label}
             </button>
@@ -556,7 +558,7 @@ export function EventsSection({ onNavigate }) {
                     (selectedEvent.status === "upcoming" &&
                       selectedEvent?.description)) && (
                     <div
-                      className={`absolute bottom-8 md:left-8 left-3.5 hidden sm:block ${
+                      className={`absolute bottom-6 md:left-8 left-3.5 hidden sm:block ${
                         selectedEvent.status === "upcoming"
                           ? "max-w-md md:max-w-[68rem] "
                           : "max-w-md"
@@ -567,7 +569,7 @@ export function EventsSection({ onNavigate }) {
                         {selectedEvent.status === "upcoming" && (
                           <button
                             onClick={() => setShowRegistration(true)}
-                            className="absolute top-3 right-3 px-5 py-2 rounded-full bg-linear-to-r from-lime-800 to-lime-600 text-white text-xs font-medium cursor-pointer hover:bg-[#245c3a] z-10"
+                            className="absolute top-3 right-4 px-5 py-2 rounded-full bg-linear-to-r from-lime-800 to-lime-600 text-white text-xs font-medium cursor-pointer hover:bg-[#245c3a] z-10"
                           >
                             Call to action
                           </button>
@@ -600,7 +602,7 @@ export function EventsSection({ onNavigate }) {
                               <h3 className="text-white font-semibold mb-2 font-sans pr-32">
                                 About the Event
                               </h3>
-                              <p className="text-white/80 text-xs leading-relaxed sm:block hidden ">
+                              <p className="text-white/80 text-xs leading-tight sm:block hidden  text-justify">
                                 {selectedEvent.description}
                               </p>
                             </>

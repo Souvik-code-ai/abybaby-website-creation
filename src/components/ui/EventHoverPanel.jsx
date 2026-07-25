@@ -22,7 +22,11 @@ export default function EventHoverPanel({ hoveredEvent }) {
 
             {/* Name */}
             <h3 className="font-semibold text-gray-900 font-sans text-sm mb-3">
-              {hoveredEvent.name}
+              {hoveredEvent.status === "upcoming"
+                ? hoveredEvent.name
+                    .toLowerCase()
+                    .replace(/\b\w/g, (c) => c.toUpperCase())
+                : hoveredEvent.name}
             </h3>
 
             {/* Stats */}
@@ -35,15 +39,13 @@ export default function EventHoverPanel({ hoveredEvent }) {
               </div>
               <div className="flex-1 bg-gray-50 rounded-xl p-3 text-center">
                 <p className="text-xs text-gray-400 mb-1">Location</p>
-                 <p className="text-xs font-semibold text-gray-800">
-              {hoveredEvent.location}
+                <p className="text-xs font-semibold text-gray-800">
+                  {hoveredEvent.location}
                 </p>
-               
               </div>
             </div>
 
             {/* Details */}
-            
           </motion.div>
         ) : null}
       </AnimatePresence>

@@ -46,7 +46,7 @@ export function PresenceSection({ onNavigate, open, setOpen }) {
       </Link>
 
       {/* Hero */}
-      <div className="flex flex-col items-start px-4 pt-8 pb-6">
+      <div className="flex flex-col items-start px-4 pt-4 pb-6">
         <div className="inline-block rounded-full mb-3 bg-[rgba(87,159,99,0.12)] text-[#3d7a4a] text-[11px] font-semibold px-3 py-[3px]">
           Our Presence
         </div>
