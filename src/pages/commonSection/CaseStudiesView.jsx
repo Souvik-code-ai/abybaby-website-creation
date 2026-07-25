@@ -14,19 +14,19 @@ export function CaseStudiesView({ onNavigate }) {
   }, [activeId]);
 
   return (
-    <div className="flex flex-col pb-12 px-4 pt-4 w-[100%] min-[1160px]:mx-46 min-[770px]:mx-16 mx-0">
+    <div className="flex flex-col pb-12 px-4 pt-4 w-[100%] min-[1160px]:mx-50 min-[770px]:mx-16 mx-0">
       {/* Back button */}
       <Link
         to="/"
         onClick={() => onNavigate("home")}
-        className="mt-0 flex items-center gap-2 font-base flex-row justify-start cursor-pointer px-2 mb-4 text-[#579F63]"
+        className="mt-0 flex items-center gap-2 font-base flex-row justify-start cursor-pointer px-0 mb-2 text-[#579F63]  min-[1160px]:-ml-20 min-[770px]:-ml-10"
       >
         <ArrowLeft size={16} />
         Return back
       </Link>
 
       {/* Page label */}
-      <div className="px-4 mb-2">
+      <div className="px-0 mb-2 min-[1160px]:-ml-20 min-[770px]:-ml-10">
         <div className="inline-block rounded-full bg-[rgba(87,159,99,0.12)] text-[#3d7a4a] text-[11px] font-semibold px-3 py-[3px]">
           Case Studies
         </div>
@@ -35,7 +35,7 @@ export function CaseStudiesView({ onNavigate }) {
       {/* Two-column layout on desktop, stacked on mobile */}
       <div className="flex flex-col min-[770px]:flex-row gap-5">
         {/* ── LEFT: Main content ── */}
-        <div className="flex flex-col px-4 flex-1 min-w-0">
+        <div className="flex flex-col px-4 flex-1 min-w-0 min-[1160px]:-ml-24 min-[770px]:-ml-10">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeId}
