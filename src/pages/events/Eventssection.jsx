@@ -505,58 +505,64 @@ export function EventsSection({ onNavigate }) {
 
               {/* Highlights / features */}
               {/* Highlights / description — conditional per event type */}
-              <div
-                className={`absolute bottom-8 md:left-8 left-3.5 hidden sm:block ${
-                  selectedEvent.status === "upcoming"
-                    ? "max-w-md md:max-w-[68rem] "
-                    : "max-w-md"
-                }`}
-              >
-                <div className="bg-black/20 backdrop-blur-lg border border-white/20 rounded-2xl p-4 relative">
-                  {/* ✅ Call-to-action — top-right corner of this box, upcoming events only */}
-                  {selectedEvent.status === "upcoming" && (
-                    <button
-                      onClick={() => setShowRegistration(true)}
-                      className="absolute top-3 right-3 px-5 py-2 rounded-full bg-linear-to-r from-lime-800 to-lime-600 text-white text-xs font-medium cursor-pointer hover:bg-[#245c3a] z-10"
-                    >
-                      Call to action
-                    </button>
-                  )}
+              {/* Highlights / features */}
+              {/* Highlights / description — conditional per event type */}
+              {(selectedEvent.features?.length > 0 ||
+                (selectedEvent.status === "upcoming" &&
+                  selectedEvent?.description)) && (
+                <div
+                  className={`absolute bottom-8 md:left-8 left-3.5 hidden sm:block ${
+                    selectedEvent.status === "upcoming"
+                      ? "max-w-md md:max-w-[68rem] "
+                      : "max-w-md"
+                  }`}
+                >
+                  <div className="bg-black/20 backdrop-blur-lg border border-white/20 rounded-2xl p-4 relative">
+                    {/* ✅ Call-to-action — top-right corner of this box, upcoming events only */}
+                    {selectedEvent.status === "upcoming" && (
+                      <button
+                        onClick={() => setShowRegistration(true)}
+                        className="absolute top-3 right-3 px-5 py-2 rounded-full bg-linear-to-r from-lime-800 to-lime-600 text-white text-xs font-medium cursor-pointer hover:bg-[#245c3a] z-10"
+                      >
+                        Call to action
+                      </button>
+                    )}
 
-                  {/* Feature bullets — any event that has them */}
-                  {selectedEvent.features?.length > 0 && (
-                    <>
-                      <h3 className="text-white font-semibold mb-4 font-sans pr-32">
-                        Event Highlights
-                      </h3>
-                      <div className="space-y-3">
-                        {selectedEvent.features.map((feature) => (
-                          <div
-                            key={feature}
-                            className="flex items-center gap-3 text-white/90"
-                          >
-                            <span className="text-lime-400">●</span>
-                            {feature}
-                          </div>
-                        ))}
-                      </div>
-                    </>
-                  )}
-
-                  {/* Description — upcoming events only, expired events never show this */}
-                  {selectedEvent.status === "upcoming" &&
-                    selectedEvent?.description && (
+                    {/* Feature bullets — any event that has them */}
+                    {selectedEvent.features?.length > 0 && (
                       <>
-                        <h3 className="text-white font-semibold mb-2 font-sans pr-32">
-                          About the Event
+                        <h3 className="text-white font-semibold mb-4 font-sans pr-32">
+                          Event Highlights
                         </h3>
-                        <p className="text-white/80 text-xs leading-relaxed sm:block hidden ">
-                          {selectedEvent.description}
-                        </p>
+                        <div className="space-y-3">
+                          {selectedEvent.features.map((feature) => (
+                            <div
+                              key={feature}
+                              className="flex items-center gap-3 text-white/90"
+                            >
+                              <span className="text-lime-400">●</span>
+                              {feature}
+                            </div>
+                          ))}
+                        </div>
                       </>
                     )}
+
+                    {/* Description — upcoming events only, expired events never show this */}
+                    {selectedEvent.status === "upcoming" &&
+                      selectedEvent?.description && (
+                        <>
+                          <h3 className="text-white font-semibold mb-2 font-sans pr-32">
+                            About the Event
+                          </h3>
+                          <p className="text-white/80 text-xs leading-relaxed sm:block hidden ">
+                            {selectedEvent.description}
+                          </p>
+                        </>
+                      )}
+                  </div>
                 </div>
-              </div>
+              )}
 
               <button
                 onClick={closeEventModal}
