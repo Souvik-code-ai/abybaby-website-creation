@@ -44,6 +44,7 @@ export function LocationsMap({ activeId: activeIdProp, onSelect } = {}) {
   const setActiveId = onSelect ?? setInternalActiveId;
 
   const [isMobile, setIsMobile] = useState(false);
+  const [mapLoaded, setMapLoaded] = useState(false);
 
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 767px)");
@@ -111,41 +112,53 @@ export function LocationsMap({ activeId: activeIdProp, onSelect } = {}) {
         ref={mapWrapRef}
         className="relative w-full max-w-[720px] mx-auto select-none"
       >
+        {/* ── Skeleton — shown until the map image finishes loading ── */}
+        {!mapLoaded && (
+          <div
+            className="w-full rounded-2xl bg-gray-200 animate-pulse"
+            style={{ aspectRatio: "1 / 1" }}
+          />
+        )}
+
         <img
           src={mapImage}
           alt="AbyBaby pan-India presence"
-          className="w-full h-auto pointer-events-none"
+          onLoad={() => setMapLoaded(true)}
           draggable={false}
+          className={`w-full h-auto pointer-events-none transition-opacity duration-300 ${
+            mapLoaded ? "opacity-100" : "opacity-0 absolute inset-0"
+          }`}
         />
 
-        {LOCATIONS.map((loc) => {
-          const { left, top } = loc;
-          const isActive = activeId === loc.id;
+        {mapLoaded &&
+          LOCATIONS.map((loc) => {
+            const { left, top } = loc;
+            const isActive = activeId === loc.id;
 
-          return (
-            <div
-              key={loc.id}
-              className="absolute z-[9999]"
-              style={{
-                left: `${left}%`,
-                top: `${top}%`,
-                transform: "translate(-50%, -50%)",
-              }}
-              onMouseEnter={() => {
-                if (!isMobile) setActiveId(loc.id);
-              }}
-              onClick={() => {
-                if (isMobile) setActiveId(loc.id);
-              }}
-            >
+            return (
               <div
-                className={`w-7 h-7 rounded-full cursor-pointer rotate-y-90 transition-colors ${
-                  isActive ? "bg-red-500/70" : "bg-red-500/40"
-                }`}
-              />
-            </div>
-          );
-        })}
+                key={loc.id}
+                className="absolute z-[9999]"
+                style={{
+                  left: `${left}%`,
+                  top: `${top}%`,
+                  transform: "translate(-50%, -50%)",
+                }}
+                onMouseEnter={() => {
+                  if (!isMobile) setActiveId(loc.id);
+                }}
+                onClick={() => {
+                  if (isMobile) setActiveId(loc.id);
+                }}
+              >
+                <div
+                  className={`w-7 h-7 rounded-full cursor-pointer rotate-y-90 transition-colors ${
+                    isActive ? "bg-red-500/70" : "bg-red-500/40"
+                  }`}
+                />
+              </div>
+            );
+          })}
       </div>
 
       {/* Desktop hover card */}

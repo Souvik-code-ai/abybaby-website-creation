@@ -29,6 +29,22 @@ import tata6 from "../../assets/images/arun/arun7.webp";
 import { ACTIVATIONS_ALL } from "../../../public/activations/activations";
 import { Link } from "react-router-dom";
 
+// ── Skeleton for a single activation card ────────────────────────────────────
+function ActivationCardSkeleton() {
+  return (
+    <div className="overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-sm">
+      <div className="w-full h-[240px] bg-gray-200 animate-pulse" />
+      <div className="p-4">
+        <div className="h-5 w-2/3 rounded bg-gray-200 animate-pulse mb-4" />
+        <div className="flex items-center justify-between">
+          <div className="h-3 w-24 rounded bg-gray-200 animate-pulse" />
+          <div className="h-3 w-12 rounded bg-gray-200 animate-pulse" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function ActivationSection({ onNavigate }) {
   const [selectedActivation, setSelectedActivation] = useState(null);
   const [hoveredProject, setHoveredProject] = useState(null);
@@ -161,6 +177,12 @@ export function ActivationSection({ onNavigate }) {
                 </div>
               </motion.div>
             ))}
+
+            {/* ── Skeleton cards while loading more ── */}
+            {isLoading &&
+              Array.from({ length: 4 }).map((_, i) => (
+                <ActivationCardSkeleton key={`skeleton-${i}`} />
+              ))}
           </div>
 
           {/* Desktop hover preview panel */}
@@ -213,25 +235,8 @@ export function ActivationSection({ onNavigate }) {
           </div>
         </div>
 
-        {/* ── Infinite scroll sentinel & spinner ── */}
-        {hasMore && (
-          <div
-            ref={sentinelRef}
-            className="flex justify-center items-center py-8"
-          >
-            {isLoading && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="flex flex-col items-center gap-2"
-              >
-                <div className="w-7 h-7 rounded-full border-2 border-gray-200 border-t-lime-500 animate-spin [animation-duration:0.7s]" />
-                <p className="text-xs text-[#aaa]">Loading more…</p>
-                <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
-              </motion.div>
-            )}
-          </div>
-        )}
+        {/* ── Infinite scroll sentinel ── */}
+        {hasMore && <div ref={sentinelRef} className="h-2" />}
 
         {/* Footer — only shown once all cards are loaded */}
         {!hasMore && (
@@ -338,9 +343,9 @@ export function ActivationSection({ onNavigate }) {
                   {selectedActivation.highlights.map((highlight) => (
                     <div
                       key={highlight}
-                      className="flex items-center gap-2 text-white"
+                      className="flex items-center gap-2 text-white text-xs"
                     >
-                      <span className="w-2 h-2 rounded-full bg-lime-400 " />
+                      <span className="w-1 h-1 rounded-full bg-lime-400 text-xs " />
                       {highlight}
                     </div>
                   ))}

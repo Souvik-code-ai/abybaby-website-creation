@@ -10,6 +10,27 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { EXHIBITIONS_ALL } from "../../../public/exhibition/exhibition";
+
+// ── Skeleton for a single exhibition card ────────────────────────────────────
+function ExhibitionCardSkeleton() {
+  return (
+    <div className="overflow-hidden rounded-2xl bg-white shadow-sm border border-[#f0f0f5]">
+      <div className="w-full h-[220px] bg-gray-200 animate-pulse" />
+      <div className="p-4">
+        <div className="h-4 w-3/4 rounded bg-gray-200 animate-pulse mb-4" />
+        <div className="flex items-center justify-between mb-3">
+          <div className="h-3 w-16 rounded bg-gray-200 animate-pulse" />
+          <div className="h-3 w-10 rounded bg-gray-200 animate-pulse" />
+        </div>
+        <div className="flex items-center justify-between">
+          <div className="h-3 w-16 rounded bg-gray-200 animate-pulse" />
+          <div className="h-3 w-10 rounded bg-gray-200 animate-pulse" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function ExhibitionSection({ onNavigate }) {
   const [selectedExhibition, setSelectedExhibition] = useState(null);
   const [hoveredProject, setHoveredProject] = useState(null);
@@ -106,6 +127,12 @@ export function ExhibitionSection({ onNavigate }) {
               </div>
             </motion.div>
           ))}
+
+          {/* ── Skeleton cards while loading more ── */}
+          {isLoading &&
+            Array.from({ length: 3 }).map((_, i) => (
+              <ExhibitionCardSkeleton key={`skeleton-${i}`} />
+            ))}
         </div>
 
         {/* Desktop hover preview panel */}
@@ -162,25 +189,8 @@ export function ExhibitionSection({ onNavigate }) {
         </div>
       </div>
 
-      {/* ── Infinite scroll sentinel & spinner ── */}
-      {hasMore && (
-        <div
-          ref={sentinelRef}
-          className="flex justify-center items-center py-8"
-        >
-          {isLoading && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="flex flex-col items-center gap-2"
-            >
-              <div className="w-full object-cover transition-transform duration-500 hover:scale-105 h-[220px]" />
-              <p className="text-xs text-[#aaa]">Loading more…</p>
-              <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
-            </motion.div>
-          )}
-        </div>
-      )}
+      {/* ── Infinite scroll sentinel ── */}
+      {hasMore && <div ref={sentinelRef} className="h-2" />}
 
       {/* Modal */}
       <AnimatePresence>
@@ -231,13 +241,13 @@ export function ExhibitionSection({ onNavigate }) {
                   <h3 className="text-white font-semibold mb-4 font-sans">
                     Exhibition Highlights
                   </h3>
-                  <div className="space-y-3 ">
+                  <div className="space-y-2 ">
                     {selectedExhibition.features.map((feature) => (
                       <div
                         key={feature}
-                        className="flex items-center gap-3 text-white/90"
+                        className="flex items-center gap-2 text-white/90 text-xs"
                       >
-                        <span className="text-lime-400">●</span>
+                        <span className="text-lime-400 text-xs">●</span>
                         {feature}
                       </div>
                     ))}

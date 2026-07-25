@@ -12,7 +12,25 @@ import EventHighlights from "../../components/ui/EventHighlights";
 const GOOGLE_SCRIPT_URL =
   "https://script.google.com/macros/s/AKfycbxSrm_9ovj5ja-BDVqhs4tQvoQktTR25R9Ohjx1LUKRM17cmf389GhdLjMKdoWITd0qAg/exec";
 
+// ── Skeleton for a single event card while its image loads ──────────────────
+function EventCardSkeleton() {
+  return (
+    <div className="overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-sm">
+      <div className="w-full h-[200px] bg-gray-200 animate-pulse" />
+      <div className="p-4">
+        <div className="h-4 w-3/4 rounded bg-gray-200 animate-pulse mb-3" />
+        <div className="flex flex-col gap-2">
+          <div className="h-3 w-1/2 rounded bg-gray-200 animate-pulse" />
+          <div className="h-3 w-2/5 rounded bg-gray-200 animate-pulse" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function EventCard({ event, showType, onHover, onLeave, onClick }) {
+  const [imgLoaded, setImgLoaded] = useState(false);
+
   return (
     <motion.div
       whileHover={{ y: -3 }}
@@ -24,10 +42,16 @@ function EventCard({ event, showType, onHover, onLeave, onClick }) {
     >
       {/* Image */}
       <div className="relative">
+        {!imgLoaded && (
+          <div className="absolute inset-0 w-full h-[200px] bg-gray-200 animate-pulse" />
+        )}
         <img
           src={event.image}
           alt={event.name}
-          className="w-full object-cover h-[200px]"
+          onLoad={() => setImgLoaded(true)}
+          className={`w-full object-cover h-[200px] transition-opacity duration-300 ${
+            imgLoaded ? "opacity-100" : "opacity-0"
+          }`}
         />
         {showType && (
           <span className="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-semibold bg-linear-to-r from-lime-800 to-lime-600  text-[11px] text-white ">
@@ -307,6 +331,7 @@ export function EventsSection({ onNavigate }) {
   const [hoveredEvent, setHoveredEvent] = useState(null);
   const [selectedEvent, setSelectedEvent] = useState(null); // ✅ tracks which card's modal is open
   const [showRegistration, setShowRegistration] = useState(false); // ✅ tracks registration form modal
+  const [modalImgLoaded, setModalImgLoaded] = useState(false); // ✅ tracks the full-screen modal hero image load
 
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE); // ✅ tracks how many to show
   const observerInstanceRef = useRef(null);
@@ -357,6 +382,11 @@ export function EventsSection({ onNavigate }) {
     setSelectedEvent(null);
     setShowRegistration(false);
   };
+
+  // Reset the modal image load state whenever a new event is opened
+  useEffect(() => {
+    setModalImgLoaded(false);
+  }, [selectedEvent]);
 
   return (
     <div className="w-full min-h-screen bg-background min-[1160px]:mx-20 min-[770px]:mx-16 mx-0">
@@ -415,8 +445,13 @@ export function EventsSection({ onNavigate }) {
                   )}
                 </div>
                 {hasMore ? (
-                  <div ref={loaderRef} className="flex justify-center py-6">
-                    <div className="w-6 h-6 rounded-full border-2 border-lime-600 border-t-transparent animate-spin" />
+                  <div
+                    ref={loaderRef}
+                    className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:grid-cols-2 mt-2"
+                  >
+                    {Array.from({ length: ITEMS_PER_PAGE }).map((_, i) => (
+                      <EventCardSkeleton key={`skeleton-${i}`} />
+                    ))}
                   </div>
                 ) : (
                   <p className="text-center text-gray-400 text-sm py-6"></p>
@@ -448,125 +483,137 @@ export function EventsSection({ onNavigate }) {
               exit={{ scale: 0.9 }}
               onClick={(e) => e.stopPropagation()}
             >
+              {/* ── Skeleton — shown until the modal hero image loads ── */}
+              {!modalImgLoaded && (
+                <div className="absolute inset-0 bg-gray-300 animate-pulse" />
+              )}
+
               <img
                 src={selectedEvent.modalImage || selectedEvent.image}
                 alt={selectedEvent.name}
-                className="w-full h-full sm:object-cover object-contain"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
-
-              {/* Title — stacked with the mobile Register button for upcoming events */}
-              <div className="absolute sm:top-8 sm:left-8 left-4 right-4 sm:right-auto top-[88vh] flex flex-col gap-1.5 sm:block">
-                <div className="sm:backdrop-blur-lg sm:bg-black/20 sm:border border-white/10 rounded-2xl sm:px-6 sm:py-2 bg-none border-0">
-                  <h2 className="text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] sm:text-2xl sm:font-bold font-sans text-xl line-clamp-1 font-medium">
-                    {selectedEvent.status === "upcoming"
-                      ? selectedEvent.name
-                          .toLowerCase()
-                          .replace(/\b\w/g, (c) => c.toUpperCase())
-                      : selectedEvent.name}
-                  </h2>
-                </div>
-
-                {/* ✅ Call to action — mobile only, stacked below the title for upcoming events */}
-                {selectedEvent.status === "upcoming" && (
-                  <button
-                    onClick={() => setShowRegistration(true)}
-                    className="sm:hidden px-5 py-3 rounded-full bg-linear-to-r from-lime-800 to-lime-600 text-white text-sm font-medium cursor-pointer w-fit"
-                  >
-                    Call to action
-                  </button>
-                )}
-              </div>
-
-              {/* Location + Attendance chips — hidden on mobile for upcoming events */}
-              <div
-                className={`absolute md:top-8 sm:left-9/12 gap-4 sm:top-40 left-4 min-[375]:top-[88vh] top-[94vh] sm:flex  ${
-                  selectedEvent.status === "upcoming" ? "hidden" : "flex"
+                onLoad={() => setModalImgLoaded(true)}
+                className={`w-full h-full sm:object-cover object-contain transition-opacity duration-300 ${
+                  modalImgLoaded ? "opacity-100" : "opacity-0"
                 }`}
-              >
-                <div className="sm:bg-black/20 backdrop-blur-md sm:border border-white/10 rounded-xl sm:px-5 sm:py-3 sm:flex-col flex flex-row gap-0 items-center px-0 border-0 bg-none">
-                  <p className="text-white/70 text-xs drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
-                    Location
-                  </p>
-                  <p className="text-white sm:font-semibold font-light text-xs drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
-                    {selectedEvent.location}
-                  </p>
-                </div>
-                <div className="sm:bg-black/20 backdrop-blur-md sm:border border-white/10 rounded-xl sm:px-5 sm:py-3 sm:flex-col flex flex-row gap-0 items-center px-0 border-0 bg-none">
-                  <p className="text-white/70 text-xs drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
-                    Attendance
-                  </p>
-                  <p className="text-white sm:font-semibold font-light text-xs drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
-                    {selectedEvent.attendees?.toLocaleString?.() ??
-                      selectedEvent.attendees}
-                  </p>
-                </div>
-              </div>
+              />
 
-              {/* Highlights / features */}
-              {/* Highlights / description — conditional per event type */}
-              {/* Highlights / features */}
-              {/* Highlights / description — conditional per event type */}
-              {(selectedEvent.features?.length > 0 ||
-                (selectedEvent.status === "upcoming" &&
-                  selectedEvent?.description)) && (
-                <div
-                  className={`absolute bottom-8 md:left-8 left-3.5 hidden sm:block ${
-                    selectedEvent.status === "upcoming"
-                      ? "max-w-md md:max-w-[68rem] "
-                      : "max-w-md"
-                  }`}
-                >
-                  <div className="bg-black/20 backdrop-blur-lg border border-white/20 rounded-2xl p-4 relative">
-                    {/* ✅ Call-to-action — top-right corner of this box, upcoming events only */}
+              {/* Rest of modal content only shown once the hero image is ready */}
+              {modalImgLoaded && (
+                <>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+
+                  {/* Title — stacked with the mobile Register button for upcoming events */}
+                  <div className="absolute sm:top-8 sm:left-8 left-4 right-4 sm:right-auto top-[88vh] flex flex-col gap-1.5 sm:block">
+                    <div className="sm:backdrop-blur-lg sm:bg-black/20 sm:border border-white/10 rounded-2xl sm:px-6 sm:py-2 bg-none border-0">
+                      <h2 className="text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] sm:text-2xl sm:font-bold font-sans text-xl line-clamp-1 font-medium">
+                        {selectedEvent.status === "upcoming"
+                          ? selectedEvent.name
+                              .toLowerCase()
+                              .replace(/\b\w/g, (c) => c.toUpperCase())
+                          : selectedEvent.name}
+                      </h2>
+                    </div>
+
+                    {/* ✅ Call to action — mobile only, stacked below the title for upcoming events */}
                     {selectedEvent.status === "upcoming" && (
                       <button
                         onClick={() => setShowRegistration(true)}
-                        className="absolute top-3 right-3 px-5 py-2 rounded-full bg-linear-to-r from-lime-800 to-lime-600 text-white text-xs font-medium cursor-pointer hover:bg-[#245c3a] z-10"
+                        className="sm:hidden px-5 py-3 rounded-full bg-linear-to-r from-lime-800 to-lime-600 text-white text-sm font-medium cursor-pointer w-fit"
                       >
                         Call to action
                       </button>
                     )}
-
-                    {/* Feature bullets — any event that has them */}
-                    {selectedEvent.features?.length > 0 && (
-                      <>
-                        <h3 className="text-white font-semibold mb-4 font-sans pr-32">
-                          Event Highlights
-                        </h3>
-                        <div className="space-y-3">
-                          {selectedEvent.features.map((feature) => (
-                            <div
-                              key={feature}
-                              className="flex items-center gap-3 text-white/90"
-                            >
-                              <span className="text-lime-400">●</span>
-                              {feature}
-                            </div>
-                          ))}
-                        </div>
-                      </>
-                    )}
-
-                    {/* Description — upcoming events only, expired events never show this */}
-                    {selectedEvent.status === "upcoming" &&
-                      selectedEvent?.description && (
-                        <>
-                          <h3 className="text-white font-semibold mb-2 font-sans pr-32">
-                            About the Event
-                          </h3>
-                          <p className="text-white/80 text-xs leading-relaxed sm:block hidden ">
-                            {selectedEvent.description}
-                          </p>
-                        </>
-                      )}
                   </div>
-                </div>
+
+                  {/* Location + Attendance chips — hidden on mobile for upcoming events */}
+                  <div
+                    className={`absolute md:top-8 sm:left-[66vw] gap-4 sm:top-40 left-4 min-[375]:top-[88vh] top-[94vh] sm:flex  ${
+                      selectedEvent.status === "upcoming" ? "hidden" : "flex"
+                    }`}
+                  >
+                    <div className="sm:bg-black/20 backdrop-blur-md sm:border border-white/10 rounded-xl sm:px-5 sm:py-3 sm:flex-col flex flex-row gap-0 items-center px-0 border-0 bg-none">
+                      <p className="text-white/70 text-xs drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+                        Location
+                      </p>
+                      <p className="text-white sm:font-semibold font-light text-xs drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+                        {selectedEvent.location}
+                      </p>
+                    </div>
+                    <div className="sm:bg-black/20 backdrop-blur-md sm:border border-white/10 rounded-xl sm:px-5 sm:py-3 sm:flex-col flex flex-row gap-0 items-center px-0 border-0 bg-none">
+                      <p className="text-white/70 text-xs drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+                        Attendance
+                      </p>
+                      <p className="text-white sm:font-semibold font-light text-xs drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+                        {selectedEvent.attendees?.toLocaleString?.() ??
+                          selectedEvent.attendees}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Highlights / features */}
+                  {/* Highlights / description — conditional per event type */}
+                  {(selectedEvent.features?.length > 0 ||
+                    (selectedEvent.status === "upcoming" &&
+                      selectedEvent?.description)) && (
+                    <div
+                      className={`absolute bottom-8 md:left-8 left-3.5 hidden sm:block ${
+                        selectedEvent.status === "upcoming"
+                          ? "max-w-md md:max-w-[68rem] "
+                          : "max-w-md"
+                      }`}
+                    >
+                      <div className="bg-black/20 backdrop-blur-lg border border-white/20 rounded-2xl p-4 relative">
+                        {/* ✅ Call-to-action — top-right corner of this box, upcoming events only */}
+                        {selectedEvent.status === "upcoming" && (
+                          <button
+                            onClick={() => setShowRegistration(true)}
+                            className="absolute top-3 right-3 px-5 py-2 rounded-full bg-linear-to-r from-lime-800 to-lime-600 text-white text-xs font-medium cursor-pointer hover:bg-[#245c3a] z-10"
+                          >
+                            Call to action
+                          </button>
+                        )}
+
+                        {/* Feature bullets — any event that has them */}
+                        {selectedEvent.features?.length > 0 && (
+                          <>
+                            <h3 className="text-white font-semibold mb-4 font-sans pr-32">
+                              Event Highlights
+                            </h3>
+                            <div className="space-y-3">
+                              {selectedEvent.features.map((feature) => (
+                                <div
+                                  key={feature}
+                                  className="flex items-center gap-3 text-white/90"
+                                >
+                                  <span className="text-lime-400">●</span>
+                                  {feature}
+                                </div>
+                              ))}
+                            </div>
+                          </>
+                        )}
+
+                        {/* Description — upcoming events only, expired events never show this */}
+                        {selectedEvent.status === "upcoming" &&
+                          selectedEvent?.description && (
+                            <>
+                              <h3 className="text-white font-semibold mb-2 font-sans pr-32">
+                                About the Event
+                              </h3>
+                              <p className="text-white/80 text-xs leading-relaxed sm:block hidden ">
+                                {selectedEvent.description}
+                              </p>
+                            </>
+                          )}
+                      </div>
+                    </div>
+                  )}
+                </>
               )}
 
               <button
                 onClick={closeEventModal}
-                className="absolute top-3 right-3 w-12 h-12 rounded-full bg-black/20 backdrop-blur-md text-white cursor-pointer hover:bg-black/80"
+                className="absolute top-3 right-3 w-12 h-12 rounded-full bg-black/30 backdrop-blur-md text-white cursor-pointer hover:bg-black/80"
               >
                 ✕
               </button>

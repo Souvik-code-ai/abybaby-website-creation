@@ -244,7 +244,7 @@ export function FeedCard({ post }) {
             <>
               {!isMobile && imageIndex > 0 && (
                 <button
-                  className="hidden md:flex absolute left-3 top-1/2 -translate-y-1/2 rounded-full items-center justify-center w-7 h-7 bg-white/85"
+                  className="hidden md:flex absolute left-3 top-1/2 -translate-y-1/2 rounded-full items-center justify-center w-7 h-7 bg-white/85 cursor-pointer"
                   onClick={(e) => {
                     e.stopPropagation();
                     setImageIndex((i) => i - 1);
@@ -255,7 +255,7 @@ export function FeedCard({ post }) {
               )}
               {!isMobile && imageIndex < post.media.length - 1 && (
                 <button
-                  className="hidden md:flex absolute right-3 top-1/2 -translate-y-1/2 rounded-full items-center justify-center w-7 h-7 bg-[rgba(255,255,255,0.85)]"
+                  className="hidden md:flex absolute right-3 top-1/2 -translate-y-1/2 rounded-full items-center justify-center w-7 h-7 bg-[rgba(255,255,255,0.85)] cursor-pointer"
                   onClick={(e) => {
                     e.stopPropagation();
                     setImageIndex((i) => i + 1);

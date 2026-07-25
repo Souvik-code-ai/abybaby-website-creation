@@ -69,7 +69,7 @@ export function CommonSectionModal({ isOpen, onClose, onNavigate }) {
               <span className="text-sm font-semibold font-[family-name:var(--font-family-body)]">
                 More Options
               </span>
-              <button onClick={onClose}>
+              <button onClick={onClose} className="cursor-pointer">
                 <X size={16} />
               </button>
             </div>

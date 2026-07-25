@@ -42,6 +42,49 @@ const VISIBLE = 3;
 
 // ── Grid cell ─────────────────────────────────────────────────────────────────
 
+// ── Skeleton for a single Featured Work carousel card ────────────────────────
+function CarouselCardSkeleton() {
+  return (
+    <div className="rounded-xl overflow-hidden shrink-0 flex-1 min-w-0">
+      <div className="aspect-[16/10] bg-gray-200 animate-pulse" />
+    </div>
+  );
+}
+
+// ── Carousel card with its own image-load state ──────────────────────────────
+function CarouselCard({ item, onClick }) {
+  const [loaded, setLoaded] = useState(false);
+
+  return (
+    <motion.div
+      layout
+      initial={{ opacity: 0, x: 30 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: -30 }}
+      transition={{ duration: 0.25 }}
+      className="rounded-xl overflow-hidden shrink-0 flex-1 min-w-0 cursor-pointer"
+      onClick={onClick}
+    >
+      <div className="aspect-[16/10] relative">
+        {!loaded && (
+          <div className="absolute inset-0 bg-gray-200 animate-pulse" />
+        )}
+        <img
+          src={item.image}
+          alt={item.title}
+          onLoad={() => setLoaded(true)}
+          className={`w-full h-full object-cover transition-opacity duration-300 ${
+            loaded ? "opacity-100" : "opacity-0"
+          }`}
+        />
+        <div className="absolute inset-0 flex flex-col justify-end p-3 items-center bg-[linear-gradient(to_top,rgba(0,0,0,0.55)_0%,transparent_60%)]">
+          <span className="text-white/70 text-[10px]">{item.category}</span>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
 export function ProfileView({ onNavigate }) {
   const navigate = useNavigate();
   const [offset, setOffset] = useState(0);
@@ -140,7 +183,7 @@ export function ProfileView({ onNavigate }) {
             <button
               onClick={() => setOffset((o) => Math.max(0, o - 1))}
               disabled={!canPrev}
-              className={`flex items-center justify-center rounded-full border border-border w-[30px] h-[30px] bg-[color:var(--background)] ${
+              className={`flex items-center cursor-pointer justify-center rounded-full border border-border w-[30px] h-[30px] bg-[color:var(--background)] ${
                 canPrev ? "opacity-100" : "opacity-30"
               }`}
             >
@@ -153,7 +196,7 @@ export function ProfileView({ onNavigate }) {
                 )
               }
               disabled={!canNext}
-              className={`flex items-center justify-center rounded-full border border-border w-[30px] h-[30px] bg-[color:var(--background)] ${
+              className={`flex items-center justify-center rounded-full border cursor-pointer border-border w-[30px] h-[30px] bg-[color:var(--background)] ${
                 canNext ? "opacity-100" : "opacity-30"
               }`}
             >
@@ -163,33 +206,23 @@ export function ProfileView({ onNavigate }) {
         </div>
 
         <div className="flex gap-3 overflow-hidden">
-          <AnimatePresence mode="popLayout" initial={false}>
-            {visible.map((item) => (
-              <motion.div
-                key={item.id}
-                layout
-                initial={{ opacity: 0, x: 30 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -30 }}
-                transition={{ duration: 0.25 }}
-                className="rounded-xl overflow-hidden shrink-0 flex-1 min-w-0 cursor-pointer"
-                onClick={() => navigate(item.path)}
-              >
-                <div className="aspect-[16/10] relative">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 flex flex-col justify-end p-3 items-center bg-[linear-gradient(to_top,rgba(0,0,0,0.55)_0%,transparent_60%)]">
-                    <span className="text-white/70 text-[10px]">
-                      {item.category}
-                    </span>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
+          {CAROUSEL_ITEMS.length === 0 ? (
+            <>
+              <CarouselCardSkeleton />
+              <CarouselCardSkeleton />
+              <CarouselCardSkeleton />
+            </>
+          ) : (
+            <AnimatePresence mode="popLayout" initial={false}>
+              {visible.map((item) => (
+                <CarouselCard
+                  key={item.id}
+                  item={item}
+                  onClick={() => navigate(item.path)}
+                />
+              ))}
+            </AnimatePresence>
+          )}
         </div>
       </div>
 
