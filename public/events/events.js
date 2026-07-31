@@ -11,6 +11,7 @@ import agomoni2 from "../../src/assets/images/agomoni/agomoni2.webp";
 import hurdlehawk1 from "../../src/assets/images/hurdle_hawk/hurdle_hawk1.webp";
 import hurdlehawk2 from "../../src/assets/images/hurdle_hawk/hurdle_hawk2.webp";
 import hurdlehawk3 from "../../src/assets/images/hurdle_hawk/hurdle_hawk3.webp";
+import hurdlehawk4 from "../../src/assets/images/hurdle_hawk/hurdle_hawk4.webp";
 import asianpaints1 from "../../src/assets/images/asian_paints/asianpaints1.webp";
 import asianpaints2 from "../../src/assets/images/asian_paints/asianpaints2.webp";
 import yamaha1 from "../../src/assets/images/yamaha/yamaha1.webp";
@@ -112,7 +113,7 @@ export const EVENTS = [
     date: "1 Dec 2026",
     location: "Kolkata",
     attendees: "1000+",
-    image: hurdlehawk3,
+    image: hurdlehawk4,
     modalImage: hurdlehawk2,
   },
   {

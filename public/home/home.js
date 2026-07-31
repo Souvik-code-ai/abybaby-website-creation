@@ -52,6 +52,8 @@ import tataYoddhaImage from "../../src/assets/images/tataYoddha/tataYoddha.webp"
 import mercedesBenzMobileLaunch from "../../src/assets/images/mercedes_benz/mercedesBenzMobileLaunch.webp";
 import toyotaSupplierMeet from "../../src/assets/images/toyotaSupplierMeet/toyotaSupplierMeet.webp";
 import flipkartPoster from "../../src/assets/images/flipkart/flipkartPoster.webp";
+import hurdleHawkVdo from "../../src/assets/images/hurdle_hawk/hurdleHawkVdo.mp4";
+import hurdleHawkVdo from "../../src/assets/images/hurdle_hawk/hurdleHawkVdo.mp4";
 export const clients = [
   {
     id: 1,
@@ -844,6 +846,45 @@ export const feedPosts = [
     location: "Hyderabad,India",
     category: "Exhibition",
     media: [{ type: "video", url: maxfashionVdo, poster: maxFashionImage }],
+    likes: 1000,
+    caption:
+      "Team Abybaby brought fun, fashion, and fantasy to life with a magical Lilo & Stitch experience for Max Fashion — packed with color, style, and joyful energy at every turn.",
+    comments: [
+      {
+        id: 1,
+        author: "Layla S.",
+        text: "This is literally my dream event! 😍",
+        time: "3d",
+      },
+      {
+        id: 2,
+        author: "Aisha M.",
+        text: "Can you do my event next? Perfection.",
+        time: "3d",
+      },
+      {
+        id: 3,
+        author: "Nour J.",
+        text: "The floral arch alone is iconic.",
+        time: "4d",
+      },
+      {
+        id: 4,
+        author: "Hessa A.",
+        text: "I was there! Even better in person.",
+        time: "4d",
+      },
+    ],
+
+    date: "May 15, 2026",
+  },
+  {
+    id: 13,
+    client: clients[12],
+    name: "Hurdle Hawk",
+    location: "Hyderabad,India",
+    category: "Event",
+    media: [{ type: "video", url: hurdleHawkVdo, poster:  }],
     likes: 1000,
     caption:
       "Team Abybaby brought fun, fashion, and fantasy to life with a magical Lilo & Stitch experience for Max Fashion — packed with color, style, and joyful energy at every turn.",

@@ -23,9 +23,132 @@ import airtel4GLaunch1 from "../../src/assets/images/airtel4GLaunch/airtel4GLaun
 import airtel4GLaunch2 from "../../src/assets/images/airtel4GLaunch/airtel4GLaunch2.webp";
 import toyotaPromotion1 from "../../src/assets/images/toyotaPromotion/toyotaPromotion1.webp";
 import toyotaPromotion2 from "../../src/assets/images/toyotaPromotion/toyotaPromotion2.webp";
+import maxFashion1 from "../../src/assets/images/maxFashion/maxFashion.webp";
+import maxFashion2 from "../../src/assets/images/maxFashion/maxFashion2.webp";
+import kutchina1 from "../../src/assets/images/kutchina/kutchina1.webp";
+import tataHeavyEarthMovers1 from "../../src/assets/images/TataHeavyEarthMovers/TataHeavyEarthMovers.webp";
+import yamaha from "../../src/assets/images/yamaha/yamaha.webp";
+import yamaha2 from "../../src/assets/images/yamaha/yamaha2.webp";
+import marutiLoanMela1 from "../../src/assets/images/marutiLoanMela/marutiLoanMela.webp";
+import tataMotorsEV1 from "../../src/assets/images/tataMotorsEv/tataMotorsEV1.webp";
+import tataMotorsEV2 from "../../src/assets/images/tataMotorsEv/tataMotorsEV2.webp";
+import cromaFunZone1 from "../../src/assets/images/cromaFunZone/cromaFunZone1.webp";
+import heroLoanMela1 from "../../src/assets/images/heroLoanMella/heroLoanMella1.webp";
 export const EXHIBITIONS_ALL = [
   {
     id: 1,
+    name: "Max Mall Promotion",
+    boothSize: "1,500 sq.ft",
+    attendance: "19,000+",
+    features: [
+      "IOT Product Display",
+      "Urban Planning Models",
+      "Panel Discussion Stage",
+      "Networking Zone",
+    ],
+    image: maxFashion1,
+    modalImage: maxFashion2,
+  },
+  {
+    id: 2,
+    name: "Kutchina",
+    boothSize: "1,500 sq.ft",
+    attendance: "19,000+",
+    features: [
+      "IOT Product Display",
+      "Urban Planning Models",
+      "Panel Discussion Stage",
+      "Networking Zone",
+    ],
+    image: kutchina1,
+    modalImage: kutchina1,
+  },
+  {
+    id: 3,
+    name: "Tata Heavy Earth Movers",
+    boothSize: "1,500 sq.ft",
+    attendance: "19,000+",
+    features: [
+      "IOT Product Display",
+      "Urban Planning Models",
+      "Panel Discussion Stage",
+      "Networking Zone",
+    ],
+    image: tataHeavyEarthMovers1,
+    modalImage: tataHeavyEarthMovers1,
+  },
+  {
+    id: 4,
+    name: "Yamaha",
+    boothSize: "1,500 sq.ft",
+    attendance: "19,000+",
+    features: [
+      "IOT Product Display",
+      "Urban Planning Models",
+      "Panel Discussion Stage",
+      "Networking Zone",
+    ],
+    image: yamaha,
+    modalImage: yamaha,
+  },
+  {
+    id: 5,
+    name: "Maruti Loan Mela",
+    boothSize: "1,500 sq.ft",
+    attendance: "19,000+",
+    features: [
+      "IOT Product Display",
+      "Urban Planning Models",
+      "Panel Discussion Stage",
+      "Networking Zone",
+    ],
+    image: marutiLoanMela1,
+    modalImage: marutiLoanMela1,
+  },
+  {
+    id: 6,
+    name: "Tata Motors EV",
+    boothSize: "1,500 sq.ft",
+    attendance: "19,000+",
+    features: [
+      "IOT Product Display",
+      "Urban Planning Models",
+      "Panel Discussion Stage",
+      "Networking Zone",
+    ],
+    image: tataMotorsEV1,
+    modalImage: tataMotorsEV2,
+  },
+  {
+    id: 7,
+    name: "Croma Fun Zone",
+    boothSize: "1,500 sq.ft",
+    attendance: "19,000+",
+    features: [
+      "IOT Product Display",
+      "Urban Planning Models",
+      "Panel Discussion Stage",
+      "Networking Zone",
+    ],
+    image: cromaFunZone1,
+    modalImage: cromaFunZone1,
+  },
+  {
+    id: 8,
+    name: "Hero Loan Mela",
+    boothSize: "1,500 sq.ft",
+    attendance: "19,000+",
+    features: [
+      "IOT Product Display",
+      "Urban Planning Models",
+      "Panel Discussion Stage",
+      "Networking Zone",
+    ],
+    image: heroLoanMela1,
+    modalImage: heroLoanMela1,
+  },
+  {
+    id: 9,
     name: "Mahindra Carnival",
     boothSize: "2,500 sq.ft",
     attendance: "6500+",
@@ -40,7 +163,7 @@ export const EXHIBITIONS_ALL = [
   },
 
   {
-    id: 2,
+    id: 10,
     name: "Tata Motors Loan Mela",
     boothSize: "3,200 sq.ft",
     attendance: "3500+",
@@ -53,22 +176,9 @@ export const EXHIBITIONS_ALL = [
     image: tataMotorsLoanMella1,
     modalImage: tataMotorsLoanMella2,
   },
+
   {
-    id: 3,
-    name: "Tata Motors Shubh Yatra",
-    boothSize: "2,800 sq.ft",
-    attendance: "2500+",
-    features: [
-      "Robotics Live Demo",
-      "Sustainability Zone",
-      "B2B Meeting Hub",
-      "Innovation Gallery",
-    ],
-    image: tataMotorsShubhYatra1,
-    modalImage: tataMotorsShubhYatra2,
-  },
-  {
-    id: 4,
+    id: 11,
     name: "Tata Manza & Vista Mall Promotion",
     boothSize: "1,500 sq.ft",
     attendance: "1500+",
@@ -81,22 +191,9 @@ export const EXHIBITIONS_ALL = [
     image: tataManzaVista1,
     modalImage: tataManzaVista2,
   },
+
   {
-    id: 5,
-    name: "Tata Motors Exchange Carnival",
-    boothSize: "1,500 sq.ft",
-    attendance: "2500+",
-    features: [
-      "IoT Product Display",
-      "Urban Planning Models",
-      "Panel Discussion Stage",
-      "Networking Zone",
-    ],
-    image: tataMotorsExchangeCarnival1,
-    modalImage: tataMotorsExchangeCarnival2,
-  },
-  {
-    id: 6,
+    id: 12,
     name: "Airtel 4G Launch ",
     boothSize: "1,500 sq.ft",
     attendance: "800+",
@@ -108,19 +205,5 @@ export const EXHIBITIONS_ALL = [
     ],
     image: airtel4GLaunch1,
     modalImage: airtel4GLaunch2,
-  },
-  {
-    id: 7,
-    name: "Toyota Promotion",
-    boothSize: "1,500 sq.ft",
-    attendance: "19,000+",
-    features: [
-      "IOT Product Display",
-      "Urban Planning Models",
-      "Panel Discussion Stage",
-      "Networking Zone",
-    ],
-    image: toyotaPromotion1,
-    modalImage: toyotaPromotion2,
   },
 ];

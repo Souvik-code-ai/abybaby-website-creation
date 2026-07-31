@@ -26,6 +26,9 @@ import max1 from "../../src/assets/images/max/max1.webp";
 import max2 from "../../src/assets/images/max/max2.webp";
 import max3 from "../../src/assets/images/max/max3.webp";
 import max4 from "../../src/assets/images/max/max4.webp";
+import marutiRdseMeet1 from "../../src/assets/images/marutiRdseMeet/MarutiRdse1.webp";
+import marutiRdseMeet2 from "../../src/assets/images/marutiRdseMeet/MarutiRdseMeet2.webp";
+import marutiRdseMeet3 from "../../src/assets/images/marutiRdseMeet/MarutiRdseMeet3.webp";
 import titaneye1 from "../../src/assets/images/titaneyeplus/titaneye1.webp";
 import titaneye2 from "../../src/assets/images/titaneyeplus/titaneye2.webp";
 import titaneye3 from "../../src/assets/images/titaneyeplus/titaneye3.webp";
@@ -51,13 +54,15 @@ import mahindraTractorRoadShow3 from "../../src/assets/images/mahindraTractorRoa
 import mahindraMaxximoCabConnect1 from "../../src/assets/images/mahindraMaxximoCabConnect/mahindraMaxximoCabConnect1.webp";
 import mahindraMaxximoCabConnect2 from "../../src/assets/images/mahindraMaxximoCabConnect/mahindraMaxximoCabConnect2.webp";
 import mahindraMaxximoCabConnect3 from "../../src/assets/images/mahindraMaxximoCabConnect/mahindraMaxximoCabConnect3.webp";
+import mahindraVeero1 from "../../src/assets/images/mahindraVeero/mahindraVeero1.webp";
+import britaniaRetailActivation1 from "../../src/assets/images/britaniaRetailActivation/britaniaRetailActivation.webp";
 export const ACTIVATIONS_ALL = [
   {
     id: 1,
     title: "Vodafone Chaltabagan",
     type: "Brand Promotion",
-    image: vodafoneChaltabagan1,
-    gallery: [vodafoneChaltabagan2, vodafoneChaltabagan3, vodafoneChaltabagan4],
+    image: vodafoneChaltabagan3,
+    gallery: [vodafoneChaltabagan2, vodafoneChaltabagan1, vodafoneChaltabagan4],
     audience: "1500+",
     highlights: [
       "Store Inauguration Ceremony",
@@ -128,14 +133,13 @@ export const ACTIVATIONS_ALL = [
       "On-spot Promotions",
     ],
   },
-
   {
     id: 7,
-    title: "Mahindra Maxximo Cab Connnect Customer Meet",
+    title: "Mahindra Veero",
     type: "Mall Activation",
-    image: mahindraMaxximoCabConnect1,
-    gallery: [mahindraMaxximoCabConnect2, mahindraMaxximoCabConnect3],
-    audience: "1500+",
+    image: mahindraVeero1,
+    gallery: [mahindraVeero1],
+    audience: "6000+",
     highlights: [
       "Festive Zone Setup",
       "Lucky Draw Activations",
@@ -144,15 +148,19 @@ export const ACTIVATIONS_ALL = [
       "On-spot Promotions",
     ],
   },
-  // {
-  //   id: 8,
-  //   type: " Brand Promotion",
-  //   status: "expired",
-  //   title: "Tapshee Pannu-Reebok",
-  //   date: "1 Dec 2026",
-  //   location: "Kolkata",
-  //   attendees: "500+",
-  //   image: reebok1,
-  //   gallery:[]
-  // },
+  {
+    id: 8,
+    title: "Britania Retail Activation",
+    type: "Mall Activation",
+    image: britaniaRetailActivation1,
+    gallery: [britaniaRetailActivation1],
+    audience: "6000+",
+    highlights: [
+      "Festive Zone Setup",
+      "Lucky Draw Activations",
+      "Brand Photo Booths",
+      "Live Performances",
+      "On-spot Promotions",
+    ],
+  },
 ];

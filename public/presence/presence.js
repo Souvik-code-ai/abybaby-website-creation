@@ -75,7 +75,7 @@ export const LOCATIONS = [
     lng: 85.848254,
     left: 59.2,
     top: 49.4,
-    locationsImage: bhubaneshwar,
+    locationsImage: ranchi,
     contactNumber: ["+91 9830832000", "+91 9830974955"],
 
     contactEmail: ["sucheta@abybaby.co.in", "shaw.vijay@abybaby.co.in"],
@@ -103,7 +103,7 @@ export const LOCATIONS = [
     lng: 85.344595,
     left: 58.7,
     top: 58.7,
-    locationsImage: ranchi,
+    locationsImage: bhubaneshwar,
     contactNumber: ["+91 9830832000", "+91 9830974955"],
 
     contactEmail: ["sucheta@abybaby.co.in", "shaw.vijay@abybaby.co.in"],
