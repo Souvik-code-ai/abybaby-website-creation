@@ -34,6 +34,7 @@ import tataMotorsEV1 from "../../src/assets/images/tataMotorsEv/tataMotorsEV1.we
 import tataMotorsEV2 from "../../src/assets/images/tataMotorsEv/tataMotorsEV2.webp";
 import cromaFunZone1 from "../../src/assets/images/cromaFunZone/cromaFunZone1.webp";
 import heroLoanMela1 from "../../src/assets/images/heroLoanMella/heroLoanMella1.webp";
+import testVideo from "../../src/assets/images/heroVoiceOfDestiny/heroVoiceOfDestiny.mp4";
 export const EXHIBITIONS_ALL = [
   {
     id: 1,
@@ -52,8 +53,8 @@ export const EXHIBITIONS_ALL = [
   {
     id: 2,
     name: "Kutchina",
-    boothSize: "1,500 sq.ft",
-    attendance: "19,000+",
+    boothSize: "TBD",
+    attendance: "TBD",
     features: [
       "IOT Product Display",
       "Urban Planning Models",
@@ -66,8 +67,8 @@ export const EXHIBITIONS_ALL = [
   {
     id: 3,
     name: "Tata Heavy Earth Movers",
-    boothSize: "1,500 sq.ft",
-    attendance: "19,000+",
+    boothSize: "TBD",
+    attendance: "TBD",
     features: [
       "IOT Product Display",
       "Urban Planning Models",
@@ -80,8 +81,8 @@ export const EXHIBITIONS_ALL = [
   {
     id: 4,
     name: "Yamaha",
-    boothSize: "1,500 sq.ft",
-    attendance: "19,000+",
+    boothSize: "TBD",
+    attendance: "TBD",
     features: [
       "IOT Product Display",
       "Urban Planning Models",
@@ -94,8 +95,8 @@ export const EXHIBITIONS_ALL = [
   {
     id: 5,
     name: "Maruti Loan Mela",
-    boothSize: "1,500 sq.ft",
-    attendance: "19,000+",
+    boothSize: "TBD",
+    attendance: "TBD",
     features: [
       "IOT Product Display",
       "Urban Planning Models",
@@ -108,8 +109,8 @@ export const EXHIBITIONS_ALL = [
   {
     id: 6,
     name: "Tata Motors EV",
-    boothSize: "1,500 sq.ft",
-    attendance: "19,000+",
+    boothSize: "TBD",
+    attendance: "TBD",
     features: [
       "IOT Product Display",
       "Urban Planning Models",
@@ -122,8 +123,8 @@ export const EXHIBITIONS_ALL = [
   {
     id: 7,
     name: "Croma Fun Zone",
-    boothSize: "1,500 sq.ft",
-    attendance: "19,000+",
+    boothSize: "TBD",
+    attendance: "TBD",
     features: [
       "IOT Product Display",
       "Urban Planning Models",
@@ -136,8 +137,8 @@ export const EXHIBITIONS_ALL = [
   {
     id: 8,
     name: "Hero Loan Mela",
-    boothSize: "1,500 sq.ft",
-    attendance: "19,000+",
+    boothSize: "TBD",
+    attendance: "TBD",
     features: [
       "IOT Product Display",
       "Urban Planning Models",

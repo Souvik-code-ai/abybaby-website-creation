@@ -139,7 +139,7 @@ export const ACTIVATIONS_ALL = [
     type: "Mall Activation",
     image: mahindraVeero1,
     gallery: [mahindraVeero1],
-    audience: "6000+",
+    audience: "2000+",
     highlights: [
       "Festive Zone Setup",
       "Lucky Draw Activations",
@@ -154,7 +154,7 @@ export const ACTIVATIONS_ALL = [
     type: "Mall Activation",
     image: britaniaRetailActivation1,
     gallery: [britaniaRetailActivation1],
-    audience: "6000+",
+    audience: "5000+",
     highlights: [
       "Festive Zone Setup",
       "Lucky Draw Activations",

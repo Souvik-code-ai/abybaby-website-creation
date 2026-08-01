@@ -137,7 +137,11 @@ export function FeedCard({ post }) {
         >
           <div className="flex items-center gap-3 cursor-pointer">
             <div className="rounded-full flex items-center justify-center shrink-0 overflow-hidden w-[42px] h-[42px]">
-              <img src={post.client.initials} alt="" className="rounded-full" />
+              <img
+                src={post.client?.initials}
+                alt=""
+                className="rounded-full"
+              />
             </div>
             <div>
               <div className="text-sm font-semibold text-[#1a1a1a] line-clamp-1">
@@ -213,9 +217,11 @@ export function FeedCard({ post }) {
             </button>
           )}
           {/* Category tag overlay */}
-          <div className="absolute top-3 right-3 z-10 px-2.5 py-1 rounded-full bg-linear-to-r from-lime-800 to-lime-600 text-white backdrop-blur-[6px] text-[11px] font-semibold tracking-[0.02em]">
-            {post.category}
-          </div>
+          {post?.category && (
+            <div className="absolute top-3 right-3 z-10 px-2.5 py-1 rounded-full bg-linear-to-r from-lime-800 to-lime-600 text-white backdrop-blur-[6px] text-[11px] font-semibold tracking-[0.02em]">
+              {post?.category}
+            </div>
+          )}
 
           <div className="absolute bottom-3 left-3 z-10 px-2.5 py-1 rounded-full flex items-center gap-1.5 opacity-0 group-hover:opacity-100 bg-[rgba(0,0,0,0.45)] backdrop-blur-[6px] text-[11px] text-white" />
 
@@ -319,7 +325,7 @@ export function FeedCard({ post }) {
           <span
             className={`text-sm text-[#1a1a1a] ${captionExpanded ? "line-clamp-none overflow-visible text-justify" : "line-clamp-2 overflow-hidden text-justify"}`}
           >
-            {post.caption}
+            {post?.caption}
           </span>
           {!captionExpanded ? (
             <button

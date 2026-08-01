@@ -37,7 +37,9 @@ export function ExhibitionSection({ onNavigate }) {
   const [visibleCount, setVisibleCount] = useState(3);
   const [isLoading, setIsLoading] = useState(false);
   const sentinelRef = useRef(null);
-
+  const [viewportHeight, setViewportHeight] = useState(
+    typeof window !== "undefined" ? window.innerHeight : 0,
+  );
   // ── Full data pool ── add more entries here to extend the list
 
   const visibleExhibitions = EXHIBITIONS_ALL.slice(0, visibleCount);
@@ -70,7 +72,31 @@ export function ExhibitionSection({ onNavigate }) {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
+  useEffect(() => {
+    if (selectedExhibition) {
+      const scrollY = window.scrollY;
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.left = "0";
+      document.body.style.right = "0";
 
+      return () => {
+        document.body.style.position = "";
+        document.body.style.top = "";
+        document.body.style.left = "";
+        document.body.style.right = "";
+        window.scrollTo(0, scrollY);
+      };
+    }
+  }, [selectedExhibition]);
+  useEffect(() => {
+    const vv = window.visualViewport;
+    if (!vv) return;
+    const updateHeight = () => setViewportHeight(vv.height);
+    updateHeight();
+    vv.addEventListener("resize", updateHeight);
+    return () => vv.removeEventListener("resize", updateHeight);
+  }, []);
   return (
     <div className="w-full min-h-screen bg-background min-[1160px]:mx-20 min-[770px]:mx-16 mx-0">
       {/* Heading */}
@@ -169,7 +195,7 @@ export function ExhibitionSection({ onNavigate }) {
                     </p>
                   </div>
                 </div>
-                <p className="text-xs text-gray-400 uppercase tracking-wider mb-2 font-medium">
+                {/* <p className="text-xs text-gray-400 uppercase tracking-wider mb-2 font-medium">
                   Services
                 </p>
                 <div className="space-y-2">
@@ -182,7 +208,7 @@ export function ExhibitionSection({ onNavigate }) {
                       {service}
                     </div>
                   ))}
-                </div>
+                </div> */}
               </motion.div>
             )}
           </AnimatePresence>
@@ -196,14 +222,15 @@ export function ExhibitionSection({ onNavigate }) {
       <AnimatePresence>
         {selectedExhibition && (
           <motion.div
-            className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 backdrop-blur-md sm:p-6 p-0  w-screen"
+            className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 backdrop-blur-md sm:p-6 p-0  w-screen h-[100svh]"
+            style={{ height: viewportHeight }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedExhibition(null)}
           >
             <motion.div
-              className="relative max-w-6xl w-screen sm:h-[85vh] overflow-hidden sm:rounded-3xl h-[100vh]"
+              className="relative max-w-6xl w-screen sm:h-[85vh] overflow-hidden sm:rounded-3xl h-[100svh] isolate bg-black/95"
               initial={{ scale: 0.9 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.9 }}
@@ -236,7 +263,7 @@ export function ExhibitionSection({ onNavigate }) {
                   </p>
                 </div>
               </div>
-              <div className="absolute bottom-8 md:left-8 max-w-md left-3.5 hidden sm:block">
+              {/* <div className="absolute bottom-8 md:left-8 max-w-md left-3.5 hidden sm:block">
                 <div className="bg-black/40 backdrop-blur-lg border border-white/20 rounded-2xl p-6">
                   <h3 className="text-white font-semibold mb-4 font-sans">
                     Exhibition Highlights
@@ -253,7 +280,7 @@ export function ExhibitionSection({ onNavigate }) {
                     ))}
                   </div>
                 </div>
-              </div>
+              </div> */}
               <button
                 onClick={() => setSelectedExhibition(null)}
                 className="absolute top-3 right-3 w-12 h-12 rounded-full bg-black/40 backdrop-blur-md text-white cursor-pointer hover:bg-black/80"

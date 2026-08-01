@@ -53,7 +53,18 @@ export function ActivationSection({ onNavigate }) {
   const [isLoading, setIsLoading] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const sentinelRef = useRef(null);
+  const [viewportHeight, setViewportHeight] = useState(
+    typeof window !== "undefined" ? window.innerHeight : 0,
+  );
 
+  useEffect(() => {
+    const vv = window.visualViewport;
+    if (!vv) return;
+    const updateHeight = () => setViewportHeight(vv.height);
+    updateHeight();
+    vv.addEventListener("resize", updateHeight);
+    return () => vv.removeEventListener("resize", updateHeight);
+  }, []);
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 767px)");
     const update = () => setIsMobile(mq.matches);
@@ -215,7 +226,7 @@ export function ActivationSection({ onNavigate }) {
                       </p>
                     </div>
                   </div>
-                  <p className="text-xs text-gray-400 uppercase tracking-wider mb-2 font-medium">
+                  {/* <p className="text-xs text-gray-400 uppercase tracking-wider mb-2 font-medium">
                     Highlights
                   </p>
                   <div className="space-y-2">
@@ -228,7 +239,7 @@ export function ActivationSection({ onNavigate }) {
                         {h}
                       </div>
                     ))}
-                  </div>
+                  </div> */}
                 </motion.div>
               )}
             </AnimatePresence>
@@ -263,7 +274,8 @@ export function ActivationSection({ onNavigate }) {
       <AnimatePresence>
         {selectedActivation && (
           <motion.div
-            className="fixed inset-0 z-[9999] bg-black/80 backdrop-blur-md flex items-center justify-center sm:p-4 w-screen p-0"
+            className="fixed inset-0 z-[9999] bg-black/80 backdrop-blur-md flex items-center justify-center sm:p-4 w-screen p-0 h-[100svh]"
+            style={{ height: viewportHeight }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -277,7 +289,7 @@ export function ActivationSection({ onNavigate }) {
               onClick={(e) => e.stopPropagation()}
               onTouchStart={handleTouchStart}
               onTouchEnd={handleTouchEnd}
-              className="relative w-full max-w-7xl sm:h-[85vh] overflow-hidden sm:rounded-3xl h-[100vh] rounded-none "
+              className="relative w-full max-w-7xl sm:h-[85vh] overflow-hidden sm:rounded-3xl h-[100svh] rounded-none "
             >
               <AnimatePresence mode="wait">
                 <motion.img
@@ -335,7 +347,7 @@ export function ActivationSection({ onNavigate }) {
                   {selectedActivation.audience}
                 </h3>
               </div>
-              <div className="absolute bottom-6 md:right-10 w-[280px] backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl p-6 right-1 hidden sm:block">
+              {/* <div className="absolute bottom-6 md:right-10 w-[280px] backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl p-6 right-1 hidden sm:block">
                 <h4 className="text-white font-semibold mb-4 font-sans">
                   Activation Highlights
                 </h4>
@@ -350,7 +362,7 @@ export function ActivationSection({ onNavigate }) {
                     </div>
                   ))}
                 </div>
-              </div>
+              </div> */}
               <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3">
                 {selectedActivation.gallery.map((_, index) => (
                   <button

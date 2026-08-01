@@ -19,9 +19,9 @@ export const LOCATIONS = [
     left: 66.5,
     top: 51.4,
     locationsImage: kolkata,
-    contactNumber: ["+91 9830832000", "+91 9830974955"],
+    contactNumber: ["+91 98309 74955"],
 
-    contactEmail: ["sucheta@abybaby.co.in", "shaw.vijay@abybaby.co.in"],
+    contactEmail: ["jeet.nandy@abybaby.co.in"],
   },
   {
     id: 2,
@@ -33,9 +33,9 @@ export const LOCATIONS = [
     left: 29.7,
     top: 77.1,
     locationsImage: bengaluru,
-    contactNumber: ["+91 9830832000", "+91 9830974955"],
+    contactNumber: ["+91 98309 74955"],
 
-    contactEmail: ["sucheta@abybaby.co.in", "shaw.vijay@abybaby.co.in"],
+    contactEmail: ["jeet.nandy@abybaby.co.in"],
   },
   {
     id: 3,
@@ -47,9 +47,9 @@ export const LOCATIONS = [
     left: 84.6,
     top: 32.7,
     locationsImage: guwahati,
-    contactNumber: ["+91 9830832000", "+91 9830974955"],
+    contactNumber: ["+91 98309 74955"],
 
-    contactEmail: ["sucheta@abybaby.co.in", "shaw.vijay@abybaby.co.in"],
+    contactEmail: ["jeet.nandy@abybaby.co.in"],
   },
   {
     id: 4,
@@ -61,9 +61,9 @@ export const LOCATIONS = [
     left: 60.2,
     top: 42.1,
     locationsImage: patna,
-    contactNumber: ["+91 9830832000", "+91 9830974955"],
+    contactNumber: ["+91 98309 74955"],
 
-    contactEmail: ["sucheta@abybaby.co.in", "shaw.vijay@abybaby.co.in"],
+    contactEmail: ["jeet.nandy@abybaby.co.in"],
   },
   {
     id: 5,
@@ -76,9 +76,9 @@ export const LOCATIONS = [
     left: 59.2,
     top: 49.4,
     locationsImage: ranchi,
-    contactNumber: ["+91 9830832000", "+91 9830974955"],
+    contactNumber: ["+91 98309 74955"],
 
-    contactEmail: ["sucheta@abybaby.co.in", "shaw.vijay@abybaby.co.in"],
+    contactEmail: ["jeet.nandy@abybaby.co.in"],
   },
   {
     id: 6,
@@ -90,9 +90,9 @@ export const LOCATIONS = [
     left: 39.5,
     top: 56.3,
     locationsImage: chattisgarh,
-    contactNumber: ["+91 9830832000", "+91 9830974955"],
+    contactNumber: ["+91 98309 74955"],
 
-    contactEmail: ["sucheta@abybaby.co.in", "shaw.vijay@abybaby.co.in"],
+    contactEmail: ["jeet.nandy@abybaby.co.in"],
   },
   {
     id: 7,
@@ -104,9 +104,9 @@ export const LOCATIONS = [
     left: 58.7,
     top: 58.7,
     locationsImage: bhubaneshwar,
-    contactNumber: ["+91 9830832000", "+91 9830974955"],
+    contactNumber: ["+91 98309 74955"],
 
-    contactEmail: ["sucheta@abybaby.co.in", "shaw.vijay@abybaby.co.in"],
+    contactEmail: ["jeet.nandy@abybaby.co.in"],
   },
   {
     id: 8,
@@ -118,9 +118,9 @@ export const LOCATIONS = [
     left: 38.3,
     top: 34.9,
     locationsImage: lucknow,
-    contactNumber: ["+91 9830832000", "+91 9830974955"],
+    contactNumber: ["+91 98309 74955"],
 
-    contactEmail: ["sucheta@abybaby.co.in", "shaw.vijay@abybaby.co.in"],
+    contactEmail: ["jeet.nandy@abybaby.co.in"],
   },
   {
     id: 9,
@@ -133,7 +133,7 @@ export const LOCATIONS = [
     left: 39.8,
     top: 82.7,
     locationsImage: chennai,
-    contactNumber: ["+91 9830832000", "+91 9830974955"],
-    contactEmail: ["sucheta@abybaby.co.in", "shaw.vijay@abybaby.co.in"],
+    contactNumber: ["+91 98309 74955"],
+    contactEmail: ["jeet.nandy@abybaby.co.in"],
   },
 ];

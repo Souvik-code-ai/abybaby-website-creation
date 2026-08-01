@@ -52,8 +52,21 @@ import tataYoddhaImage from "../../src/assets/images/tataYoddha/tataYoddha.webp"
 import mercedesBenzMobileLaunch from "../../src/assets/images/mercedes_benz/mercedesBenzMobileLaunch.webp";
 import toyotaSupplierMeet from "../../src/assets/images/toyotaSupplierMeet/toyotaSupplierMeet.webp";
 import flipkartPoster from "../../src/assets/images/flipkart/flipkartPoster.webp";
+import vodafoneLogo from "../../src/assets/images/agomoni/vodafoneLogo.webp";
 import hurdleHawkVdo from "../../src/assets/images/hurdle_hawk/hurdleHawkVdo.mp4";
-import hurdleHawkVdo from "../../src/assets/images/hurdle_hawk/hurdleHawkVdo.mp4";
+import hurdle_Hawk1 from "../../src/assets/images/hurdle_hawk/hurdle_hawk1.webp";
+import hurdleHawkLogo from "../../src/assets/images/hurdle_hawk/hurdleHawkLogo.webp";
+import amazonVdo from "../../src/assets/images/amazon/amazon.mp4";
+import mahindraFootballLeagueVdo from "../../src/assets/images/mahindraFootballLeague/mahindraFootballLeagueVdo.mp4";
+import agomoniVodafone from "../../src/assets/images/agomoni/agomoniVodafone.mp4";
+
+import heroVoiceOfDestinyVdo from "../../src/assets/images/heroVoiceOfDestiny/heroVoiceOfDestiny.mp4";
+// import amazonVdo from "../../src/assets/images/amazon/amazon.mp4";
+import sonpurMelaVdo from "../../src/assets/images/sonpurMela/sonpurMela.mp4";
+import heroSalesCarnivalVdo from "../../src/assets/images/heroSalesCarnival/heroSalesCarnival.mp4";
+import agomoni1 from "../../src/assets/images/agomoni/agomoni1.webp";
+import amazonLogo from "../../src/assets/images/amazon/Amazonlogo.webp";
+import agomoni5 from "../../src/assets/images/agomoni/agomoni5.webp";
 export const clients = [
   {
     id: 1,
@@ -395,6 +408,125 @@ export const clients = [
         type: "video",
         url: maxfashionVdo,
         poster: maxFashionImage,
+      },
+    ],
+  },
+  {
+    id: 14,
+    name: "Hurdle Hawk",
+    initials: hurdleHawkLogo,
+    color: "#FF6B6B",
+    bgColor: "#FFE8E8",
+    seen: true,
+    category: "Event",
+    location: "Kolkata,West Bengal",
+    stories: [
+      {
+        type: "video",
+        url: hurdleHawkVdo,
+        poster: hurdle_Hawk1,
+      },
+    ],
+  },
+  {
+    id: 15,
+    name: "Vodafone",
+    initials: vodafoneLogo,
+    color: "#FF6B6B",
+    bgColor: "#FFE8E8",
+    seen: true,
+    category: "Event",
+    location: "Kolkata,West Bengal",
+    stories: [
+      {
+        type: "video",
+        url: agomoniVodafone,
+        poster: agomoni5,
+      },
+    ],
+  },
+  {
+    id: 16,
+    name: "Mahindra",
+    initials: mahindraLogo,
+    color: "#FF6B6B",
+    bgColor: "#FFE8E8",
+    seen: true,
+    category: "Event",
+    location: "West Bengal & North East,India",
+    stories: [
+      {
+        type: "video",
+        url: mahindraFootballLeagueVdo,
+        poster: mahindraLogo,
+      },
+    ],
+  },
+  {
+    id: 17,
+    name: "Hero",
+    initials: herologo,
+    color: "#FF6B6B",
+    bgColor: "#FFE8E8",
+    seen: true,
+    category: "Activation",
+    location: "Bettiah,Bihar,India",
+    stories: [
+      {
+        type: "video",
+        url: heroSalesCarnivalVdo,
+        poster: herologo,
+      },
+    ],
+  },
+  {
+    id: 18,
+    name: "Hero",
+    initials: herologo,
+    color: "#FF6B6B",
+    bgColor: "#FFE8E8",
+    seen: true,
+    category: "Activation",
+    location: "Assam & North East,India",
+    stories: [
+      {
+        type: "video",
+        url: heroVoiceOfDestinyVdo,
+        poster: herologo,
+      },
+    ],
+  },
+  {
+    id: 19,
+    name: "Hero",
+    initials: amazonLogo,
+    color: "#FF6B6B",
+    bgColor: "#FFE8E8",
+    seen: true,
+    category: "Activation",
+    location: "Kolkata,West Bengal",
+    stories: [
+      {
+        type: "video",
+        url: amazonVdo,
+        poster: amazonLogo,
+      },
+    ],
+  },
+  {
+    id: 20,
+    name: "Mahindra",
+    initials: mahindraLogo,
+    color: "#FF6B6B",
+    bgColor: "#FFE8E8",
+    seen: true,
+    // category: "Event",
+    location: "Sonepur,Bihar",
+    stories: [
+      {
+        type: "video",
+        url: sonpurMelaVdo,
+        poster: sonpurMela1,
       },
     ],
   },
@@ -880,11 +1012,247 @@ export const feedPosts = [
   },
   {
     id: 13,
-    client: clients[12],
+    client: clients[13],
     name: "Hurdle Hawk",
-    location: "Hyderabad,India",
+    location: "Kolkata,India",
     category: "Event",
-    media: [{ type: "video", url: hurdleHawkVdo, poster:  }],
+    media: [{ type: "video", url: hurdleHawkVdo, poster: hurdle_Hawk1 }],
+    likes: 1000,
+    // caption:
+    //   "Team Abybaby brought fun, fashion, and fantasy to life with a magical Lilo & Stitch experience for Max Fashion — packed with color, style, and joyful energy at every turn.",
+    comments: [
+      {
+        id: 1,
+        author: "Layla S.",
+        text: "This is literally my dream event! 😍",
+        time: "3d",
+      },
+      {
+        id: 2,
+        author: "Aisha M.",
+        text: "Can you do my event next? Perfection.",
+        time: "3d",
+      },
+      {
+        id: 3,
+        author: "Nour J.",
+        text: "The floral arch alone is iconic.",
+        time: "4d",
+      },
+      {
+        id: 4,
+        author: "Hessa A.",
+        text: "I was there! Even better in person.",
+        time: "4d",
+      },
+    ],
+
+    date: "May 15, 2026",
+  },
+  {
+    id: 14,
+    client: clients[14],
+    name: "Agomoni Vodafone",
+    location: "Kolkata,India",
+    category: "Event",
+    media: [{ type: "video", url: agomoniVodafone, poster: agomoni5 }],
+    likes: 1000,
+    // caption:
+    //   "Team Abybaby brought fun, fashion, and fantasy to life with a magical Lilo & Stitch experience for Max Fashion — packed with color, style, and joyful energy at every turn.",
+    comments: [
+      {
+        id: 1,
+        author: "Layla S.",
+        text: "This is literally my dream event! 😍",
+        time: "3d",
+      },
+      {
+        id: 2,
+        author: "Aisha M.",
+        text: "Can you do my event next? Perfection.",
+        time: "3d",
+      },
+      {
+        id: 3,
+        author: "Nour J.",
+        text: "The floral arch alone is iconic.",
+        time: "4d",
+      },
+      {
+        id: 4,
+        author: "Hessa A.",
+        text: "I was there! Even better in person.",
+        time: "4d",
+      },
+    ],
+
+    date: "May 15, 2026",
+  },
+  {
+    id: 15,
+    client: clients[15],
+    name: "Mahindra Football League",
+    location: "West Bengal & North East,India",
+    category: "Activation",
+    media: [
+      { type: "video", url: mahindraFootballLeagueVdo, poster: mahindraLogo },
+    ],
+    likes: 1000,
+    caption:
+      "An engagement-first football activation spanning 2 states, featuring 300+ contestants, 20+ stands, and 500+ strong audiences. The event forged emotional connections with SCV owners through test drives, spot bookings, and sales — rooted in the region's deep passion for football, West Bengal, and the North East.",
+    comments: [
+      {
+        id: 1,
+        author: "Layla S.",
+        text: "This is literally my dream event! 😍",
+        time: "3d",
+      },
+      {
+        id: 2,
+        author: "Aisha M.",
+        text: "Can you do my event next? Perfection.",
+        time: "3d",
+      },
+      {
+        id: 3,
+        author: "Nour J.",
+        text: "The floral arch alone is iconic.",
+        time: "4d",
+      },
+      {
+        id: 4,
+        author: "Hessa A.",
+        text: "I was there! Even better in person.",
+        time: "4d",
+      },
+    ],
+
+    date: "May 15, 2026",
+  },
+  {
+    id: 16,
+    client: clients[16],
+    name: "Hero Sales Carnival",
+    location: "Bettiah,Bihar,India",
+    category: "Activation",
+    media: [{ type: "video", url: heroSalesCarnivalVdo, poster: herologo }],
+    likes: 1000,
+    caption:
+      "A high-impact, sales-driven activation that engaged 15,000+ people, delivering 1,000+ units sold, 40+ exchanges, 2,000+ enquiries, 150+ finance cases, 850+ insurance policies, and 50+ loyalty bonuses.",
+    comments: [
+      {
+        id: 1,
+        author: "Layla S.",
+        text: "This is literally my dream event! 😍",
+        time: "3d",
+      },
+      {
+        id: 2,
+        author: "Aisha M.",
+        text: "Can you do my event next? Perfection.",
+        time: "3d",
+      },
+      {
+        id: 3,
+        author: "Nour J.",
+        text: "The floral arch alone is iconic.",
+        time: "4d",
+      },
+      {
+        id: 4,
+        author: "Hessa A.",
+        text: "I was there! Even better in person.",
+        time: "4d",
+      },
+    ],
+
+    date: "May 15, 2026",
+  },
+  {
+    id: 17,
+    client: clients[17],
+    name: "Hero Voice Of Destiny",
+    location: "Assam & North East,India",
+    category: "Activation",
+    media: [{ type: "video", url: heroVoiceOfDestinyVdo, poster: herologo }],
+    likes: 1000,
+    caption:
+      " Rooted in the musical richness of Assam and the North East's 7 Sister states, this playful voice contest delivered a unique cultural experience — seamlessly blending product showcase of the Hero Destiny range with meaningful engagement and sales.",
+    comments: [
+      {
+        id: 1,
+        author: "Layla S.",
+        text: "This is literally my dream event! 😍",
+        time: "3d",
+      },
+      {
+        id: 2,
+        author: "Aisha M.",
+        text: "Can you do my event next? Perfection.",
+        time: "3d",
+      },
+      {
+        id: 3,
+        author: "Nour J.",
+        text: "The floral arch alone is iconic.",
+        time: "4d",
+      },
+      {
+        id: 4,
+        author: "Hessa A.",
+        text: "I was there! Even better in person.",
+        time: "4d",
+      },
+    ],
+
+    date: "May 15, 2026",
+  },
+  {
+    id: 18,
+    client: clients[18],
+    name: "Amazon Great Indian Festival",
+    location: "Kolkata,India",
+    category: "Activation",
+    media: [{ type: "video", url: amazonVdo, poster: amazonLogo }],
+    likes: 1000,
+    caption:
+      "On September 22, 2025, Park Circus Maidan in Kolkata played host to a spectacular drone show. The event, organized by Abybaby Events in partnership with tech provider Botlab Dynamics, featured thousands of drones lighting up the sky to mark the start of the festive season and celebrate the launch of the Amazon Great Indian Festival.",
+    comments: [
+      {
+        id: 1,
+        author: "Layla S.",
+        text: "This is literally my dream event! 😍",
+        time: "3d",
+      },
+      {
+        id: 2,
+        author: "Aisha M.",
+        text: "Can you do my event next? Perfection.",
+        time: "3d",
+      },
+      {
+        id: 3,
+        author: "Nour J.",
+        text: "The floral arch alone is iconic.",
+        time: "4d",
+      },
+      {
+        id: 4,
+        author: "Hessa A.",
+        text: "I was there! Even better in person.",
+        time: "4d",
+      },
+    ],
+
+    date: "May 15, 2026",
+  },
+  {
+    id: 19,
+    client: clients[19],
+    name: "Sonepur Mela",
+    location: "Sonepur,Bihar,India",
+    // category: "Event",
+    media: [{ type: "video", url: sonpurMelaVdo }],
     likes: 1000,
     caption:
       "Team Abybaby brought fun, fashion, and fantasy to life with a magical Lilo & Stitch experience for Max Fashion — packed with color, style, and joyful energy at every turn.",
@@ -995,6 +1363,6 @@ export const awards = [
     title: "Excellence in Rural Marketing & CSR — Sonepur Mela",
     year: 2024,
     description:
-      "Recognised with Gold and Silver for Excellence in Rural Marketing and Silver for Excellence in CSR, after the campaign drove 4,000+ vehicle sales and engaged 15,000+ people on animal welfare at Sonepur Mela.",
+      "A ground-level activation at one of India's oldest and largest cattle fairs, positioning Mahindra vehicles as a practical, sustainable alternative for a community built around animal trade.",
   },
 ];

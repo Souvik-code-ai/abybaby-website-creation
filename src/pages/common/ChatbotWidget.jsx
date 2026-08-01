@@ -41,25 +41,25 @@ export function ChatbotWidget({ isOpen = false, onClose }) {
       icon: Facebook,
       label: "Facebook",
       color: "#1877F2",
-      url: "https://facebook.com/abybabyevents",
+      url: "https://www.facebook.com/AbybabyEventsNetwork",
     },
     {
       icon: Instagram,
       label: "Instagram",
       color: "#E1306C",
-      url: "https://instagram.com/abybabyevents",
+      url: "https://www.instagram.com/abybabyevents/",
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
       color: "#0A66C2",
-      url: "https://linkedin.com/company/abybabyevents",
+      url: "https://www.linkedin.com/company/13250906/admin/dashboard/",
     },
     {
       icon: Youtube,
       label: "Youtube",
       color: "#0A66C2",
-      url: "https://www.youtube.com/@abybabyevents4827",
+      url: "https://www.youtube.com/@abybabyevents8902",
     },
   ];
 

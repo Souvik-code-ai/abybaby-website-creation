@@ -8,6 +8,8 @@ import arun from "../../src/assets/images/arun/arun.webp";
 import reebok1 from "../../src/assets/images/reebok/reebok1.webp.webp";
 import agomoni1 from "../../src/assets/images/agomoni/agomoni1.webp";
 import agomoni2 from "../../src/assets/images/agomoni/agomoni2.webp";
+import agomoni4 from "../../src/assets/images/agomoni/agomoni4.webp";
+import agomoni5 from "../../src/assets/images/agomoni/agomoni5.webp";
 import hurdlehawk1 from "../../src/assets/images/hurdle_hawk/hurdle_hawk1.webp";
 import hurdlehawk2 from "../../src/assets/images/hurdle_hawk/hurdle_hawk2.webp";
 import hurdlehawk3 from "../../src/assets/images/hurdle_hawk/hurdle_hawk3.webp";
@@ -80,8 +82,8 @@ export const EVENTS = [
     date: "3 Mar 2024",
     location: "Mumbai",
     attendees: "500+",
-    image: agomoni1,
-    modalImage: agomoni2,
+    image: agomoni5,
+    modalImage: agomoni1,
   },
   // {
   //   id: 4,
