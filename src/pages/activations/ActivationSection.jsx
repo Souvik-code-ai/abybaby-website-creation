@@ -179,7 +179,7 @@ export function ActivationSection({ onNavigate }) {
                   </h3>
                   <div className="mt-3 flex items-center justify-between">
                     <span className="text-gray-500 text-[13px]">
-                      Audiance Reach
+                      Audience Reach
                     </span>
                     <span className="text-lime-500 text-sm  font-semibold">
                       {item.audience}
@@ -211,7 +211,7 @@ export function ActivationSection({ onNavigate }) {
                   <img
                     src={hoveredProject.image}
                     alt={hoveredProject.title}
-                    className="w-full rounded-xl object-cover mb-4 h-[150px]"
+                    className="w-full rounded-xl object-cover mb-4 aspect-auto"
                   />
                   <h3 className="font-semibold text-gray-900 font-sans text-sm mb-3">
                     {hoveredProject.title}
@@ -219,7 +219,7 @@ export function ActivationSection({ onNavigate }) {
                   <div className="flex gap-2 mb-4">
                     <div className="flex-1 bg-gray-50 rounded-xl p-3 text-center">
                       <p className="text-xs text-gray-400 mb-1">
-                        Audiance Reach
+                        Audience Reach
                       </p>
                       <p className="text-xs font-semibold text-gray-800">
                         {hoveredProject.audience}
@@ -342,7 +342,7 @@ export function ActivationSection({ onNavigate }) {
                 sm:border sm:border-white/20
                 rounded-2xl sm:px-6 py-4 px-0"
               >
-                <p className="text-white sm:text-sm text-xs">Audiance Reach:</p>
+                <p className="text-white sm:text-sm text-xs">Audience Reach:</p>
                 <h3 className="text-white md:text-3xl font-bold font-sans sm:text-xl text-xs">
                   {selectedActivation.audience}
                 </h3>

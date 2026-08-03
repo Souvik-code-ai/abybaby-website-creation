@@ -9,8 +9,8 @@ import ProgressItem from "../../components/ui/ProgressItem";
 import EventHighlights from "../../components/ui/EventHighlights";
 
 // TODO: replace with your deployed Google Apps Script Web App URL
-const GOOGLE_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbxSrm_9ovj5ja-BDVqhs4tQvoQktTR25R9Ohjx1LUKRM17cmf389GhdLjMKdoWITd0qAg/exec";
+// const GOOGLE_SCRIPT_URL =
+//   "https://script.google.com/macros/s/AKfycbxSrm_9ovj5ja-BDVqhs4tQvoQktTR25R9Ohjx1LUKRM17cmf389GhdLjMKdoWITd0qAg/exec";
 
 // ── Skeleton for a single event card while its image loads ──────────────────
 function EventCardSkeleton() {
@@ -70,7 +70,7 @@ function EventCard({ event, showType, onHover, onLeave, onClick }) {
 
         <div className="mt-3 flex flex-col gap-1.5">
           <div className="flex items-center gap-2 text-gray-500 text-[13px]">
-            <MapPin size={13} className="text-lime-600 flex-0" />
+            <MapPin size={13} className="text-lime-600 flex-0 " />
             {event?.location}
           </div>
           <div className="flex items-center gap-2 text-gray-500 text-[13px]">
@@ -99,6 +99,7 @@ function EmptyState({ label }) {
 
 // ── Registration form modal ─────────────────────────────────────────────────
 function RegistrationModal({ event, onClose }) {
+  const GOOGLE_SCRIPT_URL = import.meta.env.VITE_SCRIPT_URL;
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -529,7 +530,7 @@ export function EventsSection({ onNavigate }) {
 
                   {/* Location + Attendance chips — hidden on mobile for upcoming events */}
                   <div
-                    className={`absolute md:top-8 sm:left-[66vw] gap-4 sm:top-40 left-4 min-[375]:top-[88vh] top-[94vh] sm:flex  ${
+                    className={`absolute md:top-8 sm:left-2/3 flex gap-4 sm:top-40  left-4 min-[375]:top-[88vh]  top-[94vh] sm:flex  ${
                       selectedEvent.status === "upcoming" ? "hidden" : "flex"
                     }`}
                   >
@@ -537,7 +538,7 @@ export function EventsSection({ onNavigate }) {
                       <p className="text-white/70 text-xs drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
                         Location
                       </p>
-                      <p className="text-white sm:font-semibold font-light text-xs drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+                      <p className="text-white sm:font-semibold font-light text-xs drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] line-clamp-1">
                         {selectedEvent.location}
                       </p>
                     </div>

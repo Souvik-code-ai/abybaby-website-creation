@@ -72,9 +72,9 @@ export default function GridCell({ item, onClick }) {
                 {item.comments}
               </span>
             </div>
-            <p className="text-[11px] text-white/80 text-center px-[10px] leading-[1.4] max-w-[120px] line-clamp-2">
+            {/* <p className="text-[11px] text-white/80 text-center px-[10px] leading-[1.4] max-w-[120px] line-clamp-2">
               {item.caption}
-            </p>
+            </p> */}
           </motion.div>
         )}
       </AnimatePresence>

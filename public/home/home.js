@@ -1,5 +1,5 @@
 import dtlogo from "../../src/assets/images/drumtao/dtlogo.png";
-import arunlogo from "../../src/assets/images/arun/arunlogo.png";
+import arunlogo from "../../src/assets/images/arun/arunlogo.webp";
 import mialogo from "../../src/assets/images/mia/mialogo.jpg";
 import toyotalogo from "../../src/assets/images/zira/toyota_logo.webp";
 import miavdo1 from "../../src/assets/images/mia/miavdo1.MP4";
@@ -173,7 +173,7 @@ export const clients = [
     color: "#A78BFA",
     bgColor: "#EDE9FE",
     seen: true,
-    category: "Concert",
+    category: "MICE",
     location: "Arunachal Pradesh,India",
     stories: [
       {
@@ -263,7 +263,7 @@ export const clients = [
     bgColor: "#E0F7F6",
     seen: true,
     category: "Launch",
-    location: "Viva Star, Bannerghata Road, Bengaluru, India",
+    location: " Bengaluru, India",
     stories: [
       {
         type: "video",
@@ -311,8 +311,8 @@ export const clients = [
     color: "#A78BFA",
     bgColor: "#EDE9FE",
     seen: true,
-    category: "MICE",
-    location: "Kolkata,India",
+    category: "Event",
+    location: "Jamshedpur & Jharkhand,India",
     stories: [
       {
         type: "video",
@@ -367,7 +367,7 @@ export const clients = [
     color: "#FF6B6B",
     bgColor: "#FFE8E8",
     seen: true,
-    category: "MICE",
+    category: "Event",
     location: "Meghalaya,India",
     stories: [
       {
@@ -384,7 +384,7 @@ export const clients = [
     color: "#FF6B6B",
     bgColor: "#FFE8E8",
     seen: true,
-    category: "Concert",
+    category: "Conference",
     location: "Bengaluru,India",
     stories: [
       {
@@ -418,7 +418,7 @@ export const clients = [
     color: "#FF6B6B",
     bgColor: "#FFE8E8",
     seen: true,
-    category: "Event",
+    category: "Sport's Event",
     location: "Kolkata,West Bengal",
     stories: [
       {
@@ -452,7 +452,7 @@ export const clients = [
     color: "#FF6B6B",
     bgColor: "#FFE8E8",
     seen: true,
-    category: "Event",
+    category: "Activation",
     location: "West Bengal & North East,India",
     stories: [
       {
@@ -470,7 +470,7 @@ export const clients = [
     bgColor: "#FFE8E8",
     seen: true,
     category: "Activation",
-    location: "Bettiah,Bihar,India",
+    location: "Bihar,India",
     stories: [
       {
         type: "video",
@@ -521,7 +521,7 @@ export const clients = [
     bgColor: "#FFE8E8",
     seen: true,
     // category: "Event",
-    location: "Sonepur,Bihar",
+    location: "Sonpur,Bihar",
     stories: [
       {
         type: "video",
@@ -651,7 +651,7 @@ export const feedPosts = [
     id: 4,
     client: clients[3],
     name: "Toyota Kirloskar x Ziro Festival of Music 2024",
-    location: "Assam,India",
+    location: "Arunachal Pradesh,India",
     category: "Concert ",
     media: [
       { type: "video", url: toyotazerovdo, poster: zira3 },
@@ -774,7 +774,7 @@ export const feedPosts = [
     id: 7,
     client: clients[7],
     name: "Mercedes Service Clinic Launch",
-    location: "Viva Star,Bannerghata Road,Bengaluru,India",
+    location: "Bengaluru,India",
     category: "Launch",
     media: [
       { type: "video", url: mercedesVdo, poster: mercedesServiceClinicImage },
@@ -815,8 +815,8 @@ export const feedPosts = [
     id: 8,
     client: clients[8],
     name: "Trucking into the Future & Tata Bandhan – Tata Motors",
-    location: "Kolkata,India",
-    category: "MICE",
+    location: "Jamshedpur & Jharkhand,India",
+    category: "Event",
     media: [{ type: "video", url: tatabandhanvdo, poster: tataYoddhaImage }],
     likes: 1000,
     caption: `Abybaby Events hosted Tata Motors' "Trucking into the Future" and Bandhan celebration, bringing together 300+ valued customers for insightful discussions and partnership celebrations — driving Tata Motors' vision of sustainable, tech-driven logistics forward.`,
@@ -895,8 +895,8 @@ export const feedPosts = [
     id: 10,
     client: clients[10],
     name: "LAGISAARTH Challenge – Tata Yodha, The Beast of the Hills",
-    location: "Kolkata,India",
-    category: "Events ",
+    location: "Meghalaya,India",
+    category: "Event",
     media: [{ type: "video", url: tataYoddhaVdo, poster: tataYoddhaImage }],
     likes: 1000,
     caption:
@@ -935,7 +935,7 @@ export const feedPosts = [
     client: clients[11],
     name: "Toyota Supplier Meet",
     location: "Bengaluru,India",
-    category: "MICE",
+    category: "Conference",
     media: [
       { type: "video", url: toyotaSupplierMeetVdo, poster: toyotaSupplierMeet },
     ],
@@ -1015,7 +1015,7 @@ export const feedPosts = [
     client: clients[13],
     name: "Hurdle Hawk",
     location: "Kolkata,India",
-    category: "Event",
+    category: "Sport's Event",
     media: [{ type: "video", url: hurdleHawkVdo, poster: hurdle_Hawk1 }],
     likes: 1000,
     // caption:
@@ -1052,7 +1052,7 @@ export const feedPosts = [
   {
     id: 14,
     client: clients[14],
-    name: "Agomoni Vodafone",
+    name: "Aagomoni Vodafone",
     location: "Kolkata,India",
     category: "Event",
     media: [{ type: "video", url: agomoniVodafone, poster: agomoni5 }],
@@ -1093,7 +1093,7 @@ export const feedPosts = [
     client: clients[15],
     name: "Mahindra Football League",
     location: "West Bengal & North East,India",
-    category: "Activation",
+    category: "Sports Events",
     media: [
       { type: "video", url: mahindraFootballLeagueVdo, poster: mahindraLogo },
     ],
@@ -1133,7 +1133,7 @@ export const feedPosts = [
     id: 16,
     client: clients[16],
     name: "Hero Sales Carnival",
-    location: "Bettiah,Bihar,India",
+    location: "Bihar,India",
     category: "Activation",
     media: [{ type: "video", url: heroSalesCarnivalVdo, poster: herologo }],
     likes: 1000,
@@ -1249,8 +1249,8 @@ export const feedPosts = [
   {
     id: 19,
     client: clients[19],
-    name: "Sonepur Mela",
-    location: "Sonepur,Bihar,India",
+    name: "Sonpur Mela",
+    location: "Bihar,India",
     // category: "Event",
     media: [{ type: "video", url: sonpurMelaVdo }],
     likes: 1000,
@@ -1340,9 +1340,9 @@ export const caseStudies = [
     clientColor: "#DC2626",
     clientlogo: mahindraLogo,
     clientName: "Mahindra",
-    title: "Mahindra at Sonepur Mela",
+    title: "Mahindra at Sonpur Mela",
     summary:
-      "A grassroots activation at India's Sonepur Mela that positioned Mahindra vehicles as a sustainable alternative to cattle — driving 4,000+ vehicle sales and reaching 15,000+ people with animal welfare messaging.",
+      "A grassroots activation at India's Sonpur Mela that positioned Mahindra vehicles as a sustainable alternative to cattle — driving 4,000+ vehicle sales and reaching 15,000+ people with animal welfare messaging.",
   },
 ];
 
@@ -1360,7 +1360,7 @@ export const awards = [
     // NOTE: mia1 is a Tanishq asset reused as a placeholder — swap for a real
     // Mahindra / Sonepur Mela award image once available.
     image: sonpurMela1,
-    title: "Excellence in Rural Marketing & CSR — Sonepur Mela",
+    title: "Excellence in Rural Marketing & CSR — Sonpur Mela",
     year: 2024,
     description:
       "A ground-level activation at one of India's oldest and largest cattle fairs, positioning Mahindra vehicles as a practical, sustainable alternative for a community built around animal trade.",

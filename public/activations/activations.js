@@ -75,9 +75,9 @@ export const ACTIVATIONS_ALL = [
   {
     id: 2,
     title: "Hero Honda Haat Yatra",
-    type: "Festival",
-    image: heroHondaHaatYatra1,
-    gallery: [heroHondaHaatYatra2, heroHondaHaatYatra3],
+    type: "Rural Activation",
+    image: heroHondaHaatYatra2,
+    gallery: [heroHondaHaatYatra2, heroHondaHaatYatra1],
     audience: "2500+",
     highlights: [
       "Interactive Consumer Engagement",
@@ -106,7 +106,7 @@ export const ACTIVATIONS_ALL = [
   {
     id: 5,
     title: "Mahindra Maxximo Road Show",
-    type: "Mahindra Maxximo Road Show",
+    type: " Road Show",
     image: mahindraMaxximoRoadShow1,
     gallery: [mahinMaxximoRoadShow2],
     audience: "10000+",
@@ -121,7 +121,7 @@ export const ACTIVATIONS_ALL = [
   {
     id: 6,
     title: "Mahindra Tractor Road Show",
-    type: "Mall Activation",
+    type: "Road Show",
     image: mahindraTractorRoadShow1,
     gallery: [mahindraTractorRoadShow2, mahindraTractorRoadShow3],
     audience: "6000+",
@@ -136,7 +136,7 @@ export const ACTIVATIONS_ALL = [
   {
     id: 7,
     title: "Mahindra Veero",
-    type: "Mall Activation",
+    type: "Road Show",
     image: mahindraVeero1,
     gallery: [mahindraVeero1],
     audience: "2000+",
@@ -150,7 +150,7 @@ export const ACTIVATIONS_ALL = [
   },
   {
     id: 8,
-    title: "Britania Retail Activation",
+    title: "Mall Activation",
     type: "Mall Activation",
     image: britaniaRetailActivation1,
     gallery: [britaniaRetailActivation1],

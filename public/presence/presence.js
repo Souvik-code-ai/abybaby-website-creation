@@ -7,7 +7,7 @@ import guwahati from "../../src/assets/images/location/guwahati.webp";
 import ranchi from "../../src/assets/images/location/ranchi.webp";
 import lucknow from "../../src/assets/images/location/lucknow.webp";
 import chattisgarh from "../../src/assets/images/location/chattisgarh.webp";
-
+import mumbai from "../../src/assets/images/location/mumbai.webp";
 export const LOCATIONS = [
   {
     id: 1,
@@ -27,7 +27,8 @@ export const LOCATIONS = [
     id: 2,
     city: "Bengaluru",
     state: "Karnataka",
-    address: "Bengaluru Office",
+    address:
+      "74, 7th Cross, Victoria Layout, Austin Town, Indra Nagar, Bangalore -560 047",
     lat: 12.964982,
     lng: 77.614963,
     left: 29.7,
@@ -69,7 +70,8 @@ export const LOCATIONS = [
     id: 5,
     city: "Ranchi",
     state: "Jharkhand",
-    address: "Ranchi Office",
+    address:
+      "Ground B, Khemka Residency, Kanke Rd, Jawahar Nagar, Hatma, Ranchi, Jharkhand 834008",
 
     lat: 20.268402,
     lng: 85.848254,
@@ -84,7 +86,8 @@ export const LOCATIONS = [
     id: 6,
     city: "Raipur",
     state: "Chhattisgarh",
-    address: "Raipur Office",
+    address:
+      "Q-17, Shankar Nagar, Avanti Vihar Behind Shrijan Hospital, Raipur Chhattisgarh, 492001",
     lat: 21.2514,
     lng: 81.6296,
     left: 39.5,
@@ -133,6 +136,20 @@ export const LOCATIONS = [
     left: 39.8,
     top: 82.7,
     locationsImage: chennai,
+    contactNumber: ["+91 98309 74955"],
+    contactEmail: ["jeet.nandy@abybaby.co.in"],
+  },
+  {
+    id: 10,
+    city: "Mumbai",
+    state: "Maharashtra",
+    address:
+      "5RQP+6G8, New Link Rd, Malad, Kanchpada, Malad West, Mumbai, Maharashtra 400064",
+    lat: 13.093143,
+    lng: 80.231039,
+    left: 19.1,
+    top: 61.2,
+    locationsImage: mumbai,
     contactNumber: ["+91 98309 74955"],
     contactEmail: ["jeet.nandy@abybaby.co.in"],
   },

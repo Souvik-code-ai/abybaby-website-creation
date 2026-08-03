@@ -38,9 +38,19 @@ import miavdo2 from "../../src/assets/images/mia/miavdo2.MP4";
 import AbybabyIntro from "../../src/assets/AbybabyIntro.mp4";
 import dtvdo from "../../src/assets/images/drumtao/dtvdo_2.mp4";
 import kangarooKidsLogo from "../../src/assets/images/kangarookids/kangarookidslogo.webp";
+import maxFashion1 from "../../src/assets/images/maxFashion/maxFashion.webp";
 import AbbLogo from "../../src/assets/images/abb_logo.jpg";
 import Logo from "../../src/assets/images/logo.jpg";
 import dt4 from "../../src/assets/images/drumtao/dt4.webp";
+import vodafoneChaltabagan4 from "../../src/assets/images/vodafoneChaltabagan/vodafoneChaltabagan4.webp";
+import krishiVikasDigital from "../../src/assets/images/krishiVikas/KrishiVikasDigital.webp";
+import volvo from "../../src/assets/images/profilepicture/volvo.webp";
+import bapiLahiri from "../../src/assets/images/profilepicture/bapiLahiri.webp";
+import execution from "../../src/assets/images/profilepicture/execution.webp";
+import marutiSuzuki from "../../src/assets/images/profilepicture/marutiSuzuki.webp";
+import scorpio from "../../src/assets/images/profilepicture/scorpio.webp";
+import toyota from "../../src/assets/images/profilepicture/toyota.webp";
+import yamaha from "../../src/assets/images/profilepicture/yamaha.webp";
 export const STATS = [
   { label: "Clients", value: "350+" },
   { label: "Campaigns", value: "1200+" },
@@ -59,21 +69,21 @@ export const CAROUSEL_ITEMS = [
     id: 2,
     title: "Brand Activation",
     category: "Activation",
-    image: krishiCover,
+    image: vodafoneChaltabagan4,
     path: "/activation",
   },
   {
     id: 3,
     title: "Digital Campaign",
     category: "Digital",
-    image: pmsCover,
+    image: krishiVikasDigital,
     path: "/digital",
   },
   {
     id: 4,
     title: "Exhibition Stand",
     category: "Exhibition",
-    image: pmsDetail,
+    image: maxFashion1,
     path: "/exhibition",
   },
 ];
@@ -233,41 +243,15 @@ export const IMAGES_DATA = [
   {
     id: 1,
     type: "image",
-    src: mia1,
-    caption: "Mia By Tanishq",
-    likes: 312,
-    comments: 28,
-    category: "Events",
-  },
-  {
-    id: 2,
-    type: "image",
     src: mia2,
     caption: "Zero Festival Opening Gala — lights, music and energy.",
     likes: 540,
     comments: 41,
     category: "Festival",
   },
+
   {
-    id: 3,
-    type: "image",
-    src: mia3,
-    caption: "Innovation Tech Conference — 720 leaders, one stage.",
-    likes: 278,
-    comments: 19,
-    category: "Conference",
-  },
-  {
-    id: 4,
-    type: "image",
-    src: mia4,
-    caption: "EV SUV Grand Reveal — electric dreams become reality.",
-    likes: 690,
-    comments: 57,
-    category: "Product Launch",
-  },
-  {
-    id: 5,
+    id: 2,
     type: "image",
     src: tata1,
     caption: "Tata Bandhan Family Day — celebrating togetherness.",
@@ -276,7 +260,7 @@ export const IMAGES_DATA = [
     category: "Cultural",
   },
   {
-    id: 6,
+    id: 3,
     type: "image",
     src: mall4,
     caption: "Durga Puja Celebration — colour, culture and community.",
@@ -284,31 +268,60 @@ export const IMAGES_DATA = [
     comments: 74,
     category: "Cultural",
   },
+
+  {
+    id: 5,
+    type: "image",
+    src: toyota,
+    caption: "Zero Festival Opening Gala — lights, music and energy.",
+    likes: 540,
+    comments: 41,
+    category: "Festival",
+  },
+
+  {
+    id: 6,
+    type: "image",
+    src: scorpio,
+    caption: "Tata Bandhan Family Day — celebrating togetherness.",
+    likes: 445,
+    comments: 33,
+    category: "Cultural",
+  },
+  {
+    id: 7,
+    type: "image",
+    src: yamaha,
+    caption: "Durga Puja Celebration — colour, culture and community.",
+    likes: 812,
+    comments: 74,
+    category: "Cultural",
+  },
   // {
-  //   id: 7,
+  //   id: 8,
   //   type: "image",
-  //   src: mall3,
+  //   src: marutiSuzuki,
   //   caption: "Heritage Dance Night — 320 guests moved by tradition.",
   //   likes: 234,
   //   comments: 16,
   //   category: "Cultural",
   // },
+  // {
+  //   id: 9,
+  //   type: "image",
+  //   src: execution,
+  //   caption: "Tata Bandhan Family Day — celebrating togetherness.",
+  //   likes: 445,
+  //   comments: 33,
+  //   category: "Cultural",
+  // },
   {
-    id: 8,
+    id: 10,
     type: "image",
-    src: mall1,
-    caption: "Brand Activation in Bengaluru — live, loud and unforgettable.",
-    likes: 367,
-    comments: 24,
-    category: "Activation",
-  },
-  {
-    id: 9,
-    type: "image",
-    src: mall2,
-    caption: "Exhibition stand for TechWorld 2024 — 3,200 sqft of wow.",
-    likes: 198,
-    comments: 11,
-    category: "Exhibition",
+    src: volvo,
+    caption: "Durga Puja Celebration — colour, culture and community.",
+    likes: 812,
+    comments: 74,
+    category: "Cultural",
   },
 ];

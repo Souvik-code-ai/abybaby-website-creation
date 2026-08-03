@@ -136,11 +136,11 @@ export function FeedCard({ post }) {
           onMouseLeave={() => setShowMiniProfile(false)}
         >
           <div className="flex items-center gap-3 cursor-pointer">
-            <div className="rounded-full flex items-center justify-center shrink-0 overflow-hidden w-[42px] h-[42px]">
+            <div className="rounded-full flex items-center justify-center shrink-0 overflow-hidden bg-black border">
               <img
                 src={post.client?.initials}
                 alt=""
-                className="rounded-full"
+                className="rounded-full h-[42px] w-[42px] "
               />
             </div>
             <div>

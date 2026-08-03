@@ -56,22 +56,22 @@ export const AWARDS = [
   },
   {
     id: 2,
-    title: "Excellence in Rural Marketing & CSR — Sonepur Mela",
+    title: "Excellence in Rural Marketing & CSR — Sonpur Mela",
     year: 2024,
     category: "Rural Marketing & CSR",
     issuedBy: "Rural Marketing & CSR Excellence Awards",
-    location: "Sonepur Mela, Bihar",
+    location: "Sonpur Mela, Bihar",
     heroImage: sonpurMela1,
     summary:
-      "Mahindra's Sonepur Mela activation earned dual recognition — Excellence in Rural Marketing (Gold and Silver) and Excellence in CSR (Silver) — while converting genuine grassroots engagement into measurable sales impact.",
+      "Mahindra's Sonpur Mela activation earned dual recognition — Excellence in Rural Marketing (Gold and Silver) and Excellence in CSR (Silver) — while converting genuine grassroots engagement into measurable sales impact.",
     body: [
       {
-        text: "The Sonepur Mela activation was recognised with two distinct honours: Excellence in Rural Marketing, where the campaign won both Gold and Silver, and Excellence in CSR, where it took Silver — a rare double recognition that reflects both commercial effectiveness and the campaign's social welfare focus.",
+        text: "The Sonpur Mela activation was recognised with two distinct honours: Excellence in Rural Marketing, where the campaign won both Gold and Silver, and Excellence in CSR, where it took Silver — a rare double recognition that reflects both commercial effectiveness and the campaign's social welfare focus.",
         image: sonpurMela2,
-        imageCaption: "Engaging visitors at the Sonepur Mela grounds",
+        imageCaption: "Engaging visitors at the Sonpur Mela grounds",
       },
       {
-        text: "The numbers behind the awards were substantial: 4,000+ units of a Mahindra vehicle were sold directly to customers who had come to attend the cattle fair, while the campaign's animal welfare messaging engaged over 15,000 people on the ground — leaving, by the client's own account, an indelible impression on the participants of Sonepur Mela.",
+        text: "The numbers behind the awards were substantial: 4,000+ units of a Mahindra vehicle were sold directly to customers who had come to attend the cattle fair, while the campaign's animal welfare messaging engaged over 15,000 people on the ground — leaving, by the client's own account, an indelible impression on the participants of Sonpur Mela.",
       },
     ],
     inlineImages: [

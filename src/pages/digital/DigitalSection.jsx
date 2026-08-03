@@ -6,10 +6,12 @@ import logo from "../../assets/images/logo.jpg";
 import { DIGITAL_PROJECTS_ALL } from "../../../public/digital/digital";
 export function DigitalSection({ onNavigate }) {
   const [selectedProject, setSelectedProject] = useState(null);
-  const [hoveredProject, setHoveredProject] = useState(null);
   const [visibleCount, setVisibleCount] = useState(3);
   const [isLoading, setIsLoading] = useState(false);
   const sentinelRef = useRef(null);
+  const [viewportHeight, setViewportHeight] = useState(
+    typeof window !== "undefined" ? window.innerHeight : 0,
+  );
 
   // ── Full data pool — add more entries here to extend the list
 
@@ -45,6 +47,36 @@ export function DigitalSection({ onNavigate }) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
+  // Lock body scroll while the modal is open, restoring scroll position on close
+  useEffect(() => {
+    if (selectedProject) {
+      const scrollY = window.scrollY;
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.left = "0";
+      document.body.style.right = "0";
+
+      return () => {
+        document.body.style.position = "";
+        document.body.style.top = "";
+        document.body.style.left = "";
+        document.body.style.right = "";
+        window.scrollTo(0, scrollY);
+      };
+    }
+  }, [selectedProject]);
+
+  // Track visual viewport height so the modal sizes correctly on mobile
+  // (keyboard open/close, browser chrome collapsing, etc.)
+  useEffect(() => {
+    const vv = window.visualViewport;
+    if (!vv) return;
+    const updateHeight = () => setViewportHeight(vv.height);
+    updateHeight();
+    vv.addEventListener("resize", updateHeight);
+    return () => vv.removeEventListener("resize", updateHeight);
+  }, []);
+
   return (
     <>
       <div className="w-full min-h-screen bg-background min-[1160px]:mx-20 min-[770px]:mx-16 mx-0">
@@ -73,8 +105,6 @@ export function DigitalSection({ onNavigate }) {
                 transition={{ duration: 0.35, delay: (index % 3) * 0.08 }}
                 whileHover={{ y: -3 }}
                 onClick={() => setSelectedProject(project)}
-                onMouseEnter={() => setHoveredProject(project)}
-                onMouseLeave={() => setHoveredProject(null)}
                 className="overflow-hidden rounded-2xl bg-white shadow-sm cursor-pointer border border-[#f0f0f5] min-h-[350px] "
               >
                 <div className="relative">
@@ -91,28 +121,6 @@ export function DigitalSection({ onNavigate }) {
                 </div> */}
               </motion.div>
             ))}
-          </div>
-
-          {/* Desktop hover preview panel */}
-          <div className="hidden xl:block w-64 2xl:w-100 fixed flex-shrink-0 right-[10vw] top-[15vh]">
-            <AnimatePresence mode="wait">
-              {hoveredProject && (
-                <motion.div
-                  key={hoveredProject.id}
-                  initial={{ opacity: 0, x: 10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 10 }}
-                  transition={{ duration: 0.2 }}
-                  className="rounded-2xl bg-white  border border-[#f0f0f5]"
-                >
-                  <img
-                    src={hoveredProject.image}
-                    alt={hoveredProject.name}
-                    className="w-full rounded-xl object-cover  h-[350px]"
-                  />
-                </motion.div>
-              )}
-            </AnimatePresence>
           </div>
         </div>
 
@@ -157,74 +165,81 @@ export function DigitalSection({ onNavigate }) {
         )}
       </div>
 
-      {/* Modal */}
-      {/* <AnimatePresence>
+      {/* Modal — styled after ExhibitionSection's modal */}
+      <AnimatePresence>
         {selectedProject && (
           <motion.div
+            className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 backdrop-blur-md sm:p-6 p-0 w-screen h-[100svh]"
+            style={{ height: viewportHeight }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedProject(null)}
-            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4"
           >
             <motion.div
-              initial={{ scale: 0.92, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.92, opacity: 0 }}
-              transition={{ duration: 0.25 }}
+              className="relative max-w-6xl w-screen sm:h-[85vh] overflow-hidden sm:rounded-3xl h-[100svh] isolate bg-black/95"
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.9 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-6xl h-[80vh] overflow-hidden rounded-3xl"
             >
               <img
-                src={selectedProject.modalImage}
+                src={selectedProject.image}
                 alt={selectedProject.name}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
               />
-              <div className="absolute inset-0 bg-black/40" />
-              <div className="absolute top-8 left-8">
-                <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-2xl px-6 py-4">
-                  <h2 className="text-white text-xl md:text-3xl md:font-bold font-sans font-medium">
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+
+              <div className="absolute sm:top-8 sm:left-8 left-4 top-[90vh]">
+                <div className="sm:backdrop-blur-lg sm:bg-white/10 sm:border border-white/20 rounded-2xl sm:px-6 sm:py-4 bg-none border-0 ">
+                  <h2 className="text-white sm:text-3xl font-bold font-sans text-xl">
                     {selectedProject.name}
                   </h2>
                 </div>
               </div>
-              <div className="absolute md:top-8 right-8 top-40"></div>
-              <div className="absolute md:bottom-8 left-8 bottom-84">
-                <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-2xl p-5 flex flex-col justify-center items-center">
-                  <h4 className="text-white/70 text-sm">Engagement</h4>
-                  <p className="text-white md:text-3xl font-bold text-sm">
-                    {selectedProject.engagement}
-                  </p>
-                </div>
-              </div>
-              <div className="absolute bottom-8 md:right-8 w-[320px] right-1">
-                <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-2xl p-6">
-                  <h4 className="text-white font-semibold mb-4">
-                    Services Delivered
-                  </h4>
-                  <div className="space-y-3">
-                    {selectedProject.services.map((service) => (
-                      <div
-                        key={service}
-                        className="flex items-center gap-3 text-white/90"
-                      >
-                        <span className="w-2 h-2 rounded-full bg-lime-400" />
-                        {service}
-                      </div>
-                    ))}
+
+              {selectedProject.engagement && (
+                <div className="absolute md:top-8 sm:left-2/3 flex gap-4 sm:top-40 left-4 min-[375]:top-[88vh] top-[94vh]">
+                  <div className="sm:bg-white/10 backdrop-blur-md sm:border border-white/20 rounded-xl sm:px-5 sm:py-3 sm:flex-col flex flex-row gap-1 items-center px-0 border-0 bg-none">
+                    <p className="text-white/70 text-xs">Engagement</p>
+                    <p className="text-white sm:font-semibold font-light text-xs">
+                      {selectedProject.engagement}
+                    </p>
                   </div>
                 </div>
-              </div>
+              )}
+
+              {selectedProject.services && (
+                <div className="absolute bottom-8 md:left-8 max-w-md left-3.5 hidden sm:block">
+                  <div className="bg-black/40 backdrop-blur-lg border border-white/20 rounded-2xl p-6">
+                    <h3 className="text-white font-semibold mb-4 font-sans">
+                      Services Delivered
+                    </h3>
+                    <div className="space-y-2">
+                      {selectedProject.services.map((service) => (
+                        <div
+                          key={service}
+                          className="flex items-center gap-2 text-white/90 text-xs"
+                        >
+                          <span className="text-lime-400 text-xs">●</span>
+                          {service}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+
               <button
                 onClick={() => setSelectedProject(null)}
-                className="absolute top-4 right-4 w-12 h-12 rounded-full bg-black/50 text-white text-xl hover:bg-black/70"
+                className="absolute top-3 right-3 w-12 h-12 rounded-full bg-black/40 backdrop-blur-md text-white cursor-pointer hover:bg-black/80"
               >
                 ✕
               </button>
             </motion.div>
           </motion.div>
         )}
-      </AnimatePresence> */}
+      </AnimatePresence>
     </>
   );
 }

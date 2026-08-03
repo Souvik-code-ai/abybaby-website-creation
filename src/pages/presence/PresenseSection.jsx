@@ -34,6 +34,9 @@ import SidePanel from "../../components/ui/SidePanel";
 
 export function PresenceSection({ onNavigate, open, setOpen }) {
   const [activeId, setActiveId] = useState(null);
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
   return (
     <div className="flex flex-col pb-12 px-4 pt-4 w-[100%] min-[1160px]:mx-50 min-[770px]:mx-16 mx-0 ">
       {/* Back button */}

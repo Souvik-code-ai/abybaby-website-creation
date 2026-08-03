@@ -59,10 +59,10 @@ export const CASE_STUDIES = [
   },
   {
     id: 2,
-    title: "Mahindra at Sonepur Mela",
+    title: "Mahindra at Sonpur Mela",
     category: "Brand & Social Awareness Activation",
     client: "Mahindra and Mahindra",
-    location: "Sonepur Mela, Bihar",
+    location: "Sonpur Mela, Bihar",
     year: "2024",
     guests: "Cattle traders, farmers & visitors",
     heroImage: sonpurMela1, // placeholder — replace with real activation photo
@@ -70,12 +70,12 @@ export const CASE_STUDIES = [
       "A ground-level activation at one of India's oldest and largest cattle fairs, positioning Mahindra vehicles as a practical, sustainable alternative for a community built around animal trade.",
     body: [
       {
-        text: "Sonepur Mela is one of Asia's largest cattle fairs, drawing farmers, traders, and visitors from across the region for centuries of tradition built around animal trade. Mahindra's brief was to enter this space not as an outsider disrupting tradition, but as a brand offering a genuine, socially conscious alternative — introducing their vehicles to a crowd whose livelihoods have long centred on cattle.",
+        text: "Sonpur Mela is one of Asia's largest cattle fairs, drawing farmers, traders, and visitors from across the region for centuries of tradition built around animal trade. Mahindra's brief was to enter this space not as an outsider disrupting tradition, but as a brand offering a genuine, socially conscious alternative — introducing their vehicles to a crowd whose livelihoods have long centred on cattle.",
       },
       {
         text: "The campaign was built around social and animal welfare messaging at its core, rather than a conventional sales push. This meant the activation had to earn trust in an environment defined by generations of custom, engaging visitors on their own terms rather than imposing a brand narrative on them.",
         image: sonpurMela2,
-        imageCaption: "Engaging visitors at the Sonepur Mela grounds",
+        imageCaption: "Engaging visitors at the Sonpur Mela grounds",
       },
       {
         text: "We stationed representatives across key points throughout the Mela, directly engaging cattle buyers, farmers, and visitors passing through. Conversations centred on positioning the Mahindra vehicle as cheaper, more sustainable, and increasingly more convenient than maintaining cattle — a comparison designed to resonate immediately with an audience that understands the real cost of animal ownership better than most.",
