@@ -81,11 +81,11 @@ export default function EventCard({ event }) {
           )}
         </AnimatePresence>
 
-        <button
+        {/* <button
           className={`w-full rounded-xl py-2 transition-all text-xs font-semibold  ${expanded ? "bg-[var(--accent)] text-[var(--accent-foreground)]" : "bg-[color-mix(in_srgb,var(--accent)_10%,transparent)] text-[var(--accent)]"}`}
         >
-          {expanded ? "Register Now" : "Visit Event"}
-        </button>
+          {expanded ? "Call Now" : "Visit Event"}
+        </button> */}
       </div>
     </motion.div>
   );

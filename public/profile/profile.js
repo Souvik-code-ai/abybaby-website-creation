@@ -51,6 +51,10 @@ import marutiSuzuki from "../../src/assets/images/profilepicture/marutiSuzuki.we
 import scorpio from "../../src/assets/images/profilepicture/scorpio.webp";
 import toyota from "../../src/assets/images/profilepicture/toyota.webp";
 import yamaha from "../../src/assets/images/profilepicture/yamaha.webp";
+import airtel4G from "../../src/assets/images/airtel4G.webp";
+import kumble from "../../src/assets/images/kumble.webp";
+import marutiSuzukiImage from "../../src/assets/images/marutiSuzuki.webp";
+import toyotaImages from "../../src/assets/images/toyota.webp";
 export const STATS = [
   { label: "Clients", value: "350+" },
   { label: "Campaigns", value: "1200+" },
@@ -278,24 +282,24 @@ export const IMAGES_DATA = [
     comments: 74,
     category: "Cultural",
   },
-  // {
-  //   id: 8,
-  //   type: "image",
-  //   src: marutiSuzuki,
-  //   caption: "Heritage Dance Night — 320 guests moved by tradition.",
-  //   likes: 234,
-  //   comments: 16,
-  //   category: "Cultural",
-  // },
-  // {
-  //   id: 9,
-  //   type: "image",
-  //   src: execution,
-  //   caption: "Tata Bandhan Family Day — celebrating togetherness.",
-  //   likes: 445,
-  //   comments: 33,
-  //   category: "Cultural",
-  // },
+  {
+    id: 8,
+    type: "image",
+    src: airtel4G,
+    caption: "Heritage Dance Night — 320 guests moved by tradition.",
+    likes: 234,
+    comments: 16,
+    category: "Cultural",
+  },
+  {
+    id: 9,
+    type: "image",
+    src: kumble,
+    caption: "Tata Bandhan Family Day — celebrating togetherness.",
+    likes: 445,
+    comments: 33,
+    category: "Cultural",
+  },
   {
     id: 10,
     type: "image",
@@ -303,6 +307,24 @@ export const IMAGES_DATA = [
     caption: "Durga Puja Celebration — colour, culture and community.",
     likes: 812,
     comments: 74,
+    category: "Cultural",
+  },
+  {
+    id: 11,
+    type: "image",
+    src: marutiSuzukiImage,
+    caption: "Heritage Dance Night — 320 guests moved by tradition.",
+    likes: 234,
+    comments: 16,
+    category: "Cultural",
+  },
+  {
+    id: 12,
+    type: "image",
+    src: toyotaImages,
+    caption: "Tata Bandhan Family Day — celebrating togetherness.",
+    likes: 445,
+    comments: 33,
     category: "Cultural",
   },
 ];

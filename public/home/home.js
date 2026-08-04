@@ -1301,7 +1301,7 @@ export const upcomingEvents = [
     location: "Mumbai",
     eventImage: ganeshChaturthi1,
     eventType: "Branding Campaign",
-    daysRemaining: 12,
+    daysRemaining: 41,
     attendance: "10,00,000",
     description:
       "Ganesh Chaturthi brings together 15–20 million devotees across Mumbai and Maharashtra, making it one of India's largest public celebrations.",
@@ -1316,7 +1316,7 @@ export const upcomingEvents = [
     location: "Kolkata",
     eventImage: durgaPuja1,
     eventType: "Branding Campaign",
-    daysRemaining: 28,
+    daysRemaining: 73,
     attendance: "3,00,00,000",
     description:
       "Every year, Kolkata transforms into the world's largest open-air celebration, attracting 10–12 million visitors across more than 3,000 community pujas over five days.",

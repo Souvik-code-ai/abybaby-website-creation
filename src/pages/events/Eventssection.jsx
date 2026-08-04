@@ -523,7 +523,7 @@ export function EventsSection({ onNavigate }) {
                         onClick={() => setShowRegistration(true)}
                         className="sm:hidden px-5 py-3 rounded-full bg-linear-to-r from-lime-800 to-lime-600 text-white text-sm font-medium cursor-pointer w-fit"
                       >
-                        Call to action
+                        Call Now
                       </button>
                     )}
                   </div>
@@ -572,7 +572,7 @@ export function EventsSection({ onNavigate }) {
                             onClick={() => setShowRegistration(true)}
                             className="absolute top-3 right-4 px-5 py-2 rounded-full bg-linear-to-r from-lime-800 to-lime-600 text-white text-xs font-medium cursor-pointer hover:bg-[#245c3a] z-10"
                           >
-                            Call to action
+                            Call Now
                           </button>
                         )}
 
