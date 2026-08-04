@@ -192,7 +192,7 @@ export function AwardsView({ onNavigate }) {
                   </div>
 
                   {/* Gallery grid */}
-                  <div>
+                  {/* <div>
                     <div className="text-[11px] font-semibold text-[#579F63] uppercase tracking-[0.06em] mb-2">
                       Gallery
                     </div>
@@ -211,7 +211,7 @@ export function AwardsView({ onNavigate }) {
                         </div>
                       ))}
                     </div>
-                  </div>
+                  </div> */}
                 </motion.div>
               </AnimatePresence>
             )}

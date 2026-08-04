@@ -48,13 +48,13 @@ export const EXHIBITIONS_ALL = [
       "Networking Zone",
     ],
     image: maxFashion1,
-    modalImage: maxFashion2,
+    modalImage: [maxFashion2, maxFashion1],
   },
   {
     id: 2,
     name: "Kutchina",
-    boothSize: "TBD",
-    attendance: "TBD",
+    boothSize: "1600 sq.ft",
+    attendance: "1400+",
     features: [
       "IOT Product Display",
       "Urban Planning Models",
@@ -62,13 +62,13 @@ export const EXHIBITIONS_ALL = [
       "Networking Zone",
     ],
     image: kutchina1,
-    modalImage: kutchina1,
+    modalImage: [kutchina1],
   },
   {
     id: 3,
-    name: "Tata Heavy Earth Movers",
-    boothSize: "TBD",
-    attendance: "TBD",
+    name: "Tata Motors Heavy Machinery",
+    boothSize: "3000 sq.ft",
+    attendance: "2500+",
     features: [
       "IOT Product Display",
       "Urban Planning Models",
@@ -76,13 +76,13 @@ export const EXHIBITIONS_ALL = [
       "Networking Zone",
     ],
     image: tataHeavyEarthMovers1,
-    modalImage: tataHeavyEarthMovers1,
+    modalImage: [tataHeavyEarthMovers1],
   },
   {
     id: 4,
     name: "Yamaha",
-    boothSize: "TBD",
-    attendance: "TBD",
+    boothSize: "1500+ sq.ft",
+    attendance: "1000+",
     features: [
       "IOT Product Display",
       "Urban Planning Models",
@@ -90,13 +90,13 @@ export const EXHIBITIONS_ALL = [
       "Networking Zone",
     ],
     image: yamaha,
-    modalImage: yamaha,
+    modalImage: [yamaha],
   },
   {
     id: 5,
     name: "Maruti Loan Mela",
-    boothSize: "TBD",
-    attendance: "TBD",
+    boothSize: "25000 sq.ft",
+    attendance: "4500+",
     features: [
       "IOT Product Display",
       "Urban Planning Models",
@@ -104,13 +104,13 @@ export const EXHIBITIONS_ALL = [
       "Networking Zone",
     ],
     image: marutiLoanMela1,
-    modalImage: marutiLoanMela1,
+    modalImage: [marutiLoanMela1],
   },
   {
     id: 6,
     name: "Tata Motors EV",
-    boothSize: "TBD",
-    attendance: "TBD",
+    boothSize: "2000",
+    attendance: "800+",
     features: [
       "IOT Product Display",
       "Urban Planning Models",
@@ -118,13 +118,13 @@ export const EXHIBITIONS_ALL = [
       "Networking Zone",
     ],
     image: tataMotorsEV1,
-    modalImage: tataMotorsEV2,
+    modalImage: [tataMotorsEV2, tataMotorsEV1],
   },
   {
     id: 7,
     name: "Croma Fun Zone",
-    boothSize: "TBD",
-    attendance: "TBD",
+    boothSize: "400 sq.ft",
+    attendance: "1200+",
     features: [
       "IOT Product Display",
       "Urban Planning Models",
@@ -132,13 +132,13 @@ export const EXHIBITIONS_ALL = [
       "Networking Zone",
     ],
     image: cromaFunZone1,
-    modalImage: cromaFunZone1,
+    modalImage: [cromaFunZone1],
   },
   {
     id: 8,
     name: "Hero Loan Mela",
-    boothSize: "TBD",
-    attendance: "TBD",
+    boothSize: "20000 sq.ft",
+    attendance: "2200+",
     features: [
       "IOT Product Display",
       "Urban Planning Models",
@@ -146,7 +146,7 @@ export const EXHIBITIONS_ALL = [
       "Networking Zone",
     ],
     image: heroLoanMela1,
-    modalImage: heroLoanMela1,
+    modalImage: [heroLoanMela1],
   },
   {
     id: 9,
@@ -160,7 +160,7 @@ export const EXHIBITIONS_ALL = [
       "VIP Lounge",
     ],
     image: mahindraCarnival1,
-    modalImage: mahindraCarnival2,
+    modalImage: [mahindraCarnival2, mahindraCarnival1],
   },
 
   {
@@ -175,7 +175,7 @@ export const EXHIBITIONS_ALL = [
       "Live Demo Area",
     ],
     image: tataMotorsLoanMella1,
-    modalImage: tataMotorsLoanMella2,
+    modalImage: [tataMotorsLoanMella2, tataMotorsLoanMella1],
   },
 
   {
@@ -190,7 +190,7 @@ export const EXHIBITIONS_ALL = [
       "Networking Zone",
     ],
     image: tataManzaVista1,
-    modalImage: tataManzaVista2,
+    modalImage: [tataManzaVista2, tataManzaVista1],
   },
 
   {
@@ -205,6 +205,6 @@ export const EXHIBITIONS_ALL = [
       "Networking Zone",
     ],
     image: airtel4GLaunch1,
-    modalImage: airtel4GLaunch2,
+    modalImage: [airtel4GLaunch2, airtel4GLaunch1],
   },
 ];

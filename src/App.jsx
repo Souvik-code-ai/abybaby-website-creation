@@ -208,6 +208,7 @@ export default function App() {
                     <FeedWithInfiniteScroll
                       onNavigate={setActiveSection}
                       logo={logo}
+                      isFeedPaused={activeStory !== null}
                     />
                   </>
                 }

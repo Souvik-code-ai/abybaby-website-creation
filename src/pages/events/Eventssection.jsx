@@ -438,7 +438,7 @@ export function EventsSection({ onNavigate }) {
                         <EventCard
                           key={event.id}
                           event={event}
-                          showType={activeTab === "upcoming"}
+                          showType={activeTab}
                           onHover={setHoveredEvent}
                           onLeave={() => setHoveredEvent(null)}
                           onClick={setSelectedEvent} // ✅ opens the modal for this event

@@ -53,7 +53,7 @@ import durgaPuja1 from "../../src/assets/images/durgapuja/durgaPuja1.webp";
 export const EVENTS = [
   {
     id: 1,
-    type: "Concert",
+    type: "Event",
     status: "expired",
     name: " Toyota Drum Tao",
     date: "12 Oct 2026",
@@ -76,7 +76,7 @@ export const EVENTS = [
   },
   {
     id: 3,
-    type: "Concert",
+    type: "Event",
     status: "expired",
     name: "Aagomoni",
     date: "3 Mar 2024",
@@ -98,7 +98,7 @@ export const EVENTS = [
   // },
   {
     id: 5,
-    type: " MICE",
+    type: " RNR",
     status: "expired",
     name: "Asian Paint",
     date: "1 Dec 2026",
@@ -109,7 +109,7 @@ export const EVENTS = [
   },
   {
     id: 6,
-    type: " Sports Events",
+    type: " Sports Event",
     status: "expired",
     name: "Hurdle Hawk",
     date: "1 Dec 2026",
@@ -120,7 +120,7 @@ export const EVENTS = [
   },
   {
     id: 7,
-    type: " Dealers Meet",
+    type: " Launch",
     status: "expired",
     name: "Somany Titles",
     date: "1 Dec 2026",
@@ -131,7 +131,7 @@ export const EVENTS = [
   },
   {
     id: 8,
-    type: " Sports Events",
+    type: " Sports Event",
     status: "expired",
     name: "Yamaha",
     date: "1 Dec 2026",
@@ -142,7 +142,7 @@ export const EVENTS = [
   },
   {
     id: 9,
-    type: " MICE",
+    type: " Conference",
     status: "expired",
     name: "CESC Annual Conference",
     date: "1 Dec 2026",
@@ -153,7 +153,7 @@ export const EVENTS = [
   },
   {
     id: 10,
-    type: " MICE",
+    type: " Event",
     status: "expired",
     name: "Indus Tower Bandhan",
     date: "1 Dec 2026",
@@ -164,7 +164,7 @@ export const EVENTS = [
   },
   {
     id: 11,
-    type: " Sports Events",
+    type: " Sports Event",
     status: "expired",
     name: "NH7 Weekender",
     date: "1 Dec 2026",
@@ -175,7 +175,7 @@ export const EVENTS = [
   },
   {
     id: 12,
-    type: " Brand Prmomotion",
+    type: "Launch",
     status: "expired",
     name: "Revlon Street Wear Launch ",
     date: "1 Dec 2026",

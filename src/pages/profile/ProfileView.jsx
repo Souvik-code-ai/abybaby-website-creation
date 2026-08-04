@@ -22,7 +22,7 @@ import {
   ArrowLeft,
 } from "lucide-react";
 import logo from "../../assets/images/logo.jpg";
-import Portfolio from "../../assets/pdf/ABYBABY BROCHURE.pdf";
+import Portfolio from "../../assets/pdf/BROCHURE FINAL.pdf";
 // ── Static data ───────────────────────────────────────────────────────────────
 import { ArrowRight } from "lucide-react";
 import {
@@ -161,7 +161,7 @@ export function ProfileView({ onNavigate }) {
           </a>
           <a
             href={Portfolio}
-            download="ABYBABY BROCHURE.pdf"
+            download="BROCHURE FINAL.pdf"
             className="w-[45%] rounded-md py-3 flex items-center justify-center md:gap-2 transition-opacity cursor-pointer gap-1 bg-[color-mix(in_srgb,var(--accent)_10%,transparent)] text-[color:var(--accent)] text-[13px] font-semibold"
             onClick={handlePdfDownload}
             onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.75")}

@@ -207,26 +207,7 @@ export const REELS_DATA = [
     category: "Events",
     poster: mia1,
   },
-  {
-    id: 104,
-    type: "reel",
-    src: AbybabyDigital,
-    caption: "Zero Festival vibes — energy like no other.",
-    likes: 1750,
-    comments: 109,
-    category: "Festival",
-    poster: Logo,
-  },
-  {
-    id: 105,
-    type: "reel",
-    src: AbybabyIntro,
-    caption: "Durga Puja reel — colours, lights and devotion.",
-    likes: 3200,
-    comments: 218,
-    category: "Cultural",
-    poster: Logo,
-  },
+
   {
     id: 106,
     type: "reel",

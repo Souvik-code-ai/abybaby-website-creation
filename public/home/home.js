@@ -1,7 +1,9 @@
-import dtlogo from "../../src/assets/images/drumtao/dtlogo.png";
-import arunlogo from "../../src/assets/images/arun/arunlogo.webp";
-import mialogo from "../../src/assets/images/mia/mialogo.jpg";
-import toyotalogo from "../../src/assets/images/drumtao/dtlogo.webp";
+import dtlogo from "../../src/assets/images/clientlogo/toyota.webp";
+import durgaPujaLogo from "../../src/assets/images/clientlogo/durgaPuja.webp";
+import ganeshChaturthiLogo from "../../src/assets/images/clientlogo/ganeshChaturthi.webp";
+import arunlogo from "../../src/assets/images/clientlogo/arun.webp";
+import mialogo from "../../src/assets/images/clientlogo/miaByTanishq.webp";
+import toyotalogo from "../../src/assets/images/clientlogo/toyota.webp";
 import miavdo1 from "../../src/assets/images/mia/miavdo1.MP4";
 import miavdo2 from "../../src/assets/images/mia/miavdo2.MP4";
 import miavdo3 from "../../src/assets/images/mia/miavdo3.MP4";
@@ -11,39 +13,40 @@ import arunIceCreamVdo from "../../src/assets/images/arun/Arun_Ice_Cream.mp4";
 import dp1 from "../../src/assets/images/durgapuja/dp1.MP4";
 import dp2 from "../../src/assets/images/durgapuja/dp2.MP4";
 import dp3 from "../../src/assets/images/durgapuja/dp3.MP4";
-import tatacromalogo from "../../src/assets/images/tatacroma/tatacromalogo.webp";
+import tatacromalogo from "../../src/assets/images/clientlogo/tataMotors.webp";
 import tatacromavdo1 from "../../src/assets/images/tatacroma/tatacromavdo1.MP4";
 import tatacromavdo2 from "../../src/assets/images/tatacroma/tatacromavdo2.MP4";
 import kangarookidsLogo from "../../src/assets/images/kangarookids/kangarookidslogo.webp";
 import kangarookidsvdo1 from "../../src/assets/images/kangarookids/kangarookidsvdo1.MP4";
 import kangarookidsvdo2 from "../../src/assets/images/kangarookids/kangarookidsvdo2.MP4";
 import dplogo from "../../src/assets/images/durgapuja/durgapujalogo.webp";
-import titaneyelogo from "../../src/assets/images/titaneyeplus/titaneyepluslogo.webp";
+import titaneyelogo from "../../src/assets/images/clientlogo/titanEyePlus.webp";
 import titaneye1 from "../../src/assets/images/titaneyeplus/titaneye1.webp";
 import titaneye2 from "../../src/assets/images/titaneyeplus/titaneye2.webp";
 import titaneye3 from "../../src/assets/images/titaneyeplus/titaneye3.webp";
 import titaneye4 from "../../src/assets/images/titaneyeplus/titaneye4.webp";
-import herologo from "../../src/assets/images/hero/Hero-MotoCorp-Logo.webp";
-import volvologo from "../../src/assets/images/volvo/volvo.webp";
+import herologo from "../../src/assets/images/clientlogo/hero.webp";
+import volvologo from "../../src/assets/images/clientlogo/volvo.webp";
 import khadimlogo from "../../src/assets/images/khadims/khadimslogo.webp";
 import khadims1 from "../../src/assets/images/khadims/khadims1.webp";
 import khadims2 from "../../src/assets/images/khadims/khadims2.webp";
 import khadims3 from "../../src/assets/images/khadims/khadims3.webp";
 import toyotazerovdo from "../../src/assets/images/zira/toyotaZeroVdo.mp4";
 import tatabandhanvdo from "../../src/assets/images/tatabandhan/tatabandhan.mp4";
-import tatabandhanlogo from "../../src/assets/images/tatabandhan/tata.webp";
+import tatabandhanlogo from "../../src/assets/images/clientlogo/tataMotors.webp";
 import flipkatFloatCampaign from "../../src/assets/images/flipkart/Flipkart's_float_campaign.mp4";
 import flipkartLogo from "../../src/assets/images/flipkart/flipkartLogo.webp";
-import mercedesLogo from "../../src/assets/images/merecedes/mercedesLogo.webp";
+import mercedesLogo from "../../src/assets/images/clientlogo/marcedes.webp";
 import mercedesVdo from "../../src/assets/images/merecedes/mercedesVdo.mp4";
 import volvoSkillContestVdo from "../../src/assets/images/volvo/Volvo_Skill_Contest_2025.mp4";
 import mercedesBenVdo from "../../src/assets/images/mercedes_benz/Mercedez_Benz_Mobile_Service_Bengaluru.mp4";
 import maxfashionVdo from "../../src/assets/images/maxFashion/maxFashion.mp4";
-import maxfashionLogo from "../../src/assets/images/maxFashion/maxFashionLogo.webp";
+import maxfashionLogo from "../../src/assets/images/clientlogo/max.webp";
+
 import toyotaSupplierMeetVdo from "../../src/assets/images/toyotaSupplierMeet/Toyota_Supplier_Meet.mp4";
 import tataYoddhaVdo from "../../src/assets/images/tataYoddha/Tata_Yoddha.mp4";
 import sonpurMela1 from "../../src/assets/images/sonpurMela/sonpurMela1.webp";
-import mahindraLogo from "../../src/assets/images/mahindraAo/MahindraLogo.webp";
+import mahindraLogo from "../../src/assets/images/clientlogo/mahindra.webp";
 import volvoImage from "../../src/assets/images/volvo/volvoImage.webp";
 import mercedesServiceClinicImage from "../../src/assets/images/merecedes/mercedesServiceClinic.webp";
 import tataBandhanImage from "../../src/assets/images/tatabandhan/tataBandhan.webp";
@@ -52,10 +55,10 @@ import tataYoddhaImage from "../../src/assets/images/tataYoddha/tataYoddha.webp"
 import mercedesBenzMobileLaunch from "../../src/assets/images/mercedes_benz/mercedesBenzMobileLaunch.webp";
 import toyotaSupplierMeet from "../../src/assets/images/toyotaSupplierMeet/toyotaSupplierMeet.webp";
 import flipkartPoster from "../../src/assets/images/flipkart/flipkartPoster.webp";
-import vodafoneLogo from "../../src/assets/images/agomoni/vodafoneLogo.webp";
+import vodafoneLogo from "../../src/assets/images/clientlogo/vodafone.webp";
 import hurdleHawkVdo from "../../src/assets/images/hurdle_hawk/hurdleHawkVdo.mp4";
 import hurdle_Hawk1 from "../../src/assets/images/hurdle_hawk/hurdle_hawk1.webp";
-import hurdleHawkLogo from "../../src/assets/images/hurdle_hawk/hurdleHawkLogo.webp";
+import hurdleHawkLogo from "../../src/assets/images/clientlogo/hurdleHawk.webp";
 import amazonVdo from "../../src/assets/images/amazon/amazon.mp4";
 import mahindraFootballLeagueVdo from "../../src/assets/images/mahindraFootballLeague/mahindraFootballLeagueVdo.mp4";
 import agomoniVodafone from "../../src/assets/images/agomoni/agomoniVodafone.mp4";
@@ -65,8 +68,10 @@ import heroVoiceOfDestinyVdo from "../../src/assets/images/heroVoiceOfDestiny/he
 import sonpurMelaVdo from "../../src/assets/images/sonpurMela/sonpurMela.mp4";
 import heroSalesCarnivalVdo from "../../src/assets/images/heroSalesCarnival/heroSalesCarnival.mp4";
 import agomoni1 from "../../src/assets/images/agomoni/agomoni1.webp";
-import amazonLogo from "../../src/assets/images/amazon/Amazonlogo.webp";
+import amazonLogo from "../../src/assets/images/clientlogo/amazon.webp";
 import agomoni5 from "../../src/assets/images/agomoni/agomoni5.webp";
+import durgaPuja1 from "../../src/assets/images/durgapuja/durgaPuja1.webp";
+import ganeshChaturthi1 from "../../src/assets/images/ganeshChaturthi/ganeshChaturthi.webp";
 export const clients = [
   {
     id: 1,
@@ -75,7 +80,7 @@ export const clients = [
     color: "#FF6B6B",
     bgColor: "#FFE8E8",
     seen: false,
-    category: "Concert",
+    category: "Event",
     location: "Kolkata,India",
     stories: [
       {
@@ -173,7 +178,7 @@ export const clients = [
     color: "#A78BFA",
     bgColor: "#EDE9FE",
     seen: true,
-    category: "MICE",
+    category: "Concert",
     location: "Arunachal Pradesh,India",
     stories: [
       {
@@ -190,7 +195,7 @@ export const clients = [
     color: "#FF6B6B",
     bgColor: "#FFE8E8",
     seen: false,
-    category: "Road Show",
+    category: "Activation",
     location: "Odisha,India",
     stories: [
       {
@@ -311,7 +316,7 @@ export const clients = [
     color: "#A78BFA",
     bgColor: "#EDE9FE",
     seen: true,
-    category: "Event",
+    category: "Conference",
     location: "Jamshedpur & Jharkhand,India",
     stories: [
       {
@@ -351,7 +356,7 @@ export const clients = [
     bgColor: "#FFE8E8",
     seen: true,
     category: "Launch",
-    location: "Whitefield,Bengaluru,India",
+    location: "Bengaluru,India",
     stories: [
       {
         type: "video",
@@ -367,7 +372,7 @@ export const clients = [
     color: "#FF6B6B",
     bgColor: "#FFE8E8",
     seen: true,
-    category: "Event",
+    category: "Activation",
     location: "Meghalaya,India",
     stories: [
       {
@@ -418,7 +423,7 @@ export const clients = [
     color: "#FF6B6B",
     bgColor: "#FFE8E8",
     seen: true,
-    category: "Sport's Event",
+    category: "Sports Event",
     location: "Kolkata,West Bengal",
     stories: [
       {
@@ -452,7 +457,7 @@ export const clients = [
     color: "#FF6B6B",
     bgColor: "#FFE8E8",
     seen: true,
-    category: "Activation",
+    category: "Sports Event",
     location: "West Bengal & North East,India",
     stories: [
       {
@@ -520,7 +525,7 @@ export const clients = [
     color: "#FF6B6B",
     bgColor: "#FFE8E8",
     seen: true,
-    // category: "Event",
+    category: "Activation",
     location: "Sonpur,Bihar",
     stories: [
       {
@@ -561,7 +566,7 @@ export const feedPosts = [
     client: clients[0],
     location: "Kolkata,India",
     name: "Feel The Awesome Beat – Drum Tao Live, Presented by Toyota",
-    category: "Concert",
+    category: "Event",
     media: [
       { type: "video", url: toyotaDrumTaoVdo, poster: dt2 },
 
@@ -664,7 +669,7 @@ export const feedPosts = [
     id: 9,
     client: clients[9],
     name: "Mercedes-Benz Mobile Service Launch ",
-    location: "Whitefield,Bengaluru,India",
+    location: "Bengaluru,India",
     category: "Launch ",
     media: [
       { type: "video", url: mercedesBenVdo, poster: mercedesBenzMobileLaunch },
@@ -706,7 +711,7 @@ export const feedPosts = [
     client: clients[19],
     name: "Sonpur Mela",
     location: "Bihar,India",
-    // category: "Event",
+    category: "Activation",
     media: [{ type: "video", url: sonpurMelaVdo }],
     likes: 1000,
     caption:
@@ -826,7 +831,7 @@ export const feedPosts = [
     client: clients[4],
     name: "Flipkart Float Campaign – Odisha",
     location: "Odisha,India",
-    category: "Road Show ",
+    category: "Activation ",
     media: [
       { type: "video", url: flipkatFloatCampaign, poster: flipkartPoster },
     ],
@@ -906,7 +911,7 @@ export const feedPosts = [
     client: clients[8],
     name: "Trucking into the Future & Tata Bandhan – Tata Motors",
     location: "Jamshedpur & Jharkhand,India",
-    category: "Event",
+    category: "Conference",
     media: [{ type: "video", url: tatabandhanvdo, poster: tataYoddhaImage }],
     likes: 1000,
     caption: `Abybaby Events hosted Tata Motors' "Trucking into the Future" and Bandhan celebration, bringing together 300+ valued customers for insightful discussions and partnership celebrations — driving Tata Motors' vision of sustainable, tech-driven logistics forward.`,
@@ -1102,7 +1107,7 @@ export const feedPosts = [
     client: clients[15],
     name: "Mahindra Football League",
     location: "West Bengal & North East,India",
-    category: "Sports Events",
+    category: "Sports Event",
     media: [
       { type: "video", url: mahindraFootballLeagueVdo, poster: mahindraLogo },
     ],
@@ -1250,7 +1255,7 @@ export const feedPosts = [
     client: clients[10],
     name: "LAGISAARTH Challenge – Tata Yodha, The Beast of the Hills",
     location: "Meghalaya,India",
-    category: "Event",
+    category: "Activation",
     media: [{ type: "video", url: tataYoddhaVdo, poster: tataYoddhaImage }],
     likes: 1000,
     caption:
@@ -1291,30 +1296,30 @@ export const upcomingEvents = [
     clientName: "Toyota Drum Tao",
     clientInitials: "DT",
     clientColor: "#4ECDC4",
-    clientlogo: dtlogo,
-    eventName: "Toyota Drum Tao",
-    location: "Kolkata",
-    eventImage: dt2,
-    eventType: "Concert",
+    clientlogo: ganeshChaturthiLogo,
+    eventName: "Ganesh Chaturthi Branding Campaign",
+    location: "Mumbai",
+    eventImage: ganeshChaturthi1,
+    eventType: "Branding Campaign",
     daysRemaining: 12,
-    attendance: 450,
+    attendance: "10,00,000",
     description:
-      "A black-tie evening celebrating innovation and excellence in banking across the Middle East region.",
+      "Ganesh Chaturthi brings together 15–20 million devotees across Mumbai and Maharashtra, making it one of India's largest public celebrations.",
   },
   {
     id: 2,
     clientName: "Toyota Execution ",
     clientInitials: "AI",
     clientColor: "#F97316",
-    clientlogo: arunlogo,
-    eventName: "Arun Icecream Promotion",
+    clientlogo: durgaPujaLogo,
+    eventName: "Durga Puja Branding Campaign",
     location: "Kolkata",
-    eventImage: arun2,
-    eventType: "Launch",
+    eventImage: durgaPuja1,
+    eventType: "Branding Campaign",
     daysRemaining: 28,
-    attendance: 2500,
+    attendance: "3,00,00,000",
     description:
-      "A visionary showcase of tomorrow's urban developments featuring interactive installations and VIP property launches.",
+      "Every year, Kolkata transforms into the world's largest open-air celebration, attracting 10–12 million visitors across more than 3,000 community pujas over five days.",
   },
 ];
 

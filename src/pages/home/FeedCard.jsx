@@ -13,9 +13,9 @@ import {
 import { toast } from "sonner";
 import { CommentModal } from "../common/CommentModal";
 import { PostViewer } from "../../components/ui/Postviewer";
-
-export function FeedCard({ post }) {
-  const [muted, setMuted] = useState(true);
+import { useDocumentVisible } from "../../components/ui/useDocumentVisible";
+export function FeedCard({ post, muted, onToggleMute, isFeedPaused }) {
+  // const [muted, setMuted] = useState(true);
   const [liked, setLiked] = useState(false);
   const [likeCount, setLikeCount] = useState(post.likes);
   const [captionExpanded, setCaptionExpanded] = useState(false);
@@ -26,12 +26,12 @@ export function FeedCard({ post }) {
   const [viewerOpen, setViewerOpen] = useState(false);
   const [inViewport, setInViewport] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-
+  const tabVisible = useDocumentVisible();
   const videoRef = useRef(null);
   const containerRef = useRef(null);
   const touchStartX = useRef(0);
   const justSwiped = useRef(false);
-
+  const currentMedia = post.media[imageIndex];
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 767px)");
     const update = () => setIsMobile(mq.matches);
@@ -39,7 +39,31 @@ export function FeedCard({ post }) {
     mq.addEventListener("change", update);
     return () => mq.removeEventListener("change", update);
   }, []);
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || currentMedia.type !== "video") return;
 
+    // Pause whenever: the fullscreen post viewer is open,
+    // a StoryViewer is open elsewhere in the app, or the tab is hidden.
+    if (viewerOpen || isFeedPaused || !tabVisible) {
+      video.pause();
+      return;
+    }
+
+    if (inViewport) {
+      video.currentTime = 0;
+      video.play().catch(() => {});
+    } else {
+      video.pause();
+    }
+  }, [
+    inViewport,
+    viewerOpen,
+    isFeedPaused,
+    tabVisible,
+    currentMedia.type,
+    imageIndex,
+  ]);
   const handleLike = () => {
     setLiked((prev) => {
       setLikeCount((c) => (prev ? c - 1 : c + 1));
@@ -61,7 +85,6 @@ export function FeedCard({ post }) {
   };
 
   const multipleImages = post.media.length > 1;
-  const currentMedia = post.media[imageIndex];
 
   // ── Track whether this card is visible in the viewport ──
   useEffect(() => {
@@ -209,7 +232,7 @@ export function FeedCard({ post }) {
               type="button"
               onClick={(e) => {
                 e.stopPropagation();
-                setMuted((prev) => !prev);
+                onToggleMute(); // 👈 instead of setMuted((prev) => !prev)
               }}
               className="absolute bottom-3 right-3 z-10 rounded-full flex items-center justify-center w-8 h-8 bg-[rgba(0,0,0,0.45)] backdrop-blur-[6px] text-white"
             >

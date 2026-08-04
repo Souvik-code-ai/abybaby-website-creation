@@ -121,7 +121,7 @@ export function RightPanel({ events, caseStudies, awards, onNavigate }) {
           ))}
         </div>
         <p className="text-[11px] text-[var(--muted-foreground)] opacity-60 mt-3 font-[var(--font-family-body)]">
-          © 2026 ABY Baby Events. All rights reserved.
+          © 2026 Abybaby Events. All rights reserved.
         </p>
       </footer>
     </aside>

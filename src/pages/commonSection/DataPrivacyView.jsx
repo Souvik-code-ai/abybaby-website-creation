@@ -344,7 +344,7 @@ export function DataPrivacyView({ onNavigate }) {
           ))}
         </div>
         <p className="text-[11px] text-[color:var(--muted-foreground)] mt-3 font-[family-name:var(--font-family-body)]">
-          © 2026 ABY Baby Events. All rights reserved.
+          © 2026 Abybaby Events. All rights reserved.
         </p>
       </footer>
     </div>

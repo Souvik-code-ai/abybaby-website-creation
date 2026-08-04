@@ -150,8 +150,8 @@ export const ACTIVATIONS_ALL = [
   },
   {
     id: 8,
-    title: "Mall Activation",
-    type: "Mall Activation",
+    title: "Britannia Retail Activation",
+    type: "Retail Activation",
     image: britaniaRetailActivation1,
     gallery: [britaniaRetailActivation1],
     audience: "5000+",

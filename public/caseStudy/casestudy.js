@@ -12,6 +12,7 @@ import arun3 from "../../src/assets/images/arun/arun3.webp";
 import arun4 from "../../src/assets/images/arun/arun4.webp";
 import sonpurMela1 from "../../src/assets/images/sonpurMela/sonpurMela1.webp";
 import sonpurMela2 from "../../src/assets/images/sonpurMela/sonpurMela2.webp";
+import sonpurMelaVdo from "../../src/assets/images/sonpurMela/sonpurMela.mp4";
 export const CASE_STUDIES = [
   {
     id: 1,
@@ -88,6 +89,12 @@ export const CASE_STUDIES = [
       {
         src: sonpurMela2,
         caption: "Representatives engaging Mela visitors",
+      },
+      {
+        type: "video", // 👈 new video entry
+        src: sonpurMelaVdo,
+        poster: sonpurMela1, // thumbnail shown in the grid before it's clicked
+        caption: "Highlight reel — record-attempt day",
       },
     ],
   },

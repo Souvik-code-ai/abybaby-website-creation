@@ -3,7 +3,7 @@ import { motion, AnimatePresence, useMotionValue, animate } from "motion/react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { Volume2, VolumeX } from "lucide-react";
 import AdjacentCard from "../../components/ui/AdjacentCard";
-
+import { useDocumentVisible } from "../../components/ui/useDocumentVisible";
 const MAIN_WIDTH = 300;
 const MAIN_HEIGHT = 500;
 const ADJ_SCALE = 0.42;
@@ -96,7 +96,7 @@ export function StoryViewer({ clients = [], activeClientId, onClose, onSeen }) {
   const [progress, setProgress] = useState(0);
   const videoRef = useRef(null);
   const [muted, setMuted] = useState(true);
-
+  const tabVisible = useDocumentVisible();
   const isMobile = useIsMobile();
 
   // ── swipe state ──────────────────────────────────────────────

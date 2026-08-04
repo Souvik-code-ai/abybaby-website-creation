@@ -5,14 +5,20 @@ import { FeedCard } from "./FeedCard";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 const FEED_PAGE_SIZE = 3;
-export default function FeedWithInfiniteScroll({ onNavigate, logo }) {
+export default function FeedWithInfiniteScroll({
+  onNavigate,
+  logo,
+  isFeedPaused,
+}) {
   const [visibleCount, setVisibleCount] = useState(FEED_PAGE_SIZE);
   const [isLoading, setIsLoading] = useState(false);
   const sentinelRef = useRef(null);
-
+  const [globalMuted, setGlobalMuted] = useState(true);
   const visiblePosts = feedPosts.slice(0, visibleCount);
   const hasMore = visibleCount < feedPosts.length;
-
+  const toggleGlobalMute = useCallback(() => {
+    setGlobalMuted((prev) => !prev);
+  }, []);
   const loadMore = useCallback(() => {
     if (isLoading || !hasMore) return;
     setIsLoading(true);
@@ -40,7 +46,13 @@ export default function FeedWithInfiniteScroll({ onNavigate, logo }) {
   return (
     <div className="flex flex-col gap-4 px-4 pt-4">
       {visiblePosts.map((post) => (
-        <FeedCard key={post.id} post={post} />
+        <FeedCard
+          key={post.id}
+          post={post}
+          muted={globalMuted}
+          onToggleMute={toggleGlobalMute}
+          isFeedPaused={isFeedPaused}
+        />
       ))}
       {/* ── Sentinel + spinner ── */}
       {hasMore && (
