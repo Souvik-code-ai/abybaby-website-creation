@@ -1,7 +1,7 @@
 import dtlogo from "../../src/assets/images/drumtao/dtlogo.png";
 import arunlogo from "../../src/assets/images/arun/arunlogo.webp";
 import mialogo from "../../src/assets/images/mia/mialogo.jpg";
-import toyotalogo from "../../src/assets/images/zira/toyota_logo.webp";
+import toyotalogo from "../../src/assets/images/drumtao/dtlogo.webp";
 import miavdo1 from "../../src/assets/images/mia/miavdo1.MP4";
 import miavdo2 from "../../src/assets/images/mia/miavdo2.MP4";
 import miavdo3 from "../../src/assets/images/mia/miavdo3.MP4";
@@ -71,7 +71,7 @@ export const clients = [
   {
     id: 1,
     name: "Toyota Drum Tao",
-    initials: dtlogo,
+    initials: toyotalogo,
     color: "#FF6B6B",
     bgColor: "#FFE8E8",
     seen: false,
@@ -595,6 +595,45 @@ export const feedPosts = [
     date: "June 3, 2026",
   },
   {
+    id: 18,
+    client: clients[18],
+    name: "Amazon Great Indian Festival",
+    location: "Kolkata,India",
+    category: "Activation",
+    media: [{ type: "video", url: amazonVdo, poster: amazonLogo }],
+    likes: 1000,
+    caption:
+      "On September 22, 2025, Park Circus Maidan in Kolkata played host to a spectacular drone show. The event, organized by Abybaby Events in partnership with tech provider Botlab Dynamics, featured thousands of drones lighting up the sky to mark the start of the festive season and celebrate the launch of the Amazon Great Indian Festival.",
+    comments: [
+      {
+        id: 1,
+        author: "Layla S.",
+        text: "This is literally my dream event! 😍",
+        time: "3d",
+      },
+      {
+        id: 2,
+        author: "Aisha M.",
+        text: "Can you do my event next? Perfection.",
+        time: "3d",
+      },
+      {
+        id: 3,
+        author: "Nour J.",
+        text: "The floral arch alone is iconic.",
+        time: "4d",
+      },
+      {
+        id: 4,
+        author: "Hessa A.",
+        text: "I was there! Even better in person.",
+        time: "4d",
+      },
+    ],
+
+    date: "May 15, 2026",
+  },
+  {
     id: 2,
     client: clients[1],
     name: "HISTORY: SCOOPED! – Arun Ice Cream World Record Attempt",
@@ -622,30 +661,84 @@ export const feedPosts = [
     date: "May 28, 2026",
   },
   {
-    id: 3,
-    client: clients[2],
-    name: "Mia by Tanishq Showroom Launch ",
-    location: "Guwahati,India",
-    category: "Store Activation",
+    id: 9,
+    client: clients[9],
+    name: "Mercedes-Benz Mobile Service Launch ",
+    location: "Whitefield,Bengaluru,India",
+    category: "Launch ",
     media: [
-      { type: "video", url: miavdo1, poster: mia1 },
-      { type: "video", url: miavdo2, poster: mia2 },
-      { type: "video", url: miavdo3, poster: mia3 },
-      { type: "image", url: mia4 },
+      { type: "video", url: mercedesBenVdo, poster: mercedesBenzMobileLaunch },
     ],
-    likes: 391,
+    likes: 1000,
     caption:
-      "Abybaby Events curated the elegant unveiling of the Mia by Tanishq showroom in Guwahati, blending exquisite collections with an immersive luxury experience.",
+      "Where convenience meets luxury — Mercedes-Benz launched its Mobile Service initiative, bringing expert vehicle care directly to customers' doorsteps. A seamless launch experience reflecting the brand's commitment to innovation and customer-first excellence, redefining after-sales service beyond the showroom.",
     comments: [
       {
         id: 1,
-        author: "James T.",
-        text: "Exceptional execution from start to finish.",
-        time: "2d",
+        author: "Layla S.",
+        text: "This is literally my dream event! 😍",
+        time: "3d",
+      },
+      {
+        id: 2,
+        author: "Aisha M.",
+        text: "Can you do my event next? Perfection.",
+        time: "3d",
+      },
+      {
+        id: 3,
+        author: "Nour J.",
+        text: "The floral arch alone is iconic.",
+        time: "4d",
+      },
+      {
+        id: 4,
+        author: "Hessa A.",
+        text: "I was there! Even better in person.",
+        time: "4d",
       },
     ],
 
-    date: "May 20, 2026",
+    date: "May 15, 2026",
+  },
+  {
+    id: 19,
+    client: clients[19],
+    name: "Sonpur Mela",
+    location: "Bihar,India",
+    // category: "Event",
+    media: [{ type: "video", url: sonpurMelaVdo }],
+    likes: 1000,
+    caption:
+      "Team Abybaby brought fun, fashion, and fantasy to life with a magical Lilo & Stitch experience for Max Fashion — packed with color, style, and joyful energy at every turn.",
+    comments: [
+      {
+        id: 1,
+        author: "Layla S.",
+        text: "This is literally my dream event! 😍",
+        time: "3d",
+      },
+      {
+        id: 2,
+        author: "Aisha M.",
+        text: "Can you do my event next? Perfection.",
+        time: "3d",
+      },
+      {
+        id: 3,
+        author: "Nour J.",
+        text: "The floral arch alone is iconic.",
+        time: "4d",
+      },
+      {
+        id: 4,
+        author: "Hessa A.",
+        text: "I was there! Even better in person.",
+        time: "4d",
+      },
+    ],
+
+    date: "May 15, 2026",
   },
   {
     id: 4,
@@ -660,6 +753,45 @@ export const feedPosts = [
     likes: 1204,
     caption:
       "Abybaby crafted Toyota's role as official mobility partner into a cultural milestone — blending sustainability and community through eco tours, bamboo groves, and the Toyota Zone. 4.2K+ tour impressions | 1.3B+ digital reach | 40+ local collaborations. Not a campaign, a connection.",
+    comments: [
+      {
+        id: 1,
+        author: "Layla S.",
+        text: "This is literally my dream event! 😍",
+        time: "3d",
+      },
+      {
+        id: 2,
+        author: "Aisha M.",
+        text: "Can you do my event next? Perfection.",
+        time: "3d",
+      },
+      {
+        id: 3,
+        author: "Nour J.",
+        text: "The floral arch alone is iconic.",
+        time: "4d",
+      },
+      {
+        id: 4,
+        author: "Hessa A.",
+        text: "I was there! Even better in person.",
+        time: "4d",
+      },
+    ],
+
+    date: "May 15, 2026",
+  },
+  {
+    id: 17,
+    client: clients[17],
+    name: "Hero Voice Of Destiny",
+    location: "Assam & North East,India",
+    category: "Activation",
+    media: [{ type: "video", url: heroVoiceOfDestinyVdo, poster: herologo }],
+    likes: 1000,
+    caption:
+      " Rooted in the musical richness of Assam and the North East's 7 Sister states, this playful voice contest delivered a unique cultural experience — seamlessly blending product showcase of the Hero Destiny range with meaningful engagement and sales.",
     comments: [
       {
         id: 1,
@@ -730,7 +862,6 @@ export const feedPosts = [
 
     date: "May 15, 2026",
   },
-
   {
     id: 6,
     client: clients[5],
@@ -741,6 +872,44 @@ export const feedPosts = [
     likes: 2000,
     caption:
       "Team Abybaby proudly executed the Volvo Skill Contest 2025, celebrating expertise, teamwork, and Volvo excellence through challenges that pushed limits and raised standards.",
+    comments: [
+      {
+        id: 1,
+        author: "Layla S.",
+        text: "This is literally my dream event! 😍",
+        time: "3d",
+      },
+      {
+        id: 2,
+        author: "Aisha M.",
+        text: "Can you do my event next? Perfection.",
+        time: "3d",
+      },
+      {
+        id: 3,
+        author: "Nour J.",
+        text: "The floral arch alone is iconic.",
+        time: "4d",
+      },
+      {
+        id: 4,
+        author: "Hessa A.",
+        text: "I was there! Even better in person.",
+        time: "4d",
+      },
+    ],
+
+    date: "May 15, 2026",
+  },
+  {
+    id: 8,
+    client: clients[8],
+    name: "Trucking into the Future & Tata Bandhan – Tata Motors",
+    location: "Jamshedpur & Jharkhand,India",
+    category: "Event",
+    media: [{ type: "video", url: tatabandhanvdo, poster: tataYoddhaImage }],
+    likes: 1000,
+    caption: `Abybaby Events hosted Tata Motors' "Trucking into the Future" and Bandhan celebration, bringing together 300+ valued customers for insightful discussions and partnership celebrations — driving Tata Motors' vision of sustainable, tech-driven logistics forward.`,
     comments: [
       {
         id: 1,
@@ -812,136 +981,15 @@ export const feedPosts = [
     date: "May 15, 2026",
   },
   {
-    id: 8,
-    client: clients[8],
-    name: "Trucking into the Future & Tata Bandhan – Tata Motors",
-    location: "Jamshedpur & Jharkhand,India",
+    id: 14,
+    client: clients[14],
+    name: "Aagomoni Vodafone",
+    location: "Kolkata,India",
     category: "Event",
-    media: [{ type: "video", url: tatabandhanvdo, poster: tataYoddhaImage }],
+    media: [{ type: "video", url: agomoniVodafone, poster: agomoni5 }],
     likes: 1000,
-    caption: `Abybaby Events hosted Tata Motors' "Trucking into the Future" and Bandhan celebration, bringing together 300+ valued customers for insightful discussions and partnership celebrations — driving Tata Motors' vision of sustainable, tech-driven logistics forward.`,
-    comments: [
-      {
-        id: 1,
-        author: "Layla S.",
-        text: "This is literally my dream event! 😍",
-        time: "3d",
-      },
-      {
-        id: 2,
-        author: "Aisha M.",
-        text: "Can you do my event next? Perfection.",
-        time: "3d",
-      },
-      {
-        id: 3,
-        author: "Nour J.",
-        text: "The floral arch alone is iconic.",
-        time: "4d",
-      },
-      {
-        id: 4,
-        author: "Hessa A.",
-        text: "I was there! Even better in person.",
-        time: "4d",
-      },
-    ],
-
-    date: "May 15, 2026",
-  },
-
-  {
-    id: 9,
-    client: clients[9],
-    name: "Mercedes-Benz Mobile Service Launch ",
-    location: "Whitefield,Bengaluru,India",
-    category: "Launch ",
-    media: [
-      { type: "video", url: mercedesBenVdo, poster: mercedesBenzMobileLaunch },
-    ],
-    likes: 1000,
-    caption:
-      "Where convenience meets luxury — Mercedes-Benz launched its Mobile Service initiative, bringing expert vehicle care directly to customers' doorsteps. A seamless launch experience reflecting the brand's commitment to innovation and customer-first excellence, redefining after-sales service beyond the showroom.",
-    comments: [
-      {
-        id: 1,
-        author: "Layla S.",
-        text: "This is literally my dream event! 😍",
-        time: "3d",
-      },
-      {
-        id: 2,
-        author: "Aisha M.",
-        text: "Can you do my event next? Perfection.",
-        time: "3d",
-      },
-      {
-        id: 3,
-        author: "Nour J.",
-        text: "The floral arch alone is iconic.",
-        time: "4d",
-      },
-      {
-        id: 4,
-        author: "Hessa A.",
-        text: "I was there! Even better in person.",
-        time: "4d",
-      },
-    ],
-
-    date: "May 15, 2026",
-  },
-  {
-    id: 10,
-    client: clients[10],
-    name: "LAGISAARTH Challenge – Tata Yodha, The Beast of the Hills",
-    location: "Meghalaya,India",
-    category: "Event",
-    media: [{ type: "video", url: tataYoddhaVdo, poster: tataYoddhaImage }],
-    likes: 1000,
-    caption:
-      "A 26+ location experiential campaign across Meghalaya's toughest terrains, engaging 100+ drivers, 150+ test drives, and 300+ customer enquiries — proving the Tata Yodha's power where it matters most. Powered by Abybaby Events Pvt. Ltd.",
-    comments: [
-      {
-        id: 1,
-        author: "Layla S.",
-        text: "This is literally my dream event! 😍",
-        time: "3d",
-      },
-      {
-        id: 2,
-        author: "Aisha M.",
-        text: "Can you do my event next? Perfection.",
-        time: "3d",
-      },
-      {
-        id: 3,
-        author: "Nour J.",
-        text: "The floral arch alone is iconic.",
-        time: "4d",
-      },
-      {
-        id: 4,
-        author: "Hessa A.",
-        text: "I was there! Even better in person.",
-        time: "4d",
-      },
-    ],
-
-    date: "May 15, 2026",
-  },
-  {
-    id: 11,
-    client: clients[11],
-    name: "Toyota Supplier Meet",
-    location: "Bengaluru,India",
-    category: "Conference",
-    media: [
-      { type: "video", url: toyotaSupplierMeetVdo, poster: toyotaSupplierMeet },
-    ],
-    likes: 1000,
-    caption:
-      "Abybaby Events proudly presented the Toyota Supplier Meet in Bengaluru — a refined gathering that strengthened alliances between trust, innovation, and enduring partnerships, driving excellence forward at every turn.",
+    // caption:
+    //   "Team Abybaby brought fun, fashion, and fantasy to life with a magical Lilo & Stitch experience for Max Fashion — packed with color, style, and joyful energy at every turn.",
     comments: [
       {
         id: 1,
@@ -1017,45 +1065,6 @@ export const feedPosts = [
     location: "Kolkata,India",
     category: "Sport's Event",
     media: [{ type: "video", url: hurdleHawkVdo, poster: hurdle_Hawk1 }],
-    likes: 1000,
-    // caption:
-    //   "Team Abybaby brought fun, fashion, and fantasy to life with a magical Lilo & Stitch experience for Max Fashion — packed with color, style, and joyful energy at every turn.",
-    comments: [
-      {
-        id: 1,
-        author: "Layla S.",
-        text: "This is literally my dream event! 😍",
-        time: "3d",
-      },
-      {
-        id: 2,
-        author: "Aisha M.",
-        text: "Can you do my event next? Perfection.",
-        time: "3d",
-      },
-      {
-        id: 3,
-        author: "Nour J.",
-        text: "The floral arch alone is iconic.",
-        time: "4d",
-      },
-      {
-        id: 4,
-        author: "Hessa A.",
-        text: "I was there! Even better in person.",
-        time: "4d",
-      },
-    ],
-
-    date: "May 15, 2026",
-  },
-  {
-    id: 14,
-    client: clients[14],
-    name: "Aagomoni Vodafone",
-    location: "Kolkata,India",
-    category: "Event",
-    media: [{ type: "video", url: agomoniVodafone, poster: agomoni5 }],
     likes: 1000,
     // caption:
     //   "Team Abybaby brought fun, fashion, and fantasy to life with a magical Lilo & Stitch experience for Max Fashion — packed with color, style, and joyful energy at every turn.",
@@ -1169,15 +1178,17 @@ export const feedPosts = [
     date: "May 15, 2026",
   },
   {
-    id: 17,
-    client: clients[17],
-    name: "Hero Voice Of Destiny",
-    location: "Assam & North East,India",
-    category: "Activation",
-    media: [{ type: "video", url: heroVoiceOfDestinyVdo, poster: herologo }],
+    id: 11,
+    client: clients[11],
+    name: "Toyota Supplier Meet",
+    location: "Bengaluru,India",
+    category: "Conference",
+    media: [
+      { type: "video", url: toyotaSupplierMeetVdo, poster: toyotaSupplierMeet },
+    ],
     likes: 1000,
     caption:
-      " Rooted in the musical richness of Assam and the North East's 7 Sister states, this playful voice contest delivered a unique cultural experience — seamlessly blending product showcase of the Hero Destiny range with meaningful engagement and sales.",
+      "Abybaby Events proudly presented the Toyota Supplier Meet in Bengaluru — a refined gathering that strengthened alliances between trust, innovation, and enduring partnerships, driving excellence forward at every turn.",
     comments: [
       {
         id: 1,
@@ -1207,55 +1218,43 @@ export const feedPosts = [
 
     date: "May 15, 2026",
   },
-  {
-    id: 18,
-    client: clients[18],
-    name: "Amazon Great Indian Festival",
-    location: "Kolkata,India",
-    category: "Activation",
-    media: [{ type: "video", url: amazonVdo, poster: amazonLogo }],
-    likes: 1000,
-    caption:
-      "On September 22, 2025, Park Circus Maidan in Kolkata played host to a spectacular drone show. The event, organized by Abybaby Events in partnership with tech provider Botlab Dynamics, featured thousands of drones lighting up the sky to mark the start of the festive season and celebrate the launch of the Amazon Great Indian Festival.",
-    comments: [
-      {
-        id: 1,
-        author: "Layla S.",
-        text: "This is literally my dream event! 😍",
-        time: "3d",
-      },
-      {
-        id: 2,
-        author: "Aisha M.",
-        text: "Can you do my event next? Perfection.",
-        time: "3d",
-      },
-      {
-        id: 3,
-        author: "Nour J.",
-        text: "The floral arch alone is iconic.",
-        time: "4d",
-      },
-      {
-        id: 4,
-        author: "Hessa A.",
-        text: "I was there! Even better in person.",
-        time: "4d",
-      },
-    ],
+  // {
+  //   id: 3,
+  //   client: clients[2],
+  //   name: "Mia by Tanishq Showroom Launch ",
+  //   location: "Guwahati,India",
+  //   category: "Store Activation",
+  //   media: [
+  //     { type: "video", url: miavdo1, poster: mia1 },
+  //     { type: "video", url: miavdo2, poster: mia2 },
+  //     { type: "video", url: miavdo3, poster: mia3 },
+  //     { type: "image", url: mia4 },
+  //   ],
+  //   likes: 391,
+  //   caption:
+  //     "Abybaby Events curated the elegant unveiling of the Mia by Tanishq showroom in Guwahati, blending exquisite collections with an immersive luxury experience.",
+  //   comments: [
+  //     {
+  //       id: 1,
+  //       author: "James T.",
+  //       text: "Exceptional execution from start to finish.",
+  //       time: "2d",
+  //     },
+  //   ],
 
-    date: "May 15, 2026",
-  },
+  //   date: "May 20, 2026",
+  // },
+
   {
-    id: 19,
-    client: clients[19],
-    name: "Sonpur Mela",
-    location: "Bihar,India",
-    // category: "Event",
-    media: [{ type: "video", url: sonpurMelaVdo }],
+    id: 10,
+    client: clients[10],
+    name: "LAGISAARTH Challenge – Tata Yodha, The Beast of the Hills",
+    location: "Meghalaya,India",
+    category: "Event",
+    media: [{ type: "video", url: tataYoddhaVdo, poster: tataYoddhaImage }],
     likes: 1000,
     caption:
-      "Team Abybaby brought fun, fashion, and fantasy to life with a magical Lilo & Stitch experience for Max Fashion — packed with color, style, and joyful energy at every turn.",
+      "A 26+ location experiential campaign across Meghalaya's toughest terrains, engaging 100+ drivers, 150+ test drives, and 300+ customer enquiries — proving the Tata Yodha's power where it matters most. Powered by Abybaby Events Pvt. Ltd.",
     comments: [
       {
         id: 1,
