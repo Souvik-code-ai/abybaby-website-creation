@@ -4,10 +4,13 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/logo.jpg";
 import { DIGITAL_PROJECTS_ALL } from "../../../public/digital/digital";
+
 export function DigitalSection({ onNavigate }) {
   const [selectedProject, setSelectedProject] = useState(null);
+  const [currentImage, setCurrentImage] = useState(0);
   const [visibleCount, setVisibleCount] = useState(3);
   const [isLoading, setIsLoading] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const sentinelRef = useRef(null);
   const [viewportHeight, setViewportHeight] = useState(
     typeof window !== "undefined" ? window.innerHeight : 0,
@@ -77,6 +80,41 @@ export function DigitalSection({ onNavigate }) {
     return () => vv.removeEventListener("resize", updateHeight);
   }, []);
 
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)");
+    const update = () => setIsMobile(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+
+  // ── Modal gallery navigation ──
+  const goPrevImage = () => {
+    if (!selectedProject) return;
+    setCurrentImage((prev) =>
+      prev === 0 ? selectedProject.modalImage.length - 1 : prev - 1,
+    );
+  };
+
+  const goNextImage = () => {
+    if (!selectedProject) return;
+    setCurrentImage((prev) =>
+      prev === selectedProject.modalImage.length - 1 ? 0 : prev + 1,
+    );
+  };
+
+  // ── Swipe navigation for the modal gallery on mobile ──
+  const touchStartX = useRef(0);
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+  const handleTouchEnd = (e) => {
+    const dx = e.changedTouches[0].clientX - touchStartX.current;
+    if (Math.abs(dx) < 40) return; // ignore small movements/taps
+    if (dx < 0) goNextImage();
+    else goPrevImage();
+  };
+
   return (
     <>
       <div className="w-full min-h-screen bg-background min-[1160px]:mx-20 min-[770px]:mx-16 mx-0">
@@ -97,14 +135,16 @@ export function DigitalSection({ onNavigate }) {
             {visibleProjects.map((project, index) => (
               <motion.div
                 key={project.id}
-                // Newly loaded cards fade + slide up; existing cards skip re-animation
                 initial={
                   index >= visibleCount - 3 ? { opacity: 0, y: 20 } : false
                 }
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.35, delay: (index % 3) * 0.08 }}
                 whileHover={{ y: -3 }}
-                onClick={() => setSelectedProject(project)}
+                onClick={() => {
+                  setSelectedProject(project);
+                  setCurrentImage(0);
+                }}
                 className="overflow-hidden rounded-2xl bg-white shadow-sm cursor-pointer border border-[#f0f0f5] min-h-[350px] "
               >
                 <div className="relative">
@@ -114,11 +154,6 @@ export function DigitalSection({ onNavigate }) {
                     className="w-full object-cover transition-transform duration-500 hover:scale-105  h-full "
                   />
                 </div>
-                {/* <div className="p-4">
-                  <h3 className="font-semibold text-gray-900 leading-snug line-clamp-1 font-sans text-[15px]">
-                    {project.name}
-                  </h3>
-                </div> */}
               </motion.div>
             ))}
           </div>
@@ -165,7 +200,7 @@ export function DigitalSection({ onNavigate }) {
         )}
       </div>
 
-      {/* Modal — styled after ExhibitionSection's modal */}
+      {/* Modal — carousel like ActivationSection */}
       <AnimatePresence>
         {selectedProject && (
           <motion.div
@@ -182,13 +217,42 @@ export function DigitalSection({ onNavigate }) {
               animate={{ scale: 1 }}
               exit={{ scale: 0.9 }}
               onClick={(e) => e.stopPropagation()}
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
             >
-              <img
-                src={selectedProject.image}
-                alt={selectedProject.name}
-                className="w-full h-full object-contain"
-              />
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={currentImage}
+                  src={selectedProject.modalImage[currentImage]}
+                  alt={selectedProject.name}
+                  initial={{ opacity: 0, scale: 1.05 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.4 }}
+                  className="absolute inset-0 w-full h-full object-contain"
+                />
+              </AnimatePresence>
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+
+              {/* Arrow prev — desktop only, only when multiple images */}
+              {!isMobile && selectedProject.modalImage.length > 1 && (
+                <button
+                  onClick={goPrevImage}
+                  className="hidden sm:flex absolute left-2 top-1/2 -translate-y-1/2 sm:w-14 sm:h-14 rounded-full z-50 bg-black/40 backdrop-blur-md text-white text-3xl items-center justify-center hover:bg-black/60 transition cursor-pointer"
+                >
+                  ❮
+                </button>
+              )}
+
+              {/* Arrow next — desktop only, only when multiple images */}
+              {!isMobile && selectedProject.modalImage.length > 1 && (
+                <button
+                  onClick={goNextImage}
+                  className="hidden sm:flex absolute right-2 top-1/2 -translate-y-1/2 z-50 sm:w-14 sm:h-14 rounded-full bg-black/40 backdrop-blur-md text-white text-3xl items-center justify-center hover:bg-black/60 transition cursor-pointer"
+                >
+                  ❯
+                </button>
+              )}
 
               {/* Title */}
               <div className="absolute sm:top-8 sm:left-8 sm:right-auto left-4 right-4 bottom-20 sm:bottom-auto">
@@ -201,17 +265,6 @@ export function DigitalSection({ onNavigate }) {
 
               {selectedProject.engagement && (
                 <div className="absolute md:top-8 sm:left-2/3 flex gap-4 sm:top-40 left-4 right-4 bottom-8 sm:bottom-auto">
-                  <div className="sm:bg-white/10 backdrop-blur-md sm:border border-white/20 rounded-xl sm:px-5 sm:py-3 sm:flex-col flex flex-row gap-1 items-center px-0 border-0 bg-none">
-                    <p className="text-white/70 text-xs">Engagement</p>
-                    <p className="text-white sm:font-semibold font-light text-xs">
-                      {selectedProject.engagement}
-                    </p>
-                  </div>
-                </div>
-              )}
-
-              {selectedProject.engagement && (
-                <div className="absolute md:top-8 sm:left-2/3 flex gap-4 sm:top-40 left-4 min-[375]:top-[88vh] top-[94vh]">
                   <div className="sm:bg-white/10 backdrop-blur-md sm:border border-white/20 rounded-xl sm:px-5 sm:py-3 sm:flex-col flex flex-row gap-1 items-center px-0 border-0 bg-none">
                     <p className="text-white/70 text-xs">Engagement</p>
                     <p className="text-white sm:font-semibold font-light text-xs">
@@ -239,6 +292,46 @@ export function DigitalSection({ onNavigate }) {
                       ))}
                     </div>
                   </div>
+                </div>
+              )}
+
+              {/* Dots — only when multiple images */}
+              {selectedProject.modalImage.length > 1 && (
+                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-50">
+                  {selectedProject.modalImage.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentImage(index)}
+                      className={`transition-all rounded-full ${
+                        currentImage === index
+                          ? "w-8 h-3 bg-white"
+                          : "w-3 h-3 bg-white/40"
+                      }`}
+                    />
+                  ))}
+                </div>
+              )}
+
+              {/* Thumbnail strip — desktop only, only when multiple images */}
+              {selectedProject.modalImage.length > 1 && (
+                <div className="absolute bottom-20 left-1/2 -translate-x-1/2 md:flex gap-3 hidden">
+                  {selectedProject.modalImage.map((image, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentImage(index)}
+                      className={`overflow-hidden rounded-lg border-2 ${
+                        currentImage === index
+                          ? "border-white"
+                          : "border-white/30"
+                      }`}
+                    >
+                      <img
+                        src={image}
+                        alt=""
+                        className="w-20 h-14 object-cover"
+                      />
+                    </button>
+                  ))}
                 </div>
               )}
 

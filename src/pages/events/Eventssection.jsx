@@ -1,16 +1,12 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Calendar, MapPin, Users, ArrowRight, X } from "lucide-react";
+import { Calendar, MapPin, Users, ArrowRight, X, Send } from "lucide-react";
 import logo from "../../assets/images/logo.jpg";
 import { EVENTS } from "../../../public/events/events";
 import { Link } from "react-router-dom";
 import EventHoverPanel from "../../components/ui/EventHoverPanel";
 import ProgressItem from "../../components/ui/ProgressItem";
 import EventHighlights from "../../components/ui/EventHighlights";
-
-// TODO: replace with your deployed Google Apps Script Web App URL
-// const GOOGLE_SCRIPT_URL =
-//   "https://script.google.com/macros/s/AKfycbxSrm_9ovj5ja-BDVqhs4tQvoQktTR25R9Ohjx1LUKRM17cmf389GhdLjMKdoWITd0qAg/exec";
 
 // ── Skeleton for a single event card while its image loads ──────────────────
 function EventCardSkeleton() {
@@ -98,6 +94,10 @@ function EmptyState({ label }) {
 }
 
 // ── Registration form modal ─────────────────────────────────────────────────
+// import { useState } from "react";
+// import { motion, AnimatePresence } from "motion/react";
+// import { X, Send } from "lucide-react";
+
 function RegistrationModal({ event, onClose }) {
   const GOOGLE_SCRIPT_URL = import.meta.env.VITE_SCRIPT_URL;
   const [formData, setFormData] = useState({
@@ -108,11 +108,11 @@ function RegistrationModal({ event, onClose }) {
   });
   const [errors, setErrors] = useState({});
   const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    // Phone: only allow digits, cap at 10 as the user types
     if (name === "phone") {
       const digitsOnly = value.replace(/\D/g, "").slice(0, 10);
       setFormData((prev) => ({ ...prev, phone: digitsOnly }));
@@ -145,184 +145,235 @@ function RegistrationModal({ event, onClose }) {
     return Object.keys(nextErrors).length === 0;
   };
 
+  const resetAndClose = () => {
+    setSubmitted(false);
+    onClose?.();
+    setFormData({ name: "", email: "", phone: "", purpose: "" });
+    setErrors({});
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!validate()) return;
 
     setSubmitting(true);
-    try {
-      await fetch(GOOGLE_SCRIPT_URL, {
-        method: "POST",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "text/plain",
-        },
-        body: JSON.stringify({
-          ...formData,
-          eventName: event?.name || "",
-        }),
-      });
-      alert("Form submitted successfully!");
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        purpose: "",
-      });
-      setErrors({});
-      onClose();
-    } catch (error) {
-      console.error(error);
-      alert("Something went wrong!");
-    } finally {
-      setSubmitting(false);
-    }
+
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        console.log(latitude, longitude);
+        try {
+          await fetch(GOOGLE_SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: {
+              "Content-Type": "text/plain",
+            },
+            body: JSON.stringify({
+              ...formData,
+              eventName: event?.name || "",
+              latitude,
+              longitude,
+            }),
+          });
+
+          setSubmitting(false);
+          setSubmitted(true);
+          setTimeout(resetAndClose, 2000);
+        } catch (error) {
+          console.error(error);
+          setSubmitting(false);
+          setErrors((prev) => ({
+            ...prev,
+            purpose: "Something went wrong. Please try again shortly.",
+          }));
+        }
+      },
+      (error) => {
+        console.error("Location Error:", error);
+
+        setSubmitting(false);
+
+        let message = "Unable to get your location.";
+
+        switch (error.code) {
+          case error.PERMISSION_DENIED:
+            message = "Please allow location permission to submit the form.";
+            break;
+          case error.POSITION_UNAVAILABLE:
+            message = "Location information is unavailable.";
+            break;
+          case error.TIMEOUT:
+            message = "Location request timed out. Please try again.";
+            break;
+        }
+
+        setErrors((prev) => ({
+          ...prev,
+          purpose: message,
+        }));
+      },
+      {
+        enableHighAccuracy: true,
+        timeout: 15000,
+        maximumAge: 0,
+      },
+    );
   };
 
   return (
     <motion.div
-      className="fixed inset-0 z-[10000] flex items-center justify-center bg-black/70 backdrop-blur-md p-4"
+      className="fixed inset-0 z-[10000] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      onClick={onClose}
+      onClick={resetAndClose}
     >
       <motion.div
-        className="relative w-full max-w-md bg-white rounded-2xl p-6 shadow-lg"
-        initial={{ scale: 0.9, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        exit={{ scale: 0.9, opacity: 0 }}
+        initial={{ opacity: 0, scale: 0.9, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.9, y: 20 }}
+        transition={{ type: "spring", damping: 28, stiffness: 380 }}
+        className="bg-white rounded-3xl shadow-2xl overflow-hidden w-[320px] border border-black/8"
         onClick={(e) => e.stopPropagation()}
       >
-        <button
-          onClick={onClose}
-          type="button"
-          aria-label="Close registration form"
-          className="absolute top-4 right-4 text-gray-400 hover:text-gray-700 cursor-pointer"
-        >
-          <X size={20} />
-        </button>
-
-        <h2 className="font-semibold text-gray-900 text-lg font-sans">
-          Call to action form
-        </h2>
-        <p className="text-gray-500 text-[13px] mt-1 mb-5">
-          Fill in your details and we'll get back to you.
-        </p>
-
-        <form
-          onSubmit={handleSubmit}
-          noValidate
-          className="flex flex-col gap-3"
-        >
+        {/* Header */}
+        <div className="flex items-center justify-between px-5 py-4 bg-gradient-to-br from-[#579F63] to-[#7CFC58]">
           <div>
-            <label
-              className="block text-[13px] text-gray-600 mb-1"
-              htmlFor="reg-name"
-            >
-              Name
-            </label>
-            <input
-              id="reg-name"
-              name="name"
-              type="text"
-              required
-              value={formData.name}
-              onChange={handleChange}
-              placeholder="Your full name"
-              className={`w-full rounded-lg border px-3 py-2 text-sm outline-none focus:border-lime-600 ${
-                errors.name ? "border-red-400" : "border-gray-200"
-              }`}
-            />
-            {errors.name && (
-              <p className="text-red-500 text-[12px] mt-1">{errors.name}</p>
-            )}
+            <div className="font-sans text-white text-lg">Let's Connect</div>
+            <div className="text-white/80 text-xs">
+              We'll respond within 2 hours
+            </div>
           </div>
-
-          <div>
-            <label
-              className="block text-[13px] text-gray-600 mb-1"
-              htmlFor="reg-email"
-            >
-              Email
-            </label>
-            <input
-              id="reg-email"
-              name="email"
-              type="email"
-              required
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="you@example.com"
-              className={`w-full rounded-lg border px-3 py-2 text-sm outline-none focus:border-lime-600 ${
-                errors.email ? "border-red-400" : "border-gray-200"
-              }`}
-            />
-            {errors.email && (
-              <p className="text-red-500 text-[12px] mt-1">{errors.email}</p>
-            )}
-          </div>
-
-          <div>
-            <label
-              className="block text-[13px] text-gray-600 mb-1"
-              htmlFor="reg-phone"
-            >
-              Phone
-            </label>
-            <input
-              id="reg-phone"
-              name="phone"
-              type="tel"
-              inputMode="numeric"
-              required
-              minLength={10}
-              maxLength={10}
-              value={formData.phone}
-              onChange={handleChange}
-              placeholder="10-digit mobile number"
-              className={`w-full rounded-lg border px-3 py-2 text-sm outline-none focus:border-lime-600 ${
-                errors.phone ? "border-red-400" : "border-gray-200"
-              }`}
-            />
-            {errors.phone && (
-              <p className="text-red-500 text-[12px] mt-1">{errors.phone}</p>
-            )}
-          </div>
-
-          <div>
-            <label
-              className="block text-[13px] text-gray-600 mb-1"
-              htmlFor="reg-purpose"
-            >
-              Purpose
-            </label>
-            <textarea
-              id="reg-purpose"
-              name="purpose"
-              required
-              rows={3}
-              value={formData.purpose}
-              onChange={handleChange}
-              placeholder="Why do you want to attend?"
-              className={`w-full rounded-lg border px-3 py-2 text-sm outline-none focus:border-lime-600 resize-none ${
-                errors.purpose ? "border-red-400" : "border-gray-200"
-              }`}
-            />
-            {errors.purpose && (
-              <p className="text-red-500 text-[12px] mt-1">{errors.purpose}</p>
-            )}
-          </div>
-
           <button
-            type="submit"
-            disabled={submitting}
-            className="mt-2 w-full rounded-full bg-linear-to-r from-lime-800 via-lime-600 to-lime-400 text-white text-sm font-medium py-2.5 cursor-pointer disabled:opacity-60 hover:to-lime-600 hover:via-lime-800"
+            onClick={resetAndClose}
+            type="button"
+            aria-label="Close registration form"
           >
-            {submitting ? "Submitting..." : "Submit"}
+            <X size={18} className="text-white" />
           </button>
-        </form>
+        </div>
+
+        <AnimatePresence mode="wait">
+          {submitted ? (
+            <motion.div
+              key="success"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              className="flex flex-col items-center justify-center gap-3 py-10 px-6"
+            >
+              <div className="rounded-full flex items-center justify-center h-14 w-14 bg-[#579F63]/10">
+                <Send size={22} className="text-[#579F63]" />
+              </div>
+              <div className="text-base font-semibold text-[#1a1a1a]">
+                Message Sent!
+              </div>
+              <div className="text-[13px] text-[#8e8e93] text-center">
+                Our team will get back to you soon.
+              </div>
+            </motion.div>
+          ) : (
+            <motion.form
+              key="form"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onSubmit={handleSubmit}
+              noValidate
+              className="px-5 py-4 flex flex-col gap-3"
+            >
+              <div className="flex flex-col gap-1">
+                <input
+                  id="reg-name"
+                  name="name"
+                  type="text"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Name"
+                  className={`w-full rounded-xl px-4 outline-none h-[42px] bg-[#f5f5f7] text-sm border ${
+                    errors.name ? "border-red-400" : "border-transparent"
+                  }`}
+                />
+                {errors.name && (
+                  <span className="text-[12px] text-red-500 px-1">
+                    {errors.name}
+                  </span>
+                )}
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <input
+                  id="reg-email"
+                  name="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="Email"
+                  className={`w-full rounded-xl px-4 outline-none h-[42px] bg-[#f5f5f7] text-sm border ${
+                    errors.email ? "border-red-400" : "border-transparent"
+                  }`}
+                />
+                {errors.email && (
+                  <span className="text-[12px] text-red-500 px-1">
+                    {errors.email}
+                  </span>
+                )}
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <input
+                  id="reg-phone"
+                  name="phone"
+                  type="tel"
+                  inputMode="numeric"
+                  maxLength={10}
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder="Phone"
+                  className={`w-full rounded-xl px-4 outline-none h-[42px] bg-[#f5f5f7] text-sm border ${
+                    errors.phone ? "border-red-400" : "border-transparent"
+                  }`}
+                />
+                {errors.phone && (
+                  <span className="text-[12px] text-red-500 px-1">
+                    {errors.phone}
+                  </span>
+                )}
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <textarea
+                  id="reg-purpose"
+                  name="purpose"
+                  rows={3}
+                  value={formData.purpose}
+                  onChange={handleChange}
+                  placeholder="Purpose"
+                  className={`w-full rounded-xl px-4 py-3 outline-none resize-none bg-[#f5f5f7] text-sm border h-[90px] ${
+                    errors.purpose ? "border-red-400" : "border-transparent"
+                  }`}
+                />
+                {errors.purpose && (
+                  <span className="text-[12px] text-red-500 px-1">
+                    {errors.purpose}
+                  </span>
+                )}
+              </div>
+
+              <button
+                type="submit"
+                disabled={submitting}
+                className="w-full rounded-xl py-3 flex items-center justify-center gap-2 transition-opacity bg-gradient-to-br from-[#579F63] to-[#7CFC58] text-white font-semibold text-[15px] disabled:opacity-60"
+              >
+                <Send size={16} />
+                {submitting ? "Sending..." : "Send Message"}
+              </button>
+            </motion.form>
+          )}
+        </AnimatePresence>
       </motion.div>
     </motion.div>
   );
@@ -335,7 +386,7 @@ export function EventsSection({ onNavigate }) {
   const [selectedEvent, setSelectedEvent] = useState(null); // ✅ tracks which card's modal is open
   const [showRegistration, setShowRegistration] = useState(false); // ✅ tracks registration form modal
   const [modalImgLoaded, setModalImgLoaded] = useState(false); // ✅ tracks the full-screen modal hero image load
-
+  const [currentImage, setCurrentImage] = useState(0);
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE); // ✅ tracks how many to show
   const observerInstanceRef = useRef(null);
   const TABS = [
@@ -495,10 +546,20 @@ export function EventsSection({ onNavigate }) {
                 src={selectedEvent.modalImage || selectedEvent.image}
                 alt={selectedEvent.name}
                 onLoad={() => setModalImgLoaded(true)}
-                className={`w-full h-full sm:object-cover object-contain transition-opacity duration-300 ${
+                className={`w-full h-full sm:object-contain object-contain transition-opacity duration-300 ${
                   modalImgLoaded ? "opacity-100" : "opacity-0"
                 }`}
               />
+              {/* <motion.img
+                key={currentImage}
+                src={selectedEvent.modalImage[currentImage]}
+                alt={selectedEvent.name}
+                initial={{ opacity: 0, scale: 1.05 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.4 }}
+                className="absolute inset-0 w-full h-full object-contain"
+              /> */}
 
               {/* Rest of modal content only shown once the hero image is ready */}
               {modalImgLoaded && (

@@ -76,6 +76,7 @@ export function LocationsMap({ activeId: activeIdProp, onSelect } = {}) {
   }, []);
 
   const activeLoc = LOCATIONS.find((l) => l.id === activeId);
+  const showCardOnRight = activeLoc && activeLoc.left < 50;
   const activeTopPx =
     activeLoc && mapRect.height
       ? mapRect.top + (activeLoc.top / 100) * mapRect.height

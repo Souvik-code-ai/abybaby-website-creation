@@ -33,7 +33,7 @@ export function RightPanel({ events, caseStudies, awards, onNavigate }) {
         </div>
         <div className="flex flex-col gap-4 mt-4">
           {events.map((event) => (
-            <EventCard key={event.id} event={event} />
+            <EventCard key={event.id} event={event} onNavigate={onNavigate} />
           ))}
         </div>
       </section>

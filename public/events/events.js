@@ -52,6 +52,11 @@ import mahindraNavistar2 from "../../src/assets/images/mahindraNavistarLaunch/ma
 import ganeshChaturthi1 from "../../src/assets/images/ganeshChaturthi/ganeshChaturthi.webp";
 import onam1 from "../../src/assets/images/onam/onam1.webp";
 import durgaPuja1 from "../../src/assets/images/durgapuja/durgaPuja1.webp";
+import balmerol1 from "../../src/assets/images/balmerLawrie/balmerol1.webp";
+import balmerol2 from "../../src/assets/images/balmerLawrie/balmerol2.webp";
+import balmerol3 from "../../src/assets/images/balmerLawrie/balmerol3.webp";
+import toyotaHyryderLaunch1 from "../../src/assets/images/toyotaHyryderLaunch/toyotaHyryderLaunch1.webp";
+import toyotaHyryderLaunch2 from "../../src/assets/images/toyotaHyryderLaunch/toyotaHyryderLaunch2.webp";
 export const EVENTS = [
   {
     id: 1,
@@ -89,7 +94,7 @@ export const EVENTS = [
   },
   {
     id: 4,
-    type: "MICE",
+    type: "Store Launch",
     status: "expired",
     name: "Reebok-Tapsee Pannu",
     date: "26 Jan 2027",
@@ -135,7 +140,7 @@ export const EVENTS = [
     id: 8,
     type: " Sports Event",
     status: "expired",
-    name: "Yamaha",
+    name: "Yamaha Aizawl",
     date: "1 Dec 2026",
     location: "Kolkata",
     attendees: "1500+",
@@ -233,6 +238,32 @@ export const EVENTS = [
     date: "TBD",
     location: "Kolkata",
     attendees: "3,00,00,000",
+    description:
+      "Every year, Kolkata transforms into the world's largest open-air celebration, attracting 10–12 million visitors across more than 3,000 community pujas over five days. AbyBaby Events seamlessly integrates your brand into this massive cultural phenomenon through premium entry gates, branded tunnels, hoardings, billboards, immersive stalls, interactive engagement zones, and experiential brand installations. We create meaningful consumer touchpoints that turn festival crowds into memorable brand experiences, delivering unmatched visibility, engagement, and recall.",
+  },
+  {
+    id: 17,
+    name: "Balmerol Lubrications",
+    status: "expired",
+    type: "MICE",
+    image: balmerol1,
+    modalImage: balmerol2,
+    date: "TBD",
+    location: "Kolkata",
+    attendees: "500+",
+    description:
+      "Every year, Kolkata transforms into the world's largest open-air celebration, attracting 10–12 million visitors across more than 3,000 community pujas over five days. AbyBaby Events seamlessly integrates your brand into this massive cultural phenomenon through premium entry gates, branded tunnels, hoardings, billboards, immersive stalls, interactive engagement zones, and experiential brand installations. We create meaningful consumer touchpoints that turn festival crowds into memorable brand experiences, delivering unmatched visibility, engagement, and recall.",
+  },
+  {
+    id: 18,
+    name: "Toyota Hyryder Launch",
+    status: "expired",
+    type: "Lunch",
+    image: toyotaHyryderLaunch1,
+    modalImage: [toyotaHyryderLaunch2],
+    date: "TBD",
+    location: "Kolkata",
+    attendees: "200+",
     description:
       "Every year, Kolkata transforms into the world's largest open-air celebration, attracting 10–12 million visitors across more than 3,000 community pujas over five days. AbyBaby Events seamlessly integrates your brand into this massive cultural phenomenon through premium entry gates, branded tunnels, hoardings, billboards, immersive stalls, interactive engagement zones, and experiential brand installations. We create meaningful consumer touchpoints that turn festival crowds into memorable brand experiences, delivering unmatched visibility, engagement, and recall.",
   },

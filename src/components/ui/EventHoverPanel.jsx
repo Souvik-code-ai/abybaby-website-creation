@@ -6,7 +6,7 @@ export default function EventHoverPanel({ hoveredEvent }) {
       <AnimatePresence mode="wait">
         {hoveredEvent ? (
           <motion.div
-            key={hoveredEvent.id}
+            key={hoveredEvent.id} 
             initial={{ opacity: 0, x: 10 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 10 }}

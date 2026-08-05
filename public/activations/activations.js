@@ -37,6 +37,8 @@ import vodafoneChaltabagan1 from "../../src/assets/images/vodafoneChaltabagan/vo
 import vodafoneChaltabagan2 from "../../src/assets/images/vodafoneChaltabagan/vodafoneChaltabagan2.webp";
 import vodafoneChaltabagan3 from "../../src/assets/images/vodafoneChaltabagan/vodafoneChaltabagan3.webp";
 import vodafoneChaltabagan4 from "../../src/assets/images/vodafoneChaltabagan/vodafoneChaltabagan4.webp";
+import vodafoneChaltabagan5 from "../../src/assets/images/vodafoneChaltabagan/vodafoneChaltabagan5.webp";
+import vodafoneChaltabagan6 from "../../src/assets/images/vodafoneChaltabagan/vodafoneChaltabagan6.webp";
 import heroHondaHaatYatra1 from "../../src/assets/images/heroHondaHaatYatra/heroHondaHaatYatra1.webp";
 import heroHondaHaatYatra2 from "../../src/assets/images/heroHondaHaatYatra/heroHondaHaatYatra2.webp";
 import heroHondaHaatYatra3 from "../../src/assets/images/heroHondaHaatYatra/heroHondaHaatYatra3.webp";
@@ -59,10 +61,10 @@ import britaniaRetailActivation1 from "../../src/assets/images/britaniaRetailAct
 export const ACTIVATIONS_ALL = [
   {
     id: 1,
-    title: "Vodafone Chaltabagan",
+    title: "Vodafone Sindur Khela",
     type: "Brand Promotion",
-    image: vodafoneChaltabagan3,
-    gallery: [vodafoneChaltabagan2, vodafoneChaltabagan1, vodafoneChaltabagan4],
+    image: vodafoneChaltabagan6,
+    gallery: [vodafoneChaltabagan5, vodafoneChaltabagan6, vodafoneChaltabagan4],
     audience: "1500+",
     highlights: [
       "Store Inauguration Ceremony",
@@ -70,6 +72,21 @@ export const ACTIVATIONS_ALL = [
       "Product Showcase",
       "Brand Engagement Activities",
       "Media Coverage",
+    ],
+  },
+  {
+    id: 8,
+    title: "Britannia Retail Activation",
+    type: "Retail Activation",
+    image: britaniaRetailActivation1,
+    gallery: [britaniaRetailActivation1],
+    audience: "5000+",
+    highlights: [
+      "Festive Zone Setup",
+      "Lucky Draw Activations",
+      "Brand Photo Booths",
+      "Live Performances",
+      "On-spot Promotions",
     ],
   },
   {
@@ -91,7 +108,7 @@ export const ACTIVATIONS_ALL = [
   {
     id: 4,
     title: "Mahindra Tractor Meet",
-    type: "Corporate Engagement",
+    type: "Rural Activation",
     image: mahindraTractor1,
     gallery: [mahindraTractor2, mahindraTractor4],
     audience: "800+",
@@ -140,21 +157,6 @@ export const ACTIVATIONS_ALL = [
     image: mahindraVeero1,
     gallery: [mahindraVeero1],
     audience: "2000+",
-    highlights: [
-      "Festive Zone Setup",
-      "Lucky Draw Activations",
-      "Brand Photo Booths",
-      "Live Performances",
-      "On-spot Promotions",
-    ],
-  },
-  {
-    id: 8,
-    title: "Britannia Retail Activation",
-    type: "Retail Activation",
-    image: britaniaRetailActivation1,
-    gallery: [britaniaRetailActivation1],
-    audience: "5000+",
     highlights: [
       "Festive Zone Setup",
       "Lucky Draw Activations",

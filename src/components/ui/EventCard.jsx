@@ -1,12 +1,24 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { MapPin, Trophy, Calendar, Users } from "lucide-react";
-export default function EventCard({ event }) {
+import { useNavigate } from "react-router-dom";
+import { RegistrationModal } from "./RegistrationModal";
+export default function EventCard({ event, onNavigate }) {
+  const navigate = useNavigate();
   const [expanded, setExpanded] = useState(false);
-
+  const [showRegistration, setShowRegistration] = useState(false);
+  const handleClick = () => {
+    navigate("/events");
+    onNavigate?.("events"); // optional chaining in case it's undefined; match your other sections' naming convention
+  };
+  const handleCallNow = (e) => {
+    e.stopPropagation(); // don't trigger the card's own navigate
+    setShowRegistration(true);
+  };
   return (
     <motion.div
       layout
+      onClick={handleClick}
       onHoverStart={() => setExpanded(true)}
       onHoverEnd={() => setExpanded(false)}
       className="rounded-2xl overflow-hidden cursor-pointer bg-[var(--background)] "
@@ -81,11 +93,17 @@ export default function EventCard({ event }) {
           )}
         </AnimatePresence>
 
-        {/* <button
+        <button
+          onClick={expanded ? handleCallNow : undefined}
           className={`w-full rounded-xl py-2 transition-all text-xs font-semibold  ${expanded ? "bg-[var(--accent)] text-[var(--accent-foreground)]" : "bg-[color-mix(in_srgb,var(--accent)_10%,transparent)] text-[var(--accent)]"}`}
         >
           {expanded ? "Call Now" : "Visit Event"}
-        </button> */}
+        </button>
+        <RegistrationModal
+          open={showRegistration}
+          onClose={() => setShowRegistration(false)}
+          eventName={event.eventName}
+        />
       </div>
     </motion.div>
   );

@@ -457,9 +457,7 @@ export function ChatbotWidget({ isOpen = false, onClose }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!validateAll()) {
-      return;
-    }
+    if (!validateAll()) return;
 
     if (!SCRIPT_URL) {
       console.error("VITE_SCRIPT_URL is not defined");
@@ -471,53 +469,71 @@ export function ChatbotWidget({ isOpen = false, onClose }) {
     }
 
     if (submitting) return;
+
     setSubmitting(true);
 
-    // Reading any confirmation back from a Google Apps Script Web App
-    // over fetch() has proven unreliable — the request reaches the
-    // server and the row gets written almost instantly, but waiting
-    // for fetch() itself to resolve/reject can hang unpredictably
-    // regardless of how fast the script executes. Since submission
-    // reliably succeeds once dispatched, we show the success view and
-    // reset the form as soon as the request is sent, rather than
-    // waiting on the network round-trip. The fetch still runs in the
-    // background; any genuine failure (e.g. no network at all) is
-    // caught and logged, but no longer blocks the UI.
-    fetch(SCRIPT_URL, {
-      method: "POST",
-      mode: "no-cors",
-      headers: {
-        "Content-Type": "text/plain;charset=utf-8",
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        console.log(latitude, longitude);
+        fetch(SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "text/plain;charset=utf-8",
+          },
+          body: JSON.stringify({
+            ...form,
+            latitude,
+            longitude,
+          }),
+        }).catch((error) => {
+          console.error(
+            "Background submission error (row may still have been written):",
+            error,
+          );
+        });
+
+        setSubmitting(false);
+        setSubmitted(true);
+
+        setTimeout(() => {
+          setSubmitted(false);
+          setOpen(false);
+          onClose?.();
+
+          setForm({
+            name: "",
+            email: "",
+            phone: "",
+            purpose: "",
+          });
+
+          setErrors({
+            name: "",
+            email: "",
+            phone: "",
+            purpose: "",
+          });
+        }, 2000);
       },
-      body: JSON.stringify(form),
-    }).catch((error) => {
-      console.error(
-        "Background submission error (row may still have been written):",
-        error,
-      );
-    });
+      (error) => {
+        console.error("Location Error:", error);
 
-    setSubmitting(false);
-    setSubmitted(true);
+        setSubmitting(false);
 
-    setTimeout(() => {
-      setSubmitted(false);
-      setOpen(false);
-      onClose?.();
-
-      setForm({
-        name: "",
-        email: "",
-        phone: "",
-        purpose: "",
-      });
-      setErrors({
-        name: "",
-        email: "",
-        phone: "",
-        purpose: "",
-      });
-    }, 2000);
+        setErrors((prev) => ({
+          ...prev,
+          purpose: "Please allow location permission to submit the form.",
+        }));
+      },
+      {
+        enableHighAccuracy: true,
+        timeout: 15000,
+        maximumAge: 0,
+      },
+    );
   };
 
   const handlePhoneChange = (e) => {
