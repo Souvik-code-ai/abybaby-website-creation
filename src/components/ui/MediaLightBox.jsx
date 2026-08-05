@@ -303,11 +303,11 @@ export default function MediaLightbox({ items, startIndex, onClose }) {
         <div className="absolute bottom-0 left-0 right-0 h-[42%] bg-[linear-gradient(to_top,rgba(0,0,0,0.82),transparent)] pointer-events-none" />
 
         {/* Caption + stats */}
-        <div className="absolute bottom-4 left-[14px] right-[64px] z-5">
+        {/* <div className="absolute bottom-4 left-[14px] right-[64px] z-5">
           <p className="m-0 text-[13px] text-white leading-[1.5] font-normal">
             {item.caption}
           </p>
-        </div>
+        </div> */}
 
         {/* Dot counter */}
         <div className="absolute top-[14px] left-0 right-0 flex justify-center gap-[5px] z-[5]">

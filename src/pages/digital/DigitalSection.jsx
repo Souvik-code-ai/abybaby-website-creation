@@ -190,13 +190,25 @@ export function DigitalSection({ onNavigate }) {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
 
-              <div className="absolute sm:top-8 sm:left-8 left-4 top-[90vh]">
-                <div className="sm:backdrop-blur-lg sm:bg-white/10 sm:border border-white/20 rounded-2xl sm:px-6 sm:py-4 bg-none border-0 ">
+              {/* Title */}
+              <div className="absolute sm:top-8 sm:left-8 sm:right-auto left-4 right-4 bottom-20 sm:bottom-auto">
+                <div className="sm:backdrop-blur-lg sm:bg-white/10 sm:border border-white/20 rounded-2xl sm:px-6 sm:py-4 bg-none border-0">
                   <h2 className="text-white sm:text-3xl font-bold font-sans text-xl">
                     {selectedProject.name}
                   </h2>
                 </div>
               </div>
+
+              {selectedProject.engagement && (
+                <div className="absolute md:top-8 sm:left-2/3 flex gap-4 sm:top-40 left-4 right-4 bottom-8 sm:bottom-auto">
+                  <div className="sm:bg-white/10 backdrop-blur-md sm:border border-white/20 rounded-xl sm:px-5 sm:py-3 sm:flex-col flex flex-row gap-1 items-center px-0 border-0 bg-none">
+                    <p className="text-white/70 text-xs">Engagement</p>
+                    <p className="text-white sm:font-semibold font-light text-xs">
+                      {selectedProject.engagement}
+                    </p>
+                  </div>
+                </div>
+              )}
 
               {selectedProject.engagement && (
                 <div className="absolute md:top-8 sm:left-2/3 flex gap-4 sm:top-40 left-4 min-[375]:top-[88vh] top-[94vh]">

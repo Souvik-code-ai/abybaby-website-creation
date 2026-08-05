@@ -610,67 +610,69 @@ export function ExhibitionSection({ onNavigate }) {
                 </button>
               )}
 
-              <div className="absolute sm:top-8 sm:left-8 left-4 top-[90vh]">
-                <div className="sm:backdrop-blur-lg sm:bg-white/10 sm:border border-white/20 rounded-2xl sm:px-6 sm:py-4 bg-none border-0 ">
-                  <h2 className="text-white sm:text-3xl font-bold font-sans text-xl">
+              {/* Desktop: title + booth/attendance in one aligned row */}
+              <div className="absolute top-8 left-8 right-8 hidden sm:flex sm:items-center sm:justify-between gap-4">
+                {/* Title */}
+                <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-2xl px-6 py-4">
+                  <h2 className="text-white text-3xl font-bold font-sans">
                     {selectedExhibition.name}
                   </h2>
                 </div>
-              </div>
-              <div className="absolute md:top-8 sm:left-2/3 flex gap-4 sm:top-40  left-4 min-[375]:top-[88vh]  top-[94vh]">
-                <div className="sm:bg-white/10 backdrop-blur-md sm:border border-white/20 rounded-xl sm:px-5 sm:py-3 sm:flex-col flex flex-row gap-1 items-center px-0 border-0 bg-none">
-                  <p className="text-white/70 text-xs">Booth Size:</p>
-                  <p className="text-white sm:font-semibold font-light text-xs">
-                    {selectedExhibition.boothSize}
-                  </p>
-                </div>
-                <div className="sm:bg-white/10 backdrop-blur-md sm:border border-white/20 rounded-xl sm:px-5 sm:py-3 sm:flex-col flex flex-row gap-1 items-center px-0 border-0 bg-none">
-                  <p className="text-white/70 text-xs">Attendance</p>
-                  <p className="text-white sm:font-semibold font-light text-xs">
-                    {selectedExhibition.attendance}
-                  </p>
+
+                {/* Booth size / attendance */}
+                <div className="flex gap-4">
+                  <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-5 py-3 flex flex-col items-center">
+                    <p className="text-white/70 text-xs">Booth Size:</p>
+                    <p className="text-white font-semibold text-xs">
+                      {selectedExhibition.boothSize}
+                    </p>
+                  </div>
+                  <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-5 py-3 flex flex-col items-center">
+                    <p className="text-white/70 text-xs">Attendance</p>
+                    <p className="text-white font-semibold text-xs">
+                      {selectedExhibition.attendance}
+                    </p>
+                  </div>
                 </div>
               </div>
 
-              {/* Dots — only when multiple images */}
-              {selectedExhibition.modalImage.length > 1 && (
-                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-50">
-                  {selectedExhibition.modalImage.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setCurrentImage(index)}
-                      className={`transition-all rounded-full ${
-                        currentImage === index
-                          ? "w-8 h-3 bg-white"
-                          : "w-3 h-3 bg-white/40"
-                      }`}
-                    />
-                  ))}
+              {/* Mobile: unchanged stack from before */}
+              <div className="sm:hidden absolute inset-x-0 bottom-0 flex flex-col gap-3 px-4 pb-6 pt-10 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+                <div>
+                  <h2 className="text-white text-xl font-bold font-sans">
+                    {selectedExhibition.name}
+                  </h2>
                 </div>
-              )}
-
-              {/* Thumbnail strip — desktop only, only when multiple images */}
-              {selectedExhibition.modalImage.length > 1 && (
-                <div className="absolute bottom-20 left-1/2 -translate-x-1/2 md:flex gap-3 hidden">
-                  {selectedExhibition.modalImage.map((image, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setCurrentImage(index)}
-                      className={`overflow-hidden rounded-lg border-2 ${
-                        currentImage === index
-                          ? "border-white"
-                          : "border-white/30"
-                      }`}
-                    >
-                      <img
-                        src={image}
-                        alt=""
-                        className="w-20 h-14 object-cover"
+                <div className="flex gap-4">
+                  <div className="flex flex-row gap-1 items-center">
+                    <p className="text-white/70 text-xs">Booth Size:</p>
+                    <p className="text-white font-light text-xs">
+                      {selectedExhibition.boothSize}
+                    </p>
+                  </div>
+                  <div className="flex flex-row gap-1 items-center">
+                    <p className="text-white/70 text-xs">Attendance</p>
+                    <p className="text-white font-light text-xs">
+                      {selectedExhibition.attendance}
+                    </p>
+                  </div>
+                </div>
+                {selectedExhibition.modalImage.length > 1 && (
+                  <div className="flex justify-center gap-3">
+                    {selectedExhibition.modalImage.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentImage(index)}
+                        className={`transition-all rounded-full ${
+                          currentImage === index
+                            ? "w-8 h-3 bg-white"
+                            : "w-3 h-3 bg-white/40"
+                        }`}
                       />
-                    </button>
-                  ))}
-                </div>
-              )}
+                    ))}
+                  </div>
+                )}
+              </div>
 
               <button
                 onClick={() => setSelectedExhibition(null)}
