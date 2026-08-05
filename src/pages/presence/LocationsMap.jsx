@@ -114,10 +114,7 @@ export function LocationsMap({ activeId: activeIdProp, onSelect } = {}) {
       >
         {/* ── Skeleton — shown until the map image finishes loading ── */}
         {!mapLoaded && (
-          <div
-            className="w-full rounded-2xl bg-gray-200 animate-pulse"
-            style={{ aspectRatio: "1 / 1" }}
-          />
+          <div className="w-full rounded-2xl bg-gray-200 animate-pulse aspect-square" />
         )}
 
         <img
