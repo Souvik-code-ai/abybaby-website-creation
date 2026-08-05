@@ -6,6 +6,8 @@ import zira1 from "../../src/assets/images/zira/zira1.webp";
 import zira2 from "../../src/assets/images/zira/zira2.webp";
 import arun from "../../src/assets/images/arun/arun.webp";
 import reebok1 from "../../src/assets/images/reebok/reebok1.webp.webp";
+import reebok2 from "../../src/assets/images/reebok/reebok2.webp";
+import reebok3 from "../../src/assets/images/reebok/reebok3.webp";
 import agomoni1 from "../../src/assets/images/agomoni/agomoni1.webp";
 import agomoni2 from "../../src/assets/images/agomoni/agomoni2.webp";
 import agomoni4 from "../../src/assets/images/agomoni/agomoni4.webp";
@@ -94,7 +96,7 @@ export const EVENTS = [
     location: "Kolkata",
     attendees: "200+",
     image: reebok1,
-    modalImage: reebok1,
+    modalImage: reebok2,
   },
   {
     id: 5,
