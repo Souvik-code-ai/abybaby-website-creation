@@ -620,9 +620,9 @@ export function EventsSection({ onNavigate }) {
                     (selectedEvent.status === "upcoming" &&
                       selectedEvent?.description)) && (
                     <div
-                      className={`absolute bottom-6 md:left-8 left-3.5 hidden sm:block ${
+                      className={`absolute bottom-6 md:left-8 left-3.5 right-3.5 md:right-8 hidden sm:block ${
                         selectedEvent.status === "upcoming"
-                          ? "max-w-md md:max-w-[68rem] "
+                          ? "max-w-md lg:max-w-2xl xl:max-w-4xl 2xl:max-w-[68rem]"
                           : "max-w-md"
                       }`}
                     >

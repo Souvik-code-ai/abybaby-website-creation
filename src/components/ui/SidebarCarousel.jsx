@@ -185,9 +185,11 @@ export default function SidebarCarousel({ studies, activeId, onSelect }) {
         <div className="text-[11px] font-semibold text-[color:var(--foreground)] leading-[1.4] line-clamp-1">
           {study.title}
         </div>
-        <div className="text-[10px] text-[color:var(--muted-foreground)] mt-1 flex items-center gap-1">
-          <MapPin size={9} />
-          {study.location} · {study.year}
+        <div className="text-[10px] text-[color:var(--muted-foreground)] mt-1 flex items-center gap-0.5">
+          <MapPin size={8} />
+          <span className="truncate">
+            {study.location} · {study.year}
+          </span>
         </div>
       </div>
     </button>
