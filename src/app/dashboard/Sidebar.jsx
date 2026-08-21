@@ -35,7 +35,7 @@ const allNavItems = [
   // { id: "messages", icon: MessageSquare, label: "Messages", path: "/messages" },
   { id: "profile", icon: User, label: "Profile", path: "/profile" },
 ];
-
+//done
 export function Sidebar({ activeSection, onNavigate, onMoreClick }) {
   const [expanded, setExpanded] = useState(false);
   const location = useLocation();
