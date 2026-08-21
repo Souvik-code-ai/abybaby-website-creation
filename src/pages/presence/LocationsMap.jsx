@@ -1,20 +1,30 @@
 import { useState, useRef, useEffect } from "react";
 import { X, Mail, Phone } from "lucide-react";
-import mapImage from "../../assets/images/location/locationMap.webp";
+import mapImage from "../../assets/images/location/map.webp";
 import { LOCATIONS } from "../../../public/presence/presence";
 
+// const PROJECTION = {
+//   xPxMin: 111,
+//   xPxMax: 2497,
+//   yPxMin: 20,
+//   yPxMax: 2605,
+//   lonMin: 68.0,
+//   lonMax: 97.5,
+//   latMax: 37.0,
+//   latMin: 8.0,
+//   imageSize: 2626,
+// };
 const PROJECTION = {
-  xPxMin: 111,
-  xPxMax: 2497,
-  yPxMin: 20,
-  yPxMax: 2605,
+  xPxMin: 182,
+  xPxMax: 1792,
+  yPxMin: 92,
+  yPxMax: 1865,
   lonMin: 68.0,
   lonMax: 97.5,
   latMax: 37.0,
   latMin: 8.0,
-  imageSize: 2626,
+  imageSize: 1969,
 };
-
 function latLngToPercent(lat, lng) {
   const {
     xPxMin,
