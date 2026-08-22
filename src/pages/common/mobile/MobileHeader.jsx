@@ -236,7 +236,7 @@ export function MobileHeader({ onMessageClick, onLogoClick, onNavigate }) {
           <div className="rounded-sm flex items-center justify-center overflow-hidden w-10 h-10 bg-[linear-gradient(135deg,#d4456a_0%,#f9a8c9_100%)]">
             <img
               src={logo}
-              alt="Logo"
+              alt="Krishivikas Logo"
               className="overflow-hidden rounded-lg h-12 w-12"
             />
           </div>
@@ -351,7 +351,7 @@ export function MobileHeader({ onMessageClick, onLogoClick, onNavigate }) {
                   <div className="rounded-sm flex items-center justify-center overflow-hidden w-9 h-9 bg-[linear-gradient(135deg,#d4456a_0%,#f9a8c9_100%)]">
                     <img
                       src={logo}
-                      alt=""
+                      alt="Kriishivikas logo"
                       className="rounded-lg h-10 w-10 overflow-hidden"
                     />
                   </div>

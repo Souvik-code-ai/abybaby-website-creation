@@ -122,7 +122,7 @@ export function ProfileView({ onNavigate }) {
       <div className="flex flex-col center items-start">
         <div className="flex flex-row items-center py-10 px-4 gap-5 justify-center">
           <div className="rounded-full flex items-center justify-center mb-4 md:h-24 md:w-24 h-12 w-16 bg-lime-600">
-            <img src={logo} alt="logo" />
+            <img src={logo} alt="Krishivikas Logo" />
           </div>
           <div className="flex flex-col justify-center items-start gap-0.5">
             <h1 className="lg:text-3xl md:text-2xl text-xl font-[family-name:var(--font-family-body)] text-[color:var(--foreground)]">
@@ -292,7 +292,7 @@ export function ProfileView({ onNavigate }) {
       <footer className="pt-2 pb-6 flex flex-col justify-center items-center ">
         <div className="flex flex-col items-center py-8 gap-2">
           <div className="rounded-full flex items-center justify-center w-12 h-12 bg-[linear-gradient(135deg,#65A30D_0%,#A3E635_100%)]">
-            <img src={logo} alt="" />
+            <img src={logo} alt="Krishivikas Logo" loading="lazy"/>
           </div>
 
           <p className="text-[13px] text-[#8e8e93] text-center">

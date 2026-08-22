@@ -250,7 +250,7 @@ export function PostViewer({ post, onClose }) {
             >
               <img
                 src={post.client.initials}
-                alt=""
+                alt={post.name}
                 className="w-full h-full"
               />
             </div>

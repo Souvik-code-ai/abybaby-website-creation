@@ -157,7 +157,7 @@ export default function SidePanel({ setOpen, onNavigate }) {
 
                 {/* Logo */}
                 <div className="absolute top-5 right-5 text-right">
-                  <img src={logo} alt="logo" className="h-12 ml-auto w-12" />
+                  <img src={logo} alt="Krishivikas Logo" className="h-12 ml-auto w-12" />
                 </div>
 
                 {/* Name Section */}
@@ -241,7 +241,7 @@ export default function SidePanel({ setOpen, onNavigate }) {
                 >
                   <X size={20} className="text-gray-700" />
                 </button>
-                <img src={logo} className="h-16 mb-4 rounded-full" />
+                <img src={logo} className="h-16 mb-4 rounded-full" loading="lazy"/>
 
                 <h3 className="text-xl font-bold font-sans">
                   ABYBABY EVENTS PVT LTD
@@ -389,7 +389,7 @@ export default function SidePanel({ setOpen, onNavigate }) {
                   >
                     <img
                       src={loc.locationsImage}
-                      alt=""
+                      alt={loc.city}
                       className="h-full w-full"
                     />
                   </button>

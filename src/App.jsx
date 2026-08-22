@@ -19,6 +19,7 @@ import { Sidebar } from "./app/dashboard/Sidebar";
 import logo from "./assets/images/logo.webp";
 import { DataPrivacyView } from "./pages/commonSection/DataPrivacyView";
 import { CaseStudiesView } from "./pages/commonSection/CaseStudiesView";
+import { AutoSeo } from "./components/ui/AutoSeo";
 import {
   clients,
   feedPosts,
@@ -90,6 +91,7 @@ export default function App() {
 
   return (
     <div className="bg-background min-h-screen">
+      <AutoSeo/>
       {loading && <PageLoader />}
       {/* Mobile Header */}
       {isMobile && (

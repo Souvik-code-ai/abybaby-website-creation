@@ -183,7 +183,7 @@ export function DigitalSection({ onNavigate }) {
         {!hasMore && (
           <div className="flex flex-col items-center py-8 gap-2">
             <div className="rounded-full flex items-center justify-center w-12 h-12 bg-[linear-gradient(135deg,#65A30D_0%,#A3E635_100%)]">
-              <img src={logo} alt="" />
+              <img src={logo} alt="Krishivikas logo " loading="lazy"/>
             </div>
             <p className="text-[13px] text-[#8e8e93] text-center">
               You've explored all digital projects.
@@ -327,7 +327,7 @@ export function DigitalSection({ onNavigate }) {
                     >
                       <img
                         src={image}
-                        alt=""
+                        alt={selectedProject.name}
                         className="w-20 h-14 object-cover"
                       />
                     </button>

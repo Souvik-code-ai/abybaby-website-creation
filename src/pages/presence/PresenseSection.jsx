@@ -70,7 +70,7 @@ export function PresenceSection({ onNavigate, open, setOpen }) {
       </div>
       <div className="flex flex-col items-center py-8 gap-2">
         <div className="rounded-full flex items-center justify-center w-12 h-12 bg-gradient-to-br from-[#d4456a] to-[#f9a8c9]">
-          <img src={logo} alt="" />
+          <img src={logo} alt="Krishivikas Logo" loading="lazy"/>
         </div>
         <p className="text-[13px] text-[#8e8e93] text-center">
           You've seen all recent presence.

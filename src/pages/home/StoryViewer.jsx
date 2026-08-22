@@ -70,7 +70,7 @@ function FullPreviewCard({ client }) {
 
       <div className="absolute top-8 left-3 right-3 flex items-center gap-2 z-10">
         <div className="rounded-full flex items-center justify-center overflow-hidden bg-white border-white border-2 h-[34px] w-[34px]">
-          <img src={client.initials} alt="" />
+          <img src={client.initials} alt={client.name} />
         </div>
         <div>
           <div className="text-white text-[13px] font-semibold">
@@ -300,7 +300,7 @@ export function StoryViewer({ clients = [], activeClientId, onClose, onSeen }) {
       <div className="absolute top-8 left-3 right-3 flex items-center justify-between z-10">
         <div className="flex items-center gap-2">
           <div className="rounded-full flex items-center justify-center overflow-hidden bg-white border-white border-2 h-[34px] w-[34px]">
-            <img src={currentClient.initials} alt="" />
+            <img src={currentClient.initials} alt={currentClient.name} />
           </div>
           <div>
             <div className="text-white text-[13px] font-semibold">

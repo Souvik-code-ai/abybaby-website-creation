@@ -162,7 +162,7 @@ export function FeedCard({ post, muted, onToggleMute, isFeedPaused }) {
             <div className="rounded-full flex items-center justify-center shrink-0 overflow-hidden bg-black border">
               <img
                 src={post.client?.initials}
-                alt=""
+                alt={post.name}
                 className="rounded-full h-[42px] w-[42px] "
               />
             </div>

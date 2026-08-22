@@ -10,7 +10,7 @@ export default function AdjacentCard({ client, scale, opacity, onClick }) {
       onClick={onClick}
       className={`relative rounded-2xl overflow-hidden cursor-pointer shrink-0 w-[${340 * scale}px] h-[${600 * scale}px] opacity-[${opacity}] bg-[${client.bgColor}]`}
     >
-      <img src={thumbnail} className="w-full h-full object-cover" />
+      <img src={thumbnail} className="w-full h-full object-cover" loading="lazy"/>
       <div className="absolute inset-0 flex flex-col justify-end p-3 bg-[linear-gradient(to_top,rgba(0,0,0,0.6)_0%,transparent_50%)]">
         <div className="text-white text-xs font-semibold">{client.name}</div>
         <div className="text-white/70 text-[10px]">{client.category}</div>

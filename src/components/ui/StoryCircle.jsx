@@ -25,7 +25,7 @@ export default function StoryCircle({ client, onClick, onDismiss }) {
           <div
             className={`absolute rounded-full flex items-center justify-center overflow-hidden inset-[7px] transition-[filter] duration-200 bg-[${client.bgColor}] ${client.seen ? "filter grayscale-[0.3] opacity-70" : ""}`}
           >
-            <img src={client.initials} alt="" />
+            <img src={client.initials} alt={client.name} />
           </div>
 
           {/* X dismiss button — top-right of avatar */}

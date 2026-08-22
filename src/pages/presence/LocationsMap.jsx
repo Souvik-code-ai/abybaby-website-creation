@@ -203,7 +203,7 @@ export function LocationsMap({ activeId: activeIdProp, onSelect } = {}) {
 
           <img
             src={activeLoc.locationsImage}
-            alt=""
+            alt={activeLoc.city}
             className="aspect-auto object-cover rounded-md mb-1"
           />
 
@@ -302,7 +302,7 @@ export function LocationsMap({ activeId: activeIdProp, onSelect } = {}) {
 
             <img
               src={activeLoc.locationsImage}
-              alt=""
+              alt={activeLoc.city}
               className="w-full h-60 object-cover mt-3"
             />
 
