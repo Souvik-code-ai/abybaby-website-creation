@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
-import logo from "../../assets/images/logo.jpg";
+import logo from "../../assets/images/logo.webp";
 import email from "../../assets/images/email.webp";
 import addressLogo from "../../assets/images/address_logo.jpg";
 import phone from "../../assets/images/phone.webp";

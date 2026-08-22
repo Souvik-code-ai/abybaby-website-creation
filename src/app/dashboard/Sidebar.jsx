@@ -13,7 +13,7 @@ import {
   User,
   MoreHorizontal,
 } from "lucide-react";
-import logo from "../../assets/images/logo.jpg";
+import logo from "../../assets/images/logo.webp";
 // interface SidebarProps {
 //   activeSection: string;
 //   onNavigate: (section: string) => void;

@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { X, Mail, Phone } from "lucide-react";
-import mapImage from "../../assets/images/location/map.webp";
+import mapImage from "../../assets/images/location/IndiaMap.webp";
 import { LOCATIONS } from "../../../public/presence/presence";
 
 // const PROJECTION = {

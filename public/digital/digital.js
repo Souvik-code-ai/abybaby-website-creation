@@ -2,7 +2,7 @@ import toyotaCover from "../../src/assets/images/drumtao/dt7.webp";
 import toyotaDetail from "../../src/assets/images/drumtao/dt4.webp";
 import krishiCover from "../../src/assets/images/arun/arun.webp";
 import krishiDetail from "../../src/assets/images/arun/arun3.webp";
-import logo from "../../src/assets/images/logo.jpg";
+import logo from "../../src/assets/images/logo.webp";
 import pmsCover from "../../src/assets/images/mia/mia2.webp";
 import pmsDetail from "../../src/assets/images/mia/mia3.webp";
 import zira1 from "../../src/assets/images/zira/zira1.webp";

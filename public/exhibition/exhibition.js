@@ -4,7 +4,7 @@ import image7 from "../../src/assets/images/drumtao/dt7.webp";
 import image6 from "../../src/assets/images/arun/arun8.webp";
 import image9 from "../../src/assets/images/arun/arun4.webp";
 import image2 from "../../src/assets/images/mia/mia2.webp";
-import logo from "../../src/assets/images/logo.jpg";
+import logo from "../../src/assets/images/logo.webp";
 import tataMotorsExchangeCarnival1 from "../../src/assets/images/tataMotorsExchange/tataMotorsExchangeCarnival1.webp";
 import tataMotorsExchangeCarnival2 from "../../src/assets/images/tataMotorsExchange/tataMotorsExchangeCarnival2.webp";
 import mahindraCarnival1 from "../../src/assets/images/mahindraCarnival/mahindraCarnival1.webp";

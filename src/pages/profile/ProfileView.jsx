@@ -21,7 +21,7 @@ import {
   MessageCircle,
   ArrowLeft,
 } from "lucide-react";
-import logo from "../../assets/images/logo.jpg";
+import logo from "../../assets/images/logo.webp";
 // import Portfolio from "../../../public/profile/Abybaby_Profile.pdf";
 // ── Static data ───────────────────────────────────────────────────────────────
 import { ArrowRight } from "lucide-react";

@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowRight } from "lucide-react";
-import logo from "../../assets/images/logo.jpg";
+import logo from "../../assets/images/logo.webp";
 import miaCover from "../../assets/images/mia/mia3.webp";
 import mallCover from "../../assets/images/zira/zira1.webp";
 import rallyCover from "../../assets/images/drumtao/dt6.webp";
