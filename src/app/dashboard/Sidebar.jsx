@@ -64,7 +64,7 @@ export function Sidebar({ activeSection, onNavigate, onMoreClick }) {
           <div className="shrink-0 rounded-xl flex items-center justify-center cursor-pointer bg-[linear-gradient(135deg,var(--accent)_0%,#f9a8c9_100%)]">
             <img
               src={logo}
-              alt=""
+              alt="logo"
               className="overflow-hidden rounded-lg h-12 w-12 border-r border-b border-black"
             />
           </div>
@@ -107,7 +107,7 @@ export function Sidebar({ activeSection, onNavigate, onMoreClick }) {
                           : "bg-[color:var(--muted)] text-[color:var(--muted-foreground)]"
                       }`}
                     >
-                      <img src={logo} alt="" />
+                      <img src={logo} alt="logo" />
                     </div>
                   ) : (
                     <Icon size={22} strokeWidth={isActive ? 2.2 : 1.8} />

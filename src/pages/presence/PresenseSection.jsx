@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "motion/react";
 
 import logo from "../../assets/images/logo.webp";
 import email from "../../assets/images/email.webp";
-import addressLogo from "../../assets/images/address_logo.jpg";
+import addressLogo from "../../assets/images/address_logo.webp";
 import phone from "../../assets/images/phone.webp";
 import { Globe, Recycle } from "lucide-react";
 import { LOCATIONS } from "../../../public/presence/presence";

@@ -14,7 +14,7 @@ import {
   Building2,
   ExternalLink,
 } from "lucide-react";
-import logo from "../../assets/images/download.jpg";
+import logo from "../../assets/images/download.webp";
 
 import { LOCATIONS } from "../../../public/presence/presence";
 export default function SidePanel({ setOpen, onNavigate }) {

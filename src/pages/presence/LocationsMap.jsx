@@ -14,38 +14,38 @@ import { LOCATIONS } from "../../../public/presence/presence";
 //   latMin: 8.0,
 //   imageSize: 2626,
 // };
-const PROJECTION = {
-  xPxMin: 182,
-  xPxMax: 1792,
-  yPxMin: 92,
-  yPxMax: 1865,
-  lonMin: 68.0,
-  lonMax: 97.5,
-  latMax: 37.0,
-  latMin: 8.0,
-  imageSize: 1969,
-};
-function latLngToPercent(lat, lng) {
-  const {
-    xPxMin,
-    xPxMax,
-    yPxMin,
-    yPxMax,
-    lonMin,
-    lonMax,
-    latMax,
-    latMin,
-    imageSize,
-  } = PROJECTION;
+// const PROJECTION = {
+//   xPxMin: 182,
+//   xPxMax: 1792,
+//   yPxMin: 92,
+//   yPxMax: 1865,
+//   lonMin: 68.0,
+//   lonMax: 97.5,
+//   latMax: 37.0,
+//   latMin: 8.0,
+//   imageSize: 1969,
+// };
+// function latLngToPercent(lat, lng) {
+//   const {
+//     xPxMin,
+//     xPxMax,
+//     yPxMin,
+//     yPxMax,
+//     lonMin,
+//     lonMax,
+//     latMax,
+//     latMin,
+//     imageSize,
+//   } = PROJECTION;
 
-  const xPx = xPxMin + ((lng - lonMin) * (xPxMax - xPxMin)) / (lonMax - lonMin);
-  const yPx = yPxMin + ((latMax - lat) * (yPxMax - yPxMin)) / (latMax - latMin);
+//   const xPx = xPxMin + ((lng - lonMin) * (xPxMax - xPxMin)) / (lonMax - lonMin);
+//   const yPx = yPxMin + ((latMax - lat) * (yPxMax - yPxMin)) / (latMax - latMin);
 
-  return {
-    left: (xPx / imageSize) * 100,
-    top: (yPx / imageSize) * 100,
-  };
-}
+//   return {
+//     left: (xPx / imageSize) * 100,
+//     top: (yPx / imageSize) * 100,
+//   };
+// }
 
 export function LocationsMap({ activeId: activeIdProp, onSelect } = {}) {
   const [internalActiveId, setInternalActiveId] = useState(null);
