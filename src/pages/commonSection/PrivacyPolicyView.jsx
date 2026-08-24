@@ -15,7 +15,8 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 // ── Sub-components ────────────────────────────────────────────────────────────
-
+import JsonLd from "../../components/JsonLd";
+import { buildBreadcrumbSchema } from "../../seo/breadcrumbSchema";
 function SectionHeader({ title }) {
   return (
     <div className="flex items-center gap-2 mb-3 pb-2">
@@ -70,6 +71,10 @@ export function PrivacyPolicyView({ onNavigate }) {
   }, []);
 
   return (
+    <>
+       <JsonLd data={buildBreadcrumbSchema([
+                        { name: " Privacy Policy", url: "https://abybabyevents.com/privacypolicy" }
+                      ])} />
     <div className="flex flex-col pb-12 px-4 pt-4 w-[100%] min-[1160px]:mx-50 min-[770px]:mx-16 mx-0">
       {/* Back button */}
       <Link
@@ -310,5 +315,6 @@ export function PrivacyPolicyView({ onNavigate }) {
         </p>
       </footer>
     </div>
+    </>
   );
 }

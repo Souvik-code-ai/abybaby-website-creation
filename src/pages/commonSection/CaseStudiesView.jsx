@@ -693,7 +693,8 @@ import { motion, AnimatePresence } from "motion/react";
 import { Link } from "react-router-dom";
 import { CASE_STUDIES } from "../../../public/caseStudy/casestudy";
 import SidebarCarousel from "../../components/ui/SidebarCarousel";
-
+import JsonLd from "../../components/JsonLd";
+import { buildBreadcrumbSchema } from "../../seo/breadcrumbSchema";
 // ── Skeleton image wrapper — shows a pulsing block until the image loads ──────
 function SkeletonImage({ src, alt, className, wrapperClassName }) {
   const [loaded, setLoaded] = useState(false);
@@ -846,6 +847,10 @@ export function CaseStudiesView({ onNavigate }) {
     galleryIndex !== null && study ? study.inlineImages[galleryIndex] : null;
 
   return (
+    <>
+         <JsonLd data={buildBreadcrumbSchema([
+                  { name: "Case Studies", url: "https://abybabyevents.com/casestudies" }
+                ])} />
     <div className="flex flex-col pb-12 px-4 pt-4 w-[100%] min-[1160px]:mx-50 min-[770px]:mx-16 mx-0">
       {/* Back button */}
       <Link
@@ -1151,5 +1156,6 @@ export function CaseStudiesView({ onNavigate }) {
         </div>
       </footer>
     </div>
+    </>
   );
 }

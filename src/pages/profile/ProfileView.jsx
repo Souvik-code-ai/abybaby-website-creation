@@ -4,7 +4,8 @@ import MediaGrid from "../../components/ui/MediaGrid";
 import MediaLightbox from "../../components/ui/MediaLightBox";
 import GridCell from "../../components/ui/GridCell";
 import { Link, useNavigate } from "react-router-dom";
-
+import JsonLd from "../../components/JsonLd";
+import { buildBreadcrumbSchema } from "../../seo/breadcrumbSchema";
 import {
   ChevronLeft,
   ChevronRight,
@@ -105,6 +106,10 @@ export function ProfileView({ onNavigate }) {
     console.log("dwn pdf done");
   }
   return (
+    <>
+       <JsonLd data={buildBreadcrumbSchema([
+                  { name: "Profile", url: "https://abybabyevents.com/profile" }
+                ])} />
     <div className="flex flex-col pb-12 px-4 pt-4 w-[100%] min-[1160px]:mx-50 min-[770px]:mx-16 mx-0">
       {/* ── Hero ── */}
       <Link
@@ -309,5 +314,6 @@ export function ProfileView({ onNavigate }) {
         </div>
       </footer>
     </div>
+    </>
   );
 }

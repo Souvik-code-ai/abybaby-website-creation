@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 import { AWARDS } from "../../../public/awards/awards";
 import AwardsSidebarCarousel from "../../components/ui/AwardsSidebarCarousel";
 // ── Sidebar Carousel (identical mechanics to CaseStudiesView) ─────────────────
-
+import JsonLd from "../../components/JsonLd";
+import { buildBreadcrumbSchema } from "../../seo/breadcrumbSchema";
 // ── Skeleton image wrapper — shows a pulsing block until the image loads ──────
 function SkeletonImage({ src, alt, className, wrapperClassName }) {
   const [loaded, setLoaded] = useState(false);
@@ -85,6 +86,9 @@ export function AwardsView({ onNavigate }) {
 
   return (
     <>
+         <JsonLd data={buildBreadcrumbSchema([
+              { name: "Awards", url: "https://abybabyevents.com/awards" }
+            ])} />
       {" "}
       <div className="flex flex-col pb-12 px-4 pt-4 w-[100%] min-[1160px]:mx-50 min-[770px]:mx-16 mx-0">
         {/* Back button */}

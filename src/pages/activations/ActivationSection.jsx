@@ -1,3 +1,5 @@
+import JsonLd from "../../components/JsonLd";
+import { buildBreadcrumbSchema } from "../../seo/breadcrumbSchema";
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowRight } from "lucide-react";
@@ -131,6 +133,9 @@ export function ActivationSection({ onNavigate }) {
 
   return (
     <>
+    <JsonLd data={buildBreadcrumbSchema([
+  { name: "Activations", url: "https://abybabyevents.com/activation" }
+])} />
       <div className="w-full min-h-screen bg-background min-[1160px]:mx-20 min-[770px]:mx-16 mx-0">
         {/* Heading */}
         <div className="sticky top-0 z-10 px-4 pt-4 pb-3 bg-[color:var(--color-background,_#fff)]">

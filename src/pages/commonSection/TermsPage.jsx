@@ -15,7 +15,8 @@ import { Link } from "react-router-dom";
 import RegPill from "../../components/ui/RegPill";
 import BodyText from "../../components/ui/BodyText";
 // ── Static data ───────────────────────────────────────────────────────────────
-
+import JsonLd from "../../components/JsonLd";
+import { buildBreadcrumbSchema } from "../../seo/breadcrumbSchema";
 const TOC_ITEMS = [
   { id: "general", label: "General Terms" },
   { id: "registration", label: "Registration" },
@@ -51,6 +52,10 @@ export function TermsView({ onNavigate }) {
   }, []);
 
   return (
+    <>
+         <JsonLd data={buildBreadcrumbSchema([
+                            { name: "Terms & Conditions", url: "https://abybabyevents.com/terms" }
+                          ])} />
     <div className="flex flex-col pb-12 px-4 pt-4 w-[100%] min-[1160px]:mx-50 min-[770px]:mx-16 mx-0">
       {/* Back button */}
       <Link
@@ -494,5 +499,6 @@ export function TermsView({ onNavigate }) {
         </p>
       </footer>
     </div>
+    </>
   );
 }

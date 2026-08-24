@@ -7,7 +7,8 @@ import { Link } from "react-router-dom";
 import EventHoverPanel from "../../components/ui/EventHoverPanel";
 import ProgressItem from "../../components/ui/ProgressItem";
 import EventHighlights from "../../components/ui/EventHighlights";
-
+import JsonLd from "../../components/JsonLd";
+import { buildBreadcrumbSchema } from "../../seo/breadcrumbSchema";
 // ── Skeleton for a single event card while its image loads ──────────────────
 function EventCardSkeleton() {
   return (
@@ -443,6 +444,10 @@ export function EventsSection({ onNavigate }) {
   }, [selectedEvent]);
 
   return (
+    <>
+     <JsonLd data={buildBreadcrumbSchema([
+      { name: "Events", url: "https://abybabyevents.com/events" }
+    ])} />
     <div className="w-full min-h-screen bg-background min-[1160px]:mx-20 min-[770px]:mx-16 mx-0">
       {/* Page header — matches ProfileView / other section headings */}
       <div className="sticky top-0 z-10 px-4 pt-4 pb-3 bg-[var(--color-background,#fff)]">
@@ -714,5 +719,6 @@ export function EventsSection({ onNavigate }) {
         </Link>
       </div>
     </div>
+    </>
   );
 }

@@ -1,3 +1,5 @@
+import JsonLd from "../../components/JsonLd";
+import { buildBreadcrumbSchema } from "../../seo/breadcrumbSchema";
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowRight } from "lucide-react";
@@ -117,6 +119,9 @@ export function DigitalSection({ onNavigate }) {
 
   return (
     <>
+ <JsonLd data={buildBreadcrumbSchema([
+  { name: "Digitals", url: "https://abybabyevents.com/digital" }
+])} />
       <div className="w-full min-h-screen bg-background min-[1160px]:mx-20 min-[770px]:mx-16 mx-0">
         {/* Header */}
         <div className="sticky top-0 z-10 px-4 pt-4 pb-4 bg-[color:var(--color-background,_#fff)]">

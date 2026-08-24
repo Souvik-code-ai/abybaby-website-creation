@@ -1,6 +1,8 @@
 import { motion, AnimatePresence } from "motion/react";
 import { Info, BookOpen, Shield, FileText, Lock, X, Award } from "lucide-react";
 import { Link } from "react-router-dom";
+import JsonLd from "../../components/JsonLd";
+import { buildBreadcrumbSchema } from "../../seo/breadcrumbSchema";
 const items = [
   {
     icon: Info,
@@ -48,6 +50,8 @@ const items = [
 
 export function CommonSectionModal({ isOpen, onClose, onNavigate }) {
   return (
+    <>
+  
     <AnimatePresence>
       {isOpen && (
         <>
@@ -107,5 +111,6 @@ export function CommonSectionModal({ isOpen, onClose, onNavigate }) {
         </>
       )}
     </AnimatePresence>
+</>
   );
 }

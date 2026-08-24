@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-
+import JsonLd from "../../components/JsonLd";
+import { buildBreadcrumbSchema } from "../../seo/breadcrumbSchema";
 import logo from "../../assets/images/logo.webp";
 import email from "../../assets/images/email.webp";
 import addressLogo from "../../assets/images/address_logo.webp";
@@ -38,6 +39,10 @@ export function PresenceSection({ onNavigate, open, setOpen }) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
   return (
+    <>
+      <JsonLd data={buildBreadcrumbSchema([
+              { name: "Presence", url: "https://abybabyevents.com/presence" }
+            ])} />
     <div className="flex flex-col pb-12 px-4 pt-4 w-[100%] min-[1160px]:mx-50 min-[770px]:mx-16 mx-0 ">
       {/* Back button */}
       <Link
@@ -87,6 +92,7 @@ export function PresenceSection({ onNavigate, open, setOpen }) {
       {/*here is a large gap at the end of presence section why? */}
       {/* Location cards */}
     </div>
+    </>
   );
 }
 //

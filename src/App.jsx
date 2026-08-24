@@ -27,6 +27,11 @@ import {
   caseStudies,
   awards,
 } from "../public/home/home";
+import JsonLd from "../src/components/JsonLd"
+import { buildBreadcrumbSchema } from "./seo/breadcrumbSchema";
+import { websiteSchema } from "./seo/websiteSchema";
+import { localBusinessSchema } from "./seo/localBusinessSchema";
+import {organizationSchema} from  "../src/seo/organizationSchema"
 import { AwardsView } from "./pages/commonSection/AwardsView";
 import { PrivacyPolicyView } from "./pages/commonSection/PrivacyPolicyView";
 import { TermsView } from "./pages/commonSection/TermsPage";
@@ -278,6 +283,10 @@ export default function App() {
       )}
 
       <Toaster position="bottom-center" richColors />
+      <JsonLd data={organizationSchema} />
+      <JsonLd data={websiteSchema} />
+      <JsonLd data={localBusinessSchema} />
+        {/* <JsonLd data={buildBreadcrumbSchema} /> */}
     </div>
   );
 }

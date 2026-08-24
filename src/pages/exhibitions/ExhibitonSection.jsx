@@ -320,7 +320,8 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { EXHIBITIONS_ALL } from "../../../public/exhibition/exhibition";
-
+import JsonLd from "../../components/JsonLd";
+import { buildBreadcrumbSchema } from "../../seo/breadcrumbSchema";
 // ── Skeleton for a single exhibition card ────────────────────────────────────
 function ExhibitionCardSkeleton() {
   return (
@@ -447,6 +448,10 @@ export function ExhibitionSection({ onNavigate }) {
   };
 
   return (
+    <>
+        <JsonLd data={buildBreadcrumbSchema([
+          { name: "Exhibitons", url: "https://abybabyevents.com/exhibition" }
+        ])} />
     <div className="w-full min-h-screen bg-background min-[1160px]:mx-20 min-[770px]:mx-16 mx-0">
       {/* Heading */}
       <div className="sticky top-0 z-10 px-4 pt-4 pb-3 bg-[color:var(--color-background,_#fff)]">
@@ -705,5 +710,6 @@ export function ExhibitionSection({ onNavigate }) {
         </div>
       )}
     </div>
+    </>
   );
 }
