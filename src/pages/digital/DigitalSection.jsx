@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/logo.webp";
 import { DIGITAL_PROJECTS_ALL } from "../../../public/digital/digital";
-
+import { buildDigitalSchema } from "../../seo/digitalSchema";
 export function DigitalSection({ onNavigate }) {
   const [selectedProject, setSelectedProject] = useState(null);
   const [currentImage, setCurrentImage] = useState(0);
@@ -116,12 +116,15 @@ export function DigitalSection({ onNavigate }) {
     if (dx < 0) goNextImage();
     else goPrevImage();
   };
-
+  const digitalSchemas = buildDigitalSchema(DIGITAL_PROJECTS_ALL);
   return (
     <>
  <JsonLd data={buildBreadcrumbSchema([
   { name: "Digitals", url: "https://abybabyevents.com/digital" }
 ])} />
+   {digitalSchemas.map((schema, i) => (
+        <JsonLd key={i} data={schema} />  
+      ))}
       <div className="w-full min-h-screen bg-background min-[1160px]:mx-20 min-[770px]:mx-16 mx-0">
         {/* Header */}
         <div className="sticky top-0 z-10 px-4 pt-4 pb-4 bg-[color:var(--color-background,_#fff)]">

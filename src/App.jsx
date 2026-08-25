@@ -27,6 +27,7 @@ import {
   caseStudies,
   awards,
 } from "../public/home/home";
+
 import JsonLd from "../src/components/JsonLd"
 import { buildBreadcrumbSchema } from "./seo/breadcrumbSchema";
 import { websiteSchema } from "./seo/websiteSchema";

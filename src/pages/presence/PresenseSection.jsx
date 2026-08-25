@@ -7,8 +7,11 @@ import email from "../../assets/images/email.webp";
 import addressLogo from "../../assets/images/address_logo.webp";
 import phone from "../../assets/images/phone.webp";
 import { Globe, Recycle } from "lucide-react";
+import { buildLocationsSchema } from "../../seo/locationsSchema";
 import { LOCATIONS } from "../../../public/presence/presence";
 import { Link } from "react-router-dom";
+
+
 import {
   MapPin,
   Building2,
@@ -38,11 +41,15 @@ export function PresenceSection({ onNavigate, open, setOpen }) {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
+const locationSchemas = buildLocationsSchema(LOCATIONS);
   return (
     <>
       <JsonLd data={buildBreadcrumbSchema([
               { name: "Presence", url: "https://abybabyevents.com/presence" }
             ])} />
+      {locationSchemas.map((schema, i) => (
+  <JsonLd key={i} data={schema} />
+))}  
     <div className="flex flex-col pb-12 px-4 pt-4 w-[100%] min-[1160px]:mx-50 min-[770px]:mx-16 mx-0 ">
       {/* Back button */}
       <Link

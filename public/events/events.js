@@ -209,7 +209,7 @@ export const EVENTS = [
     type: "Branding Campaign",
     image: ganeshChaturthi1,
     modalImage: ganeshChaturthi1,
-    date: "TBD",
+    date: "14 Sep 2026",
     location: "Mumbai",
     attendees: "10,00,000",
     description:
@@ -222,7 +222,7 @@ export const EVENTS = [
     type: "Branding Campaign",
     image: onam1,
     modalImage: onam1,
-    date: "TBD",
+    date:"26 Aug 2026",
     location: "Kerala",
     attendees: "40,00,000",
     description:
@@ -235,7 +235,7 @@ export const EVENTS = [
     type: "Branding Campaign",
     image: durgaPuja1,
     modalImage: durgaPuja1,
-    date: "TBD",
+    date: "17 Oct 2026",
     location: "Kolkata",
     attendees: "3,00,00,000",
     description:

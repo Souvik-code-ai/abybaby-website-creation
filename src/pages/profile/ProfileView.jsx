@@ -6,6 +6,7 @@ import GridCell from "../../components/ui/GridCell";
 import { Link, useNavigate } from "react-router-dom";
 import JsonLd from "../../components/JsonLd";
 import { buildBreadcrumbSchema } from "../../seo/breadcrumbSchema";
+import { buildProfileSchema } from "../../seo/profileSchema";
 import {
   ChevronLeft,
   ChevronRight,
@@ -105,11 +106,15 @@ export function ProfileView({ onNavigate }) {
   function handlePdfDownload() {
     console.log("dwn pdf done");
   }
+    const profileSchemas = buildProfileSchema(SERVICES);
   return (
     <>
        <JsonLd data={buildBreadcrumbSchema([
                   { name: "Profile", url: "https://abybabyevents.com/profile" }
                 ])} />
+                  {profileSchemas.map((schema, i) => (
+  <JsonLd key={i} data={schema} />
+))}
     <div className="flex flex-col pb-12 px-4 pt-4 w-[100%] min-[1160px]:mx-50 min-[770px]:mx-16 mx-0">
       {/* ── Hero ── */}
       <Link

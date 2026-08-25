@@ -695,6 +695,7 @@ import { CASE_STUDIES } from "../../../public/caseStudy/casestudy";
 import SidebarCarousel from "../../components/ui/SidebarCarousel";
 import JsonLd from "../../components/JsonLd";
 import { buildBreadcrumbSchema } from "../../seo/breadcrumbSchema";
+import { buildCaseStudiesSchema } from "../../seo/caseStudiesSchema";
 // ── Skeleton image wrapper — shows a pulsing block until the image loads ──────
 function SkeletonImage({ src, alt, className, wrapperClassName }) {
   const [loaded, setLoaded] = useState(false);
@@ -766,8 +767,9 @@ export function CaseStudiesView({ onNavigate }) {
   const [activeId, setActiveId] = useState(1);
   const [galleryIndex, setGalleryIndex] = useState(null); // null = closed, number = open at that index
   const study = CASE_STUDIES.find((s) => s.id === activeId);
-  const modalVideoRef = useRef(null);
 
+  const modalVideoRef = useRef(null);
+  const caseStudySchemas = buildCaseStudiesSchema(CASE_STUDIES);
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [activeId]);
@@ -851,6 +853,9 @@ export function CaseStudiesView({ onNavigate }) {
          <JsonLd data={buildBreadcrumbSchema([
                   { name: "Case Studies", url: "https://abybabyevents.com/casestudies" }
                 ])} />
+                   {caseStudySchemas.map((schema, i) => (
+        <JsonLd key={i} data={schema} />
+      ))}
     <div className="flex flex-col pb-12 px-4 pt-4 w-[100%] min-[1160px]:mx-50 min-[770px]:mx-16 mx-0">
       {/* Back button */}
       <Link

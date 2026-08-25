@@ -30,7 +30,7 @@ import tata5 from "../../assets/images/arun/arun6.webp";
 import tata6 from "../../assets/images/arun/arun7.webp";
 import { ACTIVATIONS_ALL } from "../../../public/activations/activations";
 import { Link } from "react-router-dom";
-
+import { buildActivationsSchema } from "../../seo/activationSchema";
 // ── Skeleton for a single activation card ────────────────────────────────────
 function ActivationCardSkeleton() {
   return (
@@ -130,12 +130,15 @@ export function ActivationSection({ onNavigate }) {
       goNextImage(); // swiped left -> next
     else goPrevImage(); // swiped right -> prev
   };
-
+ const activationSchemas = buildActivationsSchema(ACTIVATIONS_ALL);
   return (
     <>
     <JsonLd data={buildBreadcrumbSchema([
   { name: "Activations", url: "https://abybabyevents.com/activation" }
 ])} />
+      {activationSchemas.map((schema, i) => (
+        <JsonLd key={i} data={schema} />
+      ))}
       <div className="w-full min-h-screen bg-background min-[1160px]:mx-20 min-[770px]:mx-16 mx-0">
         {/* Heading */}
         <div className="sticky top-0 z-10 px-4 pt-4 pb-3 bg-[color:var(--color-background,_#fff)]">

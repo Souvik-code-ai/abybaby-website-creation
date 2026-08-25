@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { Link } from "react-router-dom";
 import { AWARDS } from "../../../public/awards/awards";
 import AwardsSidebarCarousel from "../../components/ui/AwardsSidebarCarousel";
+import { buildAwardsSchema } from "../../seo/awardsSchema";
 // ── Sidebar Carousel (identical mechanics to CaseStudiesView) ─────────────────
 import JsonLd from "../../components/JsonLd";
 import { buildBreadcrumbSchema } from "../../seo/breadcrumbSchema";
@@ -79,7 +80,7 @@ function AwardSkeleton() {
 export function AwardsView({ onNavigate }) {
   const [activeId, setActiveId] = useState(1);
   const award = AWARDS.find((a) => a.id === activeId);
-
+  const awardSchemas = buildAwardsSchema(AWARDS);
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [activeId]);
@@ -89,6 +90,9 @@ export function AwardsView({ onNavigate }) {
          <JsonLd data={buildBreadcrumbSchema([
               { name: "Awards", url: "https://abybabyevents.com/awards" }
             ])} />
+                 {awardSchemas.map((schema, i) => (
+        <JsonLd key={i} data={schema} />
+      ))}
       {" "}
       <div className="flex flex-col pb-12 px-4 pt-4 w-[100%] min-[1160px]:mx-50 min-[770px]:mx-16 mx-0">
         {/* Back button */}
