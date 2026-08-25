@@ -7,6 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 import JsonLd from "../../components/JsonLd";
 import { buildBreadcrumbSchema } from "../../seo/breadcrumbSchema";
 import { buildProfileSchema } from "../../seo/profileSchema";
+import { buildVideoSchema } from "../../seo/videoSchema";
 import {
   ChevronLeft,
   ChevronRight,
@@ -107,6 +108,7 @@ export function ProfileView({ onNavigate }) {
     console.log("dwn pdf done");
   }
     const profileSchemas = buildProfileSchema(SERVICES);
+      const videoSchemas = buildVideoSchema(REELS_DATA);
   return (
     <>
        <JsonLd data={buildBreadcrumbSchema([
@@ -115,6 +117,9 @@ export function ProfileView({ onNavigate }) {
                   {profileSchemas.map((schema, i) => (
   <JsonLd key={i} data={schema} />
 ))}
+   {videoSchemas.map((schema, i) => (      /* ← ADD THIS */
+        <JsonLd key={i} data={schema} />
+      ))}
     <div className="flex flex-col pb-12 px-4 pt-4 w-[100%] min-[1160px]:mx-50 min-[770px]:mx-16 mx-0">
       {/* ── Hero ── */}
       <Link
